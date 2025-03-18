@@ -1,0 +1,52 @@
+[
+    {
+        "docid": "doc1",
+        "paraid": "para1",
+        "content": ["Wine", "belongs to", "Consumer Goods"]
+    },
+    {
+        "docid": "doc1",
+        "paraid": "para2",
+        "content": ["Wine", "affects", "Consumer Market"]
+    },
+    {
+        "docid": "doc2",
+        "paraid": "para1",
+        "content": ["Logistics", "depends on", "Transportation"]
+    },
+    {
+        "docid": "doc2",
+        "paraid": "para2",
+        "content": ["Logistics", "promotes", "Economic Development"]
+    },
+    {
+        "docid": "doc3",
+        "paraid": "para1",
+        "content": ["Oil", "belongs to", "Energy"]
+    },
+    {
+        "docid": "doc3",
+        "paraid": "para2",
+        "content": ["Oil", "affects", "International Oil Prices"]
+    },
+    {
+        "docid": "doc4",
+        "paraid": "para1",
+        "content": ["Consumer Goods", "includes", "Wine"]
+    },
+    {
+        "docid": "doc4",
+        "paraid": "para2",
+        "content": ["Consumer Goods", "affects", "Consumer Market"]
+    },
+    {
+        "docid": "doc5",
+        "paraid": "para1",
+        "content": ["Transportation", "depends on", "Logistics"]
+    },
+    {
+        "docid": "doc5",
+        "paraid": "para2",
+        "content": ["Transportation", "promotes", "Economic Development"]
+    }
+]

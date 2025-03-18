@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from knowledge_graph.views.construct import load_data
 
 urlpatterns = [
-    path('build/', views.build_knowledge_graph, name='build_knowledge_graph'),
+    path('load-data/', load_data, name='load_data'),
 ]

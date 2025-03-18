@@ -3,7 +3,6 @@ from django.db import models
 class WebPage(models.Model):
     url = models.URLField()
     title = models.CharField(max_length=255)
-    content = models.TextField()
     source = models.CharField(max_length=100)  # Google、Bing
     publication_time = models.DateTimeField()
     credibility_score = models.FloatField()

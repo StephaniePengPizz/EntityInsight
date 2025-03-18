@@ -1,1 +1,4 @@
 # EntityInsight
+- requests
+- django
+- networkx

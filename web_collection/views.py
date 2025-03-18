@@ -11,4 +11,4 @@ def collect_web_pages(request):
         publication_time="2023-10-01T12:00:00Z",
         credibility_score=0.9,
     )
-    return render(request, 'collection_success.html')
+    return render(request, "collection_success.html")
