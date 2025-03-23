@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .path {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .path h3 {
+            margin-top: 0;
+        }
+        .path p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Path Results</h1>
+    <p><strong>Source:</strong> {{ result.source }}</p>
+    <p><strong>Target Types:</strong> {{ result.target_types|join:", " }}</p>
+    <p><strong>Cutoff:</strong> {{ result.cutoff }}</p>
+    <p><strong>Number of Paths:</strong> {{ result.num_paths }}</p>
+
+    <h2>Paths</h2>
+    {% for path in result.paths %}
+        <div class="path">
+            <h3>Path #{{ path.rank }}</h3>
+            <p><strong>Nodes:</strong> {{ path.nodes|join:" → " }}</p>
+            <p><strong>Relations:</strong> {{ path.relations|join:" → " }}</p>
+            <p><strong>Weights:</strong> {{ path.weights|join:", " }}</p>
+            <p><strong>Average Weight:</strong> {{ path.average_weight|floatformat:2 }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>

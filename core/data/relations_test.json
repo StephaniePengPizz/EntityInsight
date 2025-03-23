@@ -16,6 +16,11 @@
     },
     {
         "docid": "doc2",
+        "paraid": "para1",
+        "content": ["Logistics", "impacts", "Transportation"]
+    },
+    {
+        "docid": "doc2",
         "paraid": "para2",
         "content": ["Logistics", "promotes", "Economic Development"]
     },
@@ -48,5 +53,105 @@
         "docid": "doc5",
         "paraid": "para2",
         "content": ["Transportation", "promotes", "Economic Development"]
+    },
+    {
+        "docid": "doc6",
+        "paraid": "para1",
+        "content": ["Energy", "includes", "Oil"]
+    },
+    {
+        "docid": "doc6",
+        "paraid": "para2",
+        "content": ["Energy", "affects", "International Oil Prices"]
+    },
+    {
+        "docid": "doc7",
+        "paraid": "para1",
+        "content": ["Consumer Market", "depends on", "Consumer Goods"]
+    },
+    {
+        "docid": "doc7",
+        "paraid": "para2",
+        "content": ["Consumer Market", "affects", "Economic Development"]
+    },
+    {
+        "docid": "doc8",
+        "paraid": "para1",
+        "content": ["International Oil Prices", "depends on", "Oil"]
+    },
+    {
+        "docid": "doc8",
+        "paraid": "para2",
+        "content": ["International Oil Prices", "affects", "Economic Development"]
+    },
+    {
+        "docid": "doc9",
+        "paraid": "para1",
+        "content": ["Electric Vehicles", "belongs to", "Automotive"]
+    },
+    {
+        "docid": "doc9",
+        "paraid": "para2",
+        "content": ["Electric Vehicles", "promotes", "Sustainability"]
+    },
+    {
+        "docid": "doc10",
+        "paraid": "para1",
+        "content": ["Smartphones", "belongs to", "Technology"]
+    },
+    {
+        "docid": "doc10",
+        "paraid": "para2",
+        "content": ["Smartphones", "drives", "Innovation"]
+    },
+    {
+        "docid": "doc11",
+        "paraid": "para1",
+        "content": ["Pharmaceuticals", "belongs to", "Healthcare"]
+    },
+    {
+        "docid": "doc11",
+        "paraid": "para2",
+        "content": ["Pharmaceuticals", "impacts", "Economic Development"]
+    },
+    {
+        "docid": "doc12",
+        "paraid": "para1",
+        "content": ["Organic Food", "belongs to", "Agriculture"]
+    },
+    {
+        "docid": "doc12",
+        "paraid": "para2",
+        "content": ["Organic Food", "supports", "Sustainability"]
+    },
+    {
+        "docid": "doc13",
+        "paraid": "para1",
+        "content": ["Economic Recession", "affects", "Global Trade"]
+    },
+    {
+        "docid": "doc13",
+        "paraid": "para2",
+        "content": ["Economic Recession", "impacts", "Consumer Market"]
+    },
+    {
+        "docid": "doc14",
+        "paraid": "para1",
+        "content": ["Technological Breakthrough", "drives", "Innovation"]
+    },
+    {
+        "docid": "doc14",
+        "paraid": "para2",
+        "content": ["Technological Breakthrough", "promotes", "Economic Development"]
+    },
+    {
+        "docid": "doc15",
+        "paraid": "para1",
+        "content": ["Climate Change Summit", "addresses", "Sustainability"]
+    },
+    {
+        "docid": "doc15",
+        "paraid": "para2",
+        "content": ["Climate Change Summit", "impacts", "Global Trade"]
     }
 ]

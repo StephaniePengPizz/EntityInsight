@@ -1,11 +1,33 @@
-[
-    "Wine",
+{
+  "Industry": [
     "Consumer Goods",
-    "Consumer Market",
     "Logistics",
     "Transportation",
-    "Economic Development",
-    "Oil",
     "Energy",
-    "International Oil Prices"
-]
+    "Automotive",
+    "Technology",
+    "Healthcare",
+    "Agriculture"
+  ],
+  "Product": [
+    "Wine",
+    "Oil",
+    "Electric Vehicles",
+    "Smartphones",
+    "Pharmaceuticals",
+    "Organic Food"
+  ],
+  "Concept": [
+    "Consumer Market",
+    "Economic Development",
+    "International Oil Prices",
+    "Sustainability",
+    "Innovation",
+    "Global Trade"
+  ],
+  "Event": [
+    "Economic Recession",
+    "Technological Breakthrough",
+    "Climate Change Summit"
+  ]
+}

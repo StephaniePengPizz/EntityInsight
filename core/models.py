@@ -23,15 +23,17 @@ class NewsArticle(models.Model):
 class Entity(models.Model):
     name = models.CharField(max_length=255)
     type = models.CharField(max_length=50)  # such as Company, Person
+    frequency = models.IntegerField()
 
     def __str__(self):
         return self.name
 
 class Relationship(models.Model):
-    entity1 = models.ForeignKey(Entity, on_delete=models.CASCADE, related_name='entity1')
-    entity2 = models.ForeignKey(Entity, on_delete=models.CASCADE, related_name='entity2')
-    relationship_type = models.CharField(max_length=100)  # such as improve
-    source_article = models.ForeignKey('NewsArticle', on_delete=models.CASCADE)
+    source = models.ForeignKey(Entity, related_name='outgoing_relations', on_delete=models.CASCADE)
+    target = models.ForeignKey(Entity, related_name='incoming_relations', on_delete=models.CASCADE)
+    relation_type = models.CharField(max_length=200, null=True, blank=True)
+    weight = models.FloatField()
+    source_article = models.ForeignKey('NewsArticle', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return f"{self.entity1} {self.relationship_type} {self.entity2}"
+        return f"{self.source} {self.relation_type} {self.target}"
