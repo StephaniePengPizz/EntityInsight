@@ -6,7 +6,8 @@ import networkx as nx
 from django.shortcuts import render
 
 from EntityInsight import settings
-
+import logging
+logger = logging.getLogger(__name__)
 
 def find_relevant_nodes(request):
     target_types = ['Product']
