@@ -20,6 +20,7 @@ from django.urls import path
 from django.urls import path, include
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('web-collection/', include('web_collection.urls')),
     path('text-classification/', include('text_classification.urls')),
     path('knowledge-graph/', include('knowledge_graph.urls')),
