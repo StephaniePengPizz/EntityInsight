@@ -6,7 +6,6 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('text_classification', '0002_delete_newsarticle'),
         ('web_collection', '0001_initial'),
     ]
 

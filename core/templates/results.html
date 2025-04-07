@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+
+  window.addEventListener('load', () => {
+    mermaid.init();
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container-output-page">
+    <div class="left-panel">
+        <h2>Knowledge Graph</h2>
+
+        <!-- Mermaid graph visualization -->
+        <div class="mermaid">
+            {{ graph_description|safe }}
+        </div>
+
+        <!-- Path Results Section -->
+        <div class="path-results">
+            <h2>Path Analysis</h2>
+
+            <div class="path-meta">
+                <p><strong>Source:</strong> {{ result.source }}</p>
+                <p><strong>Target Types:</strong> {{ result.target_types|join:", " }}</p>
+                <p><strong>Cutoff:</strong> {{ result.cutoff }}</p>
+                <p><strong>Number of Paths:</strong> {{ result.num_paths }}</p>
+            </div>
+
+            {% for path in result.paths %}
+                <div class="path">
+                    <h4>Path #{{ path.rank }} (Avg Weight: {{ path.average_weight|floatformat:2 }})</h4>
+                    <p><strong>Nodes:</strong>
+                        {% for node in path.nodes %}
+                            <span class="node">{{ node }}</span>{% if not forloop.last %} → {% endif %}
+                        {% endfor %}
+                    </p>
+                    <p><strong>Relations:</strong>
+                        {% for rel in path.relations %}
+                            <span class="relation">{{ rel }}</span>{% if not forloop.last %} → {% endif %}
+                        {% endfor %}
+                    </p>
+                    <p><strong>Weights:</strong> {{ path.weights|join:", " }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="news-panel">
+        <h2>Related News</h2>
+
+        {% for category, news_items in news_by_category.items %}
+        <div class="news-category">
+            <div class="category-header">{{ category }}</div>
+            {% for item in news_items %}
+            <div class="news-item">
+                <div class="news-title">{{ item.title }}</div>
+                <div class="news-meta">
+                    <span>{{ item.source }}</span>
+                    <span>{{ item.date|date:"Y-m-d" }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

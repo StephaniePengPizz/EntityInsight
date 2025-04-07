@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-input-page">
+    <div class="header">
+        <div class="username">{{ request.user.username }}</div>
+    </div>
+    
+    <div class="system-title">Hi, I am Entity Insight</div>
+    
+    <div class="example-header">Example Queries</div>
+    <div class="example-grid">
+        <!-- Row 1 -->
+        <div class="example-row">
+            <div class="example-category">Company</div>
+            <div class="example-arrow">→</div>
+            <div class="example-keywords">BOA, Citibank, JP Morgan</div>
+        </div>
+        
+        <!-- Row 2 -->
+        <div class="example-row">
+            <div class="example-category">Regulatory</div>
+            <div class="example-arrow">→</div>
+            <div class="example-keywords">fined, penalty, SEC investigation</div>
+        </div>
+        
+        <!-- Row 3 -->
+        <div class="example-row">
+            <div class="example-category">Finance</div>
+            <div class="example-arrow">→</div>
+            <div class="example-keywords">stock market, Q3 earnings, dividends</div>
+        </div>
+        
+        <!-- Row 4 -->
+        <div class="example-row">
+            <div class="example-category">...</div>
+            <div class="example-arrow">→</div>
+            <div class="example-keywords">......</div>
+        </div>
+    </div>
+    
+    <form method="post" action="{% url 'results' %}">
+        {% csrf_token %}
+        <div class="input-container">
+            <label for="categories" class="input-label">Select News Categories:</label>
+            <div class="category-dropdown">
+                <div class="category-select" onclick="toggleDropdown()">
+                    All by default
+                </div>
+                <div class="category-options" id="categoryOptions">
+                    <div class="category-option toggle-all" onclick="toggleAllCategories()">
+                        <input type="checkbox" id="toggleAll" checked>
+                        <label for="toggleAll">Select All</label>
+                    </div>
+                    {% for category in categories %}
+                    <div class="category-option">
+                        <input type="checkbox" id="{{ category.slug }}" name="categories" value="{{ category.name }}" checked>
+                        <label for="{{ category.slug }}">{{ category.name }}</label>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="selected-categories" id="selectedCategories">
+                    Currently selected: All categories
+                </div>
+            </div>
+        </div>
+        
+        <div class="input-container">
+            <label for="keywords" class="input-label">Please enter key words:</label>
+            <input type="text" id="keywords" name="keywords" class="input-field" maxlength="50" 
+                   placeholder="Type your query here..." required>
+        </div>
+        
+        <button type="submit" class="submit-button">Search</button>
+    </form>
+</div>
+{% endblock %}

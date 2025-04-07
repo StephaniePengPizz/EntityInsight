@@ -42,9 +42,6 @@ def extract_structured_data(soup):
     # 提取标题
     title = soup.title.string if soup.title else ""
 
-    # 提取发布时间
-    date_published = None
-
     # 查找所有 script 标签，类型为 application/ld+json
     script_tag = soup.find('script', type='application/ld+json')
     json_data = json.loads(script_tag.string)

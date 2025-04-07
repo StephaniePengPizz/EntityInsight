@@ -77,5 +77,6 @@ def find_relevant_nodes(request):
                 "average_weight": path_info["average_weight"]
             })
 
+    return result
     # Render the HTML template with the result data
-    return render(request, 'path_results.html', {"result": result})
+    # return render(request, 'path_results.html', {"result": result})

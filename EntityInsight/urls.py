@@ -22,8 +22,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('web-collection/', include('web_collection.urls')),
-    path('text-classification/', include('text_classification.urls')),
     path('knowledge-graph/', include('knowledge_graph.urls')),
     path('genai-integration/', include('genai_integration.urls')),
-    path('user-interface/', include('user_interface.urls')),  # Home page
+    path('core/', include('core.urls')),  # Home page
 ]
