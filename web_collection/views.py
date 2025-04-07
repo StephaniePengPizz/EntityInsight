@@ -1,13 +1,16 @@
 # Create your views here.
+import json
+from datetime import datetime
+
+from dateutil.parser import parse
 from django.shortcuts import render
-from core.models import WebPage
+from core.models import NewsArticle, WebPage
 from bs4 import BeautifulSoup
 import re
 import requests
 import os
 from django.conf import settings
 from django.http import HttpResponse
-
 
 
 def get_subdirectory_links(base_url):
@@ -33,6 +36,43 @@ def extract_links(html):
     finance_links = [link for link in links if re.search(r'(finance|stock|bank)', link)]
     return finance_links
 
+
+def extract_structured_data(soup):
+    """从BeautifulSoup对象中提取结构化数据"""
+    # 提取标题
+    title = soup.title.string if soup.title else ""
+
+    # 提取发布时间
+    date_published = None
+
+    # 查找所有 script 标签，类型为 application/ld+json
+    script_tag = soup.find('script', type='application/ld+json')
+    json_data = json.loads(script_tag.string)
+
+    # 提取时间信息
+    date_published = json_data.get('datePublished')
+
+    # 转换为 datetime 对象
+    if date_published:
+        date_published = parse(date_published)
+
+    # 提取正文内容
+    article_body = soup.find('article') or \
+                   soup.find('div', class_=re.compile('article|content|main', re.I))
+    content = article_body.get_text('\n', strip=True) if article_body else ""
+
+    # 提取关键词
+    keywords = []
+    keywords_meta = soup.find('meta', attrs={'name': 'keywords'})
+    if keywords_meta:
+        keywords = [k.strip() for k in keywords_meta.get('content', '').split(',') if k.strip()]
+
+    return {
+        'title': title,
+        'publication_time': date_published,
+        'keywords': ', '.join(keywords),
+        'content': content
+    }
 
 def collect_web_pages(request):
     base_url = 'https://finance.yahoo.com/news/asia-credit-market-heats-issuers-040634997.html'
@@ -62,31 +102,37 @@ def collect_web_pages(request):
     #             credibility_score=0.9,
     #         )
     response = requests.get(base_url, headers=headers)
-    html_content = ''
-    if response.status_code == 200:
-        html_content = response.text
-    print(settings.MEDIA_ROOT)
-    print(1)
-    save_dir = os.path.join(settings.MEDIA_ROOT, 'web_collection')
-    os.makedirs(save_dir, exist_ok=True)
-    file_path = os.path.join(save_dir, 'captured.html')
 
-    # 保存HTML到文件
-    with open(file_path, 'w', encoding='utf-8') as f:
-        f.write(html_content)
-    try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            return HttpResponse(f.read())  # 直接返回HTML内容
-    except FileNotFoundError:
-        return HttpResponse("内容未找到", status=404)
-    return render(request, 'collection_success.html')
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # 提取结构化数据
+    page_data = extract_structured_data(soup)
 
-    new_page = WebPage.objects.create(
-        url="https://example.com",
-        title="Example Page",
-        content="This is an example page.",
-        source="Google",
-        publication_time="2023-10-01T12:00:00Z",
-        credibility_score=0.9,
+    web_page, created = WebPage.objects.update_or_create(
+        url=base_url,
+        defaults={
+            'title': page_data['title'],
+            'source': 'yahoo finance',
+            'publication_time': page_data['publication_time'],
+            'credibility_score': 0.8,
+        }
     )
-    return render(request, "collection_success.html")
+
+    news_article = NewsArticle.objects.update_or_create(
+        web_page=web_page,
+        defaults={
+            'category': 'default',
+            'keywords': page_data['keywords'],
+            'processed_content': page_data['content'],
+        }
+    )
+    # 保存HTML到文件
+    #with open(file_path, 'w', encoding='utf-8') as f:
+    #    f.write(html_content)
+    #try:
+    #    with open(file_path, 'r', encoding='utf-8') as f:
+    #        return HttpResponse(f.read())  # 直接返回HTML内容
+    #except FileNotFoundError:
+    #    return HttpResponse("内容未找到", status=404)
+
+
+    return HttpResponse(f"成功保存结构化数据: {web_page.title} (ID: {web_page.id})")
