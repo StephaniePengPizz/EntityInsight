@@ -13,18 +13,19 @@
 
 {% block content %}
 <div class="container-output-page">
-    <div class="left-panel">
-        <h2>Knowledge Graph</h2>
-
-        <!-- Mermaid graph visualization -->
-        <div class="mermaid">
-            {{ graph_description|safe }}
+    <!-- Left Column -->
+    <div class="left-column">
+        <!-- Top-left: Knowledge Graph -->
+        <div class="graph-section">
+            <h2>Knowledge Graph</h2>
+            <div class="mermaid">
+                {{ graph_description|safe }}
+            </div>
         </div>
 
-        <!-- Path Results Section -->
-        <div class="path-results">
+        <!-- Bottom-left: Path Analysis -->
+        <div class="path-section">
             <h2>Path Analysis</h2>
-
             <div class="path-meta">
                 <p><strong>Source:</strong> {{ result.source }}</p>
                 <p><strong>Target Types:</strong> {{ result.target_types|join:", " }}</p>
@@ -51,23 +52,42 @@
         </div>
     </div>
 
-    <div class="news-panel">
-        <h2>Related News</h2>
+    <!-- Right Column -->
+    <div class="right-column">
+        <!-- Top-right: LLM Summary -->
+        <div class="summary-section">
+            <h2>AI Summary for
+                {% if summary_category %}
+                    <span class="highlight-category">{{ summary_category }}</span>
+                {% endif %}
+            </h2>
+            <div class="summary-content">
+                {% if llm_summary %}
+                    {{ llm_summary|safe }}
+                {% else %}
+                    <p>Select a category to generate an AI-powered summary of relevant news.</p>
+                {% endif %}
+            </div>
+        </div>
 
-        {% for category, news_items in news_by_category.items %}
-        <div class="news-category">
-            <div class="category-header">{{ category }}</div>
-            {% for item in news_items %}
-            <div class="news-item">
-                <div class="news-title">{{ item.title }}</div>
-                <div class="news-meta">
-                    <span>{{ item.source }}</span>
-                    <span>{{ item.date|date:"Y-m-d" }}</span>
+        <!-- Bottom-right: Related News -->
+        <div class="news-section">
+            <h2>Related News</h2>
+            {% for category, news_items in news_by_category.items %}
+            <div class="news-category">
+                <div class="category-header">{{ category }}</div>
+                {% for item in news_items %}
+                <div class="news-item">
+                    <div class="news-title">{{ item.title }}</div>
+                    <div class="news-meta">
+                        <span>{{ item.source }}</span>
+                        <span>{{ item.date|date:"Y-m-d" }}</span>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
             {% endfor %}
         </div>
-        {% endfor %}
     </div>
 </div>
 {% endblock %}

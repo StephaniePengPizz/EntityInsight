@@ -1,12 +1,11 @@
-import logging
-
 from django.shortcuts import render, redirect
 from core.models import NewsArticle, Entity, Relationship
 
 from django.shortcuts import render
 
+from genai_integration.views import summarize_for_category
 from knowledge_graph.views.show_graph_detail import find_relevant_nodes
-logger = logging.getLogger(__name__)
+
 
 def home(request):
     categories = [
@@ -52,15 +51,21 @@ def results(request):
                  'source': 'Wall Street Journal', 'date': '2023-11-10'},
             ]
         }
+        summary_category = selected_categories[0] if selected_categories else None
+
+        # 生成特定类别的AI总结
+        llm_summary = summarize_for_category(summary_category, news_by_category.get(summary_category, 'Finance'))
+        #llm_summary = "summary placeholder"
 
         result = find_relevant_nodes(request)
         graph_description = generate_mermaid_graph(result)
         context = {
             'keywords': keywords,
-            'selected_categories': selected_categories,
+            'summary_category': selected_categories[0],
             'news_by_category': news_by_category,
             'result': result,
             'graph_description': graph_description,
+            'llm_summary': llm_summary,
         }
 
 

@@ -1,0 +1,7 @@
+django
+bs4
+requests
+python-dateutil
+networkx
+markdownify
+google-genai
