@@ -57,12 +57,12 @@
     {
         "docid": "doc6",
         "paraid": "para1",
-        "content": ["Energy", "includes", "Oil"]
+        "content": ["input entity", "relation 1", "regulator1"]
     },
     {
         "docid": "doc6",
         "paraid": "para2",
-        "content": ["Energy", "affects", "International Oil Prices"]
+        "content": ["input entity", "affects", "middle entity"]
     },
     {
         "docid": "doc7",
@@ -77,7 +77,7 @@
     {
         "docid": "doc8",
         "paraid": "para1",
-        "content": ["International Oil Prices", "depends on", "Oil"]
+        "content": ["middle entity", "depends on", "regulator2"]
     },
     {
         "docid": "doc8",

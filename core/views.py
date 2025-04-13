@@ -9,27 +9,39 @@ from knowledge_graph.views.show_graph_detail import find_relevant_nodes
 
 def home(request):
     categories = [
-        {'name': 'Finance', 'slug': 'finance'},
-        {'name': 'Company', 'slug': 'company'},
-        {'name': 'Macro', 'slug': 'macro'},
-        {'name': 'Politics', 'slug': 'politics'},
-        {'name': 'Technology', 'slug': 'technology'},
-        {'name': 'Real Estate', 'slug': 'realestate'},
-        {'name': 'Automotive', 'slug': 'automotive'},
-        {'name': 'Consumer', 'slug': 'consumer'},
-        {'name': 'Energy', 'slug': 'energy'},
-        {'name': 'Health', 'slug': 'health'},
-        {'name': 'Environment', 'slug': 'environment'},
-        {'name': 'Livelihoods', 'slug': 'livelihoods'},
+        {'name': 'Payments', 'slug': 'payments'},
+        {'name': 'Markets', 'slug': 'markets'},
+        {'name': 'Retail', 'slug': 'retail'},
+        {'name': 'Wholesale', 'slug': 'wholesale'},
+        {'name': 'Wealth', 'slug': 'wealth'},
+        {'name': 'Regulation', 'slug': 'regulation'},
+        {'name': 'Crime', 'slug': 'crime'},
+        {'name': 'Crypto', 'slug': 'crypto'},
+        {'name': 'Security', 'slug': 'security'},
+        {'name': 'Startups', 'slug': 'startups'},
+        {'name': 'Sustainable', 'slug': 'sustainable'},
+        {'name': 'AI', 'slug': 'ai'},
     ]
-    return render(request, 'home.html', {'categories': categories})
 
+    entity_types = [
+        {'name': 'Regulators', 'slug': 'regulators'},
+        {'name': 'Banks', 'slug': 'banks'},
+        {'name': 'Tech Companies', 'slug': 'tech-companies'},
+        {'name': 'Governments', 'slug': 'governments'},
+        {'name': 'Rating Agencies', 'slug': 'rating-agencies'},
+        {'name': 'Financial Infrastructure', 'slug': 'financial-infrastructure'},
+        {'name': 'Key People', 'slug': 'key-people'},
+    ]
+    return render(request, 'home.html', {
+        'categories': categories,
+        'entity_types': entity_types
+    })
 
 def results(request):
     if request.method == 'POST':
         keywords = request.POST.get('keywords', '')
         selected_categories = request.POST.getlist('categories', [])
-
+        selected_entity_categories = request.POST.getlist('entity_types', [])
         # sample data
         news_by_category = {
             'Regulatory Actions': [
@@ -54,7 +66,7 @@ def results(request):
         summary_category = selected_categories[0] if selected_categories else None
 
         # 生成特定类别的AI总结
-        llm_summary = summarize_for_category(summary_category, news_by_category.get(summary_category, 'Finance'))
+        llm_summary = ""#summarize_for_category(summary_category, news_by_category.get(summary_category, 'Finance'))
         #llm_summary = "summary placeholder"
 
         result = find_relevant_nodes(request)
@@ -62,6 +74,7 @@ def results(request):
         context = {
             'keywords': keywords,
             'summary_category': selected_categories[0],
+            'entity_category': selected_entity_categories[0],
             'news_by_category': news_by_category,
             'result': result,
             'graph_description': graph_description,

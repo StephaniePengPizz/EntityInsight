@@ -9,9 +9,11 @@
     "Healthcare",
     "Agriculture"
   ],
-  "Product": [
+  "Regulators": [
     "Wine",
     "Oil",
+    "regulator1",
+    "regulator2",
     "Electric Vehicles",
     "Smartphones",
     "Pharmaceuticals",

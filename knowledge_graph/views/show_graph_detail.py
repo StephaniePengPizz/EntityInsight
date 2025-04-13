@@ -9,8 +9,8 @@ from EntityInsight import settings
 
 
 def find_relevant_nodes(request):
-    target_types = ['Product']
-    source = 'Energy'
+    target_types = ['Regulators']
+    source = 'input entity'
     cutoff = 3
     num_paths = 5
 
@@ -38,7 +38,7 @@ def find_relevant_nodes(request):
         print(target_type)
         for node in current_type_dict_word_list[target_type]:
             # Find all simple paths from source(use input) to every target node in the target types(user input)
-            all_paths = nx.all_simple_paths(graph, source=source, target=node, cutoff=cutoff)
+            all_paths = nx.all_simple_paths(graph, source=source, target=node, cutoff=3)
             for path in all_paths:
                 flag = True
                 weight_list = [(graph.get_edge_data(path[i], path[i + 1])['weight']) ** (1 / 3) for i in

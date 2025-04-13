@@ -17,7 +17,10 @@
     <div class="left-column">
         <!-- Top-left: Knowledge Graph -->
         <div class="graph-section">
-            <h2>Knowledge Graph</h2>
+            <h2>Knowledge Graph For Financial Entity
+                {% if summary_category %}
+                    <span class="highlight-category">{{ entity_category }}</span>
+                {% endif %}</h2>
             <div class="mermaid">
                 {{ graph_description|safe }}
             </div>
@@ -59,7 +62,7 @@
             <h2>AI Summary for
                 {% if summary_category %}
                     <span class="highlight-category">{{ summary_category }}</span>
-                {% endif %}
+                {% endif %}   News
             </h2>
             <div class="summary-content">
                 {% if llm_summary %}
