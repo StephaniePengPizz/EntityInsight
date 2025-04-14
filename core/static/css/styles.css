@@ -174,14 +174,38 @@ h2 {
     margin-bottom: 25px;
 }
 
+.example-grid.two-column-layout {
+    display: flex;
+    gap: 30px; /* 两列之间的间距 */
+    grid-template-columns: initial; /* 覆盖原有的grid布局 */
+    background-color: #e8f4fc;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+}
+
+.query-column {
+    flex: 1; /* 使两列等宽 */
+    display: grid;
+    grid-template-columns: 120px 30px 1fr; /* 保持原有的内部列宽 */
+}
 .example-row {
     display: contents;
+}
+
+.two-type {
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 6px 0;
+    grid-column: 1 / span 3; /* 横跨所有列 */
+    border-bottom: 1px solid #ddd; /* 分隔线 */
+    margin-bottom: 8px;
 }
 
 .example-category {
     grid-column: 1;
     font-weight: 600;
-    color: #2c3e50;
+    color: #3e73a1;
     padding: 6px 0;
     align-self: center;
 }

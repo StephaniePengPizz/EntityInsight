@@ -9,34 +9,50 @@
     <div class="system-title">Hi, I am Entity Insight</div>
     
     <div class="example-header">Example Queries</div>
-    <div class="example-grid">
-        <!-- Row 1 -->
-        <div class="example-row">
-            <div class="example-category">Company</div>
-            <div class="example-arrow">→</div>
-            <div class="example-keywords">BOA, Citibank, JP Morgan</div>
+    <div class="example-grid two-column-layout">
+        <!-- Two Column Layout -->
+        <!-- Left Column -->
+        <div class="query-column">
+            <div class="two-type">News Category</div>
+            <div class="example-row">
+                <div class="example-category">Markets</div>
+                <div class="example-arrow">→</div>
+                <div class="example-keywords">Market news1, 2, ..., AI summary for market news</div>
+            </div>
+            <div class="example-row">
+                <div class="example-category">Wealth</div>
+                <div class="example-arrow">→</div>
+                <div class="example-keywords">Wealth news1, 2, ..., AI summary for wealth news</div>
+            </div>
+            <div class="example-row">
+                <div class="example-category">Regulation</div>
+                <div class="example-arrow">→</div>
+                <div class="example-keywords">Regulation news1, 2, ..., AI summary for regulation news</div>
+            </div>
         </div>
 
-        <!-- Row 2 -->
-        <div class="example-row">
-            <div class="example-category">Regulatory</div>
-            <div class="example-arrow">→</div>
-            <div class="example-keywords">fined, penalty, SEC investigation</div>
+        <div class="query-column">
+
+            <div class="two-type">Financial Entity Category</div>
+            <div class="example-row">
+                <div class="example-category">Bank</div>
+                <div class="example-arrow">→</div>
+                <div class="example-keywords">BOA, Citibank, JP Morgan</div>
+            </div>
+            <div class="example-row">
+                <div class="example-category">Regulatory</div>
+                <div class="example-arrow">→</div>
+                <div class="example-keywords">fined, penalty, SEC investigation</div>
+            </div>
+            <div class="example-row">
+                <div class="example-category">Rating Agencies</div>
+                <div class="example-arrow">→</div>
+                <div class="example-keywords">HKCRA, S&P Global Ratings, Moody's Investors Service</div>
+            </div>
         </div>
 
-        <!-- Row 3 -->
-        <div class="example-row">
-            <div class="example-category">Finance</div>
-            <div class="example-arrow">→</div>
-            <div class="example-keywords">stock market, Q3 earnings, dividends</div>
-        </div>
+        <!-- Right Column -->
 
-        <!-- Row 4 -->
-        <div class="example-row">
-            <div class="example-category">...</div>
-            <div class="example-arrow">→</div>
-            <div class="example-keywords">......</div>
-        </div>
     </div>
 
     <form method="post" action="{% url 'results' %}">
