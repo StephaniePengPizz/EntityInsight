@@ -131,20 +131,10 @@ class EntityExtractionView(View):
             return []
 
     def get_types(self, query):
-        entity_types = {}
-        change = {
-            'stock': '公司名', 'product': '产品名', 'industry': "行业名",
-            'concept': '概念名', 'indicator': '', 'data_vendor': '数据',
-            'region': '地域名', 'person': '人名', 'organization': '机构名',
-            'country': '国家名'
-        }
+        entity_types = []
         for item in query:
-            for entity_type in item[2]:
-                temp = change[entity_type]
-                if not item[1] in entity_types:
-                    entity_types[item[1]] = []
-                if not temp in entity_types[item[1]]:
-                    entity_types[item[1]].append(temp)
+            for entity_type in item['name']:
+                entity_types.append(entity_type)
         return entity_types
 
     def fetch_res_ER_new_DEEPSEEK(self, docid, paraid, query):
@@ -155,15 +145,15 @@ class EntityExtractionView(View):
 - 角色: 金融行業數據標註專家
 - 目標: 提取文章中的金融實體和構建實體關係三元組，同時忽略數值類型的實體，並解釋思考過程
 - 限制條件: 
-  - 實體類型應限定為：公司名、產品名、行業名、概念名、地域名、人名、機構名、政府名/國家名
+  - 實體類型應限定為：Regulator, Bank, Company, Product, Government, Rating Agency, Financial Infrastructure, Key People
   - 關係應有意義，避免無明確關係的實體對
   - 避免實體未知的情況
 - 輸出格式:
   - 實體以「{實體1:實體類型1}」格式輸出
   - 關係三元組以「<實體1, 實體間關係, 實體2>」格式輸出
 - 範例:
-  實體：{Google:公司名}
-  實體：{Android:產品名}
+  實體：{Google:Companies}
+  實體：{Android:Product}
   三元組：<Google, 開發, Android>
   
 你要處理的新聞內容如下：

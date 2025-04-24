@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+
+from core.constants import categories, entity_types
 from core.models import NewsArticle, Entity, Relationship
 
 from django.shortcuts import render
@@ -8,30 +10,6 @@ from knowledge_graph.views.show_graph_detail import find_relevant_nodes
 
 
 def home(request):
-    categories = [
-        {'name': 'Payments', 'slug': 'payments'},
-        {'name': 'Markets', 'slug': 'markets'},
-        {'name': 'Retail', 'slug': 'retail'},
-        {'name': 'Wholesale', 'slug': 'wholesale'},
-        {'name': 'Wealth', 'slug': 'wealth'},
-        {'name': 'Regulation', 'slug': 'regulation'},
-        {'name': 'Crime', 'slug': 'crime'},
-        {'name': 'Crypto', 'slug': 'crypto'},
-        {'name': 'Security', 'slug': 'security'},
-        {'name': 'Startups', 'slug': 'startups'},
-        {'name': 'Sustainable', 'slug': 'sustainable'},
-        {'name': 'AI', 'slug': 'ai'},
-    ]
-
-    entity_types = [
-        {'name': 'Regulators', 'slug': 'regulators'},
-        {'name': 'Banks', 'slug': 'banks'},
-        {'name': 'Tech Companies', 'slug': 'tech-companies'},
-        {'name': 'Governments', 'slug': 'governments'},
-        {'name': 'Rating Agencies', 'slug': 'rating-agencies'},
-        {'name': 'Financial Infrastructure', 'slug': 'financial-infrastructure'},
-        {'name': 'Key People', 'slug': 'key-people'},
-    ]
     return render(request, 'home.html', {
         'categories': categories,
         'entity_types': entity_types
