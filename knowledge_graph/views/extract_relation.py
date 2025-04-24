@@ -13,7 +13,14 @@ import csv
 from io import StringIO, BytesIO
 from django.http import HttpResponse
 from concurrent.futures import as_completed
+import os
+from EntityInsight import settings
 from knowledge_graph.views.process_to_paragraph import ProcessArticlesView
+
+from dotenv import load_dotenv
+
+load_dotenv()
+API_KEY = os.getenv('DEEPSEEK_API_KEY')
 
 class EntityExtractionView(View):
     def get(self, request):
@@ -76,7 +83,6 @@ class EntityExtractionView(View):
             return JsonResponse({'error': str(e)}, status=500)
 
     def query_from_models(self, message_content, model="DEEPSEEK", max_retries=3):
-        API_KEY = 'sk-6df90481a11c4fdd951c090c3369d3dd'.strip()
         API_URL = 'https://api.deepseek.com/v1/chat/completions'
         model_name_map = {
             "DEEPSEEK": "deepseek-chat",

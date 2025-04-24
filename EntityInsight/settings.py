@@ -150,3 +150,6 @@ LOGGING = {
         },
     },
 }
+
+# settings.py
+DEEPSEEK_API_KEY = 'sk-6df90481a11c4fdd951c090c3369d3dd'
