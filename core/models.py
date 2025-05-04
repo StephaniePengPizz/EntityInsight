@@ -5,6 +5,7 @@ class WebPage(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
     source = models.CharField(max_length=100)  # Google、Bing
+    #type = models.CharField(max_length=50)
     publication_time = models.DateTimeField()
     credibility_score = models.FloatField()
     created_at = models.DateTimeField(auto_now_add=True)
