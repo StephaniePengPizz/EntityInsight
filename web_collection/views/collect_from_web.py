@@ -17,12 +17,28 @@ class WebPageCollectorView(View):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         'Referer': 'https://finance.yahoo.com/news'
     }
+    URLS = []
 
-    def get(self, request):
+    def get_URL(self):
+        """
+        From: Base URL
+        To: sub URLs of this base URL, by updating self.URLS
+        """
+        pass
+
+    def collect_pages(self):
+        for url in self.URLS:
+            self.get(url, '')
+
+
+
+    def get(self, URL, request):
         """Handle GET requests to collect and process web pages"""
         try:
             # Step 1: Fetch and parse the main page
-            response = requests.get(self.BASE_URL, headers=self.HEADERS)
+
+            #response = requests.get(self.BASE_URL, headers=self.HEADERS)
+            response = requests.get(URL, headers=self.HEADERS)
             response.raise_for_status()
 
             # Step 2: Extract structured data
@@ -85,7 +101,6 @@ class WebPageCollectorView(View):
             web_page=web_page,
             defaults={
                 'category': 'default',
-                'keywords': page_data['keywords'],
                 'processed_content': page_data['content'],
             }
         )

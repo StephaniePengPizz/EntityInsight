@@ -15,7 +15,6 @@ class NewsArticle(models.Model):
     web_page = models.OneToOneField(WebPage, on_delete=models.CASCADE)
     category = models.CharField(max_length=50)  # such as Finance、Legal
     processed_content = models.TextField()
-    keywords = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
