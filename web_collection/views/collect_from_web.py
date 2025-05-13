@@ -1,9 +1,13 @@
+import time
+
 from django.views import View
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from core.models import NewsArticle, WebPage
 from bs4 import BeautifulSoup
 import requests
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import json
 from dateutil.parser import parse
 import re
@@ -12,12 +16,23 @@ import re
 class WebPageCollectorView(View):
     """Class-based view for collecting and processing web pages"""
 
-    BASE_URL = 'https://finance.yahoo.com/news/rich-dad-poor-dad-author-185506248.html'
-    HEADERS = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-        'Referer': 'https://finance.yahoo.com/news'
-    }
+    BASE_URL = 'https://www.reuters.com/business/finance/insurance-broker-hub-international-secures-29-billion-valuation-16-billion-2025-05-12/'
+    YAHOO_URL = 'https://finance.yahoo.com/news/rich-dad-poor-dad-author-185506248.html'
     URLS = []
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.driver = self._init_selenium_driver()
+
+    def _init_selenium_driver(self):
+        """Configure Selenium to mimic a real browser."""
+        options = Options()
+        options.add_argument("--headless=new")  # Run in background
+        options.add_argument("--disable-blink-features=AutomationControlled")
+        options.add_argument(
+            "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+        driver = webdriver.Chrome(options=options)
+        return driver
 
     def get_URL(self):
         """
@@ -30,21 +45,19 @@ class WebPageCollectorView(View):
         for url in self.URLS:
             self.get(url, '')
 
-
-
-    def get(self, URL, request):
+    def get(self, request):
         """Handle GET requests to collect and process web pages"""
         try:
             # Step 1: Fetch and parse the main page
 
-            #response = requests.get(self.BASE_URL, headers=self.HEADERS)
-            response = requests.get(URL, headers=self.HEADERS)
-            response.raise_for_status()
+            self.driver.get(self.YAHOO_URL)
+            time.sleep(3)  # Let dynamic content load
 
-            # Step 2: Extract structured data
-            soup = BeautifulSoup(response.text, 'html.parser')
+            # Step 2: Extract HTML and parse
+            html = self.driver.page_source
+            soup = BeautifulSoup(html, 'html.parser')
             page_data = self.extract_structured_data(soup)
-
+            print(page_data)
             # Step 3: Save to database
             web_page = self.save_to_database(page_data)
 
@@ -70,18 +83,49 @@ class WebPageCollectorView(View):
                         soup.find('div', class_=re.compile('article|content|main', re.I)))
         content = article_body.get_text('\n', strip=True) if article_body else ""
 
-        # Extract keywords
-        keywords = []
-        keywords_meta = soup.find('meta', attrs={'name': 'keywords'})
-        if keywords_meta:
-            keywords = [k.strip() for k in keywords_meta.get('content', '').split(',') if k.strip()]
+        return {
+            'title': title,
+            'publication_time': date_published,
+            'content': content
+        }
+
+    def extract_structured_data_for_R(self, soup):
+        """Extract structured data from BeautifulSoup object"""
+        # Extract title
+        title = soup.title.string if soup.title else ""
+
+        # Extract JSON-LD data
+        script_tag = soup.find('script', type='application/ld+json')
+        json_data = json.loads(script_tag.string) if script_tag else {}
+
+        title = parse(json_data.get('title')) if json_data.get('title') else None
+
+        # Parse publication date
+        date_published = parse(json_data.get('published_time')) if json_data.get('published_time') else None
+
+        # Extract article content
+        article_body = (soup.find('article') or
+                        soup.find('div', class_=re.compile('article|content|main', re.I)))
+        content = article_body.get_text('\n', strip=True) if article_body else ""
 
         return {
             'title': title,
             'publication_time': date_published,
-            'keywords': ', '.join(keywords),
             'content': content
         }
+
+    def extract_structured_data2(self, soup):
+        title = soup.title.string.strip()
+        paragraphs = soup.find_all('div', attrs={'data-testid': lambda x: x and x.startswith('paragraph-')})
+
+        # 提取并组合成正文
+        full_text = '\n'.join(p.get_text(strip=True) for p in paragraphs)
+        return {
+            'title': title,
+            'paragraphs': full_text,
+            'source_url': self.BASE_URL
+        }
+
 
     def save_to_database(self, page_data):
         """Save extracted data to database"""

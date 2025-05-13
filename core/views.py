@@ -5,7 +5,7 @@ from core.models import NewsArticle, Entity, Relationship
 
 from django.shortcuts import render
 
-from genai_integration.views import summarize_for_category
+from genai_summarization.views import summarize_for_category
 from knowledge_graph.views.show_graph_detail import find_relevant_nodes
 
 
