@@ -1,6 +1,7 @@
 import json
 import os
 import pickle
+from datetime import datetime
 
 import networkx as nx
 from django.shortcuts import render
@@ -9,21 +10,22 @@ from EntityInsight import settings
 
 
 def find_relevant_nodes(request):
-    target_types = ['Regulators']
-    source = 'input entity'
+    target_types = request.POST.getlist('entity_types', ['Bank'])
+    source = request.POST.get('keywords', '')
     cutoff = 3
     num_paths = 5
 
     # Load graph data
-    file_path = os.path.join(settings.BASE_DIR, 'core/data', 'graph.pkl')
+    timestamp = datetime.now().strftime("%Y%m%d")
+    file_path = os.path.join(settings.MEDIA_ROOT, 'graph', f'graph_{timestamp}.pkl')
     with open(file_path, "rb") as file:
         graph = pickle.load(file)
 
     # Load entity type data
-    file_path = os.path.join(settings.BASE_DIR, 'core/data', 'entity_types_test.json')
+    file_path = os.path.join(settings.MEDIA_ROOT, 'entity_extraction', f'entities_{timestamp}.json')
     with open(file_path, "r", encoding="utf-8") as file:
-        current_type_dict_word_list = json.load(file)
-
+        json_file = json.load(file)
+    current_type_dict_word_list = json_file["data"]
     # Initialize result dictionary
     result = {
         "source": source,
@@ -32,7 +34,9 @@ def find_relevant_nodes(request):
         "num_paths": num_paths,
         "paths": []
     }
+    print(current_type_dict_word_list)
 
+    print(request)
     for target_type in target_types:
         paths_with_weights = []
         print(target_type)

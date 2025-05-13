@@ -1,6 +1,7 @@
 import copy
 import json
 import pickle
+from datetime import datetime
 
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -14,15 +15,22 @@ from knowledge_graph.tool import normalize_dict_values, state_top3, state_string
 
 
 @csrf_exempt
-def load_data(request):
-    file_path = os.path.join(settings.BASE_DIR, 'core/data', 'relations_test.json')
-    with open(file_path, 'r', encoding='utf-8') as file:
-        relations_all = json.load(file)
+def load_paragraphs_and_construct_graph(request):
+    timestamp = datetime.now().strftime("%Y%m%d")
+    #file_path = os.path.join(settings.BASE_DIR, 'core/data', 'relations_test.json')
+    relations_path = os.path.join(settings.MEDIA_ROOT, 'relation_extraction', f'relations_{timestamp}.json')
 
+    with open(relations_path, 'r', encoding='utf-8') as file:
+        file_all = json.load(file)
+
+    data = file_all['data']
+    relations_all = []
+    for doc in data:
+        for rel in doc['relations']:
+            relations_all.append(rel)
     # Calculate entity frequencies
     entity_freq = {}
-    for item in relations_all:
-        rel = item['content']
+    for rel in relations_all:
         entity_freq[rel[0]] = entity_freq.get(rel[0], 0) + 1
         entity_freq[rel[2]] = entity_freq.get(rel[2], 0) + 1
 
@@ -35,8 +43,7 @@ def load_data(request):
     # Before storing relation objects in database, calculate weight first
     source_relation_freq = {}
     target_relation_freq = {}
-    for item in relations_all:
-        rel = item['content']
+    for rel in relations_all:
         source = rel[0]
         target = rel[2]
 
@@ -52,8 +59,7 @@ def load_data(request):
 
     # Store relation objects in database
     g = nx.DiGraph()
-    for item in relations_all:
-        rel = item['content']
+    for rel in relations_all:
         source = rel[0]
         target = rel[2]
 
@@ -101,7 +107,8 @@ def load_data(request):
             }
         )
 
-    file_path = os.path.join(settings.BASE_DIR, 'core/data', 'graph.pkl')
+    timestamp = datetime.now().strftime("%Y%m%d")
+    file_path = os.path.join(settings.MEDIA_ROOT, 'graph', f'graph_{timestamp}.pkl')
     with open(file_path, "wb") as f:
         pickle.dump(g2, f)
 

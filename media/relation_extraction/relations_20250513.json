@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "generated_at": "2025-05-13T06:02:47.968893",
+    "total_relations": 18
+  },
+  "data": [
+    {
+      "doc_id": "2_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "美國",
+          "imposes tariffs",
+          "香港"
+        ],
+        [
+          "陳茂波",
+          "represents",
+          "香港特區政府財政司"
+        ],
+        [
+          "DHL",
+          "criticizes",
+          "特朗普"
+        ],
+        [
+          "Tobias Meyer",
+          "leads",
+          "DHL"
+        ],
+        [
+          "香港中小型企業聯合會",
+          "advises on",
+          "美國關稅政策"
+        ],
+        [
+          "劉達邦",
+          "belongs to",
+          "香港中小型企業聯合會"
+        ]
+      ]
+    },
+    {
+      "doc_id": "4_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Robert Kiyosaki",
+          "authored",
+          "Rich Dad Poor Dad"
+        ],
+        [
+          "Robert Kiyosaki",
+          "promotes",
+          "silver"
+        ],
+        [
+          "Robert Kiyosaki",
+          "owns",
+          "Bitcoin"
+        ],
+        [
+          "Robert Kiyosaki",
+          "discusses",
+          "gold"
+        ],
+        [
+          "Fred Krueger",
+          "compares",
+          "Solana"
+        ],
+        [
+          "Kraken",
+          "provides",
+          "Bitcoin price data"
+        ],
+        [
+          "silver",
+          "cheaper than",
+          "gold"
+        ]
+      ]
+    },
+    {
+      "doc_id": "1_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Korea National Oil Corp",
+          "issues bonds",
+          "Mizuho Securities Asia"
+        ],
+        [
+          "Petroliam Nasional Bhd",
+          "hires banks",
+          "Barclays"
+        ],
+        [
+          "Mark Reade",
+          "advises on credit strategy",
+          "Mizuho Securities Asia"
+        ],
+        [
+          "Avinash Thakur",
+          "oversees financing",
+          "Barclays"
+        ],
+        [
+          "Donald Trump",
+          "imposes tariffs",
+          "Asia Pacific issuers"
+        ]
+      ]
+    }
+  ]
+}

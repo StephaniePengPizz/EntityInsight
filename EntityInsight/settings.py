@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'core',
     'web_collection',
     'knowledge_graph',
-    'genai_integration',
+    'genai_summarization',
 ]
 
 MIDDLEWARE = [
