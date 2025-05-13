@@ -1,102 +1,257 @@
-import re
+import os
+import glob
 import json
 import zipfile
-
-from django.http import JsonResponse, HttpResponse
-from django.utils.decorators import method_decorator
-from django.views import View
+import re
+from datetime import datetime
+from io import StringIO, BytesIO
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 import time
 import requests
 import csv
-from io import StringIO, BytesIO
-from django.http import HttpResponse
-from concurrent.futures import as_completed
-import os
-from EntityInsight import settings
-from knowledge_graph.views.process_to_paragraph import ProcessArticlesView
-
+from django.http import HttpResponse, JsonResponse
+from django.views import View
+from django.conf import settings
 from dotenv import load_dotenv
 
 load_dotenv()
 API_KEY = os.getenv('DEEPSEEK_API_KEY')
 
+import os
+import glob
+import json
+import csv
+from io import StringIO
+from datetime import datetime
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from tqdm import tqdm
+from django.http import JsonResponse
+from django.views import View
+from django.conf import settings
+
+
 class EntityExtractionView(View):
+    OUTPUT_DIR_RELATION = os.path.join(settings.MEDIA_ROOT, 'relation_extraction')
+    OUTPUT_DIR_ENTITY = os.path.join(settings.MEDIA_ROOT, 'entity_extraction')
+
     def get(self, request):
         try:
-            processed_data = ProcessArticlesView().get_processed_data()
-            docid = [item['docid'] for item in processed_data['data']]
-            paraid = [item['paraid'] for item in processed_data['data']]
+            # 1. 查找并加载最新的JSON文件
+            json_dir = os.path.join(settings.MEDIA_ROOT, 'processed_articles')
+            json_files = glob.glob(os.path.join(json_dir, 'processed_articles_*.json'))
+
+            if not json_files:
+                return JsonResponse({'error': 'No processed articles files found'}, status=404)
+
+            latest_file = max(json_files, key=os.path.getmtime)
+            processed_data = self._load_json_file(latest_file)
+
+            # 2. 处理数据
+            docid = [item['doc_id'] for item in processed_data['data']]
+            paraid = [item['para_id'] for item in processed_data['data']]
             content_list = [item['content'] for item in processed_data['data']]
 
-            # Limit to first 5 items for demo (remove in production)
-            if len(content_list) > 5:
-                content_list = content_list[:5]
-                docid = docid[:5]
-                paraid = paraid[:5]
+            # 演示限制（生产环境应移除）
+            demo_limit = 5
+            if len(content_list) > demo_limit:
+                content_list = content_list[:demo_limit]
+                docid = docid[:demo_limit]
+                paraid = paraid[:demo_limit]
 
-            entity_types = []
-            relations = []
+            # 3. 提取实体和关系
+            entity_types, relations = self._process_entities_relations(docid, paraid, content_list)
 
-            with ThreadPoolExecutor(max_workers=1) as executor:
-                futures = [
-                    executor.submit(
-                        self.fetch_res_ER_new_DEEPSEEK,
-                        d, p, q
-                    ) for d, p, q in zip(docid, paraid, content_list)
+            # 4. 保存结果（CSV + JSONL）
+            timestamp = datetime.now().strftime("%Y%m%d")
+            result_files = self._save_results(entity_types, relations, timestamp)
+
+            return JsonResponse({
+                'status': 'success',
+                'files': result_files,
+                'download_links': [
+                    {'name': '实体列表 (CSV)', 'url': result_files['entities_csv']},
+                    {'name': '关系列表 (CSV)', 'url': result_files['relations_csv']},
+                    {'name': '实体列表 (JSONL)', 'url': result_files['entities_json']},
+                    {'name': '关系列表 (JSONL)', 'url': result_files['relations_json']}
                 ]
-
-                for future in tqdm(as_completed(futures), total=len(futures)):
-                    d, p, list1, list2 = future.result()
-                    entity_types.append({'docid': d, 'paraid': p, 'entities': list1})
-                    relations.append({'docid': d, 'paraid': p, 'relations': list2})
-
-            zip_buffer = BytesIO()
-            with zipfile.ZipFile(zip_buffer, 'w', zipfile.ZIP_DEFLATED) as zip_file:
-                # 实体CSV
-                entities_csv = StringIO()
-                csv_writer = csv.writer(entities_csv)
-                csv_writer.writerow(['DocID', 'ParaID', '实体名称', '实体类型'])
-                for item in entity_types:
-                    for entity in item['entities']:
-                        csv_writer.writerow([item['docid'], item['paraid'], entity[0], entity[1]])
-                zip_file.writestr('entities.csv', entities_csv.getvalue())
-
-                # 关系CSV
-                relations_csv = StringIO()
-                csv_writer = csv.writer(relations_csv)
-                csv_writer.writerow(['DocID', 'ParaID', '主体', '关系类型', '客体'])
-                for item in relations:
-                    for relation in item['relations']:
-                        csv_writer.writerow([item['docid'], item['paraid'], relation[0], relation[1], relation[2]])
-                zip_file.writestr('relations.csv', relations_csv.getvalue())
-
-            # 设置HTTP响应
-            response = HttpResponse(zip_buffer.getvalue(), content_type='application/zip')
-            response['Content-Disposition'] = 'attachment; filename="entity_relations.zip"'
-            return response
+            })
 
         except json.JSONDecodeError:
             return JsonResponse({'error': 'Invalid JSON data'}, status=400)
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=500)
 
-    def query_from_models(self, message_content, model="DEEPSEEK", max_retries=3):
-        API_URL = 'https://api.deepseek.com/v1/chat/completions'
-        model_name_map = {
-            "DEEPSEEK": "deepseek-chat",
-            "openai": "gpt-3.5-turbo",
-        }
-        model_name = model_name_map.get(model, "deepseek-chat")
+    def _load_json_file(self, filepath):
+        """加载JSON文件"""
+        with open(filepath, 'r', encoding='utf-8') as f:
+            return json.load(f)
 
+    def _process_entities_relations(self, docid, paraid, content_list):
+        """使用线程池处理实体和关系"""
+        entity_types = []
+        relations = []
+
+        with ThreadPoolExecutor(max_workers=4) as executor:
+            futures = [
+                executor.submit(
+                    self.fetch_res_ER_new_DEEPSEEK,
+                    d, p, q
+                ) for d, p, q in zip(docid, paraid, content_list)
+            ]
+
+            for future in tqdm(as_completed(futures), total=len(futures)):
+                d, p, entities, rels = future.result()
+                entity_types.append({'doc_id': d, 'para_id': p, 'entities': entities})
+                relations.append({'doc_id': d, 'para_id': p, 'relations': rels})
+
+        return entity_types, relations
+
+    def _save_results(self, entity_types, relations, timestamp):
+        """保存结果到CSV和JSONL格式"""
+        os.makedirs(self.OUTPUT_DIR_ENTITY, exist_ok=True)
+        os.makedirs(self.OUTPUT_DIR_RELATION, exist_ok=True)
+
+        # 定义文件路径
+        file_paths = {
+            'entities_csv': os.path.join(self.OUTPUT_DIR_ENTITY, f'entities_{timestamp}.csv'),
+            'relations_csv': os.path.join(self.OUTPUT_DIR_RELATION, f'relations_{timestamp}.csv'),
+            'entities_json': os.path.join(self.OUTPUT_DIR_ENTITY, f'entities_{timestamp}.json'),
+            'relations_json': os.path.join(self.OUTPUT_DIR_RELATION, f'relations_{timestamp}.json')
+        }
+
+        # 保存实体数据
+        self._save_entities(entity_types, file_paths)
+
+        # 保存关系数据
+        self._save_relations(relations, file_paths)
+
+        # 返回可访问的URL路径
+        return {
+            'entities_csv': f'/media/entity_extraction_results/{os.path.basename(file_paths["entities_csv"])}',
+            'relations_csv': f'/media/entity_extraction_results/{os.path.basename(file_paths["relations_csv"])}',
+            'entities_json': f'/media/entity_extraction_results/{os.path.basename(file_paths["entities_json"])}',
+            'relations_json': f'/media/entity_extraction_results/{os.path.basename(file_paths["relations_json"])}'
+        }
+
+    def _save_entities(self, entity_types, file_paths):
+        """保存实体数据"""
+        # CSV格式
+        with open(file_paths['entities_csv'], 'w', encoding='utf-8-sig', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(['DocID', 'ParaID', 'Entity', 'Type'])
+            for item in entity_types:
+                for entity in item['entities']:
+                    writer.writerow([item['doc_id'], item['para_id'], entity[0], entity[1]])
+
+        # JSON
+        with open(file_paths['entities_json'], 'w', encoding='utf-8') as f:
+            # 初始化分类容器
+            categorized_entities = {
+                "Regulator": [],
+                "Bank": [],
+                "Company": [],
+                "Product": [],
+                "Government": [],
+                "Rating Agency": [],
+                "Financial Infrastructure": [],
+                "Key People": [],
+            }
+
+            # 分类统计
+            for item in entity_types:
+                for entity in item['entities']:
+                    entity_name = entity[0]
+                    entity_type = entity[1]
+                    if entity_type == "Regulator":
+                        categorized_entities["Regulator"].append(entity_name)
+                    elif entity_type == "Bank":
+                        categorized_entities["Bank"].append(entity_name)
+                    elif entity_type == "Regulator":
+                        categorized_entities["Regulators"].append(entity_name)
+                    elif entity_type == "Concept":
+                        categorized_entities["Concept"].append(entity_name)
+                    elif entity_type == "Event":
+                        categorized_entities["Event"].append(entity_name)
+                    elif entity_type == "Product":
+                        categorized_entities["Product"].append(entity_name)
+                    elif entity_type == "Financial Infrastructure":
+                        categorized_entities["Financial Infrastructure"].append(entity_name)
+                    elif entity_type == "Key People":
+                        categorized_entities["Key People"].append(entity_name)
+                    elif entity_type == "Rating Agency":
+                        categorized_entities["Rating Agency"].append(entity_name)
+                    elif entity_type == "Government":
+                        categorized_entities["Government"].append(entity_name)
+                    elif entity_type == "Company":
+                        categorized_entities["Company"].append(entity_name)
+                    else:
+                        # 默认归类到Industry
+                        categorized_entities["Industry"].append(entity_name)
+
+            # 构建结果结构
+            result = {
+                "metadata": {
+                    "generated_at": datetime.now().isoformat(),
+                    "entity_counts": {k: len(v) for k, v in categorized_entities.items()}
+                },
+                "data": {
+                    **categorized_entities,  # 展开分类数据
+                    "raw_records": [  # 保留原始记录以便追溯
+                        {
+                            "doc_id": item['doc_id'],
+                            "para_id": item['para_id'],
+                            "entities": [
+                                {"name": e[0], "type": e[1]}
+                                for e in item['entities']
+                            ]
+                        }
+                        for item in entity_types
+                    ]
+                }
+            }
+
+            json.dump(result, f, ensure_ascii=False, indent=2)
+
+    def _save_relations(self, relations, file_paths):
+        """保存关系数据"""
+        # CSV格式
+        with open(file_paths['relations_csv'], 'w', encoding='utf-8-sig', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(['DocID', 'ParaID', 'Subject', 'Relation', 'Object'])
+            for item in relations:
+                for relation in item['relations']:
+                    writer.writerow([item['doc_id'], item['para_id'], relation[0], relation[1], relation[2]])
+
+        # JSON
+        with open(file_paths['relations_json'], 'w', encoding='utf-8') as f:
+            result = {
+                "metadata": {
+                    "generated_at": datetime.now().isoformat(),
+                    "total_relations": sum(len(item['relations']) for item in relations)
+                },
+                "data": [
+                    {
+                        "doc_id": item['doc_id'],
+                        "para_id": item['para_id'],
+                        "relations": [[relation[0], relation[1], relation[2]]for relation in item['relations']]
+                    }
+                    for item in relations
+                ]
+            }
+            json.dump(result, f, ensure_ascii=False, indent=2)
+
+
+    def query_from_models(self, message_content, model="DEEPSEEK", max_retries=3):
+        """Query the DeepSeek API"""
+        API_URL = 'https://api.deepseek.com/v1/chat/completions'
         headers = {
             "Authorization": f"Bearer {API_KEY}",
             "Content-Type": "application/json",
         }
 
         payload = {
-            "model": model_name,
+            "model": "deepseek-chat",
             "messages": [{"role": "user", "content": message_content}],
             "temperature": 0.7,
             "max_tokens": 1500
@@ -106,18 +261,12 @@ class EntityExtractionView(View):
             try:
                 response = requests.post(API_URL, headers=headers, json=payload, timeout=60)
                 response.raise_for_status()
-                result_json = response.json()
-                return result_json['choices'][0]['message']['content']
+                return response.json()['choices'][0]['message']['content']
             except requests.exceptions.RequestException as e:
                 print(f"Request failed {attempt + 1}/{max_retries}: {e}")
                 time.sleep(3)
 
-        print("Multiple requests failed, giving up")
-        return ""
-
-    def get_query_understand(self, query):
-        # TODO: Implement or connect to NLP service
-        return {"term": []}
+        raise Exception("API request failed after multiple retries")
 
     def get_entity_type(self, query):
         query_entity_tup = []
@@ -147,29 +296,30 @@ class EntityExtractionView(View):
         response = self.get_entity_type(query)
         entities_type = self.get_types(response)
 
-        prompt = '''
-- 角色: 金融行業數據標註專家
-- 目標: 提取文章中的金融實體和構建實體關係三元組，同時忽略數值類型的實體，並解釋思考過程
-- 限制條件: 
-  - 實體類型應限定為：Regulator, Bank, Company, Product, Government, Rating Agency, Financial Infrastructure, Key People
-  - 關係應有意義，避免無明確關係的實體對
-  - 避免實體未知的情況
-- 輸出格式:
-  - 實體以「{實體1:實體類型1}」格式輸出
-  - 關係三元組以「<實體1, 實體間關係, 實體2>」格式輸出
-- 範例:
-  實體：{Google:Companies}
-  實體：{Android:Product}
-  三元組：<Google, 開發, Android>
-  
-你要處理的新聞內容如下：
-%s
-  
-其中可能的實體類型的參考是：
-%s
-  
-你的輸出是.......'''
-        query = prompt % (query, entities_type)
+        prompt = """
+        Role: Financial Data Annotation Specialist
+        Objective: Extract financial entities from articles and construct entity-relationship triples, while ignoring numerical entities. Explain the reasoning process.
+
+        Constraints:
+        - Entity types must be limited to: Regulator, Bank, Company, Product, Government, Rating Agency, Financial Infrastructure, Key People
+        - Relationships must be meaningful - avoid pairing entities without clear relationships
+        - Avoid cases where entities are unknown
+
+        Output Format:
+        - Entities in format: 「{entity1:EntityType1}」
+        - Relationship triples in format: 「<entity1, relationship, entity2>」
+
+        Example:
+        Entity: {Google:Company}
+        Entity: {Android:Product}
+        Triple: <Google, develops, Android>
+
+        The news content you need to process:
+        %s
+
+        Your output is...
+        """
+        query = prompt % query #, entities_type)
         res = self.query_from_models(query, "DEEPSEEK")
 
         entity_pattern = r'{(.*?)[:] ?(.*?)}'
@@ -178,3 +328,6 @@ class EntityExtractionView(View):
         kvs2 = re.findall(triplet_pattern, res, re.DOTALL)
 
         return docid, paraid, kvs, kvs2
+
+# 其中可能的實體類型的參考是：
+#         %s
