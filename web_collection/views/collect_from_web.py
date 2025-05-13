@@ -6,8 +6,6 @@ from django.shortcuts import get_object_or_404
 from core.models import NewsArticle, WebPage
 from bs4 import BeautifulSoup
 import requests
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 import json
 from dateutil.parser import parse
 import re
@@ -16,23 +14,8 @@ import re
 class WebPageCollectorView(View):
     """Class-based view for collecting and processing web pages"""
 
-    BASE_URL = 'https://www.reuters.com/business/finance/insurance-broker-hub-international-secures-29-billion-valuation-16-billion-2025-05-12/'
     YAHOO_URL = 'https://finance.yahoo.com/news/rich-dad-poor-dad-author-185506248.html'
     URLS = []
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.driver = self._init_selenium_driver()
-
-    def _init_selenium_driver(self):
-        """Configure Selenium to mimic a real browser."""
-        options = Options()
-        options.add_argument("--headless=new")  # Run in background
-        options.add_argument("--disable-blink-features=AutomationControlled")
-        options.add_argument(
-            "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
-        driver = webdriver.Chrome(options=options)
-        return driver
 
     def get_URL(self):
         """
@@ -56,7 +39,7 @@ class WebPageCollectorView(View):
             # Step 2: Extract HTML and parse
             html = self.driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
-            page_data = self.extract_structured_data(soup)
+            page_data = self.extract_structured_data_for_yahoo(soup)
             print(page_data)
             # Step 3: Save to database
             web_page = self.save_to_database(page_data)
@@ -66,7 +49,7 @@ class WebPageCollectorView(View):
         except Exception as e:
             return HttpResponse(f"Error occurred: {str(e)}", status=500)
 
-    def extract_structured_data(self, soup):
+    def extract_structured_data_for_yahoo(self, soup):
         """Extract structured data from BeautifulSoup object"""
         # Extract title
         title = soup.title.string if soup.title else ""
@@ -89,7 +72,7 @@ class WebPageCollectorView(View):
             'content': content
         }
 
-    def extract_structured_data_for_R(self, soup):
+    def extract_structured_data_for_Reuter(self, soup):
         """Extract structured data from BeautifulSoup object"""
         # Extract title
         title = soup.title.string if soup.title else ""
@@ -114,24 +97,11 @@ class WebPageCollectorView(View):
             'content': content
         }
 
-    def extract_structured_data2(self, soup):
-        title = soup.title.string.strip()
-        paragraphs = soup.find_all('div', attrs={'data-testid': lambda x: x and x.startswith('paragraph-')})
-
-        # 提取并组合成正文
-        full_text = '\n'.join(p.get_text(strip=True) for p in paragraphs)
-        return {
-            'title': title,
-            'paragraphs': full_text,
-            'source_url': self.BASE_URL
-        }
-
-
     def save_to_database(self, page_data):
         """Save extracted data to database"""
         # Create or update WebPage
         web_page, created = WebPage.objects.update_or_create(
-            url=self.BASE_URL,
+            url=self.YAHOO_URL,
             defaults={
                 'title': page_data['title'],
                 'source': 'yahoo finance',
@@ -166,3 +136,23 @@ class WebPageCollectorView(View):
     #     soup = BeautifulSoup(html, 'html.parser')
     #     links = [a['href'] for a in soup.find_all('a', href=True)]
     #     return [link for link in links if re.search(r'(finance|stock|bank)', link)]
+
+
+    """
+        def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.driver = self._init_selenium_driver()
+
+    def _init_selenium_driver(self):
+
+        options = Options()
+        options.add_argument("--headless=new")  # Run in background
+        options.add_argument("--disable-blink-features=AutomationControlled")
+        options.add_argument(
+            "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+        driver = webdriver.Chrome(options=options)
+        return driver
+        
+         #BASE_URL = 'https://www.reuters.com/business/finance/insurance-broker-hub-international-secures-29-billion-valuation-16-billion-2025-05-12/'
+   
+"""

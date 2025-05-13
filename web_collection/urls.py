@@ -18,10 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path, include
 
-from web_collection.views.collect_from_local_csv import CSVDataImporterView
-from web_collection.views.collect_from_web import WebPageCollectorView
+from web_collection.views.collect_from_web import WebPageCollectorView, YahooFinanceCollectorView
 
 urlpatterns = [
-    path('collect/', WebPageCollectorView.as_view(), name='collect-webpages'),
-    path('import-csv/', CSVDataImporterView.as_view(), name='csv_importer'),
+    path('collect/', YahooFinanceCollectorView.as_view(), name='collect-webpages'),
 ]
