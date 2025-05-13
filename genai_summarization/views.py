@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.conf import settings
 from typing import List
 from core.models import NewsArticle
-import google.generativeai as genai
+from openai import OpenAI
+
+client = OpenAI(base_url="https://api.deepseek.com", api_key=settings.DEEPSEEK_API_KEY)
 
 def summarize_for_category(category, articles) -> str:
     """
@@ -47,22 +49,18 @@ def summarize_for_category(category, articles) -> str:
     - Key findings
     - Potential implications"""
 
-    client = genai.Client(api_key=settings.GEMINI_API_KEY)
-
     try:
-        response = client.models.generate_content(
-            model='gemini-2.5-pro-exp-03-25',
-            contents=[
-                types.Content(role='system', parts=types.Part.from_text(
-                    "You are a financial expert summarizing news for C-level executives.")),
-                types.Content(role='user', parts=types.Part.from_text(prompt)),
+        response = client.chat.completions.create(
+            model="deepseek-chat",
+            messages=[
+                {"role": "system", "content": "You are a financial expert summarizing news for C-level executives."},
+                {"role": "user", "content": prompt},
             ],
-            generation_config={
-                "temperature": 0.3,  # More factual and focused
-                "top_p": 0.9,
-                "max_output_tokens": 1000,
-            }
+            stream=False,
+            temperature=0.3,
+            top_p=0.9,
+            max_completion_tokens=1000,
         )
-        return response.text
+        return response.choices[0].message.content
     except Exception as e:
         return f"⚠️ Summary generation failed. Error: {str(e)}"
