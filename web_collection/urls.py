@@ -18,8 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path, include
 
-from web_collection.views.collect_from_web import WebPageCollectorView, YahooFinanceCollectorView
+from web_collection.views.collect_from_web import WebPageCollectorView
 
 urlpatterns = [
-    path('collect/', YahooFinanceCollectorView.as_view(), name='collect-webpages'),
+    path('collect/', WebPageCollectorView.as_view(), name='collect-webpages'),
 ]

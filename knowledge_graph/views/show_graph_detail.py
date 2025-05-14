@@ -1,3 +1,4 @@
+import glob
 import json
 import os
 import pickle
@@ -9,20 +10,21 @@ from django.shortcuts import render
 from EntityInsight import settings
 
 
-def find_relevant_nodes(request):
-    target_types = request.POST.getlist('entity_types', ['Bank'])
-    source = request.POST.get('keywords', '')
+def find_relevant_nodes(target_types, source):
     cutoff = 3
     num_paths = 5
 
     # Load graph data
-    timestamp = datetime.now().strftime("%Y%m%d")
-    file_path = os.path.join(settings.MEDIA_ROOT, 'graph', f'graph_{timestamp}.pkl')
+    graph_files = glob.glob(os.path.join(settings.MEDIA_ROOT, 'graph', 'graph_*.pkl'))
+    graph_files.sort(key=lambda x: os.path.basename(x).split('_')[1].split('.')[0], reverse=True)
+    file_path = graph_files[0]
     with open(file_path, "rb") as file:
         graph = pickle.load(file)
 
     # Load entity type data
-    file_path = os.path.join(settings.MEDIA_ROOT, 'entity_extraction', f'entities_{timestamp}.json')
+    entity_files = glob.glob(os.path.join(settings.MEDIA_ROOT, 'entity_extraction', 'entities_*.json'))
+    entity_files.sort(key=lambda x: os.path.basename(x).split('_')[1].split('.')[0], reverse=True)
+    file_path = entity_files[0]
     with open(file_path, "r", encoding="utf-8") as file:
         json_file = json.load(file)
     current_type_dict_word_list = json_file["data"]
@@ -35,16 +37,15 @@ def find_relevant_nodes(request):
         "paths": []
     }
     print(current_type_dict_word_list)
-
-    print(request)
     for target_type in target_types:
         paths_with_weights = []
         print(target_type)
         for node in current_type_dict_word_list[target_type]:
             # Find all simple paths from source(use input) to every target node in the target types(user input)
-            all_paths = nx.all_simple_paths(graph, source=source, target=node, cutoff=3)
+            all_paths = nx.all_simple_paths(graph, source=source, target=node, cutoff=5)
             for path in all_paths:
                 flag = True
+                print(flag)
                 weight_list = [(graph.get_edge_data(path[i], path[i + 1])['weight']) ** (1 / 3) for i in
                                range(len(path) - 1)]
 
@@ -56,9 +57,9 @@ def find_relevant_nodes(request):
                 average_weight = total_weight / (len(path) - 1)
 
                 # Check if all weights meet the threshold
-                for w in weight_list:
-                    if w < 0.05:
-                        flag = False
+                #for w in weight_list:
+                #    if w < 0.05:
+                #        flag = False
 
                 # If all weights are valid, add the path to the list
                 if flag:
@@ -68,6 +69,7 @@ def find_relevant_nodes(request):
                         "weights": weight_list,
                         "average_weight": average_weight
                     })
+                print(paths_with_weights)
 
         # Sort paths by their average weight in descending order
         paths_with_weights.sort(key=lambda x: x["average_weight"], reverse=True)
