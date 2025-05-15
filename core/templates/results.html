@@ -108,86 +108,81 @@
 <div class="container-output-page">
     <!-- 左上: 知识图谱 -->
     <div class="graph-section">
-        <h2 class="section-title">Knowledge Graph For Financial Entity Regulator</h2>
-        <div class="mermaid">
-            {{ graph_description|safe }}
-        </div>
+        <h2>Knowledge Graph For Financial Entity
+                {% if summary_category %}
+                    <span class="highlight-category">{{ entity_category }}</span>
+                {% endif %}</h2>
+            <div class="mermaid">
+                {{ graph_description|markdownify }}
+            </div>
     </div>
 
     <!-- 右上: AI摘要 -->
     <div class="summary-section">
-        <h2 class="section-title">AI Summary for Payments News</h2>
+        <h2>AI Summary for
+            {% if summary_category %}
+                <span class="highlight-category">{{ summary_category }}</span>
+            {% endif %}   News
+        </h2>
         <div class="summary-content collapsed" id="summaryContent">
-            <p>The payments and banking sector has seen notable regulatory developments in recent weeks, with heightened scrutiny on compliance and capital requirements. Two key events—a significant SEC fine against Bank of America and new banking capital rules—highlight evolving regulatory pressures and their implications for financial institutions.</p>
-            
-            <h4>Key Findings</h4>
-            <p>First, the SEC fined Bank of America $25 million for reporting violations, underscoring regulators' focus on transparency and accuracy in financial disclosures. Second, new capital requirements for banks were announced, likely aimed at strengthening financial stability but potentially increasing operational costs.</p>
-            
-            <p>These developments reflect a broader trend of tightening oversight, with major institutions like Bank of America and systematic banks affected by the changes.</p>
+            {% if llm_summary %}
+                {{ llm_summary|markdownify }}
+            {% else %}
+                <p>Select a category to generate an AI-powered summary of relevant news.</p>
+            {% endif %}
+            <div class="fade-overlay"></div>
         </div>
+
         <div class="toggle-btn" id="toggleSummary">Read More</div>
     </div>
 
     <!-- 左下: 路径分析 -->
     <div class="path-section">
-        <h2 class="section-title">Path Analysis</h2>
-        <div class="path-meta">
-            <p><strong>Source:</strong> hong kong</p>
-            <p><strong>Target Types:</strong> Regulator</p>
-            <p><strong>Cutoff:</strong> 3</p>
-            <p><strong>Number of Paths:</strong> 5</p>
-        </div>
-        
-        <!-- 这里应该是动态生成的路径列表 -->
-        <div class="path-item">
-            <h4>Path #1 (Avg Weight: 0.85)</h4>
-            <p><strong>Nodes:</strong> Node A → Node B → Node C</p>
-            <p><strong>Relations:</strong> Relation 1 → Relation 2</p>
-        </div>
+        <h2>Path Analysis</h2>
+            <div class="path-meta">
+                <p><strong>Source:</strong> {{ result.source }}</p>
+                <p><strong>Target Types:</strong> {{ result.target_types|join:", " }}</p>
+                <p><strong>Cutoff:</strong> {{ result.cutoff }}</p>
+                <p><strong>Number of Paths:</strong> {{ result.num_paths }}</p>
+            </div>
+
+            {% for path in result.paths %}
+                <div class="path">
+                    <h4>Path #{{ path.rank }} (Avg Weight: {{ path.average_weight|floatformat:2 }})</h4>
+                    <p><strong>Nodes:</strong>
+                        {% for node in path.nodes %}
+                            <span class="node">{{ node }}</span>{% if not forloop.last %} → {% endif %}
+                        {% endfor %}
+                    </p>
+                    <p><strong>Relations:</strong>
+                        {% for rel in path.relations %}
+                            <span class="relation">{{ rel }}</span>{% if not forloop.last %} → {% endif %}
+                        {% endfor %}
+                    </p>
+                    <p><strong>Weights:</strong> {{ path.weights|join:", " }}</p>
+                </div>
+            {% endfor %}
     </div>
 
     <!-- 右下: 相关新闻 -->
     <div class="news-section">
-        <h2 class="section-title">Related News</h2>
+        <h2>Related News</h2>
         <div class="news-content collapsed" id="newsContent">
-            <div class="news-item">
-                <div class="news-title">SEC fines Bank of America $25M for reporting violations</div>
-                <div class="news-source">Financial Times</div>
-            </div>
-            <div class="news-item">
-                <div class="news-title">New banking capital requirements announced</div>
-                <div class="news-source">Reuters</div>
-            </div>
+            {% for category, news_items in news_by_category.items %}
+                <div class="category-header">{{ category }}</div>
+                {% for item in news_items %}
+                <div class="news-item">
+                    <div class="news-title">{{ item.title }}</div>
+                    <div class="news-meta">
+                        <span>{{ item.source }}</span>
+                        <span>{{ item.date|date:"Y-m-d" }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+
+            {% endfor %}
         </div>
         <div class="toggle-btn" id="toggleNews">Read More</div>
     </div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // 摘要展开/折叠
-    const summaryToggle = document.getElementById('toggleSummary');
-    const summaryContent = document.getElementById('summaryContent');
-    
-    if (summaryToggle && summaryContent) {
-        summaryToggle.addEventListener('click', function() {
-            summaryContent.classList.toggle('collapsed');
-            summaryContent.classList.toggle('expanded');
-            this.textContent = summaryContent.classList.contains('collapsed') ? 'Read More' : 'Read Less';
-        });
-    }
-    
-    // 新闻展开/折叠
-    const newsToggle = document.getElementById('toggleNews');
-    const newsContent = document.getElementById('newsContent');
-    
-    if (newsToggle && newsContent) {
-        newsToggle.addEventListener('click', function() {
-            newsContent.classList.toggle('collapsed');
-            newsContent.classList.toggle('expanded');
-            this.textContent = newsContent.classList.contains('collapsed') ? 'Read More' : 'Read Less';
-        });
-    }
-});
-</script>
 {% endblock %}

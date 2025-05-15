@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.conf import settings
+
 from typing import List
+
+from EntityInsight import settings
 from core.models import NewsArticle
 from openai import OpenAI
 

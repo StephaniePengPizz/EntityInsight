@@ -134,3 +134,29 @@ document.addEventListener('DOMContentLoaded', function () {
         rel.style.fontStyle = 'italic';
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 摘要展开/折叠
+    const summaryToggle = document.getElementById('toggleSummary');
+    const summaryContent = document.getElementById('summaryContent');
+
+    if (summaryToggle && summaryContent) {
+        summaryToggle.addEventListener('click', function() {
+            summaryContent.classList.toggle('collapsed');
+            summaryContent.classList.toggle('expanded');
+            this.textContent = summaryContent.classList.contains('collapsed') ? 'Read More' : 'Read Less';
+        });
+    }
+
+    // 新闻展开/折叠
+    const newsToggle = document.getElementById('toggleNews');
+    const newsContent = document.getElementById('newsContent');
+
+    if (newsToggle && newsContent) {
+        newsToggle.addEventListener('click', function() {
+            newsContent.classList.toggle('collapsed');
+            newsContent.classList.toggle('expanded');
+            this.textContent = newsContent.classList.contains('collapsed') ? 'Read More' : 'Read Less';
+        });
+    }
+});
