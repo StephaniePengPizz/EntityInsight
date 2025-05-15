@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entity Insight</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .username {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .system-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .example-grid {
+            display: grid;
+            grid-template-columns: 120px 30px 1fr;
+            background-color: #e8f4fc;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+        .example-row {
+            display: contents; /* Makes children participate in grid */
+        }
+        .example-category {
+            grid-column: 1;
+            font-weight: 600;
+            color: #2c3e50;
+            padding: 6px 0;
+            align-self: center;
+        }
+        .example-arrow {
+            grid-column: 2;
+            color: #95a5a6;
+            text-align: center;
+            padding: 6px 0;
+            align-self: center;
+        }
+        .example-keywords {
+            grid-column: 3;
+            color: #2980b9;
+            padding: 6px 0 6px 10px;
+            align-self: center;
+            word-break: break-word;
+        }
+        .input-container {
+            margin-top: 15px;
+        }
+        .input-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        /* 新增下拉菜单样式 */
+        .category-dropdown {
+            position: relative;
+            display: inline-block;
+            width: 50%;
+            margin-bottom: 20px;
+        }
+        .category-select {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+        }
+        .category-options {
+            display: none;
+            position: absolute;
+            background-color: white;
+            width: 100%;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            z-index: 1;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .category-options.show {
+            display: block;
+        }
+        .category-option {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .category-option:hover {
+            background-color: #e8f4fc;
+        }
+        .category-option input {
+            margin-right: 10px;
+        }
+        .selected-categories {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        .toggle-all {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="username">Username</div>
+        </div>
+        
+        <div class="system-title">Hi, I am Entity Insight</div>
+        
+        <div class="example-header">Example Queries</div>
+        <div class="example-grid">
+            <!-- Row 1 -->
+            <div class="example-row">
+                <div class="example-category">Company</div>
+                <div class="example-arrow">→</div>
+                <div class="example-keywords">BOA, Citibank, JP Morgan</div>
+            </div>
+            
+            <!-- Row 2 -->
+            <div class="example-row">
+                <div class="example-category">Regulatory</div>
+                <div class="example-arrow">→</div>
+                <div class="example-keywords">fined, penalty, SEC investigation</div>
+            </div>
+            
+            <!-- Row 3 -->
+            <div class="example-row">
+                <div class="example-category">Finance</div>
+                <div class="example-arrow">→</div>
+                <div class="example-keywords">stock market, Q3 earnings, dividends</div>
+            </div>
+            
+            <!-- Row 4 -->
+            <div class="example-row">
+                <div class="example-category">...</div>
+                <div class="example-arrow">→</div>
+                <div class="example-keywords">......</div>
+            </div>
+        </div>
+        <!-- 新增类别选择下拉菜单 -->
+        <div class="input-container">
+            <label for="categories" class="input-label">Select News Categories:</label>
+            <div class="category-dropdown">
+                <div class="category-select" onclick="toggleDropdown()">
+                    All by default
+                </div>
+                <div class="category-options" id="categoryOptions">
+                    <div class="category-option toggle-all" onclick="toggleAllCategories()">
+                        <input type="checkbox" id="toggleAll" checked>
+                        <label for="toggleAll">Select All</label>
+                    </div>
+                    <div class="category-option">
+                        <input type="checkbox" id="finance" name="categories" value="Finance" checked>
+                        <label for="finance">Finance</label>
+                    </div>
+                    <div class="category-option">
+                        <input type="checkbox" id="company" name="categories" value="Company" checked>
+                        <label for="company">Company</label>
+                    </div>
+                    <div class="category-option">
+                        <input type="checkbox" id="macro" name="categories" value="Macro" checked>
+                        <label for="macro">Macro</label>
+                    </div>
+                    <div class="category-option">
+                        <input type="checkbox" id="politics" name="categories" value="Politics" checked>
+                        <label for="politics">Politics</label>
+                    </div>
+                    <div class="category-option">
+                        <input type="checkbox" id="technology" name="categories" value="Technology" checked>
+                        <label for="technology">Technology</label>
+                    </div>
+                    <div class="category-option">
+                        <input type="checkbox" id="realestate" name="categories" value="Real Estate" checked>
+                        <label for="realestate">Real Estate</label>
+                    </div>
+                    <div class="category-option">
+                        <input type="checkbox" id="automotive" name="categories" value="Automotive" checked>
+                        <label for="automotive">Automotive</label>
+                    </div>
+                    <div class="category-option">
+                        <input type="checkbox" id="consumer" name="categories" value="Consumer" checked>
+                        <label for="consumer">Consumer</label>
+                    </div>
+                    <div class="category-option">
+                        <input type="checkbox" id="energy" name="categories" value="Energy" checked>
+                        <label for="energy">Energy</label>
+                    </div>
+                    <div class="category-option">
+                        <input type="checkbox" id="health" name="categories" value="Health" checked>
+                        <label for="health">Health</label>
+                    </div>
+                    <div class="category-option">
+                        <input type="checkbox" id="environment" name="categories" value="Environment" checked>
+                        <label for="environment">Environment</label>
+                    </div>
+                    <div class="category-option">
+                        <input type="checkbox" id="livelihoods" name="categories" value="Livelihoods" checked>
+                        <label for="livelihoods">Livelihoods</label>
+                    </div>
+                </div>
+                <div class="selected-categories" id="selectedCategories">
+                    Currently selected: All categories
+                </div>
+            </div>
+        </div>
+        
+        <div class="input-container">
+            <label for="keywords" class="input-label">Please enter key words:</label>
+            <input type="text" id="keywords" name="keywords" class="input-field" maxlength="50" placeholder="Type your query here...">
+        </div>
+    </div>
+
+    <script>
+        // 切换下拉菜单显示/隐藏
+        function toggleDropdown() {
+            document.getElementById('categoryOptions').classList.toggle('show');
+        }
+        
+        // 关闭下拉菜单当点击外部
+        window.onclick = function(event) {
+            if (!event.target.matches('.category-select') && !event.target.matches('.category-option *')) {
+                var dropdowns = document.getElementsByClassName("category-options");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+        
+        // 全选/取消全选
+        function toggleAllCategories() {
+            const checkboxes = document.querySelectorAll('.category-options input[type="checkbox"]:not(#toggleAll)');
+            const toggleAll = document.getElementById('toggleAll');
+            const isChecked = toggleAll.checked;
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = isChecked;
+            });
+            
+            updateSelectedCategories();
+        }
+        
+        // 更新显示的已选类别
+        function updateSelectedCategories() {
+            const checkboxes = document.querySelectorAll('.category-options input[type="checkbox"]:not(#toggleAll)');
+            const selected = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+            
+            const toggleAll = document.getElementById('toggleAll');
+            toggleAll.checked = selected.length === checkboxes.length;
+            
+            const selectedText = selected.length === checkboxes.length ? 
+                'All categories' : 
+                selected.join(', ');
+            
+            document.getElementById('selectedCategories').textContent = 
+                `Currently selected: ${selectedText}`;
+        }
+        
+        // 初始化事件监听
+        document.querySelectorAll('.category-options input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.id !== 'toggleAll') {
+                    updateSelectedCategories();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
