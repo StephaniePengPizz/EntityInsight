@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load markdownify %}
 
 {% block extra_head %}
 <script type="module">
@@ -66,7 +67,7 @@
             </h2>
             <div class="summary-content">
                 {% if llm_summary %}
-                    {{ llm_summary|safe }}
+                    {{ llm_summary|markdownify }}
                 {% else %}
                     <p>Select a category to generate an AI-powered summary of relevant news.</p>
                 {% endif %}

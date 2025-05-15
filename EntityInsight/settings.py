@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'web_collection',
     'knowledge_graph',
     'genai_summarization',
+    'markdownify.apps.MarkdownifyConfig',
 ]
 
 MIDDLEWARE = [

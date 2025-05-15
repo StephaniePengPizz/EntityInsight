@@ -5,3 +5,5 @@ python-dateutil
 networkx
 markdownify
 openai
+dotenv
+django-markdownify
