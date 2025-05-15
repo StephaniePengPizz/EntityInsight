@@ -24,7 +24,7 @@ def summarize_for_category(category, articles) -> str:
     Returns
     -------
     str
-        The generated summary from Gemini
+        The generated summary from Deepseek
     """
     # Prepare the news content for the prompt
     articles_text = "\n\n".join(
