@@ -20,32 +20,11 @@ def results(request):
         keywords = request.POST.get('keywords', '')
         selected_categories = request.POST.getlist('categories', [])
         selected_entity_categories = request.POST.getlist('entity_types', [])
-        # sample data
-        news_by_category = {
-            'Payments': [
-                {'title': 'SEC fines Bank of America $25M for reporting violations',
-                 'source': 'Financial Times', 'date': '2023-11-15'},
-                {'title': 'New banking capital requirements announced',
-                 'source': 'Reuters', 'date': '2023-11-12'},
-            ],
-            'Markets': [
-                {'title': 'BOA Q3 earnings beat estimates despite penalty',
-                 'source': 'Bloomberg', 'date': '2023-11-08'},
-            ],
-            'Retail': [
-                {'title': 'Bank stocks dip after new regulations announcement',
-                 'source': 'Wall Street Journal', 'date': '2023-11-10'},
-            ],
-            'Wholesale': [
-                {'title': 'Bank stocks dip after new regulations announcement',
-                 'source': 'Wall Street Journal', 'date': '2023-11-10'},
-            ]
-        }
         summary_category = selected_categories[0] if selected_categories else None
         entity_type = selected_entity_categories[0] if selected_entity_categories else None
 
         # 生成特定类别的AI总结
-        llm_summary = summarize_for_category(summary_category, news_by_category.get(summary_category, 'Wholesale'))
+        llm_summary = summarize_for_category(summary_category)
 
         result = find_relevant_nodes([entity_type], keywords)
         graph_description = generate_mermaid_graph(result)
@@ -53,7 +32,6 @@ def results(request):
             'keywords': keywords,
             'summary_category': selected_categories[0],
             'entity_category': selected_entity_categories[0],
-            'news_by_category': news_by_category,
             'result': result,
             'graph_description': graph_description,
             'llm_summary': llm_summary,
