@@ -30,6 +30,7 @@ def summarize_for_category(category, keywords, articles) -> str:
     str
         The generated summary from Deepseek
     """
+    articles = NewsArticle.objects.filter(category=category)
     # Prepare the news content for the prompt
     articles_text = "\n\n".join(
         f"Article {i + 1}: {article['title']}\n"
@@ -40,18 +41,20 @@ def summarize_for_category(category, keywords, articles) -> str:
     )
 
     prompt = f"""You are a senior financial analyst creating an executive summary about {category}. Here are {len(articles)} recent articles in this category:
-    {articles_text}
-    Please provide a 3-paragraph professional summary about keywords {keywords} that:
-    1. Identifies the 2-3 most important trends or developments
-    2. Highlights any significant events or regulatory changes
-    3. Notes the key players or institutions involved
-    4. Provides context about potential market impacts
-    5. Uses concise, professional language suitable for executives
+    
+{articles_text}
 
-    Structure your response with:
-    - Brief introduction
-    - Key findings
-    - Potential implications"""
+Please provide a 3-paragraph professional summary about keywords {keywords} that:
+1. Identifies the 2-3 most important trends or developments
+2. Highlights any significant events or regulatory changes
+3. Notes the key players or institutions involved
+4. Provides context about potential market impacts
+5. Uses concise, professional language suitable for executives
+
+Structure your response with:
+- Brief introduction
+- Key findings
+- Potential implications"""
 
     try:
         response = client.chat.completions.create(
