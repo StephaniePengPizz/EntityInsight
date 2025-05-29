@@ -9,27 +9,58 @@ import requests
 import json
 from dateutil.parser import parse
 import re
+from selenium import webdriver
 
 
 class WebPageCollectorView(View):
     """Class-based view for collecting and processing web pages"""
 
-    YAHOO_URL = 'https://finance.yahoo.com/news/rich-dad-poor-dad-author-185506248.html'
+    YAHOO_URL = 'https://finance.yahoo.com/news'
     URLS = []
+    driver = webdriver.Chrome()
 
-    def get_URL(self):
+    def get(self, request):
+        """Handle GET requests to collect and process web pages"""
+        print(request.path)
+        if request.path.find("rootpage") != -1:
+            return self.get_URL(request)
+        elif request.path.find("collect") != -1:
+            return self.getpage(request)
+        return HttpResponse(status=404)
+
+    def get_URL(self, request):
         """
         From: Base URL
         To: sub URLs of this base URL, by updating self.URLS
         """
-        pass
+        try:
+            # Step 1: Fetch and parse the main page
+
+            self.driver.get(self.YAHOO_URL)
+            time.sleep(3)  # Let dynamic content load
+            # return HttpResponse(f"Successfully collected data: Root (ID: RootID), content")
+
+            # Step 2: Extract HTML and parse
+            html = self.driver.page_source
+            #return HttpResponse(html, content_type="text/plain", charset="utf-8")
+            response = HttpResponse(html, content_type="text/plain", charset="utf-8")
+            return response
+
+            # return HttpResponse(f"Successfully collected data: Root (ID: RootID), content{html}")
+
+
+
+
+
+        except Exception as e:
+            return HttpResponse(f"Error occurred: {str(e)}", status=500)
 
     def collect_pages(self):
         for url in self.URLS:
-            self.get(url, '')
+            self.getpage(url, '')
 
-    def get(self, request):
-        """Handle GET requests to collect and process web pages"""
+    def getpage(self, request):
+        """COLLECT ONE SINGLE PAGE"""
         try:
             # Step 1: Fetch and parse the main page
 
@@ -136,7 +167,6 @@ class WebPageCollectorView(View):
     #     soup = BeautifulSoup(html, 'html.parser')
     #     links = [a['href'] for a in soup.find_all('a', href=True)]
     #     return [link for link in links if re.search(r'(finance|stock|bank)', link)]
-
 
     """
         def __init__(self, **kwargs):
