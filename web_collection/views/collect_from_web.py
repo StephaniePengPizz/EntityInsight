@@ -21,7 +21,7 @@ class WebPageCollectorView(View):
 
     def get(self, request):
         """Handle GET requests to collect and process web pages"""
-        #print(request.path)
+        # print(request.path)
         if request.path.find("rootpage") != -1:
             return self.get_URL(request)
         elif request.path.find("collect") != -1:
@@ -36,23 +36,26 @@ class WebPageCollectorView(View):
         try:
             # Step 1: Fetch and parse the main page
 
-            # self.driver.get(self.YAHOO_URL)
-            # time.sleep(3)  # Let dynamic content load
-            # # return HttpResponse(f"Successfully collected data: Root (ID: RootID), content")
-            #
-            # # Step 2: Extract HTML and parse
-            # html = self.driver.page_source
-            # #return HttpResponse(html, content_type="text/plain", charset="utf-8")
-            # response = HttpResponse(html, content_type="text/plain", charset="utf-8")
+            self.driver.get(self.YAHOO_URL)
+            time.sleep(3)  # Let dynamic content load
+            # return HttpResponse(f"Successfully collected data: Root (ID: RootID), content")
+
+            # Step 2: Extract HTML and parse
+            html = self.driver.page_source
+            # return HttpResponse(html, content_type="text/plain", charset="utf-8")
+            response = HttpResponse(html, content_type="text/plain", charset="utf-8")
             # return response
-            #html_content = ""
-            with open('root.html', 'r', encoding='utf-8') as file:
-                html_content = file.read()
+            # Step 3: Extract sub links from html content
+            html_content = response.content
+            # with open('root.html', 'r', encoding='utf-8') as file:
+            #     html_content = file.read()
 
             soup = BeautifulSoup(html_content, "html.parser")
-            links = [a['href'] for a in soup.find_all('a', href=True) if a['href'].startswith(self.YAHOO_URL) and a['href'] != self.YAHOO_URL]
+            links = [a['href'] for a in soup.find_all('a', href=True) if
+                     a['href'].startswith(self.YAHOO_URL) and a['href'] != self.YAHOO_URL]
+            self.URLS = links
             links = list(set(links))
-            return links
+            return HttpResponse(str(links))
 
 
 
@@ -78,7 +81,7 @@ class WebPageCollectorView(View):
             html = self.driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
             page_data = self.extract_structured_data_for_yahoo(soup)
-            #print(page_data)
+            # print(page_data)
             # Step 3: Save to database
             web_page = self.save_to_database(page_data)
 
@@ -194,12 +197,11 @@ class WebPageCollectorView(View):
    
 """
 
-
-def main():
-    obj = WebPageCollectorView()  # 创建A类实例
-
-    print(obj.get_URL())  # 调用b方法
-
-
-if __name__ == "__main__":
-    main()
+# def main():
+#     obj = WebPageCollectorView()  # 创建A类实例
+#
+#     print(obj.get_URL())  # 调用b方法
+#
+#
+# if __name__ == "__main__":
+#     main()
