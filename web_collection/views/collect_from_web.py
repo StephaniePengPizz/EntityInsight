@@ -3,7 +3,7 @@ import time
 from django.views import View
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
-from core.models import NewsArticle, WebPage
+# from core.models import NewsArticle, WebPage
 from bs4 import BeautifulSoup
 import requests
 import json
@@ -15,20 +15,20 @@ from selenium import webdriver
 class WebPageCollectorView(View):
     """Class-based view for collecting and processing web pages"""
 
-    YAHOO_URL = 'https://finance.yahoo.com/news'
+    YAHOO_URL = 'https://finance.yahoo.com/news/'
     URLS = []
     driver = webdriver.Chrome()
 
     def get(self, request):
         """Handle GET requests to collect and process web pages"""
-        print(request.path)
+        #print(request.path)
         if request.path.find("rootpage") != -1:
             return self.get_URL(request)
         elif request.path.find("collect") != -1:
             return self.getpage(request)
         return HttpResponse(status=404)
 
-    def get_URL(self, request):
+    def get_URL(self, request=None):
         """
         From: Base URL
         To: sub URLs of this base URL, by updating self.URLS
@@ -36,17 +36,24 @@ class WebPageCollectorView(View):
         try:
             # Step 1: Fetch and parse the main page
 
-            self.driver.get(self.YAHOO_URL)
-            time.sleep(3)  # Let dynamic content load
-            # return HttpResponse(f"Successfully collected data: Root (ID: RootID), content")
+            # self.driver.get(self.YAHOO_URL)
+            # time.sleep(3)  # Let dynamic content load
+            # # return HttpResponse(f"Successfully collected data: Root (ID: RootID), content")
+            #
+            # # Step 2: Extract HTML and parse
+            # html = self.driver.page_source
+            # #return HttpResponse(html, content_type="text/plain", charset="utf-8")
+            # response = HttpResponse(html, content_type="text/plain", charset="utf-8")
+            # return response
+            #html_content = ""
+            with open('root.html', 'r', encoding='utf-8') as file:
+                html_content = file.read()
 
-            # Step 2: Extract HTML and parse
-            html = self.driver.page_source
-            #return HttpResponse(html, content_type="text/plain", charset="utf-8")
-            response = HttpResponse(html, content_type="text/plain", charset="utf-8")
-            return response
+            soup = BeautifulSoup(html_content, "html.parser")
+            links = [a['href'] for a in soup.find_all('a', href=True) if a['href'].startswith(self.YAHOO_URL) and a['href'] != self.YAHOO_URL]
+            links = list(set(links))
+            return links
 
-            # return HttpResponse(f"Successfully collected data: Root (ID: RootID), content{html}")
 
 
 
@@ -71,7 +78,7 @@ class WebPageCollectorView(View):
             html = self.driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
             page_data = self.extract_structured_data_for_yahoo(soup)
-            print(page_data)
+            #print(page_data)
             # Step 3: Save to database
             web_page = self.save_to_database(page_data)
 
@@ -186,3 +193,13 @@ class WebPageCollectorView(View):
          #BASE_URL = 'https://www.reuters.com/business/finance/insurance-broker-hub-international-secures-29-billion-valuation-16-billion-2025-05-12/'
    
 """
+
+
+def main():
+    obj = WebPageCollectorView()  # 创建A类实例
+
+    print(obj.get_URL())  # 调用b方法
+
+
+if __name__ == "__main__":
+    main()
