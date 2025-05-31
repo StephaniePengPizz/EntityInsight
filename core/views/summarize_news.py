@@ -30,7 +30,6 @@ def summarize_for_category(category, keywords, articles) -> str:
     str
         The generated summary from Deepseek
     """
-    articles = NewsArticle.objects.filter(category=category)
     # Prepare the news content for the prompt
     articles_text = "\n\n".join(
         f"Article {i + 1}: {article['title']}\n"
@@ -41,7 +40,7 @@ def summarize_for_category(category, keywords, articles) -> str:
     )
 
     prompt = f"""You are a senior financial analyst creating an executive summary about {category}. Here are {len(articles)} recent articles in this category:
-    
+
 {articles_text}
 
 Please provide a 3-paragraph professional summary about keywords {keywords} that:

@@ -24,7 +24,7 @@ def results(request):
         entity_type = selected_entity_categories[0] if selected_entity_categories else None
 
         # 生成特定类别的AI总结
-        llm_summary = summarize_for_category(summary_category)
+        llm_summary = summarize_for_category(summary_category, keywords)
 
         result = find_relevant_nodes([entity_type], keywords)
         graph_description = generate_mermaid_graph(result)
