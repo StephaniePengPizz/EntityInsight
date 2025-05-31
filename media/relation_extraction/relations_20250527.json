@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "generated_at": "2025-05-27T14:54:56.907036",
+    "total_relations": 14
+  },
+  "data": [
+    {
+      "doc_id": "2_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "美國",
+          "imposes tariffs",
+          "香港"
+        ],
+        [
+          "陳茂波",
+          "advocates for",
+          "香港"
+        ],
+        [
+          "DHL",
+          "criticizes",
+          "美國"
+        ],
+        [
+          "香港中小型企業聯合會",
+          "represents",
+          "香港"
+        ]
+      ]
+    },
+    {
+      "doc_id": "4_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Robert Kiyosaki",
+          "authored",
+          "Rich Dad Poor Dad"
+        ],
+        [
+          "Robert Kiyosaki",
+          "recommends",
+          "silver"
+        ],
+        [
+          "Robert Kiyosaki",
+          "owns",
+          "Bitcoin"
+        ],
+        [
+          "Robert Kiyosaki",
+          "mentions",
+          "gold"
+        ],
+        [
+          "Fred Krueger",
+          "compares",
+          "Solana"
+        ],
+        [
+          "Kraken",
+          "provides price data",
+          "Bitcoin"
+        ]
+      ]
+    },
+    {
+      "doc_id": "1_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Korea National Oil Corp",
+          "issues bonds",
+          "Bloomberg"
+        ],
+        [
+          "Petroliam Nasional Bhd",
+          "hires banks",
+          "Mizuho Securities Asia"
+        ],
+        [
+          "Donald Trump",
+          "imposes tariffs",
+          "Asia Pacific issuers"
+        ],
+        [
+          "Barclays",
+          "advises on financing",
+          "Asia Pacific borrowers"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from django.shortcuts import render, redirect
 
 from core.constants import categories, entity_types, time_ranges
@@ -22,45 +24,92 @@ def results(request):
         selected_categories = request.POST.getlist('categories', [])
         selected_entity_categories = request.POST.getlist('entity_types', [])
         selected_time_range = request.POST.getlist('time_ranges', [])
-        # sample data
-        news_by_category = {
-            'Payments': [
-                {'title': 'SEC fines Bank of America $25M for reporting violations',
-                 'source': 'Financial Times', 'date': '2023-11-15'},
-                {'title': 'New banking capital requirements announced',
-                 'source': 'Reuters', 'date': '2023-11-12'},
-            ],
-            'Markets': [
-                {'title': 'BOA Q3 earnings beat estimates despite penalty',
-                 'source': 'Bloomberg', 'date': '2023-11-08'},
-            ],
-            'Retail': [
-                {'title': 'Bank stocks dip after new regulations announcement',
-                 'source': 'Wall Street Journal', 'date': '2023-11-10'},
-            ],
-            'Wholesale': [
-                {'title': 'Bank stocks dip after new regulations announcement',
-                 'source': 'Wall Street Journal', 'date': '2023-11-10'},
-            ]
-        }
-        summary_category = selected_categories[0] if selected_categories else None
-        entity_type = selected_entity_categories[0] if selected_entity_categories else None
-        print(summary_category)
-        # 生成特定类别的AI总结
-        llm_summary = summarize_for_category(summary_category, news_by_category.get(summary_category, 'Wholesale'))
 
+        # Get real news data from database
+        news_by_category = {}
+
+        # Filter by selected categories if any
+        if selected_categories:
+            articles = NewsArticle.objects.filter(category__in=selected_categories)
+        else:
+            articles = NewsArticle.objects.all()
+
+        # Apply time range filter if selected
+        if selected_time_range:
+            time_ranges = {
+                'last_24_hours': datetime.now() - timedelta(days=1),
+                'last_week': datetime.now() - timedelta(weeks=1),
+                'last_month': datetime.now() - timedelta(days=30),
+            }
+
+            for time_range in selected_time_range:
+                if time_range in time_ranges:
+                    articles = articles.filter(
+                        web_page__publication_time__gte=time_ranges[time_range]
+                    )
+
+        # Organize articles by category
+        for article in articles.select_related('web_page'):
+            if article.category not in news_by_category:
+                news_by_category[article.category] = []
+
+            news_by_category[article.category].append({
+                'title': article.web_page.title,
+                'source': article.web_page.source,
+                'date': article.web_page.publication_time.strftime('%Y-%m-%d'),
+                'content': article.processed_content,
+                'url': article.web_page.url,
+            })
+
+        # Generate summary for the first selected category
+        summary_category = selected_categories if selected_categories else None
+        print(summary_category)
+        entity_type = selected_entity_categories[0] if selected_entity_categories else None
         result = find_relevant_nodes([entity_type], keywords)
         graph_description = generate_mermaid_graph(result)
+
+        # Generate AI summary (you'll need to implement this function)
+        llm_summaries = {}
+
+        print(selected_categories)
+        if selected_categories:
+            # Summarize each selected category
+            for category in selected_categories:
+                category_news = news_by_category.get(category, [])
+                if category_news:  # Only summarize if there are articles
+                    llm_summaries[category] = summarize_for_category(
+                        category,
+                        category_news
+                    )
+        else:
+            # If no categories selected, summarize all available categories
+            for category, news_items in news_by_category.items():
+                if news_items:  # Only summarize if there are articles
+                    llm_summaries[category] = summarize_for_category(
+                        category,
+                        news_items
+                    )
+
+        # Generate a combined summary if needed
+        combined_summary = None
+        if llm_summaries:
+            if len(llm_summaries) == 1:
+                combined_summary = next(iter(llm_summaries.values()))
+            else:
+                # Combine multiple summaries into one (implement this function)
+                combined_summary = combine_summaries(llm_summaries)
+
+
         context = {
             'keywords': keywords,
-            'summary_category': selected_categories[0],
-            'entity_category': selected_entity_categories[0],
+            'selected_categories': selected_categories,
+            'entity_category': selected_entity_categories[0] if selected_entity_categories else None,
             'news_by_category': news_by_category,
+            'llm_summaries': llm_summaries,  # Individual category summaries
+            'combined_summary': combined_summary,  # Combined summary for display
             'result': result,
             'graph_description': graph_description,
-            'llm_summary': llm_summary,
         }
-
 
         return render(request, 'results.html', context)
     else:

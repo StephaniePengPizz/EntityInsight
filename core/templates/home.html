@@ -70,7 +70,7 @@
                         </div>
                         {% for category in categories %}
                         <div class="category-option">
-                            <input type="checkbox" id="{{ category.slug }}" name="categories" value="{{ category.name }}" checked>
+                            <input type="checkbox" id="{{ category.slug }}" name="categories" value="{{ category.slug }}" checked>
                             <label for="{{ category.slug }}">{{ category.name }}</label>
                         </div>
                         {% endfor %}
@@ -136,23 +136,7 @@
         
         <input type="hidden" id="selectedNewsCategories" name="selected_news_categories" value="">
         <input type="hidden" id="selectedEntityCategories" name="selected_entity_categories" value="">
-        <button type="submit" class="submit-button" onclick="collectSelections()">Search</button>
-        <script>
-        // 提交前收集所有选中的类别
-        function collectSelections() {
-            // 新闻类别
-            const newsCats = Array.from(
-                document.querySelectorAll('.news-category-options input[type="checkbox"]:checked:not(#toggleAll)')
-            ).map(el => el.value);
-            document.getElementById('selectedNewsCategories').value = newsCats.join(',');
-            
-            // 实体类别
-            const entityCats = Array.from(
-                document.querySelectorAll('.entity-category-options input[type="checkbox"]:checked:not(#toggleAllEntity)')
-            ).map(el => el.value);
-            document.getElementById('selectedEntityCategories').value = entityCats.join(',');
-        }
-        </script>
+        <button type="submit" class="submit-button">Search</button>
     </form>
 </div>
 {% endblock %}

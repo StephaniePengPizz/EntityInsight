@@ -1,106 +1,139 @@
 import time
+import json
+import re
+from datetime import datetime
 
 from django.views import View
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import get_object_or_404
-# from core.models import NewsArticle, WebPage
 from bs4 import BeautifulSoup
-import requests
-import json
 from dateutil.parser import parse
-import re
 from selenium import webdriver
+from selenium.common.exceptions import WebDriverException
+
+from core.models import NewsArticle, WebPage
 
 
 class WebPageCollectorView(View):
-    """Class-based view for collecting and processing web pages"""
+    """Class-based view for collecting and processing web pages from financial news sources"""
 
-    YAHOO_URL = 'https://finance.yahoo.com/news/'
-    URLS = []
-    driver = webdriver.Chrome()
+    YAHOO_FINANCE_URL = 'https://finance.yahoo.com/news/'
+    REUTERS_URL = 'https://www.reuters.com/'
+    MAX_WAIT_TIME = 5  # seconds for Selenium to wait for page load
+    driver = None
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.initialize_driver()
+
+    def initialize_driver(self):
+        """Initialize the Selenium WebDriver"""
+        if not self.driver:
+            try:
+                self.driver = webdriver.Chrome()
+                self.driver.implicitly_wait(self.MAX_WAIT_TIME)
+            except WebDriverException as e:
+                raise RuntimeError(f"Failed to initialize WebDriver: {str(e)}")
 
     def get(self, request):
         """Handle GET requests to collect and process web pages"""
-        # print(request.path)
-        if request.path.find("rootpage") != -1:
-            return self.get_URL(request)
-        elif request.path.find("collect") != -1:
-            return self.getpage(request)
-        return HttpResponse(status=404)
+        if "rootpage" in request.path:
+            return self.collect_root_page()
+        elif "collect" in request.path:
+            return self.collect_news_pages()
+        return HttpResponseNotFound("Endpoint not found")
 
-    def get_URL(self, request=None):
-        """
-        From: Base URL
-        To: sub URLs of this base URL, by updating self.URLS
-        """
+    def collect_root_page(self):
+        """Collect and parse the root page to extract news article URLs"""
         try:
-            # Step 1: Fetch and parse the main page
+            # Fetch and parse the main page
+            self.driver.get(self.YAHOO_FINANCE_URL)
+            time.sleep(2)  # Allow dynamic content to load
 
-            self.driver.get(self.YAHOO_URL)
-            time.sleep(3)  # Let dynamic content load
-            # return HttpResponse(f"Successfully collected data: Root (ID: RootID), content")
-
-            # Step 2: Extract HTML and parse
+            # Extract HTML and parse links
             html = self.driver.page_source
-            # return HttpResponse(html, content_type="text/plain", charset="utf-8")
-            response = HttpResponse(html, content_type="text/plain", charset="utf-8")
-            # return response
-            # Step 3: Extract sub links from html content
-            html_content = response.content
-            # with open('root.html', 'r', encoding='utf-8') as file:
-            #     html_content = file.read()
+            soup = BeautifulSoup(html, "html.parser")
 
-            soup = BeautifulSoup(html_content, "html.parser")
-            links = [a['href'] for a in soup.find_all('a', href=True) if
-                     a['href'].startswith(self.YAHOO_URL) and a['href'] != self.YAHOO_URL]
-            self.URLS = links
-            links = list(set(links))
-            return HttpResponse(str(links))
+            # Extract unique news article links
+            links = {
+                a['href'] for a in soup.find_all('a', href=True)
+                if a['href'].startswith(self.YAHOO_FINANCE_URL)
+                   and a['href'] != self.YAHOO_FINANCE_URL
+            }
 
-
-
-
-
+            return HttpResponse("\n".join(links), content_type="text/plain")
 
         except Exception as e:
-            return HttpResponse(f"Error occurred: {str(e)}", status=500)
+            return HttpResponse(
+                f"Error collecting root page: {str(e)}",
+                status=500
+            )
 
-    def collect_pages(self):
-        for url in self.URLS:
-            self.getpage(url, '')
-
-    def getpage(self, request):
-        """COLLECT ONE SINGLE PAGE"""
+    def collect_news_pages(self):
+        """Collect and process individual news pages"""
         try:
-            # Step 1: Fetch and parse the main page
+            # First get the article links from the root page
+            root_response = self.collect_root_page()
+            if root_response.status_code != 200:
+                return root_response
 
-            self.driver.get(self.YAHOO_URL)
-            time.sleep(3)  # Let dynamic content load
+            article_urls = root_response.content.decode().split("\n")
 
-            # Step 2: Extract HTML and parse
+            # Process each article URL
+            results = []
+            for url in article_urls[:5]:  # Limit to 5 for demo purposes
+                try:
+                    article_data = self.process_news_page(url)
+                    if article_data:
+                        web_page = self.save_to_database(article_data)
+                        results.append(f"Collected: {web_page.title}")
+                except Exception as e:
+                    results.append(f"Error processing {url}: {str(e)}")
+
+            return HttpResponse("\n".join(results), content_type="text/plain")
+
+        except Exception as e:
+            return HttpResponse(
+                f"Error in collection process: {str(e)}",
+                status=500
+            )
+
+    def process_news_page(self, url):
+        """Process a single news page and extract structured data"""
+        try:
+            self.driver.get(url)
+            time.sleep(2)  # Allow dynamic content to load
+
             html = self.driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
-            page_data = self.extract_structured_data_for_yahoo(soup)
-            # print(page_data)
-            # Step 3: Save to database
-            web_page = self.save_to_database(page_data)
 
-            return HttpResponse(f"Successfully collected data: {web_page.title} (ID: {web_page.id})")
+            # Determine which parser to use based on URL
+            if url.startswith(self.YAHOO_FINANCE_URL):
+                return self.extract_yahoo_data(soup, url)
+            elif url.startswith(self.REUTERS_URL):
+                return self.extract_reuters_data(soup, url)
+            else:
+                return self.extract_generic_data(soup, url)
 
         except Exception as e:
-            return HttpResponse(f"Error occurred: {str(e)}", status=500)
+            raise RuntimeError(f"Failed to process page {url}: {str(e)}")
 
-    def extract_structured_data_for_yahoo(self, soup):
-        """Extract structured data from BeautifulSoup object"""
-        # Extract title
-        title = soup.title.string if soup.title else ""
-
-        # Extract JSON-LD data
+    def extract_yahoo_data(self, soup, url):
+        """Extract structured data from Yahoo Finance articles"""
+        # Extract JSON-LD data if available
         script_tag = soup.find('script', type='application/ld+json')
         json_data = json.loads(script_tag.string) if script_tag else {}
 
+        # Extract title
+        title = json_data.get('headline', '') or soup.title.string if soup.title else ""
+
         # Parse publication date
-        date_published = parse(json_data.get('datePublished')) if json_data.get('datePublished') else None
+        date_published = None
+        if json_data.get('datePublished'):
+            try:
+                date_published = parse(json_data['datePublished'])
+            except (ValueError, TypeError):
+                pass
 
         # Extract article content
         article_body = (soup.find('article') or
@@ -108,46 +141,24 @@ class WebPageCollectorView(View):
         content = article_body.get_text('\n', strip=True) if article_body else ""
 
         return {
+            'url': url,
             'title': title,
-            'publication_time': date_published,
-            'content': content
-        }
-
-    def extract_structured_data_for_Reuter(self, soup):
-        """Extract structured data from BeautifulSoup object"""
-        # Extract title
-        title = soup.title.string if soup.title else ""
-
-        # Extract JSON-LD data
-        script_tag = soup.find('script', type='application/ld+json')
-        json_data = json.loads(script_tag.string) if script_tag else {}
-
-        title = parse(json_data.get('title')) if json_data.get('title') else None
-
-        # Parse publication date
-        date_published = parse(json_data.get('published_time')) if json_data.get('published_time') else None
-
-        # Extract article content
-        article_body = (soup.find('article') or
-                        soup.find('div', class_=re.compile('article|content|main', re.I)))
-        content = article_body.get_text('\n', strip=True) if article_body else ""
-
-        return {
-            'title': title,
-            'publication_time': date_published,
-            'content': content
+            'publication_time': date_published or datetime.now(),
+            'content': content,
+            'source': 'yahoo finance',
+            'credibility_score': 0.8
         }
 
     def save_to_database(self, page_data):
         """Save extracted data to database"""
         # Create or update WebPage
         web_page, created = WebPage.objects.update_or_create(
-            url=self.YAHOO_URL,
+            url=page_data['url'],
             defaults={
-                'title': page_data['title'],
-                'source': 'yahoo finance',
+                'title': page_data['title'][:255],  # Ensure title fits in field
+                'source': page_data['source'],
                 'publication_time': page_data['publication_time'],
-                'credibility_score': 0.8,
+                'credibility_score': page_data['credibility_score'],
             }
         )
 
@@ -155,53 +166,28 @@ class WebPageCollectorView(View):
         NewsArticle.objects.update_or_create(
             web_page=web_page,
             defaults={
-                'category': 'default',
+                'category': self.determine_category(page_data),
                 'processed_content': page_data['content'],
             }
         )
 
         return web_page
 
-    # Optional helper methods (uncomment if needed)
-    # def get_subdirectory_links(self, base_url):
-    #     """Get all subdirectory links from a base URL"""
-    #     response = requests.get(base_url, headers=self.HEADERS)
-    #     if response.status_code == 200:
-    #         soup = BeautifulSoup(response.text, 'html.parser')
-    #         links = [a['href'] for a in soup.find_all('a', href=True) if a['href'].startswith('/')]
-    #         return [base_url + link for link in links if not link.endswith(('.html', '.jpg', '.css', '.js'))]
-    #     return []
+    def determine_category(self, page_data):
+        """Determine article category based on content (simplified example)"""
+        content = page_data['content'].lower()
+        if any(word in content for word in ['stock', 'market', 'trading']):
+            return 'markets'
+        elif any(word in content for word in ['company', 'business', 'firm']):
+            return 'business'
+        elif any(word in content for word in ['tech', 'technology', 'digital']):
+            return 'technology'
+        return 'general'
 
-    # def extract_links(self, html):
-    #     """Extract finance-related links from HTML"""
-    #     soup = BeautifulSoup(html, 'html.parser')
-    #     links = [a['href'] for a in soup.find_all('a', href=True)]
-    #     return [link for link in links if re.search(r'(finance|stock|bank)', link)]
-
-    """
-        def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.driver = self._init_selenium_driver()
-
-    def _init_selenium_driver(self):
-
-        options = Options()
-        options.add_argument("--headless=new")  # Run in background
-        options.add_argument("--disable-blink-features=AutomationControlled")
-        options.add_argument(
-            "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
-        driver = webdriver.Chrome(options=options)
-        return driver
-        
-         #BASE_URL = 'https://www.reuters.com/business/finance/insurance-broker-hub-international-secures-29-billion-valuation-16-billion-2025-05-12/'
-   
-"""
-
-# def main():
-#     obj = WebPageCollectorView()  # 创建A类实例
-#
-#     print(obj.get_URL())  # 调用b方法
-#
-#
-# if __name__ == "__main__":
-#     main()
+    def __del__(self):
+        """Clean up WebDriver when instance is destroyed"""
+        if self.driver:
+            try:
+                self.driver.quit()
+            except:
+                pass

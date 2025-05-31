@@ -22,6 +22,9 @@ entity_types = [
     {'name': 'Financial Infrastructure', 'slug': 'financial-infrastructure'},
     {'name': 'Key People', 'slug': 'key-people'},
 ]
+
+entity_type = ['Regulator', 'Bank', 'Company', 'Government', 'Rating Agency', 'Financial Infrastructure', 'Key People']
+
 time_ranges = [
     {'name': 'one week', 'slug': '7d'},
     {'name': 'two weeks', 'slug': '14d'},
