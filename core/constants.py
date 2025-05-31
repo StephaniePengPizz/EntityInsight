@@ -22,3 +22,13 @@ entity_types = [
     {'name': 'Financial Infrastructure', 'slug': 'financial-infrastructure'},
     {'name': 'Key People', 'slug': 'key-people'},
 ]
+time_ranges = [
+    {'name': 'one week', 'slug': '7d'},
+    {'name': 'two weeks', 'slug': '14d'},
+    {'name': 'one month', 'slug': '1m'},
+    {'name': 'three month', 'slug': '3m'},
+    {'name': 'half year', 'slug': '6m'},
+    {'name': 'one year', 'slug': '1y'},
+    {'name': 'two years', 'slug': '2y'},
+    {'name': 'five years', 'slug': '5y'},
+]

@@ -108,10 +108,10 @@
 <div class="container-output-page">
     <!-- 左上: 知识图谱 -->
     <div class="graph-section">
-        <h2>Knowledge Graph For Financial Entity
+        <h2>Knowledge Graph For Entity
                 {% if summary_category %}
                     <span class="highlight-category">{{ entity_category }}</span>
-                {% endif %}</h2>
+                {% endif %}  </h2>
             <div class="mermaid">
                 {{ graph_description|markdownify }}
             </div>
@@ -166,23 +166,26 @@
 
     <!-- 右下: 相关新闻 -->
     <div class="news-section">
-        <h2>Related News</h2>
-        <div class="news-content collapsed" id="newsContent">
-            {% for category, news_items in news_by_category.items %}
-                <div class="category-header">{{ category }}</div>
-                {% for item in news_items %}
-                <div class="news-item">
-                    <div class="news-title">{{ item.title }}</div>
-                    <div class="news-meta">
-                        <span>{{ item.source }}</span>
-                        <span>{{ item.date|date:"Y-m-d" }}</span>
-                    </div>
-                </div>
-                {% endfor %}
-
-            {% endfor %}
-        </div>
-        <div class="toggle-btn" id="toggleNews">Read More</div>
-    </div>
+      <h2>Related News</h2>
+      <div class="news-content collapsed" id="newsContent">
+          {% for category, news_items in news_by_category.items %}
+              {% if category == summary_category %}  
+                  <div class="category-header">{{ category }}</div>
+                  {% for item in news_items %}
+                  <div class="news-item">
+                      <div class="news-title">{{ item.title }}</div>
+                      <div class="news-meta">
+                          <span>{{ item.source }}</span>
+                          <span>{{ item.date|date:"Y-m-d" }}</span>
+                      </div>
+                  </div>
+                  {% endfor %}
+              {% endif %}
+          {% empty %}  
+              <div class="no-news">No related news found for this category.</div>
+          {% endfor %}
+      </div>
+      <div class="toggle-btn" id="toggleNews">Read More</div>
+  </div>
 </div>
 {% endblock %}

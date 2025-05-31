@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from core.constants import categories, entity_types
+from core.constants import categories, entity_types, time_ranges
 from core.models import NewsArticle, Entity, Relationship
 
 from django.shortcuts import render
@@ -12,7 +12,8 @@ from knowledge_graph.views.show_graph_detail import find_relevant_nodes
 def home(request):
     return render(request, 'home.html', {
         'categories': categories,
-        'entity_types': entity_types
+        'entity_types': entity_types,
+        'time_ranges':time_ranges
     })
 
 def results(request):
@@ -20,6 +21,7 @@ def results(request):
         keywords = request.POST.get('keywords', '')
         selected_categories = request.POST.getlist('categories', [])
         selected_entity_categories = request.POST.getlist('entity_types', [])
+        selected_time_range = request.POST.getlist('time_ranges', [])
         # sample data
         news_by_category = {
             'Payments': [
@@ -43,7 +45,7 @@ def results(request):
         }
         summary_category = selected_categories[0] if selected_categories else None
         entity_type = selected_entity_categories[0] if selected_entity_categories else None
-
+        print(summary_category)
         # 生成特定类别的AI总结
         llm_summary = summarize_for_category(summary_category, news_by_category.get(summary_category, 'Wholesale'))
 

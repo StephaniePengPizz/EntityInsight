@@ -104,14 +104,55 @@
                     </div>
                 </div>
             </div>
+
+
+            <div class="input-container">
+                <label for="time_ranges" class="input-label">Select News Time Range:</label>
+                <div class="category-dropdown time-range-dropdown">
+                    <div class="category-select" onclick="toggleTimeDropdown()">
+                        one month
+                    </div>
+                    <div class="category-options time-range-options" id="timeRangeOptions">
+                        {% for range in time_ranges %}
+                        <div class="category-option">
+                            <input type="radio" id="time_{{ range.slug }}" name="time_ranges" 
+                                value="{{ range.slug }}" {% if range.slug == '1m' %}checked{% endif %}>
+                            <label for="time_{{ range.slug }}">{{ range.name }}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="selected-categories" id="selectedTimeRange">
+                        Currently selected: one month
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div class="input-container">
             <label for="keywords" class="input-label">Please enter key words:</label>
             <input type="text" id="keywords" name="keywords" class="input-field" maxlength="50"
                    placeholder="Type your query here...(such as DHL)" required>
         </div>
-
-        <button type="submit" class="submit-button">Search</button>
+        
+        <input type="hidden" id="selectedNewsCategories" name="selected_news_categories" value="">
+        <input type="hidden" id="selectedEntityCategories" name="selected_entity_categories" value="">
+        <button type="submit" class="submit-button" onclick="collectSelections()">Search</button>
+        <script>
+        // 提交前收集所有选中的类别
+        function collectSelections() {
+            // 新闻类别
+            const newsCats = Array.from(
+                document.querySelectorAll('.news-category-options input[type="checkbox"]:checked:not(#toggleAll)')
+            ).map(el => el.value);
+            document.getElementById('selectedNewsCategories').value = newsCats.join(',');
+            
+            // 实体类别
+            const entityCats = Array.from(
+                document.querySelectorAll('.entity-category-options input[type="checkbox"]:checked:not(#toggleAllEntity)')
+            ).map(el => el.value);
+            document.getElementById('selectedEntityCategories').value = entityCats.join(',');
+        }
+        </script>
     </form>
 </div>
 {% endblock %}
