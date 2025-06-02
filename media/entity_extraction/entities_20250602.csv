@@ -1,28 +1,779 @@
 ﻿DocID,ParaID,Entity,Type
+2_1,1,香港,Financial Infrastructure
+2_1,1,美国,Government
+2_1,1,陈茂波,Key People
+2_1,1,DHL,Company
+2_1,1,Trump,Key People
+2_1,1,东盟,Market
+2_1,1,香港文汇報,Company
+4_1,1,Robert Kiyosaki,Key People
+4_1,1,Silver,Product
+4_1,1,Gold,Product
+4_1,1,Bitcoin,Product
+4_1,1,Solana,Product
+4_1,1,Kraken,Company
+4_1,1,Fred Krueger,Key People
 1_1,1,Donald Trump,Government
-1_1,1,Korea National Oil Corp,Company
+1_1,1,Korea National Oil Corp.,Company
 1_1,1,Petroliam Nasional Bhd,Company
 1_1,1,Posco Holdings Inc.,Company
 1_1,1,Jollibee Foods Corp.,Company
 1_1,1,MTR Corp. Ltd.,Company
 1_1,1,Mizuho Securities Asia,Bank
-1_1,1,Mark Reade,Key People
 1_1,1,Barclays,Bank
-1_1,1,Avinash Thakur,Key People
 1_1,1,Bloomberg,Company
-4_1,1,Robert Kiyosaki,Key People
-4_1,1,Rich Dad Poor Dad,Product
-4_1,1,silver,Product
-4_1,1,gold,Product
-4_1,1,Bitcoin,Product
-4_1,1,Kraken,Company
-4_1,1,Fred Krueger,Key People
-4_1,1,Solana,Product
-2_1,1,美國,Government
-2_1,1,香港,Government
-2_1,1,陳茂波,Key People
-2_1,1,DHL,Company
-2_1,1,Tobias Meyer,Key People
-2_1,1,特朗普,Key People
-2_1,1,香港中小型企業聯合會,Company
-2_1,1,劉達邦,Key People
+1_1,1,US Treasury,Government
+1_1,1,Asia Pacific credit market,Financial Infrastructure
+1_1,1,Mark Reade,Key People
+1_1,1,Avinash Thakur,Key People
+5_1,1,Nvidia,Company
+5_1,1,MicroStrategy,Company
+5_1,1,Bitcoin,Product
+5_1,1,SharpLink Gaming,Company
+5_1,1,Consensys,Company
+5_1,1,Ethereum,Product
+5_1,1,Curaleaf Holdings,Company
+5_1,1,Salesforce,Company
+5_1,1,Informatica,Company
+5_1,1,Donald Trump,Key People
+5_1,1,Donald Jr.,Key People
+5_1,1,Robert Kiyosaki,Key People
+6_1,1,Dow Jones Industrial Average,Financial Infrastructure
+6_1,1,S&P 500,Financial Infrastructure
+6_1,1,Nasdaq Composite,Financial Infrastructure
+6_1,1,President Trump,Government
+6_1,1,European Union,Government
+6_1,1,Nvidia,Company
+6_1,1,Tesla,Company
+6_1,1,Federal Reserve,Regulator
+6_1,1,Bank of Japan,Regulator
+6_1,1,Trump Media & Technology Group,Company
+6_1,1,Bitcoin,Product
+7_1,1,China,Government
+7_1,1,US,Government
+7_1,1,Chinese Ministry of Commerce,Government
+7_1,1,President Trump,Key People
+7_1,1,Xi Jinping,Key People
+7_1,1,EU Commission,Government
+7_1,1,Ursula von der Leyen,Key People
+7_1,1,National Economic Council,Government
+7_1,1,Kevin Hassett,Key People
+7_1,1,Treasury Secretary,Government
+7_1,1,Scott Bessent,Key People
+7_1,1,Commerce Secretary,Government
+7_1,1,Howard Lutnick,Key People
+9_1,1,Nvidia,Company
+9_1,1,S&P 500,Financial Infrastructure
+9_1,1,Wall Street,Financial Infrastructure
+9_1,1,Stifel,Company
+9_1,1,Bank of America,Bank
+9_1,1,Ruben Roy,Key People
+9_1,1,Vivek Arya,Key People
+9_1,1,Hopper,Product
+9_1,1,Blackwell,Product
+9_1,1,H20,Product
+9_1,1,China,Government
+9_1,1,DeepSeek,Company
+9_1,1,Trump,Key People
+8_1,1,Elon Musk,Key People
+8_1,1,Donald Trump,Key People
+8_1,1,DOGE,Financial Infrastructure
+8_1,1,Department of Government Efficiency,Government
+8_1,1,Chamath Palihapitiya,Key People
+8_1,1,Jason Calacanis,Key People
+8_1,1,David Sacks,Key People
+8_1,1,Dara Khosrowshahi,Key People
+8_1,1,Uber,Company
+8_1,1,Sen. Ron Johnson,Key People
+8_1,1,Morning Consult,Company
+8_1,1,Brookings Institution,Company
+8_1,1,USAID,Government
+8_1,1,Washington Post,Company
+8_1,1,CBS,Company
+10_1,1,United States Court of International Trade,Government
+10_1,1,President Trump,Key People
+10_1,1,White House,Government
+10_1,1,Kush Desai,Key People
+10_1,1,International Emergency Economic Powers Act (IEEPA),Regulation
+10_1,1,Goldman Sachs,Company
+10_1,1,Sen. Ron Wyden,Key People
+10_1,1,Trade Expansion Act of 1962,Regulation
+10_1,1,Trade Act of 1974,Regulation
+12_1,1,Donald Trump,Government
+12_1,1,US Customs Bureau,Government
+12_1,1,Raymond James,Company
+12_1,1,Ed Mills,Key People
+12_1,1,Yale Budget Lab,Rating Agency
+12_1,1,Financial Times,Company
+12_1,1,Robert Armstrong,Key People
+12_1,1,tariffs,Product
+13_1,1,Donald Trump,Government
+13_1,1,Court of International Trade,Regulator
+13_1,1,Supreme Court,Regulator
+13_1,1,Capital Alpha Partners,Company
+13_1,1,James Lucier,Key People
+13_1,1,Apple,Company
+13_1,1,Apple smartphones,Product
+13_1,1,Yahoo Finance,Company
+13_1,1,Rick Newman,Key People
+11_1,1,China,Government
+11_1,1,US,Government
+11_1,1,Donald Trump,Key People
+11_1,1,Xi Jinping,Key People
+11_1,1,Chinese Ministry of Commerce,Government
+11_1,1,US Court of International Trade,Regulator
+11_1,1,Supreme Court,Regulator
+11_1,1,EU Commission,Government
+11_1,1,Ursula von der Leyen,Key People
+11_1,1,Tesla,Company
+11_1,1,Elon Musk,Key People
+11_1,1,Gap,Company
+11_1,1,Richard Dickson,Key People
+11_1,1,Salzgitter,Company
+11_1,1,Gunnar Groebler,Key People
+14_1,1,Meta,Company
+14_1,1,Anduril,Company
+14_1,1,Palmer Luckey,Key People
+14_1,1,Mark Zuckerberg,Key People
+14_1,1,Andrew Bosworth,Key People
+14_1,1,AR/VR military tech,Product
+14_1,1,Lattice analytics platform,Product
+14_1,1,Llama AI models,Product
+14_1,1,U.S. Army,Government
+15_1,1,Elon Musk,Key People
+15_1,1,Tesla,Company
+15_1,1,SpaceX,Company
+15_1,1,X,Company
+15_1,1,xAI,Company
+15_1,1,DOGE,Product
+15_1,1,President Trump,Government
+15_1,1,Department of Government Efficiency,Government
+15_1,1,White House,Government
+15_1,1,USAID,Government
+15_1,1,OpenAI,Company
+15_1,1,Sam Altman,Key People
+15_1,1,New York Times,Company
+15_1,1,Wall Street Journal,Company
+15_1,1,Brookings Institution,Rating Agency
+17_1,1,Federal Reserve,Regulator
+17_1,1,Jerome Powell,Key People
+17_1,1,Lorie Logan,Key People
+17_1,1,Neel Kashkari,Key People
+17_1,1,Morgan Stanley Wealth Management,Company
+17_1,1,Ellen Zentner,Key People
+17_1,1,LPL Financial,Company
+17_1,1,Jeffrey Roach,Key People
+17_1,1,White House,Government
+17_1,1,Donald Trump,Key People
+16_1,1,China,Government
+16_1,1,US,Government
+16_1,1,Dow Jones Industrial Average,Financial Infrastructure
+16_1,1,S&P 500,Financial Infrastructure
+16_1,1,NASDAQ Composite,Financial Infrastructure
+16_1,1,Federal Reserve,Regulator
+16_1,1,Christopher Waller,Key People
+16_1,1,Jerome Powell,Key People
+16_1,1,CrowdStrike,Company
+16_1,1,Broadcom,Company
+16_1,1,DocuSign,Company
+16_1,1,Lululemon,Company
+16_1,1,OPEC+,Government
+16_1,1,Tesla,Company
+16_1,1,Elon Musk,Key People
+18_1,1,Nvidia,Company
+18_1,1,S&P 500,Financial Infrastructure
+18_1,1,Nasdaq Composite,Financial Infrastructure
+18_1,1,Dow Jones Industrial Average,Financial Infrastructure
+18_1,1,Trump,Government
+18_1,1,US Court of International Trade,Regulator
+18_1,1,Federal Reserve,Regulator
+18_1,1,Jerome Powell,Key People
+18_1,1,Best Buy,Company
+18_1,1,Costco,Company
+18_1,1,Walmart,Company
+18_1,1,Goldman Sachs,Company
+18_1,1,Tesla,Company
+18_1,1,Elon Musk,Key People
+18_1,1,Salesforce,Company
+18_1,1,HP Inc.,Company
+18_1,1,OPEC+,Government
+19_1,1,Elon Musk,Key People
+19_1,1,Donald Trump,Government
+19_1,1,Tesla,Company
+19_1,1,SpaceX,Company
+19_1,1,DOGE,Financial Infrastructure
+19_1,1,White House,Government
+19_1,1,House of Representatives,Government
+19_1,1,Senate,Government
+19_1,1,Republican Party,Government
+19_1,1,Committee for a Responsible Federal Budget,Rating Agency
+20_1,1,Conference Board,Company
+20_1,1,Wells Fargo,Bank
+20_1,1,Tim Quinlan,Key People
+20_1,1,JPMorgan,Bank
+20_1,1,Stephanie Guichard,Key People
+20_1,1,University of Michigan,Company
+20_1,1,Apple,Company
+20_1,1,Trump,Government
+20_1,1,China,Government
+21_1,1,Donald Trump,Government
+21_1,1,Xi Jinping,Government
+21_1,1,US Treasury,Government
+21_1,1,Chinese Ministry of Commerce,Government
+21_1,1,National Economic Council,Government
+21_1,1,Kevin Hassett,Key People
+21_1,1,Scott Bessent,Key People
+21_1,1,Howard Lutnick,Key People
+21_1,1,critical minerals,Product
+21_1,1,semiconductors,Product
+21_1,1,tariffs,Product
+22_1,1,National Association of Realtors,Regulator
+22_1,1,Lawrence Yun,Key People
+22_1,1,Realtor.com,Company
+22_1,1,Trump,Government
+22_1,1,Pending Home Sales Index,Financial Infrastructure
+25_1,1,Jerome Powell,Key People
+25_1,1,Donald Trump,Government
+25_1,1,Federal Reserve,Regulator
+25_1,1,White House,Government
+25_1,1,Karoline Leavitt,Key People
+25_1,1,Kevin Warsh,Key People
+25_1,1,Supreme Court,Government
+24_1,1,China,Government
+24_1,1,US,Government
+24_1,1,Chinese Ministry of Commerce,Government
+24_1,1,Trump,Key People
+24_1,1,Xi Jinping,Key People
+24_1,1,EU,Government
+24_1,1,White House,Government
+24_1,1,Supreme Court,Government
+24_1,1,National Economic Council,Government
+24_1,1,Treasury Secretary Scott Bessent,Key People
+24_1,1,Commerce Secretary Howard Lutnick,Key People
+24_1,1,EU Commission President Ursula von der Leyen,Key People
+24_1,1,Salzgitter,Company
+24_1,1,Gap,Company
+24_1,1,e.l.f. Beauty,Company
+24_1,1,Tesla,Company
+24_1,1,steel,Product
+24_1,1,aluminium,Product
+24_1,1,AI chip,Product
+24_1,1,tariffs,Financial Infrastructure
+26_1,1,Nvidia,Company
+26_1,1,H20,Product
+26_1,1,China,Government
+26_1,1,US,Government
+26_1,1,Jensen Huang,Key People
+26_1,1,Dan Ives,Key People
+26_1,1,Wedbush,Rating Agency
+23_1,1,China,Government
+23_1,1,US,Government
+23_1,1,Chinese Ministry of Commerce,Government
+23_1,1,President Trump,Key People
+23_1,1,Xi Jinping,Key People
+23_1,1,EU Commission,Government
+23_1,1,Ursula von der Leyen,Key People
+23_1,1,Howard Lutnick,Key People
+23_1,1,Kevin Hassett,Key People
+23_1,1,Scott Bessent,Key People
+23_1,1,Mark Carney,Key People
+23_1,1,Gunnar Groebler,Key People
+23_1,1,Tarang Amin,Key People
+23_1,1,Richard Dickson,Key People
+23_1,1,Elon Musk,Key People
+23_1,1,Gap,Company
+23_1,1,e.l.f. Beauty,Company
+23_1,1,Tesla,Company
+23_1,1,Salzgitter,Company
+23_1,1,Manley Labs,Company
+23_1,1,EarthQuaker Devices,Company
+23_1,1,steel,Product
+23_1,1,aluminium,Product
+23_1,1,AI chips,Product
+23_1,1,chip design software,Product
+23_1,1,Truth Social,Product
+23_1,1,US Court of International Trade,Financial Infrastructure
+23_1,1,Supreme Court,Financial Infrastructure
+23_1,1,National Economic Council,Financial Infrastructure
+23_1,1,Commerce Department,Financial Infrastructure
+23_1,1,Treasury Department,Financial Infrastructure
+27_1,1,Nvidia,Company
+27_1,1,Dow Jones Industrial Average,Financial Infrastructure
+27_1,1,S&P 500,Financial Infrastructure
+27_1,1,Nasdaq Composite,Financial Infrastructure
+27_1,1,Federal Reserve,Regulator
+27_1,1,Trump administration,Government
+27_1,1,HP,Company
+27_1,1,GameStop,Company
+27_1,1,Chevron,Company
+27_1,1,OPEC+,Financial Infrastructure
+27_1,1,CSX Corp,Company
+27_1,1,Abercrombie & Fitch,Company
+27_1,1,Trump Media & Technology Group,Company
+27_1,1,Okta,Company
+27_1,1,Macy's,Company
+27_1,1,Joby Aviation,Company
+27_1,1,Toyota,Company
+27_1,1,Barclays Plc,Company
+28_1,1,Refresco,Company
+28_1,1,Telemark Kildevann (TKV),Company
+28_1,1,Hans Roelofs,Key People
+28_1,1,Frías Nutrición,Company
+28_1,1,Berentzen-Gruppe,Company
+28_1,1,VBC Bottling Company,Company
+28_1,1,Märkisch Kristall,Product
+28_1,1,Grüneberg Quelle,Product
+32_1,1,GameStop,Company
+32_1,1,Strategy,Company
+32_1,1,Bitcoin,Product
+32_1,1,Michael Saylor,Key People
+32_1,1,Yahoo Finance,Company
+32_1,1,Berkshire Hathaway,Company
+30_1,1,Medicare,Financial Infrastructure
+30_1,1,KFF,Rating Agency
+30_1,1,West Health-Gallup,Rating Agency
+30_1,1,Center for Retirement Research at Boston College,Rating Agency
+30_1,1,Consumer Financial Protection Bureau (CFPB),Regulator
+30_1,1,Equifax,Rating Agency
+30_1,1,Experian,Rating Agency
+30_1,1,Transunion,Rating Agency
+30_1,1,Kerry Hannon,Key People
+30_1,1,Tricia Neuman,Key People
+30_1,1,Lori Trawinski,Key People
+30_1,1,Anqi Chen,Key People
+30_1,1,Carolyn McClanahan,Key People
+31_1,1,China,Government
+31_1,1,US,Government
+31_1,1,Trump,Key People
+31_1,1,Xi Jinping,Key People
+31_1,1,Chinese Ministry of Commerce,Government
+31_1,1,EU,Government
+31_1,1,Salzgitter,Company
+31_1,1,e.l.f. Beauty,Company
+31_1,1,Gap,Company
+31_1,1,Tesla,Company
+31_1,1,Huawei,Company
+31_1,1,Yangtze Memory Technologies,Company
+31_1,1,US Court of International Trade,Financial Infrastructure
+31_1,1,Supreme Court,Financial Infrastructure
+31_1,1,National Economic Council,Government
+31_1,1,Commerce Department,Government
+31_1,1,European Commission,Government
+31_1,1,US Court of Appeals for the Federal Circuit,Financial Infrastructure
+31_1,1,Kelley Blue Book,Rating Agency
+31_1,1,Truth Social,Product
+31_1,1,steel tariffs,Product
+31_1,1,AI chip export controls,Product
+31_1,1,student visas,Product
+34_1,1,Yahoo Finance,Company
+34_1,1,Morning Brief,Product
+34_1,1,Ethan Wolff-Mann,Key People
+33_1,1,Aston Martin Lagonda Global Holdings Plc,Company
+33_1,1,Fitch Ratings,Rating Agency
+33_1,1,Lawrence Stroll,Key People
+33_1,1,Yew Tree,Company
+33_1,1,Adrian Hallmark,Key People
+33_1,1,Bentley Motors Ltd,Company
+33_1,1,Trump administration,Government
+33_1,1,Society of Motor Manufacturers and Traders (SMMT),Financial Infrastructure
+35_1,1,S&P 500,Financial Infrastructure
+35_1,1,Dow Jones Industrial Average,Financial Infrastructure
+35_1,1,Nasdaq Composite,Financial Infrastructure
+35_1,1,Federal Reserve,Regulator
+35_1,1,Trump administration,Government
+35_1,1,China,Government
+35_1,1,Nvidia,Company
+35_1,1,Tesla,Company
+35_1,1,Scott Bessent,Key People
+35_1,1,Elon Musk,Key People
+29_1,1,US Steel,Company
+29_1,1,Nippon Steel,Company
+29_1,1,Trump,Key People
+29_1,1,US Government,Government
+29_1,1,Walmart,Company
+29_1,1,CFIUS,Regulator
+29_1,1,General Motors,Company
+29_1,1,Stellantis,Company
+29_1,1,TikTok,Company
+29_1,1,Bytedance,Company
+29_1,1,Alibaba,Company
+38_1,1,Bespoke Investment Group,Company
+38_1,1,S&P 500,Financial Infrastructure
+38_1,1,Interactive Brokers,Company
+38_1,1,Steve Sosnick,Key People
+38_1,1,JPMorgan,Bank
+38_1,1,Emma Wu,Key People
+38_1,1,VandaTrack,Company
+38_1,1,Donald Trump,Government
+36_1,1,Nvidia,Company
+36_1,1,Jensen Huang,Key People
+36_1,1,H20,Product
+36_1,1,Blackwell,Product
+36_1,1,Microsoft,Company
+36_1,1,Amazon,Company
+36_1,1,Meta Platforms,Company
+36_1,1,US Government,Government
+36_1,1,China,Government
+36_1,1,Wedbush,Company
+36_1,1,Dan Ives,Key People
+36_1,1,HSBC,Bank
+36_1,1,Ryan Mellor,Key People
+39_1,1,Wall Street,Financial Infrastructure
+39_1,1,Treasury yields,Product
+39_1,1,Citi,Bank
+39_1,1,Stuart Kaiser,Key People
+39_1,1,AllianceBernstein,Company
+39_1,1,Eric Winograd,Key People
+39_1,1,Trump,Government
+39_1,1,Fed,Regulator
+39_1,1,House,Government
+39_1,1,Senate,Government
+39_1,1,Chris Rupkey,Key People
+39_1,1,FWDBonds,Company
+39_1,1,Daniel Kryger,Key People
+39_1,1,New York Stock Exchange,Financial Infrastructure
+37_1,1,Apple,Company
+37_1,1,Department of Justice,Regulator
+37_1,1,Tim Cook,Key People
+37_1,1,iPhone,Product
+37_1,1,Trump,Government
+37_1,1,Epic Games,Company
+37_1,1,Google,Company
+37_1,1,OpenAI,Company
+37_1,1,Jony Ive,Key People
+37_1,1,Sam Altman,Key People
+37_1,1,Morgan Stanley,Company
+37_1,1,Sharon Shih,Key People
+37_1,1,Erik Woodring,Key People
+37_1,1,Deepwater Asset Management,Company
+37_1,1,Gene Munster,Key People
+37_1,1,US District Judge Yvonne Gonzalez Rogers,Key People
+42_1,1,Trump,Government
+42_1,1,Treasury Department,Government
+42_1,1,Apple,Company
+42_1,1,Samsung,Company
+42_1,1,GOP,Government
+40_1,1,China,Government
+40_1,1,US,Government
+40_1,1,Trump,Key People
+40_1,1,Xi Jinping,Key People
+40_1,1,Chinese Ministry of Commerce,Government
+40_1,1,EU,Government
+40_1,1,Salzgitter,Company
+40_1,1,Gap,Company
+40_1,1,e.l.f. Beauty,Company
+40_1,1,Tesla,Company
+40_1,1,Huawei,Company
+40_1,1,Yangtze Memory Technologies,Company
+40_1,1,steel tariffs,Product
+40_1,1,aluminium tariffs,Product
+40_1,1,AI chip export controls,Product
+40_1,1,US Court of International Trade,Financial Infrastructure
+40_1,1,Supreme Court,Financial Infrastructure
+41_1,1,Nvidia,Company
+41_1,1,H20,Product
+41_1,1,China,Government
+41_1,1,Trump administration,Government
+41_1,1,Biden administration,Government
+41_1,1,Jensen Huang,Key People
+41_1,1,Colette Kress,Key People
+41_1,1,Joseph Moore,Key People
+41_1,1,Stacy Rasgon,Key People
+41_1,1,Morgan Stanley,Company
+41_1,1,Bernstein,Company
+41_1,1,Amazon,Company
+41_1,1,Google,Company
+41_1,1,Microsoft,Company
+41_1,1,CoreWeave,Company
+41_1,1,Foxconn,Company
+41_1,1,Humain,Company
+41_1,1,Saudi Arabia's sovereign wealth fund,Government
+41_1,1,United Arab Emirates,Government
+41_1,1,DeepSeek,Company
+41_1,1,NasdaqGS,Financial Infrastructure
+41_1,1,Bloomberg,Financial Infrastructure
+41_1,1,Reuters,Financial Infrastructure
+44_1,1,Barclays,Bank
+44_1,1,Ajay Rajadhyaksha,Key People
+44_1,1,US Court of International Trade,Regulator
+44_1,1,Trump,Government
+44_1,1,S&P 500,Financial Infrastructure
+44_1,1,Nvidia,Company
+44_1,1,Goldman Sachs,Bank
+44_1,1,Alec Phillips,Key People
+44_1,1,Renaissance Macro,Company
+44_1,1,Neil Dutta,Key People
+43_1,1,S&P 500,Financial Infrastructure
+43_1,1,Dow Jones Industrial Average,Financial Infrastructure
+43_1,1,Nasdaq Composite,Financial Infrastructure
+43_1,1,President Trump,Government
+43_1,1,Barclays,Bank
+43_1,1,Ajay Rajadhyaksha,Key People
+43_1,1,Ritholtz Wealth Management,Company
+43_1,1,Callie Cox,Key People
+43_1,1,Wells Fargo,Bank
+43_1,1,Jay Bryson,Key People
+43_1,1,Magnificent Seven,Company
+43_1,1,Apple,Company
+43_1,1,Alphabet,Company
+43_1,1,Microsoft,Company
+43_1,1,Amazon,Company
+43_1,1,Meta,Company
+43_1,1,Tesla,Company
+43_1,1,Nvidia,Company
+43_1,1,Citi,Bank
+43_1,1,Drew Pettit,Key People
+43_1,1,Roundhill Magnificent Seven ETF,Product
+45_1,1,European Union,Government
+45_1,1,Washington,Government
+45_1,1,President Trump,Key People
+45_1,1,US,Government
+45_1,1,China,Government
+45_1,1,Apollo Global Management,Company
+45_1,1,Torsten Sløk,Key People
+45_1,1,Yahoo Finance,Company
+45_1,1,S&P 500,Financial Infrastructure
+47_1,1,Nvidia,Company
+47_1,1,Dow Jones Industrial Average,Financial Infrastructure
+47_1,1,S&P 500,Financial Infrastructure
+47_1,1,Nasdaq Composite,Financial Infrastructure
+47_1,1,Trump,Government
+47_1,1,US Court of International Trade,Regulator
+47_1,1,Federal Reserve,Regulator
+47_1,1,Best Buy,Company
+47_1,1,Costco,Company
+47_1,1,Walmart,Company
+47_1,1,Goldman Sachs,Company
+47_1,1,Tesla,Company
+47_1,1,Salesforce,Company
+47_1,1,HP Inc.,Company
+47_1,1,Jerome Powell,Key People
+47_1,1,Elon Musk,Key People
+47_1,1,Scott Bessent,Key People
+47_1,1,Jensen Huang,Key People
+49_1,1,Donald Trump,Key People
+49_1,1,Harvard,Company
+49_1,1,University of Pennsylvania,Company
+49_1,1,Wharton School,Product
+49_1,1,McKinsey,Company
+49_1,1,University of California system,Company
+49_1,1,Yahoo Finance,Company
+49_1,1,Federal Government,Government
+46_1,1,China,Government
+46_1,1,US,Government
+46_1,1,Trump,Key People
+46_1,1,Xi Jinping,Key People
+46_1,1,Chinese Ministry of Commerce,Government
+46_1,1,EU,Government
+46_1,1,Ursula von der Leyen,Key People
+46_1,1,Howard Lutnick,Key People
+46_1,1,Kevin Hassett,Key People
+46_1,1,Scott Bessent,Key People
+46_1,1,Mark Carney,Key People
+46_1,1,Gunnar Groebler,Key People
+46_1,1,Tarang Amin,Key People
+46_1,1,Richard Dickson,Key People
+46_1,1,Elon Musk,Key People
+46_1,1,US Court of International Trade,Regulator
+46_1,1,Supreme Court,Regulator
+46_1,1,National Economic Council,Government
+46_1,1,Commerce Department,Government
+46_1,1,EU Commission,Government
+46_1,1,Gap,Company
+46_1,1,e.l.f. Beauty,Company
+46_1,1,Tesla,Company
+46_1,1,Salzgitter,Company
+46_1,1,Manley Labs,Company
+46_1,1,EarthQuaker Devices,Company
+46_1,1,steel,Product
+46_1,1,aluminium,Product
+46_1,1,AI chips,Product
+46_1,1,auto parts,Product
+46_1,1,cosmetics,Product
+46_1,1,electronics,Product
+46_1,1,Truth Social,Product
+46_1,1,tariffs,Financial Infrastructure
+50_1,1,Nvidia,Company
+50_1,1,Jensen Huang,Key People
+50_1,1,Wall Street,Financial Infrastructure
+50_1,1,China,Government
+50_1,1,US,Government
+50_1,1,Blackwell,Product
+50_1,1,H20,Product
+50_1,1,Microsoft,Company
+50_1,1,Amazon,Company
+50_1,1,Meta Platforms,Company
+50_1,1,Dan Ives,Key People
+50_1,1,Wedbush,Company
+50_1,1,HSBC,Bank
+50_1,1,Ryan Mellor,Key People
+48_1,1,Dow Jones Industrial Average,Financial Infrastructure
+48_1,1,S&P 500,Financial Infrastructure
+48_1,1,Nasdaq Composite,Financial Infrastructure
+48_1,1,China,Government
+48_1,1,US,Government
+48_1,1,President Trump,Key People
+48_1,1,Federal Reserve,Regulator
+48_1,1,Christopher Waller,Key People
+48_1,1,Jerome Powell,Key People
+48_1,1,CrowdStrike,Company
+48_1,1,Broadcom,Company
+48_1,1,DocuSign,Company
+48_1,1,Lululemon,Company
+48_1,1,Institute for Supply Management,Rating Agency
+48_1,1,Susan Spence,Key People
+48_1,1,S&P Global,Rating Agency
+48_1,1,Chris Williamson,Key People
+48_1,1,BioNTech,Company
+48_1,1,Bristol Myers Squibb,Company
+48_1,1,Merck,Company
+48_1,1,Moderna,Company
+48_1,1,Blueprint Medicines,Company
+48_1,1,Sanofi,Company
+48_1,1,Cleveland-Cliffs,Company
+48_1,1,Nucor,Company
+48_1,1,Steel Dynamics,Company
+48_1,1,US Steel Corporation,Company
+48_1,1,Nippon,Company
+48_1,1,Posco,Company
+48_1,1,Hyundai Steel,Company
+48_1,1,Tesla,Company
+48_1,1,Elon Musk,Key People
+48_1,1,OPEC+,Government
+48_1,1,West Texas Intermediate,Product
+48_1,1,Brent,Product
+48_1,1,Campbell's Company,Company
+48_1,1,BlackRock,Company
+48_1,1,Kayne Anderson Rudnick,Company
+48_1,1,Julie Beale,Key People
+48_1,1,DAX Index,Financial Infrastructure
+48_1,1,Stoxx 600 Index,Financial Infrastructure
+48_1,1,Hang Seng Index,Financial Infrastructure
+48_1,1,Nikkei 225,Financial Infrastructure
+48_1,1,Kospi,Financial Infrastructure
+48_1,1,S&P/ASX 200,Financial Infrastructure
+51_1,1,Boeing,Company
+51_1,1,BofA,Bank
+51_1,1,Doximity,Company
+51_1,1,BTIG,Bank
+51_1,1,Church & Dwight,Company
+51_1,1,RBC Capital,Bank
+51_1,1,Saia,Company
+51_1,1,Goldman Sachs,Bank
+51_1,1,Nucor,Company
+51_1,1,BMO Capital,Bank
+51_1,1,Charter,Company
+51_1,1,Bernstein,Bank
+51_1,1,Centene,Company
+51_1,1,Barclays,Bank
+51_1,1,Shake Shack,Company
+51_1,1,Union Pacific,Company
+51_1,1,Rackspace Technology,Company
+51_1,1,Raymond James,Bank
+51_1,1,PayPal,Company
+51_1,1,Truist,Bank
+51_1,1,Block,Company
+51_1,1,MasterCard,Company
+51_1,1,Visa,Company
+51_1,1,Global Payments,Company
+51_1,1,Western Union,Company
+51_1,1,Oppenheimer,Bank
+52_1,1,Federal Reserve,Regulator
+52_1,1,Nationwide,Company
+52_1,1,Kathy Bostjancic,Key People
+52_1,1,Personal Consumption Expenditures (PCE),Product
+52_1,1,Trump,Government
+52_1,1,China,Government
+53_1,1,Nvidia,Company
+53_1,1,Dow Jones Industrial Average,Financial Infrastructure
+53_1,1,S&P 500,Financial Infrastructure
+53_1,1,Nasdaq Composite,Financial Infrastructure
+53_1,1,Federal Reserve,Regulator
+53_1,1,Trump administration,Government
+53_1,1,HP,Company
+53_1,1,GameStop,Company
+53_1,1,bitcoin,Product
+53_1,1,Chevron,Company
+53_1,1,OPEC+,Government
+53_1,1,CSX Corp,Company
+53_1,1,Abercrombie & Fitch,Company
+53_1,1,Macy's,Company
+53_1,1,Okta,Company
+53_1,1,Barclays Plc,Company
+55_1,1,Yahoo Finance,Company
+55_1,1,Fed,Regulator
+55_1,1,Jerome Powell,Key People
+55_1,1,Oxford Economics,Company
+55_1,1,Cory Stahle,Key People
+55_1,1,Apollo Global Management,Company
+55_1,1,Torsten Sløk,Key People
+55_1,1,Indeed,Company
+55_1,1,Matthew Martin,Key People
+55_1,1,S&P 500,Financial Infrastructure
+55_1,1,President Trump,Government
+56_1,1,Nvidia,Company
+56_1,1,Dow Jones Industrial Average,Financial Infrastructure
+56_1,1,S&P 500,Financial Infrastructure
+56_1,1,Nasdaq Composite,Financial Infrastructure
+56_1,1,Trump,Government
+56_1,1,US Court of International Trade,Regulator
+56_1,1,Federal Reserve,Regulator
+56_1,1,Jerome Powell,Key People
+56_1,1,Best Buy,Company
+56_1,1,Costco,Company
+56_1,1,Walmart,Company
+56_1,1,Goldman Sachs,Company
+56_1,1,Tesla,Company
+56_1,1,Elon Musk,Key People
+56_1,1,HP Inc,Company
+56_1,1,Salesforce,Company
+56_1,1,OPEC+,Government
+54_1,1,Nvidia,Company
+54_1,1,H20,Product
+54_1,1,China,Government
+54_1,1,Trump administration,Government
+54_1,1,Biden administration,Government
+54_1,1,Jensen Huang,Key People
+54_1,1,Colette Kress,Key People
+54_1,1,Joseph Moore,Key People
+54_1,1,Stacy Rasgon,Key People
+54_1,1,Morgan Stanley,Company
+54_1,1,Bernstein,Company
+54_1,1,Amazon,Company
+54_1,1,Google,Company
+54_1,1,Microsoft,Company
+54_1,1,CoreWeave,Company
+54_1,1,Foxconn,Company
+54_1,1,DeepSeek,Company
+54_1,1,Humain,Company
+54_1,1,Saudi Arabia's sovereign wealth fund,Financial Infrastructure
+54_1,1,Blackwell,Product
+54_1,1,Reuters,Company
+54_1,1,Bloomberg,Company
+57_1,1,China,Government
+57_1,1,US,Government
+57_1,1,Chinese Ministry of Commerce,Government
+57_1,1,President Trump,Key People
+57_1,1,Xi Jinping,Key People
+57_1,1,EU,Government
+57_1,1,European Commission,Government
+57_1,1,Ursula von der Leyen,Key People
+57_1,1,Howard Lutnick,Key People
+57_1,1,Kevin Hassett,Key People
+57_1,1,Scott Bessent,Key People
+57_1,1,Mark Carney,Key People
+57_1,1,Gunnar Groebler,Key People
+57_1,1,Tarang Amin,Key People
+57_1,1,Richard Dickson,Key People
+57_1,1,Elon Musk,Key People
+57_1,1,Tesla,Company
+57_1,1,Gap,Company
+57_1,1,e.l.f. Beauty,Company
+57_1,1,Salzgitter,Company
+57_1,1,Manley Labs,Company
+57_1,1,EarthQuaker Devices,Company
+57_1,1,steel,Product
+57_1,1,aluminium,Product
+57_1,1,AI chips,Product
+57_1,1,tariffs,Financial Infrastructure
+57_1,1,trade agreement,Financial Infrastructure

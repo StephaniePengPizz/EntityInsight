@@ -1,16 +1,630 @@
 ﻿DocID,ParaID,Subject,Relation,Object
-1_1,1,Donald Trump,imposes tariffs,Korea National Oil Corp
-1_1,1,Petroliam Nasional Bhd,hires banks,Mizuho Securities Asia
-1_1,1,Mark Reade,works at,Mizuho Securities Asia
-1_1,1,Avinash Thakur,works at,Barclays
-1_1,1,Bloomberg,compiles data,Asia Pacific bond market
-4_1,1,Robert Kiyosaki,authored,Rich Dad Poor Dad
-4_1,1,Robert Kiyosaki,recommends,silver
+2_1,1,香港,is,避风港
+2_1,1,美国,imposes,关税
+2_1,1,陈茂波,describes,香港的避风港地位
+2_1,1,DHL,criticizes,Trump的关税政策
+2_1,1,香港,connects,东盟市场
+2_1,1,Trump,affects,物流业
+4_1,1,Robert Kiyosaki,recommends,Silver
 4_1,1,Robert Kiyosaki,owns,Bitcoin
+4_1,1,Robert Kiyosaki,highlights,Gold
 4_1,1,Fred Krueger,compares,Solana
-4_1,1,Kraken,provides data,Bitcoin
-2_1,1,美國,imposes tariffs,香港
-2_1,1,陳茂波,advocates for,香港
-2_1,1,DHL,criticizes,特朗普
-2_1,1,特朗普,enforces policy,DHL
-2_1,1,香港中小型企業聯合會,represents,劉達邦
+4_1,1,Fred Krueger,draws parallel,Silver
+4_1,1,Kraken,provides price data,Bitcoin
+1_1,1,Donald Trump,imposes tariffs,Asia Pacific credit market
+1_1,1,Korea National Oil Corp.,issues bonds,Asia Pacific credit market
+1_1,1,Petroliam Nasional Bhd,hires banks,bond issuance
+1_1,1,Posco Holdings Inc.,works on deals,Asia Pacific credit market
+1_1,1,Jollibee Foods Corp.,works on deals,Asia Pacific credit market
+1_1,1,MTR Corp. Ltd.,works on deals,Asia Pacific credit market
+1_1,1,Mizuho Securities Asia,provides credit strategy,Asia Pacific credit market
+1_1,1,Barclays,advises on capital markets,Asia Pacific
+1_1,1,US Treasury,yields fall,bond issuers
+1_1,1,Mark Reade,comments on,Asian dollar primary market
+1_1,1,Avinash Thakur,comments on,dollar debt issuance
+5_1,1,Nvidia,posts earnings,Q1 results
+5_1,1,MicroStrategy,acquires,Bitcoin
+5_1,1,SharpLink Gaming,receives funding,Consensys
+5_1,1,Joseph Lubin,joins board,SharpLink Gaming
+5_1,1,Curaleaf Holdings,operates in,US cannabis market
+5_1,1,Salesforce,acquires,Informatica
+5_1,1,Donald Trump,owns stake,DJT
+5_1,1,Donald Jr.,controls trust,DJT
+5_1,1,Robert Kiyosaki,advises on,stock market timing
+6_1,1,President Trump,delays tariffs,European Union
+6_1,1,Dow Jones Industrial Average,rises,1.8%
+6_1,1,S&P 500,rises,2.1%
+6_1,1,Nasdaq Composite,rises,2.5%
+6_1,1,Nvidia,develops,AI chips
+6_1,1,Tesla,affected by,tariffs
+6_1,1,Federal Reserve,debates,inflation impact of tariffs
+6_1,1,Bank of Japan,signals,rate hikes
+6_1,1,Trump Media & Technology Group,invests in,Bitcoin
+7_1,1,China,accuses,US
+7_1,1,US,imposes tariffs,China
+7_1,1,Chinese Ministry of Commerce,vows response,US
+7_1,1,President Trump,plans call,Xi Jinping
+7_1,1,EU Commission,prepares countermeasures,US
+7_1,1,National Economic Council,focuses on,China trade
+7_1,1,Treasury Secretary,hopes for resolution,China trade
+7_1,1,Commerce Secretary,downplays impact,tariffs
+9_1,1,Nvidia,exceeds earnings expectations,Wall Street
+9_1,1,Nvidia,produces,Hopper
+9_1,1,Nvidia,produces,Blackwell
+9_1,1,Nvidia,faces export ban,China
+9_1,1,Stifel,analyzes,Nvidia
+9_1,1,Bank of America,analyzes,Nvidia
+9_1,1,Ruben Roy,works at,Stifel
+9_1,1,Vivek Arya,works at,Bank of America
+9_1,1,DeepSeek,competes with,Nvidia
+9_1,1,Trump,impacts,stock market
+8_1,1,Elon Musk,opposes,Donald Trump's bill
+8_1,1,Elon Musk,heads,DOGE
+8_1,1,DOGE,part of,Department of Government Efficiency
+8_1,1,Chamath Palihapitiya,criticizes,Donald Trump's bill
+8_1,1,Jason Calacanis,criticizes,Donald Trump's bill
+8_1,1,David Sacks,defends,Donald Trump's bill
+8_1,1,Dara Khosrowshahi,supports,gig workers provision
+8_1,1,Uber,employs,Dara Khosrowshahi
+8_1,1,Sen. Ron Johnson,criticizes,Donald Trump's bill
+8_1,1,Morning Consult,conducts,survey on bill
+8_1,1,Brookings Institution,tracks,government spending
+8_1,1,USAID,affected by,DOGE
+8_1,1,Elon Musk,interviewed by,CBS
+8_1,1,Elon Musk,interviewed by,Washington Post
+10_1,1,United States Court of International Trade,blocks,President Trump's tariffs
+10_1,1,President Trump,imposes,tariffs
+10_1,1,White House,appeals,court decision
+10_1,1,International Emergency Economic Powers Act (IEEPA),restricts,presidential authority
+10_1,1,Goldman Sachs,analyzes,tariff impacts
+10_1,1,Sen. Ron Wyden,criticizes,President Trump's tariffs
+12_1,1,Donald Trump,imposes,tariffs
+12_1,1,Donald Trump,challenges,court rulings
+12_1,1,Ed Mills,analyzes,tariffs
+12_1,1,Yale Budget Lab,estimates,tariff impact
+12_1,1,Robert Armstrong,writes,Financial Times
+13_1,1,Donald Trump,imposes tariffs,Apple smartphones
+13_1,1,Court of International Trade,blocks tariffs,Donald Trump
+13_1,1,Supreme Court,may decide,tariffs
+13_1,1,James Lucier,analyzes,trade policy
+13_1,1,Donald Trump,threatens tariffs,Europe
+13_1,1,Rick Newman,writes for,Yahoo Finance
+11_1,1,China,accuses,US
+11_1,1,US,imposes tariffs,China
+11_1,1,Donald Trump,leads,US
+11_1,1,Xi Jinping,leads,China
+11_1,1,Chinese Ministry of Commerce,issues statement,US
+11_1,1,US Court of International Trade,blocks,tariffs
+11_1,1,Supreme Court,may review,tariffs
+11_1,1,EU Commission,prepares countermeasures,US
+11_1,1,Ursula von der Leyen,negotiates with,Donald Trump
+11_1,1,Tesla,affected by,tariffs
+11_1,1,Elon Musk,meets with,Donald Trump
+11_1,1,Gap,warns about,tariff costs
+11_1,1,Richard Dickson,leads,Gap
+11_1,1,Salzgitter,criticizes,US tariffs
+11_1,1,Gunnar Groebler,CEO of,Salzgitter
+14_1,1,Meta,partners with,Anduril
+14_1,1,Meta,develops,AR/VR military tech
+14_1,1,Anduril,develops,Lattice analytics platform
+14_1,1,Meta,provides,Llama AI models
+14_1,1,Anduril,supplies,U.S. Army
+14_1,1,Palmer Luckey,founded,Anduril
+14_1,1,Mark Zuckerberg,CEO of,Meta
+14_1,1,Andrew Bosworth,CTO of,Meta
+15_1,1,Elon Musk,advises,President Trump
+15_1,1,Elon Musk,CEO,Tesla
+15_1,1,Elon Musk,CEO,SpaceX
+15_1,1,Elon Musk,owns,X
+15_1,1,Elon Musk,owns,xAI
+15_1,1,Elon Musk,criticizes,Trump's agenda
+15_1,1,DOGE,associated with,Department of Government Efficiency
+15_1,1,Tesla,develops,Cybercab
+15_1,1,Elon Musk,opposes,OpenAI deal
+15_1,1,OpenAI,partners with,tech giants
+15_1,1,Wall Street Journal,reports on,Elon Musk
+15_1,1,New York Times,reports on,Elon Musk
+15_1,1,Brookings Institution,tracks,government spending
+17_1,1,Federal Reserve,holds rates steady,Jerome Powell
+17_1,1,Donald Trump,calls for lower rates,Federal Reserve
+17_1,1,Lorie Logan,advocates for steady rates,Federal Reserve
+17_1,1,Neel Kashkari,warns about tariffs,Federal Reserve
+17_1,1,Ellen Zentner,analyzes tariffs,Morgan Stanley Wealth Management
+17_1,1,Jeffrey Roach,predicts inflation,LPL Financial
+17_1,1,White House,argues on tariffs,Federal Reserve
+16_1,1,China,trade tensions with,US
+16_1,1,US,imposes tariffs on,China
+16_1,1,Federal Reserve,monitors,S&P 500
+16_1,1,Christopher Waller,is governor of,Federal Reserve
+16_1,1,Jerome Powell,is chair of,Federal Reserve
+16_1,1,S&P 500,includes,CrowdStrike
+16_1,1,S&P 500,includes,Broadcom
+16_1,1,S&P 500,includes,DocuSign
+16_1,1,S&P 500,includes,Lululemon
+16_1,1,OPEC+,regulates,oil output
+16_1,1,Tesla,led by,Elon Musk
+18_1,1,Nvidia,reports earnings,S&P 500
+18_1,1,US Court of International Trade,blocks tariffs,Trump
+18_1,1,Federal Reserve,meets with,Trump
+18_1,1,Best Buy,cuts guidance,tariffs
+18_1,1,Trump,imposes tariffs,Walmart
+18_1,1,Goldman Sachs,analyzes tariffs,Trump
+18_1,1,Tesla,rises on news,Elon Musk
+18_1,1,Salesforce,raises guidance,tariffs
+18_1,1,HP Inc.,cuts outlook,tariffs
+18_1,1,OPEC+,decides production,oil prices
+19_1,1,Elon Musk,advises,Donald Trump
+19_1,1,Elon Musk,leads,DOGE
+19_1,1,Elon Musk,owns,Tesla
+19_1,1,Elon Musk,owns,SpaceX
+19_1,1,DOGE,oversees,federal spending
+19_1,1,Donald Trump,appoints,Elon Musk
+19_1,1,House of Representatives,debates,spending bill
+19_1,1,Senate,debates,spending bill
+19_1,1,Committee for a Responsible Federal Budget,evaluates,federal deficit
+20_1,1,Conference Board,publishes,latest index reading
+20_1,1,Wells Fargo,employs,Tim Quinlan
+20_1,1,JPMorgan,estimates,US effective tariff rate
+20_1,1,Stephanie Guichard,analyzes,consumer expectations
+20_1,1,University of Michigan,measures,consumer sentiment
+20_1,1,Trump,delays,China tariffs
+20_1,1,China,agrees to,tariff pause
+20_1,1,Apple,affected by,EU tariffs
+21_1,1,Donald Trump,negotiates with,Xi Jinping
+21_1,1,US Treasury,regulates,tariffs
+21_1,1,Chinese Ministry of Commerce,responds to,US Treasury
+21_1,1,Kevin Hassett,advises,Donald Trump
+21_1,1,Scott Bessent,represents,US Treasury
+21_1,1,Howard Lutnick,represents,Commerce Secretary
+21_1,1,critical minerals,subject of,tariffs
+21_1,1,semiconductors,subject of,export controls
+22_1,1,National Association of Realtors,publishes,Pending Home Sales Index
+22_1,1,Lawrence Yun,is chief economist of,National Association of Realtors
+22_1,1,Trump,announces tariffs,Government
+22_1,1,Realtor.com,tracks,housing inventory
+25_1,1,Donald Trump,meets with,Jerome Powell
+25_1,1,Donald Trump,criticizes,Jerome Powell
+25_1,1,Donald Trump,pressures,Federal Reserve
+25_1,1,Jerome Powell,leads,Federal Reserve
+25_1,1,White House,confirms meeting,Jerome Powell
+25_1,1,Karoline Leavitt,represents,White House
+25_1,1,Donald Trump,considers replacing,Jerome Powell
+25_1,1,Donald Trump,discusses with,Kevin Warsh
+25_1,1,Supreme Court,protects,Jerome Powell
+25_1,1,Federal Reserve,sets,monetary policy
+24_1,1,China,accuses,US
+24_1,1,US,imposes tariffs,China
+24_1,1,Chinese Ministry of Commerce,responds to,Trump
+24_1,1,Trump,plans to speak with,Xi Jinping
+24_1,1,EU,prepares countermeasures,US
+24_1,1,White House,appeals to,Supreme Court
+24_1,1,National Economic Council,focuses on,China trade
+24_1,1,Treasury Secretary Scott Bessent,hopes for resolution,China trade
+24_1,1,Commerce Secretary Howard Lutnick,downplays impact,tariffs
+24_1,1,EU Commission President Ursula von der Leyen,negotiates with,US
+24_1,1,Salzgitter,warns about,tariffs
+24_1,1,Gap,navigates,tariffs
+24_1,1,e.l.f. Beauty,remains committed to,China manufacturing
+24_1,1,Tesla,affected by,auto tariffs
+24_1,1,US,increases tariffs,steel
+24_1,1,US,increases tariffs,aluminium
+24_1,1,US,restricts exports,AI chip
+26_1,1,Nvidia,manufactures,H20
+26_1,1,US Government,imposes export controls,H20
+26_1,1,China Government,affected by,export controls
+26_1,1,Jensen Huang,CEO of,Nvidia
+26_1,1,Dan Ives,analyst at,Wedbush
+26_1,1,Nvidia,impacted by,trade war
+26_1,1,Nvidia,potential beneficiary of,US/China negotiations
+23_1,1,China,accuses,US
+23_1,1,US,imposes tariffs,China
+23_1,1,Chinese Ministry of Commerce,responds to,President Trump
+23_1,1,President Trump,plans to speak with,Xi Jinping
+23_1,1,EU Commission,prepares countermeasures,US
+23_1,1,Ursula von der Leyen,negotiates with,President Trump
+23_1,1,Howard Lutnick,downplays impact of,tariffs
+23_1,1,Kevin Hassett,focuses on,China trade
+23_1,1,Scott Bessent,expresses hope for,trade resolution
+23_1,1,Mark Carney,aims to reduce,tariff harm
+23_1,1,Gunnar Groebler,warns about,tariff impact
+23_1,1,Tarang Amin,commits to,Chinese suppliers
+23_1,1,Richard Dickson,navigates,tariff complexity
+23_1,1,Elon Musk,meets with,President Trump
+23_1,1,Gap,shifts supply chain from,China
+23_1,1,e.l.f. Beauty,relies on,Chinese manufacturing
+23_1,1,Tesla,affected by,auto tariffs
+23_1,1,Salzgitter,criticizes,US tariff policy
+23_1,1,Manley Labs,cuts staff hours due to,tariffs
+23_1,1,EarthQuaker Devices,fears impact of,tariffs
+23_1,1,US Court of International Trade,blocks,tariffs
+23_1,1,Supreme Court,may rule on,tariffs
+23_1,1,National Economic Council,advises on,trade policy
+23_1,1,Commerce Department,reports on,trade deficit
+23_1,1,Treasury Department,hopes for,trade resolution
+27_1,1,Nvidia,reported earnings,S&P 500
+27_1,1,Federal Reserve,warned of tradeoffs,Trump administration
+27_1,1,HP,blamed tariffs,Trump administration
+27_1,1,GameStop,purchased bitcoin,Financial Infrastructure
+27_1,1,Chevron,granted license,US government
+27_1,1,OPEC+,decided production quotas,oil markets
+27_1,1,CSX Corp,CEO commented on economy,industrial growth
+27_1,1,Abercrombie & Fitch,reported earnings,retail sector
+27_1,1,Trump Media & Technology Group,planned bitcoin purchase,cryptocurrency
+27_1,1,Okta,reported earnings,tech sector
+27_1,1,Macy's,reported earnings,retail sector
+27_1,1,Joby Aviation,received investment,Toyota
+27_1,1,Barclays Plc,commented on market,institutional investors
+28_1,1,Refresco,acquires,Telemark Kildevann (TKV)
+28_1,1,Refresco,CEO,Hans Roelofs
+28_1,1,Refresco,acquired,Frías Nutrición
+28_1,1,Refresco,purchased production site from,Berentzen-Gruppe
+28_1,1,Refresco,bought,VBC Bottling Company
+28_1,1,Refresco,owns,Märkisch Kristall
+28_1,1,Refresco,owns,Grüneberg Quelle
+32_1,1,GameStop,purchases,Bitcoin
+32_1,1,Strategy,holds,Bitcoin
+32_1,1,Michael Saylor,leads,Strategy
+32_1,1,Strategy,influences,GameStop
+32_1,1,Yahoo Finance,reports_on,GameStop
+32_1,1,GameStop,aspires_to_be,Berkshire Hathaway
+30_1,1,Medicare,covers,healthcare costs
+30_1,1,KFF,studies,healthcare debt
+30_1,1,West Health-Gallup,surveys,medical borrowing
+30_1,1,Consumer Financial Protection Bureau (CFPB),regulates,credit reports
+30_1,1,Equifax,provides,credit reports
+30_1,1,Experian,provides,credit reports
+30_1,1,Transunion,provides,credit reports
+30_1,1,Kerry Hannon,authors,retirement guides
+30_1,1,Tricia Neuman,analyzes,Medicare impacts
+30_1,1,Lori Trawinski,researches,aging finances
+30_1,1,Anqi Chen,studies,retirement preparedness
+30_1,1,Carolyn McClanahan,advises,healthcare planning
+31_1,1,China,accuses,US
+31_1,1,US,imposes tariffs,China
+31_1,1,Trump,plans to speak with,Xi Jinping
+31_1,1,Chinese Ministry of Commerce,warns,US
+31_1,1,EU,prepares countermeasures,US
+31_1,1,Salzgitter,criticizes,US tariffs
+31_1,1,e.l.f. Beauty,relies on,China
+31_1,1,Gap,warns about,tariff expenses
+31_1,1,Tesla,affected by,auto tariffs
+31_1,1,US Court of International Trade,blocks,tariffs
+31_1,1,Supreme Court,may review,tariffs
+31_1,1,Trump,cites,Nixon-era tariffs
+31_1,1,China,restricts,AI chip exports
+31_1,1,US,targets,Huawei
+31_1,1,US,targets,Yangtze Memory Technologies
+34_1,1,Yahoo Finance,publishes,Morning Brief
+34_1,1,Ethan Wolff-Mann,edits,Morning Brief
+34_1,1,Yahoo Finance,employs,Ethan Wolff-Mann
+33_1,1,Fitch Ratings,rates,Aston Martin Lagonda Global Holdings Plc
+33_1,1,Lawrence Stroll,chairs,Aston Martin Lagonda Global Holdings Plc
+33_1,1,Yew Tree,invests in,Aston Martin Lagonda Global Holdings Plc
+33_1,1,Adrian Hallmark,leads,Aston Martin Lagonda Global Holdings Plc
+33_1,1,Adrian Hallmark,formerly led,Bentley Motors Ltd
+33_1,1,Trump administration,proposes tariffs,UK car imports
+33_1,1,Society of Motor Manufacturers and Traders (SMMT),reports on,UK car exports
+35_1,1,S&P 500,logs best May since 1990,markets
+35_1,1,Federal Reserve,monitors inflation,PCE index
+35_1,1,Trump administration,imposes tariffs,China
+35_1,1,Nvidia,affected by export controls,China
+35_1,1,Tesla,led by,Elon Musk
+35_1,1,Scott Bessent,negotiates trade deals,China
+29_1,1,Nippon Steel,acquires,US Steel
+29_1,1,US Government,holds golden share,US Steel
+29_1,1,Trump,supports,Nippon Steel acquisition
+29_1,1,Trump,pressures,Walmart
+29_1,1,CFIUS,reviews,foreign transactions
+29_1,1,US Government,bailed out,General Motors
+29_1,1,US Government,bailed out,Stellantis
+29_1,1,Beijing,controls,Bytedance
+29_1,1,Beijing,controls,Alibaba
+38_1,1,Bespoke Investment Group,researches,S&P 500
+38_1,1,Interactive Brokers,employs,Steve Sosnick
+38_1,1,Steve Sosnick,comments on,buy-the-dip strategy
+38_1,1,JPMorgan,employs,Emma Wu
+38_1,1,Emma Wu,analyzes,retail investor behavior
+38_1,1,VandaTrack,tracks,retail investor flows
+38_1,1,Donald Trump,influences,market rally
+36_1,1,Nvidia,develops,H20
+36_1,1,Nvidia,develops,Blackwell
+36_1,1,Nvidia,led by,Jensen Huang
+36_1,1,US Government,imposes export restrictions on,Nvidia
+36_1,1,China,affected by export restrictions on,Nvidia
+36_1,1,Microsoft,purchases chips from,Nvidia
+36_1,1,Amazon,purchases chips from,Nvidia
+36_1,1,Meta Platforms,purchases chips from,Nvidia
+36_1,1,Wedbush,analyzes,Nvidia
+36_1,1,Dan Ives,analyst at,Wedbush
+36_1,1,HSBC,analyzes,Nvidia
+36_1,1,Ryan Mellor,analyst at,HSBC
+39_1,1,Wall Street,monitors,Treasury yields
+39_1,1,Citi,employs,Stuart Kaiser
+39_1,1,Stuart Kaiser,analyzes,Treasury yields
+39_1,1,AllianceBernstein,employs,Eric Winograd
+39_1,1,Eric Winograd,comments on,fiscal policy
+39_1,1,Trump,proposes,tax bill
+39_1,1,Fed,influences,Treasury yields
+39_1,1,House,passes,tax bill
+39_1,1,Senate,reviews,tax bill
+39_1,1,Chris Rupkey,warns about,bond yields
+39_1,1,FWDBonds,employs,Chris Rupkey
+39_1,1,Daniel Kryger,works at,New York Stock Exchange
+37_1,1,Department of Justice,investigates,Apple
+37_1,1,Trump,threatens,Apple
+37_1,1,Apple,manufactures,iPhone
+37_1,1,Apple,competes with,Google
+37_1,1,Apple,competes with,Samsung
+37_1,1,Apple,faces legal battle with,Epic Games
+37_1,1,Jony Ive,collaborates with,Sam Altman
+37_1,1,Jony Ive,collaborates with,OpenAI
+37_1,1,Morgan Stanley,analyzes,iPhone pricing
+37_1,1,Deepwater Asset Management,comments on,Apple's AI strategy
+37_1,1,US District Judge Yvonne Gonzalez Rogers,reviews,Apple's compliance
+42_1,1,Trump,imposes tariffs,Apple
+42_1,1,Trump,imposes tariffs,Samsung
+42_1,1,Treasury Department,collects tariffs,Government
+42_1,1,Trump,advocates for,GOP tax bill
+40_1,1,China,accuses,US
+40_1,1,US,imposes tariffs,China
+40_1,1,Trump,plans to speak with,Xi Jinping
+40_1,1,Chinese Ministry of Commerce,warns,US
+40_1,1,EU,prepares countermeasures,US
+40_1,1,Salzgitter,criticizes,US tariffs
+40_1,1,Gap,affected by,tariffs
+40_1,1,e.l.f. Beauty,sources products from,China
+40_1,1,Tesla,manufactures in,US
+40_1,1,US Court of International Trade,blocks,tariffs
+40_1,1,Supreme Court,may review,tariffs
+41_1,1,Nvidia,manufactures,H20
+41_1,1,Nvidia,impacted by,export ban
+41_1,1,Trump administration,imposes,export ban
+41_1,1,Biden administration,imposes,export restrictions
+41_1,1,Nvidia,led by,Jensen Huang
+41_1,1,Nvidia,employs,Colette Kress
+41_1,1,Morgan Stanley,employs,Joseph Moore
+41_1,1,Bernstein,employs,Stacy Rasgon
+41_1,1,Nvidia,supplies,Amazon
+41_1,1,Nvidia,supplies,Google
+41_1,1,Nvidia,supplies,Microsoft
+41_1,1,Nvidia,partners with,CoreWeave
+41_1,1,Nvidia,partners with,Foxconn
+41_1,1,Nvidia,supplies,Humain
+41_1,1,Saudi Arabia's sovereign wealth fund,invests in,Humain
+41_1,1,Nvidia,collaborates with,United Arab Emirates
+41_1,1,DeepSeek,competes with,Nvidia
+41_1,1,NasdaqGS,lists,Nvidia
+41_1,1,Bloomberg,reports on,Nvidia
+41_1,1,Reuters,reports on,Nvidia
+44_1,1,Barclays,employs,Ajay Rajadhyaksha
+44_1,1,US Court of International Trade,invalidates,Trump's tariffs
+44_1,1,Goldman Sachs,employs,Alec Phillips
+44_1,1,Renaissance Macro,employs,Neil Dutta
+44_1,1,Neil Dutta,analyzes,policy uncertainty
+44_1,1,Alec Phillips,comments on,tariff setback
+44_1,1,Ajay Rajadhyaksha,warns about,equity market pressure
+43_1,1,President Trump,rollback of tariffs,S&P 500
+43_1,1,Barclays,research,Ajay Rajadhyaksha
+43_1,1,Ritholtz Wealth Management,employs,Callie Cox
+43_1,1,Wells Fargo,employs,Jay Bryson
+43_1,1,Magnificent Seven,includes,Apple
+43_1,1,Magnificent Seven,includes,Alphabet
+43_1,1,Magnificent Seven,includes,Microsoft
+43_1,1,Magnificent Seven,includes,Amazon
+43_1,1,Magnificent Seven,includes,Meta
+43_1,1,Magnificent Seven,includes,Tesla
+43_1,1,Magnificent Seven,includes,Nvidia
+43_1,1,Citi,employs,Drew Pettit
+43_1,1,Roundhill Magnificent Seven ETF,tracks,Magnificent Seven
+45_1,1,European Union,fast-tracks trade talks,Washington
+45_1,1,President Trump,announces tariff delay,US
+45_1,1,US,delays tariffs,European Union
+45_1,1,Torsten Sløk,points out,lack of trade rebound
+45_1,1,Apollo Global Management,owns,Yahoo Finance
+45_1,1,S&P 500,reflects market performance,markets
+45_1,1,China,has tentative trade deal,US
+47_1,1,Nvidia,reports earnings,Dow Jones Industrial Average
+47_1,1,Trump,imposes tariffs,US Court of International Trade
+47_1,1,Federal Reserve,meets with,Trump
+47_1,1,Best Buy,cuts guidance,tariffs
+47_1,1,Costco,reports earnings,tariffs
+47_1,1,Walmart,faces price hikes,tariffs
+47_1,1,Goldman Sachs,analyzes tariffs,Trump
+47_1,1,Tesla,rises on news,Elon Musk
+47_1,1,Salesforce,raises guidance,tariffs
+47_1,1,HP Inc.,cuts outlook,tariffs
+47_1,1,Jerome Powell,discusses policy,Trump
+47_1,1,Elon Musk,leaves role,Trump administration
+47_1,1,Scott Bessent,comments on yields,Trump
+47_1,1,Jensen Huang,warns on sales,China restrictions
+49_1,1,Donald Trump,opposes,Harvard
+49_1,1,Donald Trump,graduated from,Wharton School
+49_1,1,Donald Trump,targets,University of California system
+49_1,1,Federal Government,subsidizes,college education
+49_1,1,Federal Government,cancels grants,Harvard
+49_1,1,McKinsey,reports shortage,skilled workers
+49_1,1,Donald Trump,halts,student debt relief effort
+49_1,1,Donald Trump,proposes,tax on investment income
+49_1,1,Donald Trump,suspends,visa appointments for foreign students
+46_1,1,China,accuses,US
+46_1,1,US,imposes tariffs,China
+46_1,1,Trump,plans to speak with,Xi Jinping
+46_1,1,Chinese Ministry of Commerce,vows to protect,China's interests
+46_1,1,EU,prepares countermeasures,US
+46_1,1,Ursula von der Leyen,agrees to accelerate talks,Trump
+46_1,1,Howard Lutnick,downplays impact of,tariffs
+46_1,1,Kevin Hassett,suggests trade negotiations stalled by,China issues
+46_1,1,Scott Bessent,expresses hope for resolution with,China
+46_1,1,Mark Carney,aims to reduce harm from,tariffs
+46_1,1,Gunnar Groebler,warns about impact of,tariffs
+46_1,1,Tarang Amin,commits to,Chinese suppliers
+46_1,1,Richard Dickson,navigates,tariffs
+46_1,1,Elon Musk,meets with,Trump
+46_1,1,US Court of International Trade,blocks,tariffs
+46_1,1,Supreme Court,may rule on,tariffs
+46_1,1,National Economic Council,focuses on,China matter
+46_1,1,Commerce Department,reports on,trade deficit
+46_1,1,EU Commission,spokesperson comments on,tariffs
+46_1,1,Gap,shifts supply chain due to,tariffs
+46_1,1,e.l.f. Beauty,relies on,China
+46_1,1,Tesla,affected by,auto tariffs
+46_1,1,Salzgitter,impacted by,steel tariffs
+46_1,1,Manley Labs,cuts hours due to,tariffs
+46_1,1,EarthQuaker Devices,fears impact of,tariffs
+46_1,1,China,responds to,US tariffs
+46_1,1,US,introduces restrictions on,AI chips
+46_1,1,Trump,doubles tariffs on,steel and aluminium
+46_1,1,EU,considers countermeasures against,US tariffs
+46_1,1,US,faces legal challenges over,tariffs
+50_1,1,Nvidia,employs,Jensen Huang
+50_1,1,Nvidia,develops,Blackwell
+50_1,1,Nvidia,impacted by,US export rules
+50_1,1,Nvidia,loses revenue from,China
+50_1,1,Nvidia,supplies chips to,Microsoft
+50_1,1,Nvidia,supplies chips to,Amazon
+50_1,1,Nvidia,supplies chips to,Meta Platforms
+50_1,1,Wall Street,analyzes,Nvidia earnings
+50_1,1,Dan Ives,works at,Wedbush
+50_1,1,Ryan Mellor,works at,HSBC
+50_1,1,US,imposes export rules on,Nvidia
+50_1,1,China,affected by,US export rules
+50_1,1,Nvidia,faces competition in,China market
+48_1,1,China,trades with,US
+48_1,1,President Trump,imposes tariffs on,China
+48_1,1,Federal Reserve,regulates,US economy
+48_1,1,Christopher Waller,is member of,Federal Reserve
+48_1,1,Jerome Powell,is chair of,Federal Reserve
+48_1,1,CrowdStrike,reports earnings,investors
+48_1,1,Broadcom,reports earnings,investors
+48_1,1,DocuSign,reports earnings,investors
+48_1,1,Lululemon,reports earnings,investors
+48_1,1,Institute for Supply Management,rates,US manufacturing
+48_1,1,Susan Spence,chairs,ISM Manufacturing Business Survey Committee
+48_1,1,S&P Global,rates,US manufacturing
+48_1,1,Chris Williamson,is chief business economist of,S&P Global
+48_1,1,BioNTech,partners with,Bristol Myers Squibb
+48_1,1,Bristol Myers Squibb,licenses drug from,BioNTech
+48_1,1,Merck,competes with,Bristol Myers Squibb
+48_1,1,Moderna,receives approval for,COVID-19 vaccine
+48_1,1,Blueprint Medicines,is acquired by,Sanofi
+48_1,1,Cleveland-Cliffs,benefits from,steel tariffs
+48_1,1,Nucor,benefits from,steel tariffs
+48_1,1,Steel Dynamics,benefits from,steel tariffs
+48_1,1,US Steel Corporation,is acquired by,Nippon
+48_1,1,Hyundai Steel,builds factory in,Louisiana
+48_1,1,Tesla,faces sales decline in,Europe
+48_1,1,Elon Musk,is CEO of,Tesla
+48_1,1,OPEC+,increases output of,crude oil
+48_1,1,West Texas Intermediate,is type of,crude oil
+48_1,1,Brent,is type of,crude oil
+48_1,1,Campbell's Company,reports earnings,investors
+48_1,1,BlackRock,faces opposition from,Texas
+48_1,1,Kayne Anderson Rudnick,analyzes,TACO trade
+48_1,1,Julie Beale,is chief market strategist of,Kayne Anderson Rudnick
+48_1,1,DAX Index,outperforms,S&P 500
+48_1,1,Stoxx 600 Index,outperforms,S&P 500
+48_1,1,Hang Seng Index,declines due to,trade tensions
+48_1,1,Nikkei 225,declines due to,trade tensions
+48_1,1,Kospi,declines due to,trade tensions
+48_1,1,S&P/ASX 200,declines due to,trade tensions
+51_1,1,BofA,upgrades,Boeing
+51_1,1,BTIG,upgrades,Doximity
+51_1,1,RBC Capital,upgrades,Church & Dwight
+51_1,1,Goldman Sachs,upgrades,Saia
+51_1,1,BMO Capital,upgrades,Nucor
+51_1,1,Bernstein,downgrades,Charter
+51_1,1,Barclays,downgrades,Centene
+51_1,1,BTIG,downgrades,Shake Shack
+51_1,1,Goldman Sachs,downgrades,Union Pacific
+51_1,1,Raymond James,downgrades,Rackspace Technology
+51_1,1,Truist,initiates coverage,PayPal
+51_1,1,Truist,initiates coverage,Block
+51_1,1,Truist,initiates coverage,MasterCard
+51_1,1,Truist,initiates coverage,Visa
+51_1,1,Truist,initiates coverage,Global Payments
+51_1,1,Oppenheimer,initiates coverage,Western Union
+52_1,1,Federal Reserve,monitors,Personal Consumption Expenditures (PCE)
+52_1,1,Kathy Bostjancic,works for,Nationwide
+52_1,1,Trump,implements,tariffs
+52_1,1,Trump,negotiates with,China
+52_1,1,tariffs,impacts,inflation
+53_1,1,Nvidia,reports earnings,Wall Street
+53_1,1,Federal Reserve,warns of tradeoffs,tariffs
+53_1,1,Trump administration,imposes,tariffs
+53_1,1,HP,blames,tariffs
+53_1,1,GameStop,purchases,bitcoin
+53_1,1,Chevron,operates in,Venezuela
+53_1,1,OPEC+,decides on,oil production
+53_1,1,CSX Corp,CEO comments on,economy
+53_1,1,Abercrombie & Fitch,beats,earnings estimates
+53_1,1,Macy's,faces,tariff impacts
+53_1,1,Okta,reiterates,revenue outlook
+53_1,1,Barclays Plc,analyzes,stock market trends
+55_1,1,Yahoo Finance,publishes,Chart of the Week
+55_1,1,Fed,chaired by,Jerome Powell
+55_1,1,Jerome Powell,comments on,labor market
+55_1,1,Oxford Economics,analyzes,unemployment rate
+55_1,1,Cory Stahle,works at,Indeed
+55_1,1,Cory Stahle,comments on,labor market
+55_1,1,Apollo Global Management,owns,Yahoo Finance
+55_1,1,Torsten Sløk,works at,Apollo Global Management
+55_1,1,Torsten Sløk,researches,tech employment
+55_1,1,Matthew Martin,works at,Oxford Economics
+55_1,1,Matthew Martin,describes,labor market conditions
+55_1,1,S&P 500,includes,Magnificent Seven tech cohort
+55_1,1,President Trump,implements,tariffs
+56_1,1,Nvidia,reports earnings,S&P 500
+56_1,1,Trump,imposes tariffs,US Court of International Trade
+56_1,1,US Court of International Trade,blocks tariffs,Trump
+56_1,1,Federal Reserve,meets with,Trump
+56_1,1,Jerome Powell,chairs,Federal Reserve
+56_1,1,Best Buy,cuts guidance,tariffs
+56_1,1,Costco,reports earnings,tariffs
+56_1,1,Walmart,faces price hikes,tariffs
+56_1,1,Goldman Sachs,analyzes tariffs,Trump
+56_1,1,Tesla,rises on news,Elon Musk
+56_1,1,Elon Musk,leaves role,Trump administration
+56_1,1,HP Inc,cuts outlook,tariffs
+56_1,1,Salesforce,raises guidance,AI business
+56_1,1,OPEC+,decides production,oil prices
+54_1,1,Nvidia,produces,H20
+54_1,1,Trump administration,bans,H20 sales to China
+54_1,1,Nvidia,impacted by,export ban
+54_1,1,Jensen Huang,CEO of,Nvidia
+54_1,1,Colette Kress,CFO of,Nvidia
+54_1,1,Nvidia,partners with,Amazon
+54_1,1,Nvidia,partners with,Google
+54_1,1,Nvidia,partners with,Microsoft
+54_1,1,Nvidia,collaborates with,CoreWeave
+54_1,1,Nvidia,collaborates with,Foxconn
+54_1,1,Nvidia,supplies GPUs to,Humain
+54_1,1,Joseph Moore,analyst at,Morgan Stanley
+54_1,1,Stacy Rasgon,analyst at,Bernstein
+54_1,1,Biden administration,imposes,AI diffusion rules
+54_1,1,Trump administration,cancels,AI diffusion rules
+54_1,1,DeepSeek,challenges,Nvidia's market position
+57_1,1,China,accuses,US
+57_1,1,US,imposes,tariffs
+57_1,1,China,vows to protect,interests
+57_1,1,Chinese Ministry of Commerce,issues statement,US restrictions
+57_1,1,President Trump,writes on,Truth Social
+57_1,1,President Trump,plans to speak with,Xi Jinping
+57_1,1,EU,prepares countermeasures,US tariffs
+57_1,1,Ursula von der Leyen,agrees to accelerate talks,US
+57_1,1,Howard Lutnick,downplays impact,legal uncertainty
+57_1,1,Kevin Hassett,suggests focus,China matter
+57_1,1,Mark Carney,aims to reduce harm,tariffs
+57_1,1,Gunnar Groebler,warns about impact,European steelmakers
+57_1,1,Tarang Amin,commits to,Chinese suppliers
+57_1,1,Richard Dickson,navigates,tariffs
+57_1,1,Elon Musk,attends press conference,President Trump
+57_1,1,Tesla,affected by,tariffs
+57_1,1,Gap,warns about,tariff expenses
+57_1,1,e.l.f. Beauty,sources products from,China
+57_1,1,Salzgitter,criticizes,US tariff policy
+57_1,1,Manley Labs,cuts staff hours,tariffs
+57_1,1,EarthQuaker Devices,fears impact,small businesses
+57_1,1,steel,subject to,tariffs
+57_1,1,aluminium,subject to,tariffs
+57_1,1,AI chips,restricted for export,China
+57_1,1,tariffs,affect,trade agreement

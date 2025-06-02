@@ -1,21 +1,89 @@
 {
   "metadata": {
-    "generated_at": "2025-06-02T13:31:46.640468",
+    "generated_at": "2025-06-02T15:43:04.658558",
     "entity_counts": {
-      "Regulator": 0,
-      "Bank": 2,
-      "Company": 9,
-      "Product": 5,
-      "Government": 3,
-      "Rating Agency": 0,
-      "Financial Infrastructure": 0,
-      "Key People": 8,
+      "Regulator": 29,
+      "Bank": 24,
+      "Company": 266,
+      "Product": 64,
+      "Government": 130,
+      "Rating Agency": 14,
+      "Financial Infrastructure": 71,
+      "Key People": 176,
       "Concept": 0,
       "Event": 0,
-      "Industry": 0
+      "Industry": 4
     }
   },
   "data": [
+    {
+      "doc_id": "2_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "香港",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "美国",
+          "type": "Government"
+        },
+        {
+          "name": "陈茂波",
+          "type": "Key People"
+        },
+        {
+          "name": "DHL",
+          "type": "Company"
+        },
+        {
+          "name": "Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "东盟",
+          "type": "Market"
+        },
+        {
+          "name": "香港文汇報",
+          "type": "Company"
+        }
+      ]
+    },
+    {
+      "doc_id": "4_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Robert Kiyosaki",
+          "type": "Key People"
+        },
+        {
+          "name": "Silver",
+          "type": "Product"
+        },
+        {
+          "name": "Gold",
+          "type": "Product"
+        },
+        {
+          "name": "Bitcoin",
+          "type": "Product"
+        },
+        {
+          "name": "Solana",
+          "type": "Product"
+        },
+        {
+          "name": "Kraken",
+          "type": "Company"
+        },
+        {
+          "name": "Fred Krueger",
+          "type": "Key People"
+        }
+      ]
+    },
     {
       "doc_id": "1_1",
       "para_id": 1,
@@ -25,7 +93,7 @@
           "type": "Government"
         },
         {
-          "name": "Korea National Oil Corp",
+          "name": "Korea National Oil Corp.",
           "type": "Company"
         },
         {
@@ -49,16 +117,3232 @@
           "type": "Bank"
         },
         {
+          "name": "Barclays",
+          "type": "Bank"
+        },
+        {
+          "name": "Bloomberg",
+          "type": "Company"
+        },
+        {
+          "name": "US Treasury",
+          "type": "Government"
+        },
+        {
+          "name": "Asia Pacific credit market",
+          "type": "Financial Infrastructure"
+        },
+        {
           "name": "Mark Reade",
           "type": "Key People"
+        },
+        {
+          "name": "Avinash Thakur",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "5_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "MicroStrategy",
+          "type": "Company"
+        },
+        {
+          "name": "Bitcoin",
+          "type": "Product"
+        },
+        {
+          "name": "SharpLink Gaming",
+          "type": "Company"
+        },
+        {
+          "name": "Consensys",
+          "type": "Company"
+        },
+        {
+          "name": "Ethereum",
+          "type": "Product"
+        },
+        {
+          "name": "Curaleaf Holdings",
+          "type": "Company"
+        },
+        {
+          "name": "Salesforce",
+          "type": "Company"
+        },
+        {
+          "name": "Informatica",
+          "type": "Company"
+        },
+        {
+          "name": "Donald Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "Donald Jr.",
+          "type": "Key People"
+        },
+        {
+          "name": "Robert Kiyosaki",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "6_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Dow Jones Industrial Average",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Nasdaq Composite",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "President Trump",
+          "type": "Government"
+        },
+        {
+          "name": "European Union",
+          "type": "Government"
+        },
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "Federal Reserve",
+          "type": "Regulator"
+        },
+        {
+          "name": "Bank of Japan",
+          "type": "Regulator"
+        },
+        {
+          "name": "Trump Media & Technology Group",
+          "type": "Company"
+        },
+        {
+          "name": "Bitcoin",
+          "type": "Product"
+        }
+      ]
+    },
+    {
+      "doc_id": "7_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "US",
+          "type": "Government"
+        },
+        {
+          "name": "Chinese Ministry of Commerce",
+          "type": "Government"
+        },
+        {
+          "name": "President Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "Xi Jinping",
+          "type": "Key People"
+        },
+        {
+          "name": "EU Commission",
+          "type": "Government"
+        },
+        {
+          "name": "Ursula von der Leyen",
+          "type": "Key People"
+        },
+        {
+          "name": "National Economic Council",
+          "type": "Government"
+        },
+        {
+          "name": "Kevin Hassett",
+          "type": "Key People"
+        },
+        {
+          "name": "Treasury Secretary",
+          "type": "Government"
+        },
+        {
+          "name": "Scott Bessent",
+          "type": "Key People"
+        },
+        {
+          "name": "Commerce Secretary",
+          "type": "Government"
+        },
+        {
+          "name": "Howard Lutnick",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "9_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Wall Street",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Stifel",
+          "type": "Company"
+        },
+        {
+          "name": "Bank of America",
+          "type": "Bank"
+        },
+        {
+          "name": "Ruben Roy",
+          "type": "Key People"
+        },
+        {
+          "name": "Vivek Arya",
+          "type": "Key People"
+        },
+        {
+          "name": "Hopper",
+          "type": "Product"
+        },
+        {
+          "name": "Blackwell",
+          "type": "Product"
+        },
+        {
+          "name": "H20",
+          "type": "Product"
+        },
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "DeepSeek",
+          "type": "Company"
+        },
+        {
+          "name": "Trump",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "8_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Elon Musk",
+          "type": "Key People"
+        },
+        {
+          "name": "Donald Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "DOGE",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Department of Government Efficiency",
+          "type": "Government"
+        },
+        {
+          "name": "Chamath Palihapitiya",
+          "type": "Key People"
+        },
+        {
+          "name": "Jason Calacanis",
+          "type": "Key People"
+        },
+        {
+          "name": "David Sacks",
+          "type": "Key People"
+        },
+        {
+          "name": "Dara Khosrowshahi",
+          "type": "Key People"
+        },
+        {
+          "name": "Uber",
+          "type": "Company"
+        },
+        {
+          "name": "Sen. Ron Johnson",
+          "type": "Key People"
+        },
+        {
+          "name": "Morning Consult",
+          "type": "Company"
+        },
+        {
+          "name": "Brookings Institution",
+          "type": "Company"
+        },
+        {
+          "name": "USAID",
+          "type": "Government"
+        },
+        {
+          "name": "Washington Post",
+          "type": "Company"
+        },
+        {
+          "name": "CBS",
+          "type": "Company"
+        }
+      ]
+    },
+    {
+      "doc_id": "10_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "United States Court of International Trade",
+          "type": "Government"
+        },
+        {
+          "name": "President Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "White House",
+          "type": "Government"
+        },
+        {
+          "name": "Kush Desai",
+          "type": "Key People"
+        },
+        {
+          "name": "International Emergency Economic Powers Act (IEEPA)",
+          "type": "Regulation"
+        },
+        {
+          "name": "Goldman Sachs",
+          "type": "Company"
+        },
+        {
+          "name": "Sen. Ron Wyden",
+          "type": "Key People"
+        },
+        {
+          "name": "Trade Expansion Act of 1962",
+          "type": "Regulation"
+        },
+        {
+          "name": "Trade Act of 1974",
+          "type": "Regulation"
+        }
+      ]
+    },
+    {
+      "doc_id": "12_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Donald Trump",
+          "type": "Government"
+        },
+        {
+          "name": "US Customs Bureau",
+          "type": "Government"
+        },
+        {
+          "name": "Raymond James",
+          "type": "Company"
+        },
+        {
+          "name": "Ed Mills",
+          "type": "Key People"
+        },
+        {
+          "name": "Yale Budget Lab",
+          "type": "Rating Agency"
+        },
+        {
+          "name": "Financial Times",
+          "type": "Company"
+        },
+        {
+          "name": "Robert Armstrong",
+          "type": "Key People"
+        },
+        {
+          "name": "tariffs",
+          "type": "Product"
+        }
+      ]
+    },
+    {
+      "doc_id": "13_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Donald Trump",
+          "type": "Government"
+        },
+        {
+          "name": "Court of International Trade",
+          "type": "Regulator"
+        },
+        {
+          "name": "Supreme Court",
+          "type": "Regulator"
+        },
+        {
+          "name": "Capital Alpha Partners",
+          "type": "Company"
+        },
+        {
+          "name": "James Lucier",
+          "type": "Key People"
+        },
+        {
+          "name": "Apple",
+          "type": "Company"
+        },
+        {
+          "name": "Apple smartphones",
+          "type": "Product"
+        },
+        {
+          "name": "Yahoo Finance",
+          "type": "Company"
+        },
+        {
+          "name": "Rick Newman",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "11_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "US",
+          "type": "Government"
+        },
+        {
+          "name": "Donald Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "Xi Jinping",
+          "type": "Key People"
+        },
+        {
+          "name": "Chinese Ministry of Commerce",
+          "type": "Government"
+        },
+        {
+          "name": "US Court of International Trade",
+          "type": "Regulator"
+        },
+        {
+          "name": "Supreme Court",
+          "type": "Regulator"
+        },
+        {
+          "name": "EU Commission",
+          "type": "Government"
+        },
+        {
+          "name": "Ursula von der Leyen",
+          "type": "Key People"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "Elon Musk",
+          "type": "Key People"
+        },
+        {
+          "name": "Gap",
+          "type": "Company"
+        },
+        {
+          "name": "Richard Dickson",
+          "type": "Key People"
+        },
+        {
+          "name": "Salzgitter",
+          "type": "Company"
+        },
+        {
+          "name": "Gunnar Groebler",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "14_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Meta",
+          "type": "Company"
+        },
+        {
+          "name": "Anduril",
+          "type": "Company"
+        },
+        {
+          "name": "Palmer Luckey",
+          "type": "Key People"
+        },
+        {
+          "name": "Mark Zuckerberg",
+          "type": "Key People"
+        },
+        {
+          "name": "Andrew Bosworth",
+          "type": "Key People"
+        },
+        {
+          "name": "AR/VR military tech",
+          "type": "Product"
+        },
+        {
+          "name": "Lattice analytics platform",
+          "type": "Product"
+        },
+        {
+          "name": "Llama AI models",
+          "type": "Product"
+        },
+        {
+          "name": "U.S. Army",
+          "type": "Government"
+        }
+      ]
+    },
+    {
+      "doc_id": "15_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Elon Musk",
+          "type": "Key People"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "SpaceX",
+          "type": "Company"
+        },
+        {
+          "name": "X",
+          "type": "Company"
+        },
+        {
+          "name": "xAI",
+          "type": "Company"
+        },
+        {
+          "name": "DOGE",
+          "type": "Product"
+        },
+        {
+          "name": "President Trump",
+          "type": "Government"
+        },
+        {
+          "name": "Department of Government Efficiency",
+          "type": "Government"
+        },
+        {
+          "name": "White House",
+          "type": "Government"
+        },
+        {
+          "name": "USAID",
+          "type": "Government"
+        },
+        {
+          "name": "OpenAI",
+          "type": "Company"
+        },
+        {
+          "name": "Sam Altman",
+          "type": "Key People"
+        },
+        {
+          "name": "New York Times",
+          "type": "Company"
+        },
+        {
+          "name": "Wall Street Journal",
+          "type": "Company"
+        },
+        {
+          "name": "Brookings Institution",
+          "type": "Rating Agency"
+        }
+      ]
+    },
+    {
+      "doc_id": "17_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Federal Reserve",
+          "type": "Regulator"
+        },
+        {
+          "name": "Jerome Powell",
+          "type": "Key People"
+        },
+        {
+          "name": "Lorie Logan",
+          "type": "Key People"
+        },
+        {
+          "name": "Neel Kashkari",
+          "type": "Key People"
+        },
+        {
+          "name": "Morgan Stanley Wealth Management",
+          "type": "Company"
+        },
+        {
+          "name": "Ellen Zentner",
+          "type": "Key People"
+        },
+        {
+          "name": "LPL Financial",
+          "type": "Company"
+        },
+        {
+          "name": "Jeffrey Roach",
+          "type": "Key People"
+        },
+        {
+          "name": "White House",
+          "type": "Government"
+        },
+        {
+          "name": "Donald Trump",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "16_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "US",
+          "type": "Government"
+        },
+        {
+          "name": "Dow Jones Industrial Average",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "NASDAQ Composite",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Federal Reserve",
+          "type": "Regulator"
+        },
+        {
+          "name": "Christopher Waller",
+          "type": "Key People"
+        },
+        {
+          "name": "Jerome Powell",
+          "type": "Key People"
+        },
+        {
+          "name": "CrowdStrike",
+          "type": "Company"
+        },
+        {
+          "name": "Broadcom",
+          "type": "Company"
+        },
+        {
+          "name": "DocuSign",
+          "type": "Company"
+        },
+        {
+          "name": "Lululemon",
+          "type": "Company"
+        },
+        {
+          "name": "OPEC+",
+          "type": "Government"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "Elon Musk",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "18_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Nasdaq Composite",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Dow Jones Industrial Average",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Trump",
+          "type": "Government"
+        },
+        {
+          "name": "US Court of International Trade",
+          "type": "Regulator"
+        },
+        {
+          "name": "Federal Reserve",
+          "type": "Regulator"
+        },
+        {
+          "name": "Jerome Powell",
+          "type": "Key People"
+        },
+        {
+          "name": "Best Buy",
+          "type": "Company"
+        },
+        {
+          "name": "Costco",
+          "type": "Company"
+        },
+        {
+          "name": "Walmart",
+          "type": "Company"
+        },
+        {
+          "name": "Goldman Sachs",
+          "type": "Company"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "Elon Musk",
+          "type": "Key People"
+        },
+        {
+          "name": "Salesforce",
+          "type": "Company"
+        },
+        {
+          "name": "HP Inc.",
+          "type": "Company"
+        },
+        {
+          "name": "OPEC+",
+          "type": "Government"
+        }
+      ]
+    },
+    {
+      "doc_id": "19_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Elon Musk",
+          "type": "Key People"
+        },
+        {
+          "name": "Donald Trump",
+          "type": "Government"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "SpaceX",
+          "type": "Company"
+        },
+        {
+          "name": "DOGE",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "White House",
+          "type": "Government"
+        },
+        {
+          "name": "House of Representatives",
+          "type": "Government"
+        },
+        {
+          "name": "Senate",
+          "type": "Government"
+        },
+        {
+          "name": "Republican Party",
+          "type": "Government"
+        },
+        {
+          "name": "Committee for a Responsible Federal Budget",
+          "type": "Rating Agency"
+        }
+      ]
+    },
+    {
+      "doc_id": "20_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Conference Board",
+          "type": "Company"
+        },
+        {
+          "name": "Wells Fargo",
+          "type": "Bank"
+        },
+        {
+          "name": "Tim Quinlan",
+          "type": "Key People"
+        },
+        {
+          "name": "JPMorgan",
+          "type": "Bank"
+        },
+        {
+          "name": "Stephanie Guichard",
+          "type": "Key People"
+        },
+        {
+          "name": "University of Michigan",
+          "type": "Company"
+        },
+        {
+          "name": "Apple",
+          "type": "Company"
+        },
+        {
+          "name": "Trump",
+          "type": "Government"
+        },
+        {
+          "name": "China",
+          "type": "Government"
+        }
+      ]
+    },
+    {
+      "doc_id": "21_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Donald Trump",
+          "type": "Government"
+        },
+        {
+          "name": "Xi Jinping",
+          "type": "Government"
+        },
+        {
+          "name": "US Treasury",
+          "type": "Government"
+        },
+        {
+          "name": "Chinese Ministry of Commerce",
+          "type": "Government"
+        },
+        {
+          "name": "National Economic Council",
+          "type": "Government"
+        },
+        {
+          "name": "Kevin Hassett",
+          "type": "Key People"
+        },
+        {
+          "name": "Scott Bessent",
+          "type": "Key People"
+        },
+        {
+          "name": "Howard Lutnick",
+          "type": "Key People"
+        },
+        {
+          "name": "critical minerals",
+          "type": "Product"
+        },
+        {
+          "name": "semiconductors",
+          "type": "Product"
+        },
+        {
+          "name": "tariffs",
+          "type": "Product"
+        }
+      ]
+    },
+    {
+      "doc_id": "22_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "National Association of Realtors",
+          "type": "Regulator"
+        },
+        {
+          "name": "Lawrence Yun",
+          "type": "Key People"
+        },
+        {
+          "name": "Realtor.com",
+          "type": "Company"
+        },
+        {
+          "name": "Trump",
+          "type": "Government"
+        },
+        {
+          "name": "Pending Home Sales Index",
+          "type": "Financial Infrastructure"
+        }
+      ]
+    },
+    {
+      "doc_id": "25_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Jerome Powell",
+          "type": "Key People"
+        },
+        {
+          "name": "Donald Trump",
+          "type": "Government"
+        },
+        {
+          "name": "Federal Reserve",
+          "type": "Regulator"
+        },
+        {
+          "name": "White House",
+          "type": "Government"
+        },
+        {
+          "name": "Karoline Leavitt",
+          "type": "Key People"
+        },
+        {
+          "name": "Kevin Warsh",
+          "type": "Key People"
+        },
+        {
+          "name": "Supreme Court",
+          "type": "Government"
+        }
+      ]
+    },
+    {
+      "doc_id": "24_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "US",
+          "type": "Government"
+        },
+        {
+          "name": "Chinese Ministry of Commerce",
+          "type": "Government"
+        },
+        {
+          "name": "Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "Xi Jinping",
+          "type": "Key People"
+        },
+        {
+          "name": "EU",
+          "type": "Government"
+        },
+        {
+          "name": "White House",
+          "type": "Government"
+        },
+        {
+          "name": "Supreme Court",
+          "type": "Government"
+        },
+        {
+          "name": "National Economic Council",
+          "type": "Government"
+        },
+        {
+          "name": "Treasury Secretary Scott Bessent",
+          "type": "Key People"
+        },
+        {
+          "name": "Commerce Secretary Howard Lutnick",
+          "type": "Key People"
+        },
+        {
+          "name": "EU Commission President Ursula von der Leyen",
+          "type": "Key People"
+        },
+        {
+          "name": "Salzgitter",
+          "type": "Company"
+        },
+        {
+          "name": "Gap",
+          "type": "Company"
+        },
+        {
+          "name": "e.l.f. Beauty",
+          "type": "Company"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "steel",
+          "type": "Product"
+        },
+        {
+          "name": "aluminium",
+          "type": "Product"
+        },
+        {
+          "name": "AI chip",
+          "type": "Product"
+        },
+        {
+          "name": "tariffs",
+          "type": "Financial Infrastructure"
+        }
+      ]
+    },
+    {
+      "doc_id": "26_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "H20",
+          "type": "Product"
+        },
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "US",
+          "type": "Government"
+        },
+        {
+          "name": "Jensen Huang",
+          "type": "Key People"
+        },
+        {
+          "name": "Dan Ives",
+          "type": "Key People"
+        },
+        {
+          "name": "Wedbush",
+          "type": "Rating Agency"
+        }
+      ]
+    },
+    {
+      "doc_id": "23_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "US",
+          "type": "Government"
+        },
+        {
+          "name": "Chinese Ministry of Commerce",
+          "type": "Government"
+        },
+        {
+          "name": "President Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "Xi Jinping",
+          "type": "Key People"
+        },
+        {
+          "name": "EU Commission",
+          "type": "Government"
+        },
+        {
+          "name": "Ursula von der Leyen",
+          "type": "Key People"
+        },
+        {
+          "name": "Howard Lutnick",
+          "type": "Key People"
+        },
+        {
+          "name": "Kevin Hassett",
+          "type": "Key People"
+        },
+        {
+          "name": "Scott Bessent",
+          "type": "Key People"
+        },
+        {
+          "name": "Mark Carney",
+          "type": "Key People"
+        },
+        {
+          "name": "Gunnar Groebler",
+          "type": "Key People"
+        },
+        {
+          "name": "Tarang Amin",
+          "type": "Key People"
+        },
+        {
+          "name": "Richard Dickson",
+          "type": "Key People"
+        },
+        {
+          "name": "Elon Musk",
+          "type": "Key People"
+        },
+        {
+          "name": "Gap",
+          "type": "Company"
+        },
+        {
+          "name": "e.l.f. Beauty",
+          "type": "Company"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "Salzgitter",
+          "type": "Company"
+        },
+        {
+          "name": "Manley Labs",
+          "type": "Company"
+        },
+        {
+          "name": "EarthQuaker Devices",
+          "type": "Company"
+        },
+        {
+          "name": "steel",
+          "type": "Product"
+        },
+        {
+          "name": "aluminium",
+          "type": "Product"
+        },
+        {
+          "name": "AI chips",
+          "type": "Product"
+        },
+        {
+          "name": "chip design software",
+          "type": "Product"
+        },
+        {
+          "name": "Truth Social",
+          "type": "Product"
+        },
+        {
+          "name": "US Court of International Trade",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Supreme Court",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "National Economic Council",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Commerce Department",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Treasury Department",
+          "type": "Financial Infrastructure"
+        }
+      ]
+    },
+    {
+      "doc_id": "27_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "Dow Jones Industrial Average",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Nasdaq Composite",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Federal Reserve",
+          "type": "Regulator"
+        },
+        {
+          "name": "Trump administration",
+          "type": "Government"
+        },
+        {
+          "name": "HP",
+          "type": "Company"
+        },
+        {
+          "name": "GameStop",
+          "type": "Company"
+        },
+        {
+          "name": "Chevron",
+          "type": "Company"
+        },
+        {
+          "name": "OPEC+",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "CSX Corp",
+          "type": "Company"
+        },
+        {
+          "name": "Abercrombie & Fitch",
+          "type": "Company"
+        },
+        {
+          "name": "Trump Media & Technology Group",
+          "type": "Company"
+        },
+        {
+          "name": "Okta",
+          "type": "Company"
+        },
+        {
+          "name": "Macy's",
+          "type": "Company"
+        },
+        {
+          "name": "Joby Aviation",
+          "type": "Company"
+        },
+        {
+          "name": "Toyota",
+          "type": "Company"
+        },
+        {
+          "name": "Barclays Plc",
+          "type": "Company"
+        }
+      ]
+    },
+    {
+      "doc_id": "28_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Refresco",
+          "type": "Company"
+        },
+        {
+          "name": "Telemark Kildevann (TKV)",
+          "type": "Company"
+        },
+        {
+          "name": "Hans Roelofs",
+          "type": "Key People"
+        },
+        {
+          "name": "Frías Nutrición",
+          "type": "Company"
+        },
+        {
+          "name": "Berentzen-Gruppe",
+          "type": "Company"
+        },
+        {
+          "name": "VBC Bottling Company",
+          "type": "Company"
+        },
+        {
+          "name": "Märkisch Kristall",
+          "type": "Product"
+        },
+        {
+          "name": "Grüneberg Quelle",
+          "type": "Product"
+        }
+      ]
+    },
+    {
+      "doc_id": "32_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "GameStop",
+          "type": "Company"
+        },
+        {
+          "name": "Strategy",
+          "type": "Company"
+        },
+        {
+          "name": "Bitcoin",
+          "type": "Product"
+        },
+        {
+          "name": "Michael Saylor",
+          "type": "Key People"
+        },
+        {
+          "name": "Yahoo Finance",
+          "type": "Company"
+        },
+        {
+          "name": "Berkshire Hathaway",
+          "type": "Company"
+        }
+      ]
+    },
+    {
+      "doc_id": "30_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Medicare",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "KFF",
+          "type": "Rating Agency"
+        },
+        {
+          "name": "West Health-Gallup",
+          "type": "Rating Agency"
+        },
+        {
+          "name": "Center for Retirement Research at Boston College",
+          "type": "Rating Agency"
+        },
+        {
+          "name": "Consumer Financial Protection Bureau (CFPB)",
+          "type": "Regulator"
+        },
+        {
+          "name": "Equifax",
+          "type": "Rating Agency"
+        },
+        {
+          "name": "Experian",
+          "type": "Rating Agency"
+        },
+        {
+          "name": "Transunion",
+          "type": "Rating Agency"
+        },
+        {
+          "name": "Kerry Hannon",
+          "type": "Key People"
+        },
+        {
+          "name": "Tricia Neuman",
+          "type": "Key People"
+        },
+        {
+          "name": "Lori Trawinski",
+          "type": "Key People"
+        },
+        {
+          "name": "Anqi Chen",
+          "type": "Key People"
+        },
+        {
+          "name": "Carolyn McClanahan",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "31_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "US",
+          "type": "Government"
+        },
+        {
+          "name": "Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "Xi Jinping",
+          "type": "Key People"
+        },
+        {
+          "name": "Chinese Ministry of Commerce",
+          "type": "Government"
+        },
+        {
+          "name": "EU",
+          "type": "Government"
+        },
+        {
+          "name": "Salzgitter",
+          "type": "Company"
+        },
+        {
+          "name": "e.l.f. Beauty",
+          "type": "Company"
+        },
+        {
+          "name": "Gap",
+          "type": "Company"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "Huawei",
+          "type": "Company"
+        },
+        {
+          "name": "Yangtze Memory Technologies",
+          "type": "Company"
+        },
+        {
+          "name": "US Court of International Trade",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Supreme Court",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "National Economic Council",
+          "type": "Government"
+        },
+        {
+          "name": "Commerce Department",
+          "type": "Government"
+        },
+        {
+          "name": "European Commission",
+          "type": "Government"
+        },
+        {
+          "name": "US Court of Appeals for the Federal Circuit",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Kelley Blue Book",
+          "type": "Rating Agency"
+        },
+        {
+          "name": "Truth Social",
+          "type": "Product"
+        },
+        {
+          "name": "steel tariffs",
+          "type": "Product"
+        },
+        {
+          "name": "AI chip export controls",
+          "type": "Product"
+        },
+        {
+          "name": "student visas",
+          "type": "Product"
+        }
+      ]
+    },
+    {
+      "doc_id": "34_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Yahoo Finance",
+          "type": "Company"
+        },
+        {
+          "name": "Morning Brief",
+          "type": "Product"
+        },
+        {
+          "name": "Ethan Wolff-Mann",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "33_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Aston Martin Lagonda Global Holdings Plc",
+          "type": "Company"
+        },
+        {
+          "name": "Fitch Ratings",
+          "type": "Rating Agency"
+        },
+        {
+          "name": "Lawrence Stroll",
+          "type": "Key People"
+        },
+        {
+          "name": "Yew Tree",
+          "type": "Company"
+        },
+        {
+          "name": "Adrian Hallmark",
+          "type": "Key People"
+        },
+        {
+          "name": "Bentley Motors Ltd",
+          "type": "Company"
+        },
+        {
+          "name": "Trump administration",
+          "type": "Government"
+        },
+        {
+          "name": "Society of Motor Manufacturers and Traders (SMMT)",
+          "type": "Financial Infrastructure"
+        }
+      ]
+    },
+    {
+      "doc_id": "35_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Dow Jones Industrial Average",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Nasdaq Composite",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Federal Reserve",
+          "type": "Regulator"
+        },
+        {
+          "name": "Trump administration",
+          "type": "Government"
+        },
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "Scott Bessent",
+          "type": "Key People"
+        },
+        {
+          "name": "Elon Musk",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "29_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "US Steel",
+          "type": "Company"
+        },
+        {
+          "name": "Nippon Steel",
+          "type": "Company"
+        },
+        {
+          "name": "Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "US Government",
+          "type": "Government"
+        },
+        {
+          "name": "Walmart",
+          "type": "Company"
+        },
+        {
+          "name": "CFIUS",
+          "type": "Regulator"
+        },
+        {
+          "name": "General Motors",
+          "type": "Company"
+        },
+        {
+          "name": "Stellantis",
+          "type": "Company"
+        },
+        {
+          "name": "TikTok",
+          "type": "Company"
+        },
+        {
+          "name": "Bytedance",
+          "type": "Company"
+        },
+        {
+          "name": "Alibaba",
+          "type": "Company"
+        }
+      ]
+    },
+    {
+      "doc_id": "38_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Bespoke Investment Group",
+          "type": "Company"
+        },
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Interactive Brokers",
+          "type": "Company"
+        },
+        {
+          "name": "Steve Sosnick",
+          "type": "Key People"
+        },
+        {
+          "name": "JPMorgan",
+          "type": "Bank"
+        },
+        {
+          "name": "Emma Wu",
+          "type": "Key People"
+        },
+        {
+          "name": "VandaTrack",
+          "type": "Company"
+        },
+        {
+          "name": "Donald Trump",
+          "type": "Government"
+        }
+      ]
+    },
+    {
+      "doc_id": "36_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "Jensen Huang",
+          "type": "Key People"
+        },
+        {
+          "name": "H20",
+          "type": "Product"
+        },
+        {
+          "name": "Blackwell",
+          "type": "Product"
+        },
+        {
+          "name": "Microsoft",
+          "type": "Company"
+        },
+        {
+          "name": "Amazon",
+          "type": "Company"
+        },
+        {
+          "name": "Meta Platforms",
+          "type": "Company"
+        },
+        {
+          "name": "US Government",
+          "type": "Government"
+        },
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "Wedbush",
+          "type": "Company"
+        },
+        {
+          "name": "Dan Ives",
+          "type": "Key People"
+        },
+        {
+          "name": "HSBC",
+          "type": "Bank"
+        },
+        {
+          "name": "Ryan Mellor",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "39_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Wall Street",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Treasury yields",
+          "type": "Product"
+        },
+        {
+          "name": "Citi",
+          "type": "Bank"
+        },
+        {
+          "name": "Stuart Kaiser",
+          "type": "Key People"
+        },
+        {
+          "name": "AllianceBernstein",
+          "type": "Company"
+        },
+        {
+          "name": "Eric Winograd",
+          "type": "Key People"
+        },
+        {
+          "name": "Trump",
+          "type": "Government"
+        },
+        {
+          "name": "Fed",
+          "type": "Regulator"
+        },
+        {
+          "name": "House",
+          "type": "Government"
+        },
+        {
+          "name": "Senate",
+          "type": "Government"
+        },
+        {
+          "name": "Chris Rupkey",
+          "type": "Key People"
+        },
+        {
+          "name": "FWDBonds",
+          "type": "Company"
+        },
+        {
+          "name": "Daniel Kryger",
+          "type": "Key People"
+        },
+        {
+          "name": "New York Stock Exchange",
+          "type": "Financial Infrastructure"
+        }
+      ]
+    },
+    {
+      "doc_id": "37_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Apple",
+          "type": "Company"
+        },
+        {
+          "name": "Department of Justice",
+          "type": "Regulator"
+        },
+        {
+          "name": "Tim Cook",
+          "type": "Key People"
+        },
+        {
+          "name": "iPhone",
+          "type": "Product"
+        },
+        {
+          "name": "Trump",
+          "type": "Government"
+        },
+        {
+          "name": "Epic Games",
+          "type": "Company"
+        },
+        {
+          "name": "Google",
+          "type": "Company"
+        },
+        {
+          "name": "OpenAI",
+          "type": "Company"
+        },
+        {
+          "name": "Jony Ive",
+          "type": "Key People"
+        },
+        {
+          "name": "Sam Altman",
+          "type": "Key People"
+        },
+        {
+          "name": "Morgan Stanley",
+          "type": "Company"
+        },
+        {
+          "name": "Sharon Shih",
+          "type": "Key People"
+        },
+        {
+          "name": "Erik Woodring",
+          "type": "Key People"
+        },
+        {
+          "name": "Deepwater Asset Management",
+          "type": "Company"
+        },
+        {
+          "name": "Gene Munster",
+          "type": "Key People"
+        },
+        {
+          "name": "US District Judge Yvonne Gonzalez Rogers",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "42_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Trump",
+          "type": "Government"
+        },
+        {
+          "name": "Treasury Department",
+          "type": "Government"
+        },
+        {
+          "name": "Apple",
+          "type": "Company"
+        },
+        {
+          "name": "Samsung",
+          "type": "Company"
+        },
+        {
+          "name": "GOP",
+          "type": "Government"
+        }
+      ]
+    },
+    {
+      "doc_id": "40_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "US",
+          "type": "Government"
+        },
+        {
+          "name": "Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "Xi Jinping",
+          "type": "Key People"
+        },
+        {
+          "name": "Chinese Ministry of Commerce",
+          "type": "Government"
+        },
+        {
+          "name": "EU",
+          "type": "Government"
+        },
+        {
+          "name": "Salzgitter",
+          "type": "Company"
+        },
+        {
+          "name": "Gap",
+          "type": "Company"
+        },
+        {
+          "name": "e.l.f. Beauty",
+          "type": "Company"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "Huawei",
+          "type": "Company"
+        },
+        {
+          "name": "Yangtze Memory Technologies",
+          "type": "Company"
+        },
+        {
+          "name": "steel tariffs",
+          "type": "Product"
+        },
+        {
+          "name": "aluminium tariffs",
+          "type": "Product"
+        },
+        {
+          "name": "AI chip export controls",
+          "type": "Product"
+        },
+        {
+          "name": "US Court of International Trade",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Supreme Court",
+          "type": "Financial Infrastructure"
+        }
+      ]
+    },
+    {
+      "doc_id": "41_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "H20",
+          "type": "Product"
+        },
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "Trump administration",
+          "type": "Government"
+        },
+        {
+          "name": "Biden administration",
+          "type": "Government"
+        },
+        {
+          "name": "Jensen Huang",
+          "type": "Key People"
+        },
+        {
+          "name": "Colette Kress",
+          "type": "Key People"
+        },
+        {
+          "name": "Joseph Moore",
+          "type": "Key People"
+        },
+        {
+          "name": "Stacy Rasgon",
+          "type": "Key People"
+        },
+        {
+          "name": "Morgan Stanley",
+          "type": "Company"
+        },
+        {
+          "name": "Bernstein",
+          "type": "Company"
+        },
+        {
+          "name": "Amazon",
+          "type": "Company"
+        },
+        {
+          "name": "Google",
+          "type": "Company"
+        },
+        {
+          "name": "Microsoft",
+          "type": "Company"
+        },
+        {
+          "name": "CoreWeave",
+          "type": "Company"
+        },
+        {
+          "name": "Foxconn",
+          "type": "Company"
+        },
+        {
+          "name": "Humain",
+          "type": "Company"
+        },
+        {
+          "name": "Saudi Arabia's sovereign wealth fund",
+          "type": "Government"
+        },
+        {
+          "name": "United Arab Emirates",
+          "type": "Government"
+        },
+        {
+          "name": "DeepSeek",
+          "type": "Company"
+        },
+        {
+          "name": "NasdaqGS",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Bloomberg",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Reuters",
+          "type": "Financial Infrastructure"
+        }
+      ]
+    },
+    {
+      "doc_id": "44_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Barclays",
+          "type": "Bank"
+        },
+        {
+          "name": "Ajay Rajadhyaksha",
+          "type": "Key People"
+        },
+        {
+          "name": "US Court of International Trade",
+          "type": "Regulator"
+        },
+        {
+          "name": "Trump",
+          "type": "Government"
+        },
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "Goldman Sachs",
+          "type": "Bank"
+        },
+        {
+          "name": "Alec Phillips",
+          "type": "Key People"
+        },
+        {
+          "name": "Renaissance Macro",
+          "type": "Company"
+        },
+        {
+          "name": "Neil Dutta",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "43_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Dow Jones Industrial Average",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Nasdaq Composite",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "President Trump",
+          "type": "Government"
         },
         {
           "name": "Barclays",
           "type": "Bank"
         },
         {
-          "name": "Avinash Thakur",
+          "name": "Ajay Rajadhyaksha",
           "type": "Key People"
+        },
+        {
+          "name": "Ritholtz Wealth Management",
+          "type": "Company"
+        },
+        {
+          "name": "Callie Cox",
+          "type": "Key People"
+        },
+        {
+          "name": "Wells Fargo",
+          "type": "Bank"
+        },
+        {
+          "name": "Jay Bryson",
+          "type": "Key People"
+        },
+        {
+          "name": "Magnificent Seven",
+          "type": "Company"
+        },
+        {
+          "name": "Apple",
+          "type": "Company"
+        },
+        {
+          "name": "Alphabet",
+          "type": "Company"
+        },
+        {
+          "name": "Microsoft",
+          "type": "Company"
+        },
+        {
+          "name": "Amazon",
+          "type": "Company"
+        },
+        {
+          "name": "Meta",
+          "type": "Company"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "Citi",
+          "type": "Bank"
+        },
+        {
+          "name": "Drew Pettit",
+          "type": "Key People"
+        },
+        {
+          "name": "Roundhill Magnificent Seven ETF",
+          "type": "Product"
+        }
+      ]
+    },
+    {
+      "doc_id": "45_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "European Union",
+          "type": "Government"
+        },
+        {
+          "name": "Washington",
+          "type": "Government"
+        },
+        {
+          "name": "President Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "US",
+          "type": "Government"
+        },
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "Apollo Global Management",
+          "type": "Company"
+        },
+        {
+          "name": "Torsten Sløk",
+          "type": "Key People"
+        },
+        {
+          "name": "Yahoo Finance",
+          "type": "Company"
+        },
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        }
+      ]
+    },
+    {
+      "doc_id": "47_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "Dow Jones Industrial Average",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Nasdaq Composite",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Trump",
+          "type": "Government"
+        },
+        {
+          "name": "US Court of International Trade",
+          "type": "Regulator"
+        },
+        {
+          "name": "Federal Reserve",
+          "type": "Regulator"
+        },
+        {
+          "name": "Best Buy",
+          "type": "Company"
+        },
+        {
+          "name": "Costco",
+          "type": "Company"
+        },
+        {
+          "name": "Walmart",
+          "type": "Company"
+        },
+        {
+          "name": "Goldman Sachs",
+          "type": "Company"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "Salesforce",
+          "type": "Company"
+        },
+        {
+          "name": "HP Inc.",
+          "type": "Company"
+        },
+        {
+          "name": "Jerome Powell",
+          "type": "Key People"
+        },
+        {
+          "name": "Elon Musk",
+          "type": "Key People"
+        },
+        {
+          "name": "Scott Bessent",
+          "type": "Key People"
+        },
+        {
+          "name": "Jensen Huang",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "49_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Donald Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "Harvard",
+          "type": "Company"
+        },
+        {
+          "name": "University of Pennsylvania",
+          "type": "Company"
+        },
+        {
+          "name": "Wharton School",
+          "type": "Product"
+        },
+        {
+          "name": "McKinsey",
+          "type": "Company"
+        },
+        {
+          "name": "University of California system",
+          "type": "Company"
+        },
+        {
+          "name": "Yahoo Finance",
+          "type": "Company"
+        },
+        {
+          "name": "Federal Government",
+          "type": "Government"
+        }
+      ]
+    },
+    {
+      "doc_id": "46_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "US",
+          "type": "Government"
+        },
+        {
+          "name": "Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "Xi Jinping",
+          "type": "Key People"
+        },
+        {
+          "name": "Chinese Ministry of Commerce",
+          "type": "Government"
+        },
+        {
+          "name": "EU",
+          "type": "Government"
+        },
+        {
+          "name": "Ursula von der Leyen",
+          "type": "Key People"
+        },
+        {
+          "name": "Howard Lutnick",
+          "type": "Key People"
+        },
+        {
+          "name": "Kevin Hassett",
+          "type": "Key People"
+        },
+        {
+          "name": "Scott Bessent",
+          "type": "Key People"
+        },
+        {
+          "name": "Mark Carney",
+          "type": "Key People"
+        },
+        {
+          "name": "Gunnar Groebler",
+          "type": "Key People"
+        },
+        {
+          "name": "Tarang Amin",
+          "type": "Key People"
+        },
+        {
+          "name": "Richard Dickson",
+          "type": "Key People"
+        },
+        {
+          "name": "Elon Musk",
+          "type": "Key People"
+        },
+        {
+          "name": "US Court of International Trade",
+          "type": "Regulator"
+        },
+        {
+          "name": "Supreme Court",
+          "type": "Regulator"
+        },
+        {
+          "name": "National Economic Council",
+          "type": "Government"
+        },
+        {
+          "name": "Commerce Department",
+          "type": "Government"
+        },
+        {
+          "name": "EU Commission",
+          "type": "Government"
+        },
+        {
+          "name": "Gap",
+          "type": "Company"
+        },
+        {
+          "name": "e.l.f. Beauty",
+          "type": "Company"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "Salzgitter",
+          "type": "Company"
+        },
+        {
+          "name": "Manley Labs",
+          "type": "Company"
+        },
+        {
+          "name": "EarthQuaker Devices",
+          "type": "Company"
+        },
+        {
+          "name": "steel",
+          "type": "Product"
+        },
+        {
+          "name": "aluminium",
+          "type": "Product"
+        },
+        {
+          "name": "AI chips",
+          "type": "Product"
+        },
+        {
+          "name": "auto parts",
+          "type": "Product"
+        },
+        {
+          "name": "cosmetics",
+          "type": "Product"
+        },
+        {
+          "name": "electronics",
+          "type": "Product"
+        },
+        {
+          "name": "Truth Social",
+          "type": "Product"
+        },
+        {
+          "name": "tariffs",
+          "type": "Financial Infrastructure"
+        }
+      ]
+    },
+    {
+      "doc_id": "50_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "Jensen Huang",
+          "type": "Key People"
+        },
+        {
+          "name": "Wall Street",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "US",
+          "type": "Government"
+        },
+        {
+          "name": "Blackwell",
+          "type": "Product"
+        },
+        {
+          "name": "H20",
+          "type": "Product"
+        },
+        {
+          "name": "Microsoft",
+          "type": "Company"
+        },
+        {
+          "name": "Amazon",
+          "type": "Company"
+        },
+        {
+          "name": "Meta Platforms",
+          "type": "Company"
+        },
+        {
+          "name": "Dan Ives",
+          "type": "Key People"
+        },
+        {
+          "name": "Wedbush",
+          "type": "Company"
+        },
+        {
+          "name": "HSBC",
+          "type": "Bank"
+        },
+        {
+          "name": "Ryan Mellor",
+          "type": "Key People"
+        }
+      ]
+    },
+    {
+      "doc_id": "48_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Dow Jones Industrial Average",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Nasdaq Composite",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "US",
+          "type": "Government"
+        },
+        {
+          "name": "President Trump",
+          "type": "Key People"
+        },
+        {
+          "name": "Federal Reserve",
+          "type": "Regulator"
+        },
+        {
+          "name": "Christopher Waller",
+          "type": "Key People"
+        },
+        {
+          "name": "Jerome Powell",
+          "type": "Key People"
+        },
+        {
+          "name": "CrowdStrike",
+          "type": "Company"
+        },
+        {
+          "name": "Broadcom",
+          "type": "Company"
+        },
+        {
+          "name": "DocuSign",
+          "type": "Company"
+        },
+        {
+          "name": "Lululemon",
+          "type": "Company"
+        },
+        {
+          "name": "Institute for Supply Management",
+          "type": "Rating Agency"
+        },
+        {
+          "name": "Susan Spence",
+          "type": "Key People"
+        },
+        {
+          "name": "S&P Global",
+          "type": "Rating Agency"
+        },
+        {
+          "name": "Chris Williamson",
+          "type": "Key People"
+        },
+        {
+          "name": "BioNTech",
+          "type": "Company"
+        },
+        {
+          "name": "Bristol Myers Squibb",
+          "type": "Company"
+        },
+        {
+          "name": "Merck",
+          "type": "Company"
+        },
+        {
+          "name": "Moderna",
+          "type": "Company"
+        },
+        {
+          "name": "Blueprint Medicines",
+          "type": "Company"
+        },
+        {
+          "name": "Sanofi",
+          "type": "Company"
+        },
+        {
+          "name": "Cleveland-Cliffs",
+          "type": "Company"
+        },
+        {
+          "name": "Nucor",
+          "type": "Company"
+        },
+        {
+          "name": "Steel Dynamics",
+          "type": "Company"
+        },
+        {
+          "name": "US Steel Corporation",
+          "type": "Company"
+        },
+        {
+          "name": "Nippon",
+          "type": "Company"
+        },
+        {
+          "name": "Posco",
+          "type": "Company"
+        },
+        {
+          "name": "Hyundai Steel",
+          "type": "Company"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "Elon Musk",
+          "type": "Key People"
+        },
+        {
+          "name": "OPEC+",
+          "type": "Government"
+        },
+        {
+          "name": "West Texas Intermediate",
+          "type": "Product"
+        },
+        {
+          "name": "Brent",
+          "type": "Product"
+        },
+        {
+          "name": "Campbell's Company",
+          "type": "Company"
+        },
+        {
+          "name": "BlackRock",
+          "type": "Company"
+        },
+        {
+          "name": "Kayne Anderson Rudnick",
+          "type": "Company"
+        },
+        {
+          "name": "Julie Beale",
+          "type": "Key People"
+        },
+        {
+          "name": "DAX Index",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Stoxx 600 Index",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Hang Seng Index",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Nikkei 225",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Kospi",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "S&P/ASX 200",
+          "type": "Financial Infrastructure"
+        }
+      ]
+    },
+    {
+      "doc_id": "51_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Boeing",
+          "type": "Company"
+        },
+        {
+          "name": "BofA",
+          "type": "Bank"
+        },
+        {
+          "name": "Doximity",
+          "type": "Company"
+        },
+        {
+          "name": "BTIG",
+          "type": "Bank"
+        },
+        {
+          "name": "Church & Dwight",
+          "type": "Company"
+        },
+        {
+          "name": "RBC Capital",
+          "type": "Bank"
+        },
+        {
+          "name": "Saia",
+          "type": "Company"
+        },
+        {
+          "name": "Goldman Sachs",
+          "type": "Bank"
+        },
+        {
+          "name": "Nucor",
+          "type": "Company"
+        },
+        {
+          "name": "BMO Capital",
+          "type": "Bank"
+        },
+        {
+          "name": "Charter",
+          "type": "Company"
+        },
+        {
+          "name": "Bernstein",
+          "type": "Bank"
+        },
+        {
+          "name": "Centene",
+          "type": "Company"
+        },
+        {
+          "name": "Barclays",
+          "type": "Bank"
+        },
+        {
+          "name": "Shake Shack",
+          "type": "Company"
+        },
+        {
+          "name": "Union Pacific",
+          "type": "Company"
+        },
+        {
+          "name": "Rackspace Technology",
+          "type": "Company"
+        },
+        {
+          "name": "Raymond James",
+          "type": "Bank"
+        },
+        {
+          "name": "PayPal",
+          "type": "Company"
+        },
+        {
+          "name": "Truist",
+          "type": "Bank"
+        },
+        {
+          "name": "Block",
+          "type": "Company"
+        },
+        {
+          "name": "MasterCard",
+          "type": "Company"
+        },
+        {
+          "name": "Visa",
+          "type": "Company"
+        },
+        {
+          "name": "Global Payments",
+          "type": "Company"
+        },
+        {
+          "name": "Western Union",
+          "type": "Company"
+        },
+        {
+          "name": "Oppenheimer",
+          "type": "Bank"
+        }
+      ]
+    },
+    {
+      "doc_id": "52_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Federal Reserve",
+          "type": "Regulator"
+        },
+        {
+          "name": "Nationwide",
+          "type": "Company"
+        },
+        {
+          "name": "Kathy Bostjancic",
+          "type": "Key People"
+        },
+        {
+          "name": "Personal Consumption Expenditures (PCE)",
+          "type": "Product"
+        },
+        {
+          "name": "Trump",
+          "type": "Government"
+        },
+        {
+          "name": "China",
+          "type": "Government"
+        }
+      ]
+    },
+    {
+      "doc_id": "53_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "Dow Jones Industrial Average",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Nasdaq Composite",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Federal Reserve",
+          "type": "Regulator"
+        },
+        {
+          "name": "Trump administration",
+          "type": "Government"
+        },
+        {
+          "name": "HP",
+          "type": "Company"
+        },
+        {
+          "name": "GameStop",
+          "type": "Company"
+        },
+        {
+          "name": "bitcoin",
+          "type": "Product"
+        },
+        {
+          "name": "Chevron",
+          "type": "Company"
+        },
+        {
+          "name": "OPEC+",
+          "type": "Government"
+        },
+        {
+          "name": "CSX Corp",
+          "type": "Company"
+        },
+        {
+          "name": "Abercrombie & Fitch",
+          "type": "Company"
+        },
+        {
+          "name": "Macy's",
+          "type": "Company"
+        },
+        {
+          "name": "Okta",
+          "type": "Company"
+        },
+        {
+          "name": "Barclays Plc",
+          "type": "Company"
+        }
+      ]
+    },
+    {
+      "doc_id": "55_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Yahoo Finance",
+          "type": "Company"
+        },
+        {
+          "name": "Fed",
+          "type": "Regulator"
+        },
+        {
+          "name": "Jerome Powell",
+          "type": "Key People"
+        },
+        {
+          "name": "Oxford Economics",
+          "type": "Company"
+        },
+        {
+          "name": "Cory Stahle",
+          "type": "Key People"
+        },
+        {
+          "name": "Apollo Global Management",
+          "type": "Company"
+        },
+        {
+          "name": "Torsten Sløk",
+          "type": "Key People"
+        },
+        {
+          "name": "Indeed",
+          "type": "Company"
+        },
+        {
+          "name": "Matthew Martin",
+          "type": "Key People"
+        },
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "President Trump",
+          "type": "Government"
+        }
+      ]
+    },
+    {
+      "doc_id": "56_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "Dow Jones Industrial Average",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "S&P 500",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Nasdaq Composite",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Trump",
+          "type": "Government"
+        },
+        {
+          "name": "US Court of International Trade",
+          "type": "Regulator"
+        },
+        {
+          "name": "Federal Reserve",
+          "type": "Regulator"
+        },
+        {
+          "name": "Jerome Powell",
+          "type": "Key People"
+        },
+        {
+          "name": "Best Buy",
+          "type": "Company"
+        },
+        {
+          "name": "Costco",
+          "type": "Company"
+        },
+        {
+          "name": "Walmart",
+          "type": "Company"
+        },
+        {
+          "name": "Goldman Sachs",
+          "type": "Company"
+        },
+        {
+          "name": "Tesla",
+          "type": "Company"
+        },
+        {
+          "name": "Elon Musk",
+          "type": "Key People"
+        },
+        {
+          "name": "HP Inc",
+          "type": "Company"
+        },
+        {
+          "name": "Salesforce",
+          "type": "Company"
+        },
+        {
+          "name": "OPEC+",
+          "type": "Government"
+        }
+      ]
+    },
+    {
+      "doc_id": "54_1",
+      "para_id": 1,
+      "entities": [
+        {
+          "name": "Nvidia",
+          "type": "Company"
+        },
+        {
+          "name": "H20",
+          "type": "Product"
+        },
+        {
+          "name": "China",
+          "type": "Government"
+        },
+        {
+          "name": "Trump administration",
+          "type": "Government"
+        },
+        {
+          "name": "Biden administration",
+          "type": "Government"
+        },
+        {
+          "name": "Jensen Huang",
+          "type": "Key People"
+        },
+        {
+          "name": "Colette Kress",
+          "type": "Key People"
+        },
+        {
+          "name": "Joseph Moore",
+          "type": "Key People"
+        },
+        {
+          "name": "Stacy Rasgon",
+          "type": "Key People"
+        },
+        {
+          "name": "Morgan Stanley",
+          "type": "Company"
+        },
+        {
+          "name": "Bernstein",
+          "type": "Company"
+        },
+        {
+          "name": "Amazon",
+          "type": "Company"
+        },
+        {
+          "name": "Google",
+          "type": "Company"
+        },
+        {
+          "name": "Microsoft",
+          "type": "Company"
+        },
+        {
+          "name": "CoreWeave",
+          "type": "Company"
+        },
+        {
+          "name": "Foxconn",
+          "type": "Company"
+        },
+        {
+          "name": "DeepSeek",
+          "type": "Company"
+        },
+        {
+          "name": "Humain",
+          "type": "Company"
+        },
+        {
+          "name": "Saudi Arabia's sovereign wealth fund",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "Blackwell",
+          "type": "Product"
+        },
+        {
+          "name": "Reuters",
+          "type": "Company"
         },
         {
           "name": "Bloomberg",
@@ -67,123 +3351,916 @@
       ]
     },
     {
-      "doc_id": "4_1",
+      "doc_id": "57_1",
       "para_id": 1,
       "entities": [
         {
-          "name": "Robert Kiyosaki",
-          "type": "Key People"
-        },
-        {
-          "name": "Rich Dad Poor Dad",
-          "type": "Product"
-        },
-        {
-          "name": "silver",
-          "type": "Product"
-        },
-        {
-          "name": "gold",
-          "type": "Product"
-        },
-        {
-          "name": "Bitcoin",
-          "type": "Product"
-        },
-        {
-          "name": "Kraken",
-          "type": "Company"
-        },
-        {
-          "name": "Fred Krueger",
-          "type": "Key People"
-        },
-        {
-          "name": "Solana",
-          "type": "Product"
-        }
-      ]
-    },
-    {
-      "doc_id": "2_1",
-      "para_id": 1,
-      "entities": [
-        {
-          "name": "美國",
+          "name": "China",
           "type": "Government"
         },
         {
-          "name": "香港",
+          "name": "US",
           "type": "Government"
         },
         {
-          "name": "陳茂波",
+          "name": "Chinese Ministry of Commerce",
+          "type": "Government"
+        },
+        {
+          "name": "President Trump",
           "type": "Key People"
         },
         {
-          "name": "DHL",
+          "name": "Xi Jinping",
+          "type": "Key People"
+        },
+        {
+          "name": "EU",
+          "type": "Government"
+        },
+        {
+          "name": "European Commission",
+          "type": "Government"
+        },
+        {
+          "name": "Ursula von der Leyen",
+          "type": "Key People"
+        },
+        {
+          "name": "Howard Lutnick",
+          "type": "Key People"
+        },
+        {
+          "name": "Kevin Hassett",
+          "type": "Key People"
+        },
+        {
+          "name": "Scott Bessent",
+          "type": "Key People"
+        },
+        {
+          "name": "Mark Carney",
+          "type": "Key People"
+        },
+        {
+          "name": "Gunnar Groebler",
+          "type": "Key People"
+        },
+        {
+          "name": "Tarang Amin",
+          "type": "Key People"
+        },
+        {
+          "name": "Richard Dickson",
+          "type": "Key People"
+        },
+        {
+          "name": "Elon Musk",
+          "type": "Key People"
+        },
+        {
+          "name": "Tesla",
           "type": "Company"
         },
         {
-          "name": "Tobias Meyer",
-          "type": "Key People"
-        },
-        {
-          "name": "特朗普",
-          "type": "Key People"
-        },
-        {
-          "name": "香港中小型企業聯合會",
+          "name": "Gap",
           "type": "Company"
         },
         {
-          "name": "劉達邦",
-          "type": "Key People"
+          "name": "e.l.f. Beauty",
+          "type": "Company"
+        },
+        {
+          "name": "Salzgitter",
+          "type": "Company"
+        },
+        {
+          "name": "Manley Labs",
+          "type": "Company"
+        },
+        {
+          "name": "EarthQuaker Devices",
+          "type": "Company"
+        },
+        {
+          "name": "steel",
+          "type": "Product"
+        },
+        {
+          "name": "aluminium",
+          "type": "Product"
+        },
+        {
+          "name": "AI chips",
+          "type": "Product"
+        },
+        {
+          "name": "tariffs",
+          "type": "Financial Infrastructure"
+        },
+        {
+          "name": "trade agreement",
+          "type": "Financial Infrastructure"
         }
       ]
     }
   ],
-  "Regulator": [],
+  "Regulator": [
+    "Federal Reserve",
+    "Bank of Japan",
+    "Court of International Trade",
+    "Supreme Court",
+    "US Court of International Trade",
+    "Supreme Court",
+    "Federal Reserve",
+    "Federal Reserve",
+    "US Court of International Trade",
+    "Federal Reserve",
+    "National Association of Realtors",
+    "Federal Reserve",
+    "Federal Reserve",
+    "Consumer Financial Protection Bureau (CFPB)",
+    "Federal Reserve",
+    "CFIUS",
+    "Fed",
+    "Department of Justice",
+    "US Court of International Trade",
+    "US Court of International Trade",
+    "Federal Reserve",
+    "US Court of International Trade",
+    "Supreme Court",
+    "Federal Reserve",
+    "Federal Reserve",
+    "Federal Reserve",
+    "Fed",
+    "US Court of International Trade",
+    "Federal Reserve"
+  ],
   "Bank": [
     "Mizuho Securities Asia",
-    "Barclays"
+    "Barclays",
+    "Bank of America",
+    "Wells Fargo",
+    "JPMorgan",
+    "JPMorgan",
+    "HSBC",
+    "Citi",
+    "Barclays",
+    "Goldman Sachs",
+    "Barclays",
+    "Wells Fargo",
+    "Citi",
+    "HSBC",
+    "BofA",
+    "BTIG",
+    "RBC Capital",
+    "Goldman Sachs",
+    "BMO Capital",
+    "Bernstein",
+    "Barclays",
+    "Raymond James",
+    "Truist",
+    "Oppenheimer"
   ],
   "Company": [
-    "Korea National Oil Corp",
+    "DHL",
+    "香港文汇報",
+    "Kraken",
+    "Korea National Oil Corp.",
     "Petroliam Nasional Bhd",
     "Posco Holdings Inc.",
     "Jollibee Foods Corp.",
     "MTR Corp. Ltd.",
     "Bloomberg",
-    "Kraken",
-    "DHL",
-    "香港中小型企業聯合會"
+    "Nvidia",
+    "MicroStrategy",
+    "SharpLink Gaming",
+    "Consensys",
+    "Curaleaf Holdings",
+    "Salesforce",
+    "Informatica",
+    "Nvidia",
+    "Tesla",
+    "Trump Media & Technology Group",
+    "Nvidia",
+    "Stifel",
+    "DeepSeek",
+    "Uber",
+    "Morning Consult",
+    "Brookings Institution",
+    "Washington Post",
+    "CBS",
+    "Goldman Sachs",
+    "Raymond James",
+    "Financial Times",
+    "Capital Alpha Partners",
+    "Apple",
+    "Yahoo Finance",
+    "Tesla",
+    "Gap",
+    "Salzgitter",
+    "Meta",
+    "Anduril",
+    "Tesla",
+    "SpaceX",
+    "X",
+    "xAI",
+    "OpenAI",
+    "New York Times",
+    "Wall Street Journal",
+    "Morgan Stanley Wealth Management",
+    "LPL Financial",
+    "CrowdStrike",
+    "Broadcom",
+    "DocuSign",
+    "Lululemon",
+    "Tesla",
+    "Nvidia",
+    "Best Buy",
+    "Costco",
+    "Walmart",
+    "Goldman Sachs",
+    "Tesla",
+    "Salesforce",
+    "HP Inc.",
+    "Tesla",
+    "SpaceX",
+    "Conference Board",
+    "University of Michigan",
+    "Apple",
+    "Realtor.com",
+    "Salzgitter",
+    "Gap",
+    "e.l.f. Beauty",
+    "Tesla",
+    "Nvidia",
+    "Gap",
+    "e.l.f. Beauty",
+    "Tesla",
+    "Salzgitter",
+    "Manley Labs",
+    "EarthQuaker Devices",
+    "Nvidia",
+    "HP",
+    "GameStop",
+    "Chevron",
+    "CSX Corp",
+    "Abercrombie & Fitch",
+    "Trump Media & Technology Group",
+    "Okta",
+    "Macy's",
+    "Joby Aviation",
+    "Toyota",
+    "Barclays Plc",
+    "Refresco",
+    "Telemark Kildevann (TKV)",
+    "Frías Nutrición",
+    "Berentzen-Gruppe",
+    "VBC Bottling Company",
+    "GameStop",
+    "Strategy",
+    "Yahoo Finance",
+    "Berkshire Hathaway",
+    "Salzgitter",
+    "e.l.f. Beauty",
+    "Gap",
+    "Tesla",
+    "Huawei",
+    "Yangtze Memory Technologies",
+    "Yahoo Finance",
+    "Aston Martin Lagonda Global Holdings Plc",
+    "Yew Tree",
+    "Bentley Motors Ltd",
+    "Nvidia",
+    "Tesla",
+    "US Steel",
+    "Nippon Steel",
+    "Walmart",
+    "General Motors",
+    "Stellantis",
+    "TikTok",
+    "Bytedance",
+    "Alibaba",
+    "Bespoke Investment Group",
+    "Interactive Brokers",
+    "VandaTrack",
+    "Nvidia",
+    "Microsoft",
+    "Amazon",
+    "Meta Platforms",
+    "Wedbush",
+    "AllianceBernstein",
+    "FWDBonds",
+    "Apple",
+    "Epic Games",
+    "Google",
+    "OpenAI",
+    "Morgan Stanley",
+    "Deepwater Asset Management",
+    "Apple",
+    "Samsung",
+    "Salzgitter",
+    "Gap",
+    "e.l.f. Beauty",
+    "Tesla",
+    "Huawei",
+    "Yangtze Memory Technologies",
+    "Nvidia",
+    "Morgan Stanley",
+    "Bernstein",
+    "Amazon",
+    "Google",
+    "Microsoft",
+    "CoreWeave",
+    "Foxconn",
+    "Humain",
+    "DeepSeek",
+    "Nvidia",
+    "Renaissance Macro",
+    "Ritholtz Wealth Management",
+    "Magnificent Seven",
+    "Apple",
+    "Alphabet",
+    "Microsoft",
+    "Amazon",
+    "Meta",
+    "Tesla",
+    "Nvidia",
+    "Apollo Global Management",
+    "Yahoo Finance",
+    "Nvidia",
+    "Best Buy",
+    "Costco",
+    "Walmart",
+    "Goldman Sachs",
+    "Tesla",
+    "Salesforce",
+    "HP Inc.",
+    "Harvard",
+    "University of Pennsylvania",
+    "McKinsey",
+    "University of California system",
+    "Yahoo Finance",
+    "Gap",
+    "e.l.f. Beauty",
+    "Tesla",
+    "Salzgitter",
+    "Manley Labs",
+    "EarthQuaker Devices",
+    "Nvidia",
+    "Microsoft",
+    "Amazon",
+    "Meta Platforms",
+    "Wedbush",
+    "CrowdStrike",
+    "Broadcom",
+    "DocuSign",
+    "Lululemon",
+    "BioNTech",
+    "Bristol Myers Squibb",
+    "Merck",
+    "Moderna",
+    "Blueprint Medicines",
+    "Sanofi",
+    "Cleveland-Cliffs",
+    "Nucor",
+    "Steel Dynamics",
+    "US Steel Corporation",
+    "Nippon",
+    "Posco",
+    "Hyundai Steel",
+    "Tesla",
+    "Campbell's Company",
+    "BlackRock",
+    "Kayne Anderson Rudnick",
+    "Boeing",
+    "Doximity",
+    "Church & Dwight",
+    "Saia",
+    "Nucor",
+    "Charter",
+    "Centene",
+    "Shake Shack",
+    "Union Pacific",
+    "Rackspace Technology",
+    "PayPal",
+    "Block",
+    "MasterCard",
+    "Visa",
+    "Global Payments",
+    "Western Union",
+    "Nationwide",
+    "Nvidia",
+    "HP",
+    "GameStop",
+    "Chevron",
+    "CSX Corp",
+    "Abercrombie & Fitch",
+    "Macy's",
+    "Okta",
+    "Barclays Plc",
+    "Yahoo Finance",
+    "Oxford Economics",
+    "Apollo Global Management",
+    "Indeed",
+    "Nvidia",
+    "Best Buy",
+    "Costco",
+    "Walmart",
+    "Goldman Sachs",
+    "Tesla",
+    "HP Inc",
+    "Salesforce",
+    "Nvidia",
+    "Morgan Stanley",
+    "Bernstein",
+    "Amazon",
+    "Google",
+    "Microsoft",
+    "CoreWeave",
+    "Foxconn",
+    "DeepSeek",
+    "Humain",
+    "Reuters",
+    "Bloomberg",
+    "Tesla",
+    "Gap",
+    "e.l.f. Beauty",
+    "Salzgitter",
+    "Manley Labs",
+    "EarthQuaker Devices"
   ],
   "Product": [
-    "Rich Dad Poor Dad",
-    "silver",
-    "gold",
+    "Silver",
+    "Gold",
     "Bitcoin",
-    "Solana"
+    "Solana",
+    "Bitcoin",
+    "Ethereum",
+    "Bitcoin",
+    "Hopper",
+    "Blackwell",
+    "H20",
+    "tariffs",
+    "Apple smartphones",
+    "AR/VR military tech",
+    "Lattice analytics platform",
+    "Llama AI models",
+    "DOGE",
+    "critical minerals",
+    "semiconductors",
+    "tariffs",
+    "steel",
+    "aluminium",
+    "AI chip",
+    "H20",
+    "steel",
+    "aluminium",
+    "AI chips",
+    "chip design software",
+    "Truth Social",
+    "Märkisch Kristall",
+    "Grüneberg Quelle",
+    "Bitcoin",
+    "Truth Social",
+    "steel tariffs",
+    "AI chip export controls",
+    "student visas",
+    "Morning Brief",
+    "H20",
+    "Blackwell",
+    "Treasury yields",
+    "iPhone",
+    "steel tariffs",
+    "aluminium tariffs",
+    "AI chip export controls",
+    "H20",
+    "Roundhill Magnificent Seven ETF",
+    "Wharton School",
+    "steel",
+    "aluminium",
+    "AI chips",
+    "auto parts",
+    "cosmetics",
+    "electronics",
+    "Truth Social",
+    "Blackwell",
+    "H20",
+    "West Texas Intermediate",
+    "Brent",
+    "Personal Consumption Expenditures (PCE)",
+    "bitcoin",
+    "H20",
+    "Blackwell",
+    "steel",
+    "aluminium",
+    "AI chips"
   ],
   "Government": [
+    "美国",
     "Donald Trump",
-    "美國",
-    "香港"
+    "US Treasury",
+    "President Trump",
+    "European Union",
+    "China",
+    "US",
+    "Chinese Ministry of Commerce",
+    "EU Commission",
+    "National Economic Council",
+    "Treasury Secretary",
+    "Commerce Secretary",
+    "China",
+    "Department of Government Efficiency",
+    "USAID",
+    "United States Court of International Trade",
+    "White House",
+    "Donald Trump",
+    "US Customs Bureau",
+    "Donald Trump",
+    "China",
+    "US",
+    "Chinese Ministry of Commerce",
+    "EU Commission",
+    "U.S. Army",
+    "President Trump",
+    "Department of Government Efficiency",
+    "White House",
+    "USAID",
+    "White House",
+    "China",
+    "US",
+    "OPEC+",
+    "Trump",
+    "OPEC+",
+    "Donald Trump",
+    "White House",
+    "House of Representatives",
+    "Senate",
+    "Republican Party",
+    "Trump",
+    "China",
+    "Donald Trump",
+    "Xi Jinping",
+    "US Treasury",
+    "Chinese Ministry of Commerce",
+    "National Economic Council",
+    "Trump",
+    "Donald Trump",
+    "White House",
+    "Supreme Court",
+    "China",
+    "US",
+    "Chinese Ministry of Commerce",
+    "EU",
+    "White House",
+    "Supreme Court",
+    "National Economic Council",
+    "China",
+    "US",
+    "China",
+    "US",
+    "Chinese Ministry of Commerce",
+    "EU Commission",
+    "Trump administration",
+    "China",
+    "US",
+    "Chinese Ministry of Commerce",
+    "EU",
+    "National Economic Council",
+    "Commerce Department",
+    "European Commission",
+    "Trump administration",
+    "Trump administration",
+    "China",
+    "US Government",
+    "Donald Trump",
+    "US Government",
+    "China",
+    "Trump",
+    "House",
+    "Senate",
+    "Trump",
+    "Trump",
+    "Treasury Department",
+    "GOP",
+    "China",
+    "US",
+    "Chinese Ministry of Commerce",
+    "EU",
+    "China",
+    "Trump administration",
+    "Biden administration",
+    "Saudi Arabia's sovereign wealth fund",
+    "United Arab Emirates",
+    "Trump",
+    "President Trump",
+    "European Union",
+    "Washington",
+    "US",
+    "China",
+    "Trump",
+    "Federal Government",
+    "China",
+    "US",
+    "Chinese Ministry of Commerce",
+    "EU",
+    "National Economic Council",
+    "Commerce Department",
+    "EU Commission",
+    "China",
+    "US",
+    "China",
+    "US",
+    "OPEC+",
+    "Trump",
+    "China",
+    "Trump administration",
+    "OPEC+",
+    "President Trump",
+    "Trump",
+    "OPEC+",
+    "China",
+    "Trump administration",
+    "Biden administration",
+    "China",
+    "US",
+    "Chinese Ministry of Commerce",
+    "EU",
+    "European Commission"
   ],
-  "Rating Agency": [],
-  "Financial Infrastructure": [],
+  "Rating Agency": [
+    "Yale Budget Lab",
+    "Brookings Institution",
+    "Committee for a Responsible Federal Budget",
+    "Wedbush",
+    "KFF",
+    "West Health-Gallup",
+    "Center for Retirement Research at Boston College",
+    "Equifax",
+    "Experian",
+    "Transunion",
+    "Kelley Blue Book",
+    "Fitch Ratings",
+    "Institute for Supply Management",
+    "S&P Global"
+  ],
+  "Financial Infrastructure": [
+    "香港",
+    "Asia Pacific credit market",
+    "Dow Jones Industrial Average",
+    "S&P 500",
+    "Nasdaq Composite",
+    "S&P 500",
+    "Wall Street",
+    "DOGE",
+    "Dow Jones Industrial Average",
+    "S&P 500",
+    "NASDAQ Composite",
+    "S&P 500",
+    "Nasdaq Composite",
+    "Dow Jones Industrial Average",
+    "DOGE",
+    "Pending Home Sales Index",
+    "tariffs",
+    "US Court of International Trade",
+    "Supreme Court",
+    "National Economic Council",
+    "Commerce Department",
+    "Treasury Department",
+    "Dow Jones Industrial Average",
+    "S&P 500",
+    "Nasdaq Composite",
+    "OPEC+",
+    "Medicare",
+    "US Court of International Trade",
+    "Supreme Court",
+    "US Court of Appeals for the Federal Circuit",
+    "Society of Motor Manufacturers and Traders (SMMT)",
+    "S&P 500",
+    "Dow Jones Industrial Average",
+    "Nasdaq Composite",
+    "S&P 500",
+    "Wall Street",
+    "New York Stock Exchange",
+    "US Court of International Trade",
+    "Supreme Court",
+    "NasdaqGS",
+    "Bloomberg",
+    "Reuters",
+    "S&P 500",
+    "S&P 500",
+    "Dow Jones Industrial Average",
+    "Nasdaq Composite",
+    "S&P 500",
+    "Dow Jones Industrial Average",
+    "S&P 500",
+    "Nasdaq Composite",
+    "tariffs",
+    "Wall Street",
+    "Dow Jones Industrial Average",
+    "S&P 500",
+    "Nasdaq Composite",
+    "DAX Index",
+    "Stoxx 600 Index",
+    "Hang Seng Index",
+    "Nikkei 225",
+    "Kospi",
+    "S&P/ASX 200",
+    "Dow Jones Industrial Average",
+    "S&P 500",
+    "Nasdaq Composite",
+    "S&P 500",
+    "Dow Jones Industrial Average",
+    "S&P 500",
+    "Nasdaq Composite",
+    "Saudi Arabia's sovereign wealth fund",
+    "tariffs",
+    "trade agreement"
+  ],
   "Key People": [
-    "Mark Reade",
-    "Avinash Thakur",
+    "陈茂波",
+    "Trump",
     "Robert Kiyosaki",
     "Fred Krueger",
-    "陳茂波",
-    "Tobias Meyer",
-    "特朗普",
-    "劉達邦"
+    "Mark Reade",
+    "Avinash Thakur",
+    "Donald Trump",
+    "Donald Jr.",
+    "Robert Kiyosaki",
+    "President Trump",
+    "Xi Jinping",
+    "Ursula von der Leyen",
+    "Kevin Hassett",
+    "Scott Bessent",
+    "Howard Lutnick",
+    "Ruben Roy",
+    "Vivek Arya",
+    "Trump",
+    "Elon Musk",
+    "Donald Trump",
+    "Chamath Palihapitiya",
+    "Jason Calacanis",
+    "David Sacks",
+    "Dara Khosrowshahi",
+    "Sen. Ron Johnson",
+    "President Trump",
+    "Kush Desai",
+    "Sen. Ron Wyden",
+    "Ed Mills",
+    "Robert Armstrong",
+    "James Lucier",
+    "Rick Newman",
+    "Donald Trump",
+    "Xi Jinping",
+    "Ursula von der Leyen",
+    "Elon Musk",
+    "Richard Dickson",
+    "Gunnar Groebler",
+    "Palmer Luckey",
+    "Mark Zuckerberg",
+    "Andrew Bosworth",
+    "Elon Musk",
+    "Sam Altman",
+    "Jerome Powell",
+    "Lorie Logan",
+    "Neel Kashkari",
+    "Ellen Zentner",
+    "Jeffrey Roach",
+    "Donald Trump",
+    "Christopher Waller",
+    "Jerome Powell",
+    "Elon Musk",
+    "Jerome Powell",
+    "Elon Musk",
+    "Elon Musk",
+    "Tim Quinlan",
+    "Stephanie Guichard",
+    "Kevin Hassett",
+    "Scott Bessent",
+    "Howard Lutnick",
+    "Lawrence Yun",
+    "Jerome Powell",
+    "Karoline Leavitt",
+    "Kevin Warsh",
+    "Trump",
+    "Xi Jinping",
+    "Treasury Secretary Scott Bessent",
+    "Commerce Secretary Howard Lutnick",
+    "EU Commission President Ursula von der Leyen",
+    "Jensen Huang",
+    "Dan Ives",
+    "President Trump",
+    "Xi Jinping",
+    "Ursula von der Leyen",
+    "Howard Lutnick",
+    "Kevin Hassett",
+    "Scott Bessent",
+    "Mark Carney",
+    "Gunnar Groebler",
+    "Tarang Amin",
+    "Richard Dickson",
+    "Elon Musk",
+    "Hans Roelofs",
+    "Michael Saylor",
+    "Kerry Hannon",
+    "Tricia Neuman",
+    "Lori Trawinski",
+    "Anqi Chen",
+    "Carolyn McClanahan",
+    "Trump",
+    "Xi Jinping",
+    "Ethan Wolff-Mann",
+    "Lawrence Stroll",
+    "Adrian Hallmark",
+    "Scott Bessent",
+    "Elon Musk",
+    "Trump",
+    "Steve Sosnick",
+    "Emma Wu",
+    "Jensen Huang",
+    "Dan Ives",
+    "Ryan Mellor",
+    "Stuart Kaiser",
+    "Eric Winograd",
+    "Chris Rupkey",
+    "Daniel Kryger",
+    "Tim Cook",
+    "Jony Ive",
+    "Sam Altman",
+    "Sharon Shih",
+    "Erik Woodring",
+    "Gene Munster",
+    "US District Judge Yvonne Gonzalez Rogers",
+    "Trump",
+    "Xi Jinping",
+    "Jensen Huang",
+    "Colette Kress",
+    "Joseph Moore",
+    "Stacy Rasgon",
+    "Ajay Rajadhyaksha",
+    "Alec Phillips",
+    "Neil Dutta",
+    "Ajay Rajadhyaksha",
+    "Callie Cox",
+    "Jay Bryson",
+    "Drew Pettit",
+    "President Trump",
+    "Torsten Sløk",
+    "Jerome Powell",
+    "Elon Musk",
+    "Scott Bessent",
+    "Jensen Huang",
+    "Donald Trump",
+    "Trump",
+    "Xi Jinping",
+    "Ursula von der Leyen",
+    "Howard Lutnick",
+    "Kevin Hassett",
+    "Scott Bessent",
+    "Mark Carney",
+    "Gunnar Groebler",
+    "Tarang Amin",
+    "Richard Dickson",
+    "Elon Musk",
+    "Jensen Huang",
+    "Dan Ives",
+    "Ryan Mellor",
+    "President Trump",
+    "Christopher Waller",
+    "Jerome Powell",
+    "Susan Spence",
+    "Chris Williamson",
+    "Elon Musk",
+    "Julie Beale",
+    "Kathy Bostjancic",
+    "Jerome Powell",
+    "Cory Stahle",
+    "Torsten Sløk",
+    "Matthew Martin",
+    "Jerome Powell",
+    "Elon Musk",
+    "Jensen Huang",
+    "Colette Kress",
+    "Joseph Moore",
+    "Stacy Rasgon",
+    "President Trump",
+    "Xi Jinping",
+    "Ursula von der Leyen",
+    "Howard Lutnick",
+    "Kevin Hassett",
+    "Scott Bessent",
+    "Mark Carney",
+    "Gunnar Groebler",
+    "Tarang Amin",
+    "Richard Dickson",
+    "Elon Musk"
   ],
   "Concept": [],
   "Event": [],
-  "Industry": []
+  "Industry": [
+    "东盟",
+    "International Emergency Economic Powers Act (IEEPA)",
+    "Trade Expansion Act of 1962",
+    "Trade Act of 1974"
+  ]
 }
