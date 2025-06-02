@@ -26,10 +26,10 @@ def summarize_for_category(category, keywords) -> str:
     articles = NewsArticle.objects.filter(category=category)
     # Prepare the news content for the prompt
     articles_text = "\n\n".join(
-        f"Article {i + 1}: {article['title']}\n"
-        f"Source: {article['source']}\n"
-        f"Date: {article['date']}\n"
-        f"{article.get('content', '')}..."  
+        f"Article {i + 1}: {article.web_page.title}\n"
+        f"Source: {article.web_page.source}\n"
+        f"Date: {article.created_at}\n"
+        f"{article.processed_content}..."  
         for i, article in enumerate(articles)
     )
 
