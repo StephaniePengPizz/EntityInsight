@@ -8,7 +8,7 @@ from openai import OpenAI
 
 client = OpenAI(base_url="https://api.deepseek.com", api_key=settings.DEEPSEEK_API_KEY)
 
-def summarize_for_category(category, articles) -> str:
+def summarize_for_category(category, keywords, articles) -> str:
     """
     Generate a professional summary for a specific news category
 
@@ -16,6 +16,8 @@ def summarize_for_category(category, articles) -> str:
     ----------
     category : str
         The news category (e.g., "Regulatory Actions")
+    keywords : List[str]
+        The keywords provided by user
     articles : List[Dict]
         List of article dictionaries containing:
         - title: str
@@ -37,9 +39,9 @@ def summarize_for_category(category, articles) -> str:
         for i, article in enumerate(articles)
     )
 
-    prompt = f"""You are a senior financial analyst creating an executive summary about {category}.
-    Here are {len(articles)} recent articles in this category:{articles_text}
-    Please provide a 3-paragraph professional summary that:
+    prompt = f"""You are a senior financial analyst creating an executive summary about {category}. Here are {len(articles)} recent articles in this category:
+    {articles_text}
+    Please provide a 3-paragraph professional summary about keywords {keywords} that:
     1. Identifies the 2-3 most important trends or developments
     2. Highlights any significant events or regulatory changes
     3. Notes the key players or institutions involved

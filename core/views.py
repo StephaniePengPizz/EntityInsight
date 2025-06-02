@@ -68,9 +68,9 @@ def results(request):
         # Generate summaries in parallel for better performance
         llm_summaries = {}
 
-        def generate_single_summary(category, news_items):
+        def generate_single_summary(category, keywords, news_items):
             if news_items:
-                return summarize_for_category(category, news_items)
+                return summarize_for_category(category, keywords, news_items)
             return None
 
         # Use ThreadPoolExecutor to generate summaries in parallel
@@ -81,6 +81,7 @@ def results(request):
                     executor.submit(
                         generate_single_summary,
                         category,
+                        keywords,
                         news_by_category.get(category, [])
                     ): category
                     for category in selected_categories
