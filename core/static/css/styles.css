@@ -439,3 +439,36 @@ h2 {
     height: 30px;
     background: linear-gradient(to bottom, transparent, white);
 }
+
+.category-divider {
+        height: 1px;
+        background: linear-gradient(to right, transparent, #ddd, transparent);
+        margin: 1.5rem 0;
+    }
+
+.summary-divider {
+    border: none;
+    height: 1px;
+    background-color: #eee;
+    margin: 1.5rem 0;
+}
+
+.combined-summary ul {
+    padding-left: 1.5rem;
+}
+
+.combined-summary li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.category-summary {
+    margin-bottom: 1.5rem;
+}
+
+.category-summary h3 {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+

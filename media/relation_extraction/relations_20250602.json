@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "generated_at": "2025-06-02T13:31:46.640846",
+    "total_relations": 15
+  },
+  "data": [
+    {
+      "doc_id": "1_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Donald Trump",
+          "imposes tariffs",
+          "Korea National Oil Corp"
+        ],
+        [
+          "Petroliam Nasional Bhd",
+          "hires banks",
+          "Mizuho Securities Asia"
+        ],
+        [
+          "Mark Reade",
+          "works at",
+          "Mizuho Securities Asia"
+        ],
+        [
+          "Avinash Thakur",
+          "works at",
+          "Barclays"
+        ],
+        [
+          "Bloomberg",
+          "compiles data",
+          "Asia Pacific bond market"
+        ]
+      ]
+    },
+    {
+      "doc_id": "4_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Robert Kiyosaki",
+          "authored",
+          "Rich Dad Poor Dad"
+        ],
+        [
+          "Robert Kiyosaki",
+          "recommends",
+          "silver"
+        ],
+        [
+          "Robert Kiyosaki",
+          "owns",
+          "Bitcoin"
+        ],
+        [
+          "Fred Krueger",
+          "compares",
+          "Solana"
+        ],
+        [
+          "Kraken",
+          "provides data",
+          "Bitcoin"
+        ]
+      ]
+    },
+    {
+      "doc_id": "2_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "美國",
+          "imposes tariffs",
+          "香港"
+        ],
+        [
+          "陳茂波",
+          "advocates for",
+          "香港"
+        ],
+        [
+          "DHL",
+          "criticizes",
+          "特朗普"
+        ],
+        [
+          "特朗普",
+          "enforces policy",
+          "DHL"
+        ],
+        [
+          "香港中小型企業聯合會",
+          "represents",
+          "劉達邦"
+        ]
+      ]
+    }
+  ]
+}

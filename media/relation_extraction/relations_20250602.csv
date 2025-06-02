@@ -1,0 +1,16 @@
+﻿DocID,ParaID,Subject,Relation,Object
+1_1,1,Donald Trump,imposes tariffs,Korea National Oil Corp
+1_1,1,Petroliam Nasional Bhd,hires banks,Mizuho Securities Asia
+1_1,1,Mark Reade,works at,Mizuho Securities Asia
+1_1,1,Avinash Thakur,works at,Barclays
+1_1,1,Bloomberg,compiles data,Asia Pacific bond market
+4_1,1,Robert Kiyosaki,authored,Rich Dad Poor Dad
+4_1,1,Robert Kiyosaki,recommends,silver
+4_1,1,Robert Kiyosaki,owns,Bitcoin
+4_1,1,Fred Krueger,compares,Solana
+4_1,1,Kraken,provides data,Bitcoin
+2_1,1,美國,imposes tariffs,香港
+2_1,1,陳茂波,advocates for,香港
+2_1,1,DHL,criticizes,特朗普
+2_1,1,特朗普,enforces policy,DHL
+2_1,1,香港中小型企業聯合會,represents,劉達邦

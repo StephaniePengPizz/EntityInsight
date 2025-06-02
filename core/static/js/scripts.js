@@ -22,11 +22,11 @@ function updateSelectedEntityCategories() {
         .map(checkbox => checkbox.value);
 
     const toggleAll = document.getElementById('toggleAllEntity');
-    toggleAll.checked = selected.length === checkboxes.length;
+    toggleAll.checked = selected.length === checkboxes.length && checkboxes.length > 0;
 
-    const selectedText = selected.length === checkboxes.length ?
-        'All entity categories' :
-        selected.join(', ');
+    const selectedText = selected.length === 0 ?
+        'No entity categories selected' :
+        (selected.length === checkboxes.length ? 'All entity categories' : selected.join(', '));
 
     document.getElementById('selectedEntityCategories').textContent =
         `Currently selected: ${selectedText}`;
@@ -72,7 +72,6 @@ function toggleAllCategories() {
     updateSelectedCategories();
 }
 
-// Update selected categories display
 function updateSelectedCategories() {
     const checkboxes = document.querySelectorAll('#categoryOptions input[type="checkbox"]:not(#toggleAll)');
     const selected = Array.from(checkboxes)
@@ -80,11 +79,11 @@ function updateSelectedCategories() {
         .map(checkbox => checkbox.value);
 
     const toggleAll = document.getElementById('toggleAll');
-    toggleAll.checked = selected.length === checkboxes.length;
+    toggleAll.checked = selected.length === checkboxes.length && checkboxes.length > 0;
 
-    const selectedText = selected.length === checkboxes.length ?
-        'All categories' :
-        selected.join(', ');
+    const selectedText = selected.length === 0 ?
+        'No categories selected' :
+        (selected.length === checkboxes.length ? 'All categories' : selected.join(', '));
 
     document.getElementById('selectedCategories').textContent =
         `Currently selected: ${selectedText}`;

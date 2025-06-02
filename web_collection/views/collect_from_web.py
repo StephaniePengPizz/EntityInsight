@@ -81,7 +81,7 @@ class WebPageCollectorView(View):
 
             # Process each article URL
             results = []
-            for url in article_urls[:5]:  # Limit to 5 for demo purposes
+            for url in article_urls:  # Limit to 5 for demo purposes
                 try:
                     article_data = self.process_news_page(url)
                     if article_data:

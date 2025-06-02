@@ -61,22 +61,22 @@
                 <label for="categories" class="input-label">Select News Categories:</label>
                 <div class="category-dropdown">
                     <div class="category-select" onclick="toggleDropdown()">
-                        All by default
+                        Select categories
                     </div>
                     <div class="category-options news-category-options" id="categoryOptions">
                         <div class="category-option toggle-all" onclick="toggleAllCategories()">
-                            <input type="checkbox" id="toggleAll" checked>
+                            <input type="checkbox" id="toggleAll">
                             <label for="toggleAll">Select All</label>
                         </div>
                         {% for category in categories %}
                         <div class="category-option">
-                            <input type="checkbox" id="{{ category.slug }}" name="categories" value="{{ category.slug }}" checked>
+                            <input type="checkbox" id="{{ category.slug }}" name="categories" value="{{ category.slug }}">
                             <label for="{{ category.slug }}">{{ category.name }}</label>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="selected-categories" id="selectedCategories">
-                        Currently selected: All categories
+                        Currently selected: No categories selected
                     </div>
                 </div>
             </div>
@@ -85,22 +85,22 @@
                 <label for="entity_types" class="input-label">Select Entity Categories:</label>
                 <div class="category-dropdown entity-category-dropdown">
                     <div class="category-select" onclick="toggleEntityDropdown()">
-                        All by default
+                        Select entity categories
                     </div>
                     <div class="category-options entity-category-options" id="entityCategoryOptions">
                         <div class="category-option toggle-all" onclick="toggleAllEntityCategories()">
-                            <input type="checkbox" id="toggleAllEntity" checked>
+                            <input type="checkbox" id="toggleAllEntity">
                             <label for="toggleAllEntity">Select All</label>
                         </div>
                         {% for ecat in entity_types %}
                         <div class="category-option">
-                            <input type="checkbox" id="{{ ecat.slug }}" name="entity_types" value="{{ ecat.name }}" checked>
+                            <input type="checkbox" id="{{ ecat.slug }}" name="entity_types" value="{{ ecat.name }}">
                             <label for="{{ ecat.slug }}">{{ ecat.name }}</label>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="selected-categories" id="selectedEntityCategories">
-                        Currently selected: All entity categories
+                        Currently selected: No entity categories selected
                     </div>
                 </div>
             </div>

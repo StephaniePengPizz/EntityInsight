@@ -27,7 +27,7 @@ def find_relevant_nodes(target_types, source):
     file_path = entity_files[0]
     with open(file_path, "r", encoding="utf-8") as file:
         json_file = json.load(file)
-    current_type_dict_word_list = json_file["data"]
+    current_type_dict_word_list = json_file
     # Initialize result dictionary
     result = {
         "source": source,

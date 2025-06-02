@@ -9,7 +9,7 @@ from django.shortcuts import render
 
 from genai_summarization.views import summarize_for_category
 from knowledge_graph.views.show_graph_detail import find_relevant_nodes
-
+import concurrent
 
 def home(request):
     return render(request, 'home.html', {
@@ -18,12 +18,17 @@ def home(request):
         'time_ranges':time_ranges
     })
 
+
+from concurrent.futures import ThreadPoolExecutor
+import time
+
+
 def results(request):
     if request.method == 'POST':
         keywords = request.POST.get('keywords', '')
         selected_categories = request.POST.getlist('categories', [])
         selected_entity_categories = request.POST.getlist('entity_types', [])
-        selected_time_range = request.POST.getlist('time_ranges', [])
+        selected_time_range = request.POST.get('time_ranges', '')  # Changed to get single value
 
         # Get real news data from database
         news_by_category = {}
@@ -42,11 +47,10 @@ def results(request):
                 'last_month': datetime.now() - timedelta(days=30),
             }
 
-            for time_range in selected_time_range:
-                if time_range in time_ranges:
-                    articles = articles.filter(
-                        web_page__publication_time__gte=time_ranges[time_range]
-                    )
+            if selected_time_range in time_ranges:
+                articles = articles.filter(
+                    web_page__publication_time__gte=time_ranges[selected_time_range]
+                )
 
         # Organize articles by category
         for article in articles.select_related('web_page'):
@@ -61,54 +65,62 @@ def results(request):
                 'url': article.web_page.url,
             })
 
-        # Generate summary for the first selected category
-        summary_category = selected_categories if selected_categories else None
-        print(summary_category)
-        entity_type = selected_entity_categories[0] if selected_entity_categories else None
-        result = find_relevant_nodes([entity_type], keywords)
-        graph_description = generate_mermaid_graph(result)
-
-        # Generate AI summary (you'll need to implement this function)
+        # Generate summaries in parallel for better performance
         llm_summaries = {}
 
-        print(selected_categories)
-        if selected_categories:
-            # Summarize each selected category
-            for category in selected_categories:
-                category_news = news_by_category.get(category, [])
-                if category_news:  # Only summarize if there are articles
-                    llm_summaries[category] = summarize_for_category(
+        def generate_single_summary(category, news_items):
+            if news_items:
+                return summarize_for_category(category, news_items)
+            return None
+
+        # Use ThreadPoolExecutor to generate summaries in parallel
+        with ThreadPoolExecutor(max_workers=3) as executor:
+            # If specific categories selected
+            if selected_categories:
+                future_to_category = {
+                    executor.submit(
+                        generate_single_summary,
                         category,
-                        category_news
-                    )
-        else:
-            # If no categories selected, summarize all available categories
-            for category, news_items in news_by_category.items():
-                if news_items:  # Only summarize if there are articles
-                    llm_summaries[category] = summarize_for_category(
+                        news_by_category.get(category, [])
+                    ): category
+                    for category in selected_categories
+                }
+            else:
+                # If no categories selected, summarize all available
+                future_to_category = {
+                    executor.submit(
+                        generate_single_summary,
                         category,
                         news_items
-                    )
+                    ): category
+                    for category, news_items in news_by_category.items()
+                }
 
-        # Generate a combined summary if needed
-        combined_summary = None
-        if llm_summaries:
-            if len(llm_summaries) == 1:
-                combined_summary = next(iter(llm_summaries.values()))
-            else:
-                # Combine multiple summaries into one (implement this function)
-                combined_summary = combine_summaries(llm_summaries)
+            for future in concurrent.futures.as_completed(future_to_category):
+                category = future_to_category[future]
+                try:
+                    summary = future.result()
+                    if summary:
+                        llm_summaries[category] = summary
+                except Exception as e:
+                    print(f"Error generating summary for {category}: {str(e)}")
+                    llm_summaries[category] = f"Summary generation failed for {category}"
 
+        # Generate entity graph
+        entity_type = selected_entity_categories[0] if selected_entity_categories else None
+        result = find_relevant_nodes([entity_type], keywords) if entity_type else None
+        graph_description = generate_mermaid_graph(result) if result else None
 
         context = {
             'keywords': keywords,
             'selected_categories': selected_categories,
             'entity_category': selected_entity_categories[0] if selected_entity_categories else None,
             'news_by_category': news_by_category,
-            'llm_summaries': llm_summaries,  # Individual category summaries
-            'combined_summary': combined_summary,  # Combined summary for display
+            'llm_summaries': llm_summaries,
+            'first_summary': next(iter(llm_summaries.values())) if llm_summaries else None,
             'result': result,
             'graph_description': graph_description,
+            'time_range': selected_time_range,
         }
 
         return render(request, 'results.html', context)

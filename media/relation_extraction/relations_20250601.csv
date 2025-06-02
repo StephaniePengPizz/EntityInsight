@@ -1,0 +1,19 @@
+﻿DocID,ParaID,Subject,Relation,Object
+2_1,1,美國,imposes tariffs,香港
+2_1,1,陳茂波,represents,香港特區政府
+2_1,1,DHL,affected by,美國
+2_1,1,Tobias Meyer,leads,DHL
+2_1,1,香港,serves as,Financial Infrastructure
+2_1,1,香港中小型企業聯合會,represents,Company
+2_1,1,劉達邦,associated with,香港中小型企業聯合會
+4_1,1,Robert Kiyosaki,authored,Rich Dad Poor Dad
+4_1,1,Robert Kiyosaki,recommends,silver
+4_1,1,Robert Kiyosaki,owns,Bitcoin
+4_1,1,Robert Kiyosaki,discusses,gold
+4_1,1,Fred Krueger,compares,Solana
+4_1,1,Kraken,provides data on,Bitcoin
+1_1,1,Donald Trump,imposes tariffs,Korea National Oil Corp
+1_1,1,Mizuho Securities Asia,advises on,Asia Credit Market
+1_1,1,Barclays,facilitates financing,Asia Pacific issuers
+1_1,1,Mark Reade,leads strategy,Mizuho Securities Asia
+1_1,1,Avinash Thakur,manages financing,Barclays

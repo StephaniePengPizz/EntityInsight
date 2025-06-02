@@ -50,19 +50,19 @@ class CleanEntityExtractionView(View):
             processed_data = self._load_json_file(latest_file)
 
             # 2. 处理数据
-            docid = [item['doc_id'] for item in processed_data['data']]
-            paraid = [item['para_id'] for item in processed_data['data']]
+            doc_id = [item['doc_id'] for item in processed_data['data']]
+            para_id = [item['para_id'] for item in processed_data['data']]
             content_list = [item['content'] for item in processed_data['data']]
 
             # 演示限制（生产环境应移除）
             demo_limit = 5
             if len(content_list) > demo_limit:
                 content_list = content_list[:demo_limit]
-                docid = docid[:demo_limit]
-                paraid = paraid[:demo_limit]
+                doc_id = doc_id[:demo_limit]
+                para_id = para_id[:demo_limit]
 
             # 3. 提取实体和关系
-            entity_types, relations = self._process_entities_relations(docid, paraid, content_list)
+            entity_types, relations = self._process_entities_relations(doc_id, para_id, content_list)
 
             print("1234")
             # 4. 保存结果（CSV + JSONL）
@@ -90,8 +90,7 @@ class CleanEntityExtractionView(View):
         with open(filepath, 'r', encoding='utf-8') as f:
             return json.load(f)
 
-    def _process_entities_relations(self, docid, paraid, content_list):
-        """使用线程池处理实体和关系"""
+    def _process_entities_relations(self, doc_id, para_id, content_list):
         entity_types = []
         relations = []
 
@@ -100,13 +99,20 @@ class CleanEntityExtractionView(View):
                 executor.submit(
                     self.fetch_res_ER_new_DEEPSEEK,
                     d, p, q
-                ) for d, p, q in zip(docid, paraid, content_list)
+                ) for d, p, q in zip(doc_id, para_id, content_list)
             ]
 
             for future in tqdm(as_completed(futures), total=len(futures)):
                 d, p, entities, rels = future.result()
                 entity_types.append({'doc_id': d, 'para_id': p, 'entities': entities})
-                relations.append({'doc_id': d, 'para_id': p, 'relations': rels})
+
+                # 这里做扁平化处理，把嵌套字典里的content提取出来合并为三元组列表
+                new_content = []
+                for item in rels:
+                    # item 是 {'doc_id': ..., 'para_id': ..., 'content': [s,r,o]}
+                    new_content.append(item['content'])
+
+                relations.append({'doc_id': d, 'para_id': p, 'content': new_content})
 
         return entity_types, relations
 
@@ -131,15 +137,14 @@ class CleanEntityExtractionView(View):
 
         # 返回可访问的URL路径
         return {
-            'entities_csv': f'/media/entity_extraction_results/{os.path.basename(file_paths["entities_csv"])}',
-            'relations_csv': f'/media/entity_extraction_results/{os.path.basename(file_paths["relations_csv"])}',
-            'entities_json': f'/media/entity_extraction_results/{os.path.basename(file_paths["entities_json"])}',
-            'relations_json': f'/media/entity_extraction_results/{os.path.basename(file_paths["relations_json"])}'
+            'entities_csv': f'/media/entity_extraction_/{os.path.basename(file_paths["entities_csv"])}',
+            'relations_csv': f'/media/relation_extraction/{os.path.basename(file_paths["relations_csv"])}',
+            'entities_json': f'/media/entity_extraction/{os.path.basename(file_paths["entities_json"])}',
+            'relations_json': f'/media/relation_extraction/{os.path.basename(file_paths["relations_json"])}'
         }
 
     def _save_entities(self, entity_types, file_paths):
-        """保存实体数据"""
-        # CSV格式
+        # CSV格式写入
         with open(file_paths['entities_csv'], 'w', encoding='utf-8-sig', newline='') as f:
             writer = csv.writer(f)
             writer.writerow(['DocID', 'ParaID', 'Entity', 'Type'])
@@ -147,9 +152,9 @@ class CleanEntityExtractionView(View):
                 for entity in item['entities']:
                     writer.writerow([item['doc_id'], item['para_id'], entity[0], entity[1]])
 
-        # JSON
+        # JSON格式写入
         with open(file_paths['entities_json'], 'w', encoding='utf-8') as f:
-            # 初始化分类容器
+            # 初始化分类容器，补充遗漏的Industry，避免重复Regulator键
             categorized_entities = {
                 "Regulator": [],
                 "Bank": [],
@@ -159,38 +164,20 @@ class CleanEntityExtractionView(View):
                 "Rating Agency": [],
                 "Financial Infrastructure": [],
                 "Key People": [],
+                "Concept": [],
+                "Event": [],
+                "Industry": []
             }
 
             # 分类统计
             for item in entity_types:
                 for entity in item['entities']:
-                    entity_name = entity[0]
-                    entity_type = entity[1]
-                    if entity_type == "Regulator":
-                        categorized_entities["Regulator"].append(entity_name)
-                    elif entity_type == "Bank":
-                        categorized_entities["Bank"].append(entity_name)
-                    elif entity_type == "Regulator":
-                        categorized_entities["Regulators"].append(entity_name)
-                    elif entity_type == "Concept":
-                        categorized_entities["Concept"].append(entity_name)
-                    elif entity_type == "Event":
-                        categorized_entities["Event"].append(entity_name)
-                    elif entity_type == "Product":
-                        categorized_entities["Product"].append(entity_name)
-                    elif entity_type == "Financial Infrastructure":
-                        categorized_entities["Financial Infrastructure"].append(entity_name)
-                    elif entity_type == "Key People":
-                        categorized_entities["Key People"].append(entity_name)
-                    elif entity_type == "Rating Agency":
-                        categorized_entities["Rating Agency"].append(entity_name)
-                    elif entity_type == "Government":
-                        categorized_entities["Government"].append(entity_name)
-                    elif entity_type == "Company":
-                        categorized_entities["Company"].append(entity_name)
+                    name, entity_type = entity[0], entity[1]
+                    if entity_type in categorized_entities:
+                        categorized_entities[entity_type].append(name)
                     else:
                         # 默认归类到Industry
-                        categorized_entities["Industry"].append(entity_name)
+                        categorized_entities["Industry"].append(name)
 
             # 构建结果结构
             result = {
@@ -198,51 +185,56 @@ class CleanEntityExtractionView(View):
                     "generated_at": datetime.now().isoformat(),
                     "entity_counts": {k: len(v) for k, v in categorized_entities.items()}
                 },
-                "data": {
-                    **categorized_entities,  # 展开分类数据
-                    "raw_records": [  # 保留原始记录以便追溯
-                        {
-                            "doc_id": item['doc_id'],
-                            "para_id": item['para_id'],
-                            "entities": [
-                                {"name": e[0], "type": e[1]}
-                                for e in item['entities']
-                            ]
-                        }
-                        for item in entity_types
-                    ]
-                }
+                "data": [
+                    {
+                        "doc_id": item['doc_id'],
+                        "para_id": item['para_id'],
+                        "entities": [
+                            {"name": e[0], "type": e[1]} for e in item['entities']
+                        ]
+                    }
+                    for item in entity_types
+                ],
+                **categorized_entities  # 展开分类数据作为顶级字段（根据你需求可调整）
             }
 
             json.dump(result, f, ensure_ascii=False, indent=2)
 
     def _save_relations(self, relations, file_paths):
-        """保存关系数据"""
-        # CSV格式
-        with open(file_paths['relations_csv'], 'w', encoding='utf-8-sig', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerow(['DocID', 'ParaID', 'Subject', 'Relation', 'Object'])
-            for item in relations:
-                for relation in item['relations']:
-                    writer.writerow([item['doc_id'], item['para_id'], relation[0], relation[1], relation[2]])
+        import traceback
+        try:
+            with open(file_paths['relations_csv'], 'w', encoding='utf-8-sig', newline='') as f:
+                writer = csv.writer(f)
+                writer.writerow(['DocID', 'ParaID', 'Subject', 'Relation', 'Object'])
+                for item in relations:
+                    for relation in item['content']:
+                        # 对每个relation做类型判断，确保它是list或tuple
+                        if isinstance(relation, (list, tuple)) and len(relation) == 3:
+                            writer.writerow([item['doc_id'], item['para_id'], relation[0], relation[1], relation[2]])
+                        else:
+                            print(f"跳过格式不对的relation：{relation}，item={item}")
 
-        # JSON
-        with open(file_paths['relations_json'], 'w', encoding='utf-8') as f:
-            result = {
-                "metadata": {
-                    "generated_at": datetime.now().isoformat(),
-                    "total_relations": sum(len(item['relations']) for item in relations)
-                },
-                "data": [
-                    {
-                        "doc_id": item['doc_id'],
-                        "para_id": item['para_id'],
-                        "relations": [[relation[0], relation[1], relation[2]] for relation in item['relations']]
-                    }
-                    for item in relations
-                ]
-            }
-            json.dump(result, f, ensure_ascii=False, indent=2)
+            with open(file_paths['relations_json'], 'w', encoding='utf-8') as f:
+                result = {
+                    "metadata": {
+                        "generated_at": datetime.now().isoformat(),
+                        "total_relations": sum(len(item['content']) for item in relations)
+                    },
+                    "data": [
+                        {
+                            "doc_id": item['doc_id'],
+                            "para_id": item['para_id'],
+                            "relations": [[r[0], r[1], r[2]] for r in item['content'] if
+                                          isinstance(r, (list, tuple)) and len(r) == 3]
+                        }
+                        for item in relations
+                    ]
+                }
+                json.dump(result, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            print("Error in _save_relations:", e)
+            traceback.print_exc()
+            raise
 
     def query_from_models(self, message_content, model="DEEPSEEK", max_retries=3):
         """Query the DeepSeek API"""
@@ -303,12 +295,23 @@ class CleanEntityExtractionView(View):
                 return True
             return False
 
+        print(f"Original relations count: {len(relations)}")  # 初始原始数据量
         ans = []
         for item in tqdm(relations, desc="Cleaning relations"):
-            for rel_tup in item['content']:
-                entity1 = rel_tup[0]
-                relation = rel_tup[1]
-                entity2 = rel_tup[2]
+            content = item['content']
+
+            # 如果content本身是单个三元组，则转换成列表包装
+            if isinstance(content, (list, tuple)) and len(content) == 3 and all(isinstance(x, str) for x in content):
+                triple_list = [content]
+            else:
+                triple_list = content  # 假设已经是三元组列表
+
+            for rel_tup in triple_list:
+                if not isinstance(rel_tup, (list, tuple)) or len(rel_tup) != 3:
+                    print(f"Warning: skipping bad rel_tup: {rel_tup}")
+                    continue
+
+                entity1, relation, entity2 = rel_tup
                 new_entity1 = entity1.replace('\n', '')
                 new_relation = relation.replace('\n', '')
                 new_entity2 = entity2.replace('\n', '')
@@ -343,7 +346,7 @@ class CleanEntityExtractionView(View):
                     index = new_entity1.find('Triple')
                     new_entity1 = new_entity1[index + 5:]
 
-                ans.append({'docid': item['docid'], 'paraid': item['paraid'],
+                ans.append({'doc_id': item['doc_id'], 'para_id': item['para_id'],
                             'content': [new_entity1, new_relation, new_entity2]})
 
         def process_tup(original):
@@ -361,7 +364,7 @@ class CleanEntityExtractionView(View):
                 if match:
                     index = new_entity1.find('Triple')
                     new_entity1 = new_entity1[index + 5:]
-                new.append({'docid': item['docid'], 'paraid': item['paraid'],
+                new.append({'doc_id': item['doc_id'], 'para_id': item['para_id'],
                             'content': [new_entity1, new_relation, new_entity2]})
             return new
 
@@ -373,7 +376,9 @@ class CleanEntityExtractionView(View):
             rel_tup = item['content']
             if (rel_tup[1] == 'belongs to' or rel_tup[1] == 'is' or rel_tup[1] == 'are') and rel_tup[2] in entity_type:
                 continue
-            ans4.append({'docid': item['docid'], 'paraid': item['paraid'], 'content': rel_tup})
+            ans4.append({'doc_id': item['doc_id'], 'para_id': item['para_id'], 'content': rel_tup})
+
+        print(f"After belong/is/are filter count: {len(ans4)}")  # 过滤属于关系后的数量
 
         eset_dir = os.path.join(settings.MEDIA_ROOT, 'entity_other')
         eset_file = os.path.join(eset_dir, 'entity_non.txt')  # 直接拼接路径（不依赖glob）
@@ -389,7 +394,6 @@ class CleanEntityExtractionView(View):
                 print(f"✅ 用GBK编码加载 {len(eset)} 个非实体词")
         except Exception as e:
             raise RuntimeError(f"文件读取失败: {eset_file} | 错误: {e}")
-
 
         def is_non_entity(s):
             if s in eset: return True
@@ -421,7 +425,9 @@ class CleanEntityExtractionView(View):
             rel_tup = item['content']
             if is_non_entity(rel_tup[0]) or is_non_entity(rel_tup[2]):
                 continue
-            ans5.append({'docid': item['docid'], 'paraid': item['paraid'], 'content': rel_tup})
+            ans5.append({'doc_id': item['doc_id'], 'para_id': item['para_id'], 'content': rel_tup})
+
+        print(f"After number filter count: {len(ans5)}")  # 剔除非实体词后的数量
 
         def is_number(s):
             # Match pure numbers, optional + - prefix or suffix
@@ -445,14 +451,18 @@ class CleanEntityExtractionView(View):
             rel_tup = item['content']
             if is_number(rel_tup[0]) or is_number(rel_tup[2]):
                 continue
-            ans6.append({'docid': item['docid'], 'paraid': item['paraid'], 'content': rel_tup})
+            ans6.append({'doc_id': item['doc_id'], 'para_id': item['para_id'], 'content': rel_tup})
+
+        print(f"After number filter count: {len(ans6)}")  # 去数字后的数量
 
         ans7 = []
         for item in tqdm(ans6, desc="Removing identical entity pairs"):
             rel_tup = item['content']
             if rel_tup[0] == rel_tup[2]:
                 continue
-            ans7.append({'docid': item['docid'], 'paraid': item['paraid'], 'content': rel_tup})
+            ans7.append({'doc_id': item['doc_id'], 'para_id': item['para_id'], 'content': rel_tup})
+
+        print(f"After identical pairs filter count: {len(ans7)}")  # 去相同实体对后的数量
 
         def remove_quotes_if_present(s):
             if (s.startswith(("'", '"', '‘', '“')) and s.endswith(("'", '"', '’', '”'))):
@@ -465,29 +475,32 @@ class CleanEntityExtractionView(View):
             rel_tup = item['content']
             rel_tup_after1 = remove_quotes_if_present(rel_tup[0])
             rel_tup_after2 = remove_quotes_if_present(rel_tup[2])
-            ans8.append({'docid': item['docid'], 'paraid': item['paraid'],
+            ans8.append({'doc_id': item['doc_id'], 'para_id': item['para_id'],
                          'content': [rel_tup_after1, rel_tup[1], rel_tup_after2]})
 
-        def is_all_english_letters(s):
+        print(f"After quotes removal count: {len(ans8)}")  # 去引号后的数量
+
+        def is_all_english_letters(s):  # 没用这个函数了
             pattern = r'^[a-zA-Z]+'
             return bool(re.match(pattern, s))
 
         relation_clean_list = []
         new_entities_from_relations = []
 
-        for item in tqdm(ans8, desc="Removing English only relations"):
+        for item in tqdm(ans8, desc="Final clean relations"):
             rel_tup = item['content']
-            if is_all_english_letters(rel_tup[1]):
-                continue
-            relation_clean_list.append({'docid': item['docid'], 'paraid': item['paraid'], 'content': rel_tup})
+            # 不过滤中英关系，全部保留
+            relation_clean_list.append({'doc_id': item['doc_id'], 'para_id': item['para_id'], 'content': rel_tup})
             new_entities_from_relations.append(rel_tup[0])
             new_entities_from_relations.append(rel_tup[2])
+
+        print(f"After English only relation filter count: {len(relation_clean_list)}")  # 去英文谓词后的最终数量
 
         new_entities_from_relations = list(set(new_entities_from_relations))
 
         return relation_clean_list, new_entities_from_relations
 
-    def fetch_res_ER_new_DEEPSEEK(self, docid, paraid, query):
+    def fetch_res_ER_new_DEEPSEEK(self, doc_id, para_id, query):
         response = self.get_entity_type(query)
         entities_type = self.get_types(response)
 
@@ -523,13 +536,15 @@ class CleanEntityExtractionView(View):
         kvs2 = re.findall(triplet_pattern, res, re.DOTALL)
 
         # 包装成统一结构方便清洗使用
-        raw_relations = [{'docid': docid, 'paraid': paraid, 'content': list(k)} for k in kvs2]
+        raw_relations = [{'doc_id': doc_id, 'para_id': para_id, 'content': list(k)} for k in kvs2]
         print(raw_relations)
+
+        print(json.dumps(raw_relations, ensure_ascii=False, indent=2))  # 调试打印用
         # 调用清洗函数
         cleaned_relations, cleaned_entities = self.clean_relations(raw_relations)
         print(cleaned_relations)
         print(cleaned_entities)
-        return docid, paraid, kvs, cleaned_relations
+        return doc_id, para_id, kvs, cleaned_relations
 
 # 其中可能的實體類型的參考是：
 #         %s

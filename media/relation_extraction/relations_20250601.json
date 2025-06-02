@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "generated_at": "2025-06-01T14:05:53.099944",
+    "total_relations": 18
+  },
+  "data": [
+    {
+      "doc_id": "2_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "美國",
+          "imposes tariffs",
+          "香港"
+        ],
+        [
+          "陳茂波",
+          "represents",
+          "香港特區政府"
+        ],
+        [
+          "DHL",
+          "affected by",
+          "美國"
+        ],
+        [
+          "Tobias Meyer",
+          "leads",
+          "DHL"
+        ],
+        [
+          "香港",
+          "serves as",
+          "Financial Infrastructure"
+        ],
+        [
+          "香港中小型企業聯合會",
+          "represents",
+          "Company"
+        ],
+        [
+          "劉達邦",
+          "associated with",
+          "香港中小型企業聯合會"
+        ]
+      ]
+    },
+    {
+      "doc_id": "4_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Robert Kiyosaki",
+          "authored",
+          "Rich Dad Poor Dad"
+        ],
+        [
+          "Robert Kiyosaki",
+          "recommends",
+          "silver"
+        ],
+        [
+          "Robert Kiyosaki",
+          "owns",
+          "Bitcoin"
+        ],
+        [
+          "Robert Kiyosaki",
+          "discusses",
+          "gold"
+        ],
+        [
+          "Fred Krueger",
+          "compares",
+          "Solana"
+        ],
+        [
+          "Kraken",
+          "provides data on",
+          "Bitcoin"
+        ]
+      ]
+    },
+    {
+      "doc_id": "1_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Donald Trump",
+          "imposes tariffs",
+          "Korea National Oil Corp"
+        ],
+        [
+          "Mizuho Securities Asia",
+          "advises on",
+          "Asia Credit Market"
+        ],
+        [
+          "Barclays",
+          "facilitates financing",
+          "Asia Pacific issuers"
+        ],
+        [
+          "Mark Reade",
+          "leads strategy",
+          "Mizuho Securities Asia"
+        ],
+        [
+          "Avinash Thakur",
+          "manages financing",
+          "Barclays"
+        ]
+      ]
+    }
+  ]
+}

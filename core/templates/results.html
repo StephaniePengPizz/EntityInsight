@@ -120,31 +120,38 @@
 
     <!-- 右上: AI摘要 -->
     <div class="summary-section">
-        <h2>
-            AI News Summary
-        </h2>
+        <h2>AI News Summary</h2>
 
         <div class="summary-content collapsed" id="summaryContent">
-            {% if combined_summary and llm_summaries|length > 1 %}
-                <div class="combined-summary">
-                    <h3>Overall Summary</h3>
-                    <div class="summary-text">{{ combined_summary|markdownify }}</div>
-                </div>
-            {% endif %}
+            {% if llm_summaries %}
+                {% if llm_summaries|length > 1 %}
+                    <div class="combined-summary">
+                        <h3>Key Highlights Across Categories</h3>
+                        <div class="summary-text">
+                            <ul>
+                                {% for category, summary in llm_summaries.items %}
+                                    <li><strong>{{ category|title }}:</strong> {{ summary|truncatewords:30|markdownify }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
 
-            {% for category, summary in llm_summaries.items %}
-                <div class="category-summary">
-                    {% if llm_summaries|length > 1 %}
+                    <div class="category-divider"></div>
+                {% endif %}
+
+                {% for category, summary in llm_summaries.items %}
+                    <div class="category-summary">
                         <h3>{{ category|title }} Summary</h3>
-                    {% endif %}
-                    <div class="summary-text">{{ summary|markdownify }}</div>
-                </div>
-            {% empty %}
+                        <div class="summary-text">{{ summary|markdownify }}</div>
+                    </div>
+                    {% if not forloop.last %}<hr class="summary-divider">{% endif %}
+                {% endfor %}
+            {% else %}
                 <div class="no-summary">
                     <p>No summary available. Please select at least one category to generate AI-powered summaries.</p>
                     <p><small>Tip: Your summary will appear here after selecting news categories.</small></p>
                 </div>
-            {% endfor %}
+            {% endif %}
 
             <div class="fade-overlay"></div>
         </div>
