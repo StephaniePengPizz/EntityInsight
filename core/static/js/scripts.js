@@ -36,6 +36,20 @@ function toggleDropdown() {
     document.getElementById('categoryOptions').classList.toggle('show');
 }
 
+function toggleTimeDropdown() {
+    document.getElementById('timeRangeOptions').classList.toggle('show');
+}
+
+// 更新时间范围显示
+function updateSelectedTimeRange() {
+    const selectedRadio = document.querySelector('#timeRangeOptions input[type="radio"]:checked');
+    if (selectedRadio) {
+        const selectedLabel = selectedRadio.nextElementSibling.textContent;
+        document.querySelector('.time-range-dropdown .category-select').textContent = selectedLabel;
+        document.getElementById('selectedTimeRange').textContent = `Currently selected: ${selectedLabel}`;
+    }
+}
+
 // Close dropdown when clicking outside
 window.onclick = function(event) {
     if (!event.target.closest('.category-dropdown')) {
@@ -92,7 +106,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
+    document.querySelectorAll('#timeRangeOptions input[type="radio"]').forEach(radio => {
+        radio.addEventListener('change', updateSelectedTimeRange);
+    });
 
 });
 

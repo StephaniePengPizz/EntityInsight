@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "generated_at": "2025-05-27T14:54:56.906404",
+    "entity_counts": {
+      "Regulator": 0,
+      "Bank": 2,
+      "Company": 8,
+      "Product": 5,
+      "Government": 3,
+      "Rating Agency": 0,
+      "Financial Infrastructure": 1,
+      "Key People": 5
+    }
+  },
+  "data": {
+    "Regulator": [],
+    "Bank": [
+      "Mizuho Securities Asia",
+      "Barclays"
+    ],
+    "Company": [
+      "DHL",
+      "香港中小型企業聯合會",
+      "Kraken",
+      "Korea National Oil Corp",
+      "Petroliam Nasional Bhd",
+      "Posco Holdings Inc.",
+      "Jollibee Foods Corp.",
+      "MTR Corp. Ltd."
+    ],
+    "Product": [
+      "Rich Dad Poor Dad",
+      "silver",
+      "Bitcoin",
+      "gold",
+      "Solana"
+    ],
+    "Government": [
+      "美國",
+      "香港",
+      "Donald Trump"
+    ],
+    "Rating Agency": [],
+    "Financial Infrastructure": [
+      "Bloomberg"
+    ],
+    "Key People": [
+      "陳茂波",
+      "Tobias Meyer",
+      "劉達邦",
+      "Robert Kiyosaki",
+      "Fred Krueger"
+    ],
+    "raw_records": [
+      {
+        "doc_id": "2_1",
+        "para_id": 1,
+        "entities": [
+          {
+            "name": "美國",
+            "type": "Government"
+          },
+          {
+            "name": "香港",
+            "type": "Government"
+          },
+          {
+            "name": "陳茂波",
+            "type": "Key People"
+          },
+          {
+            "name": "DHL",
+            "type": "Company"
+          },
+          {
+            "name": "Tobias Meyer",
+            "type": "Key People"
+          },
+          {
+            "name": "香港中小型企業聯合會",
+            "type": "Company"
+          },
+          {
+            "name": "劉達邦",
+            "type": "Key People"
+          }
+        ]
+      },
+      {
+        "doc_id": "4_1",
+        "para_id": 1,
+        "entities": [
+          {
+            "name": "Robert Kiyosaki",
+            "type": "Key People"
+          },
+          {
+            "name": "Rich Dad Poor Dad",
+            "type": "Product"
+          },
+          {
+            "name": "silver",
+            "type": "Product"
+          },
+          {
+            "name": "Bitcoin",
+            "type": "Product"
+          },
+          {
+            "name": "gold",
+            "type": "Product"
+          },
+          {
+            "name": "Kraken",
+            "type": "Company"
+          },
+          {
+            "name": "Fred Krueger",
+            "type": "Key People"
+          },
+          {
+            "name": "Solana",
+            "type": "Product"
+          }
+        ]
+      },
+      {
+        "doc_id": "1_1",
+        "para_id": 1,
+        "entities": [
+          {
+            "name": "Donald Trump",
+            "type": "Government"
+          },
+          {
+            "name": "Korea National Oil Corp",
+            "type": "Company"
+          },
+          {
+            "name": "Petroliam Nasional Bhd",
+            "type": "Company"
+          },
+          {
+            "name": "Posco Holdings Inc.",
+            "type": "Company"
+          },
+          {
+            "name": "Jollibee Foods Corp.",
+            "type": "Company"
+          },
+          {
+            "name": "MTR Corp. Ltd.",
+            "type": "Company"
+          },
+          {
+            "name": "Mizuho Securities Asia",
+            "type": "Bank"
+          },
+          {
+            "name": "Barclays",
+            "type": "Bank"
+          },
+          {
+            "name": "Bloomberg",
+            "type": "Financial Infrastructure"
+          }
+        ]
+      }
+    ]
+  }
+}
