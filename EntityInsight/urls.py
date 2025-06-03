@@ -23,6 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('web-collection/', include('web_collection.urls')),
     path('knowledge-graph/', include('knowledge_graph.urls')),
-    path('genai-integration/', include('genai_summarization.urls')),
     path('core/', include('core.urls')),  # Home page
 ]

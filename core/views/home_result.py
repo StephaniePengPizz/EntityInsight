@@ -1,15 +1,16 @@
 from datetime import datetime, timedelta
 
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 
 from core.constants import categories, entity_types, time_ranges
 from core.models import NewsArticle, Entity, Relationship
 
 from django.shortcuts import render
 
-from genai_summarization.views import summarize_for_category
+from core.views.summarize_news import summarize_for_category
 from knowledge_graph.views.show_graph_detail import find_relevant_nodes
 import concurrent
+from concurrent.futures import ThreadPoolExecutor
 
 def home(request):
     return render(request, 'home.html', {
@@ -19,19 +20,12 @@ def home(request):
     })
 
 
-from concurrent.futures import ThreadPoolExecutor
-import time
-
-
 def results(request):
     if request.method == 'POST':
         keywords = request.POST.get('keywords', '')
         selected_categories = request.POST.getlist('categories', [])
         selected_entity_categories = request.POST.getlist('entity_types', [])
-        selected_time_range = request.POST.get('time_ranges', '')  # Changed to get single value
-
-        # Get real news data from database
-        news_by_category = {}
+        selected_time_range = request.POST.get('time_ranges', '')
 
         # Filter by selected categories if any
         if selected_categories:
@@ -53,23 +47,25 @@ def results(request):
                 )
 
         # Organize articles by category
-        recent_articles = articles.select_related('web_page').order_by('-created_at')[:10]
+        recent_articles = articles.select_related('web_page').order_by('-created_at')
         news_by_category = {}
 
         for article in recent_articles:
             if article.category not in news_by_category:
                 news_by_category[article.category] = []
 
-            news_by_category[article.category].append({
-                'title': article.web_page.title,
-                'source': article.web_page.source,
-                'date': article.web_page.publication_time.strftime('%Y-%m-%d'),
-                'content': article.processed_content,
-                'url': article.web_page.url,
-            })
+            # Only append if the category has fewer than 10 articles
+            if len(news_by_category[article.category]) < 10:
+                news_by_category[article.category].append({
+                    'title': article.web_page.title,
+                    'source': article.web_page.source,
+                    'date': article.web_page.publication_time.strftime('%Y-%m-%d'),
+                    'content': article.processed_content,
+                    'url': article.web_page.url,
+                })
 
         llm_summaries = {}
-
+        print(selected_categories)
         def generate_single_summary(category, keywords, news_items):
             if news_items:
                 return summarize_for_category(category, keywords, news_items)
@@ -113,8 +109,8 @@ def results(request):
         # Generate entity graph
         entity_type = selected_entity_categories[0] if selected_entity_categories else None
         result = find_relevant_nodes([entity_type], keywords) if entity_type else None
-        print('11', result)
         graph_description = generate_mermaid_graph(result) if result else None
+        print(llm_summaries)
 
         context = {
             'keywords': keywords,

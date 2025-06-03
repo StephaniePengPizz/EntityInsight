@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'core',
     'web_collection',
     'knowledge_graph',
-    'genai_summarization',
     'markdownify.apps.MarkdownifyConfig',
 ]
 

@@ -110,10 +110,8 @@ class WebPageCollectorView(View):
             # Determine which parser to use based on URL
             if url.startswith(self.YAHOO_FINANCE_URL):
                 return self.extract_yahoo_data(soup, url)
-            elif url.startswith(self.REUTERS_URL):
-                return self.extract_reuters_data(soup, url)
             else:
-                return self.extract_generic_data(soup, url)
+                return None
 
         except Exception as e:
             raise RuntimeError(f"Failed to process page {url}: {str(e)}")

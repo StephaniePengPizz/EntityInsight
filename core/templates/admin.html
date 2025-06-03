@@ -1,0 +1,49 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="module">
+    <h2>Web Collection</h2>
+    <div style="margin: 20px 0;">
+        <button id="collect-btn" class="button" style="padding: 10px 20px; background-color: #417690; color: white; border: none; cursor: pointer;">
+            Run Collection Now
+        </button>
+        <div id="result" style="margin-top: 15px;"></div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('collect-btn');
+    const resultDiv = document.getElementById('result');
+    
+    btn.addEventListener('click', async function() {
+        btn.disabled = true;
+        btn.textContent = 'Collecting...';
+        resultDiv.innerHTML = '<p>Collection in progress...</p>';
+        
+        try {
+            const response = await fetch('', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Content-Type': 'application/json',
+                },
+            });
+            
+            const data = await response.json();
+            
+            if (data.status === 'success') {
+                resultDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
+            } else {
+                resultDiv.innerHTML = `<p style="color: red;">Error: ${data.message}</p>`;
+            }
+        } catch (error) {
+            resultDiv.innerHTML = `<p style="color: red;">Network error: ${error.message}</p>`;
+        } finally {
+            btn.disabled = false;
+            btn.textContent = 'Run Collection Now';
+        }
+    });
+});
+</script>
+{% endblock %}
