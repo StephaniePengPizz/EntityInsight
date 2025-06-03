@@ -175,3 +175,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+
+// Add click handler for graph section
+document.querySelector('.graph-section').addEventListener('click', function() {
+  document.getElementById('graphModal').style.display = 'block';
+  // Re-render mermaid in modal to ensure proper sizing
+  mermaid.init(undefined, '.modal-mermaid');
+});
+
+// Close modal when clicking X
+document.querySelector('.modal-close').addEventListener('click', function() {
+  document.getElementById('graphModal').style.display = 'none';
+});
+
+// Close modal when clicking outside content
+window.addEventListener('click', function(event) {
+  if (event.target == document.getElementById('graphModal')) {
+    document.getElementById('graphModal').style.display = 'none';
+  }
+});
+
+

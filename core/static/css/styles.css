@@ -124,9 +124,56 @@ h2 {
 }
 .graph-section {
     grid-row: 1;
+    cursor: pointer;
+    transition: transform 0.2s;
     min-height: 400px;
 }
+.graph-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    overflow: auto;
+  }
 
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 80vh;
+    overflow: auto;
+    position: relative;
+  }
+
+.modal-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+.modal-close:hover {
+    color: #333;
+  }
+
+.modal-mermaid {
+    width: 100%;
+    min-height: 600px;
+  }
 .path-section {
     grid-row: 2;
 }
