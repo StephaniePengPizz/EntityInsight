@@ -221,4 +221,18 @@
         {% endif %}
     </div>
 </div>
+
 {% endblock %}
+<div id="graph-modal" class="modal">
+    <span class="close-btn" onclick="closeModal()">×</span>
+    <div class="modal-content">
+        <div class="mermaid" id="modal-graph">
+            {{ graph_description|markdownify }}
+        </div>
+        <div class="zoom-controls">
+            <button onclick="zoomIn()">+</button>
+            <button onclick="zoomOut()">-</button>
+            <button onclick="resetZoom()">Reset</button>
+        </div>
+    </div>
+</div>

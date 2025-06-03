@@ -175,3 +175,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// 确保DOM加载完成后执行
+document.addEventListener('DOMContentLoaded', function() {
+    // 获取知识图谱容器
+    const graphSection = document.querySelector('.graph-section');
+    
+    // 双击事件绑定
+    if(graphSection) {
+        graphSection.addEventListener('dblclick', function() {
+            document.getElementById('graph-modal').style.display = 'block';
+        });
+    }
+});
+
+// 缩放功能
+let currentScale = 1;
+
+function zoomIn() {
+    currentScale += 0.1;
+    document.getElementById('modal-graph').style.transform = `scale(${currentScale})`;
+}
+
+function zoomOut() {
+    if(currentScale > 0.5) {
+        currentScale -= 0.1;
+        document.getElementById('modal-graph').style.transform = `scale(${currentScale})`;
+    }
+}
+
+function resetZoom() {
+    currentScale = 1;
+    document.getElementById('modal-graph').style.transform = `scale(${currentScale})`;
+}
+
+function closeModal() {
+    document.getElementById('graph-modal').style.display = 'none';
+    resetZoom();
+}
