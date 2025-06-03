@@ -53,7 +53,10 @@ def results(request):
                 )
 
         # Organize articles by category
-        for article in articles.select_related('web_page'):
+        recent_articles = articles.select_related('web_page').order_by('-created_at')[:10]
+        news_by_category = {}
+
+        for article in recent_articles:
             if article.category not in news_by_category:
                 news_by_category[article.category] = []
 
@@ -65,7 +68,6 @@ def results(request):
                 'url': article.web_page.url,
             })
 
-        # Generate summaries in parallel for better performance
         llm_summaries = {}
 
         def generate_single_summary(category, keywords, news_items):
@@ -92,6 +94,7 @@ def results(request):
                     executor.submit(
                         generate_single_summary,
                         category,
+                        keywords,
                         news_items
                     ): category
                     for category, news_items in news_by_category.items()
@@ -110,6 +113,7 @@ def results(request):
         # Generate entity graph
         entity_type = selected_entity_categories[0] if selected_entity_categories else None
         result = find_relevant_nodes([entity_type], keywords) if entity_type else None
+        print('11', result)
         graph_description = generate_mermaid_graph(result) if result else None
 
         context = {
@@ -118,7 +122,6 @@ def results(request):
             'entity_category': selected_entity_categories[0] if selected_entity_categories else None,
             'news_by_category': news_by_category,
             'llm_summaries': llm_summaries,
-            'first_summary': next(iter(llm_summaries.values())) if llm_summaries else None,
             'result': result,
             'graph_description': graph_description,
             'time_range': selected_time_range,

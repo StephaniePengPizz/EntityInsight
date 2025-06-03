@@ -15,7 +15,7 @@ from knowledge_graph.tool import normalize_dict_values, state_top3, state_string
 
 
 @csrf_exempt
-def load_paragraphs_and_construct_graph(request):
+def load_relations_and_construct_graph(request):
     timestamp = datetime.now().strftime("%Y%m%d")
     #file_path = os.path.join(settings.BASE_DIR, 'core/data', 'relations_test.json')
     relations_path = os.path.join(settings.MEDIA_ROOT, 'relation_extraction', f'relations_{timestamp}.json')

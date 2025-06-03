@@ -11,7 +11,7 @@ from EntityInsight import settings
 
 
 def find_relevant_nodes(target_types, source):
-    cutoff = 3
+    cutoff = 5
     num_paths = 5
 
     # Load graph data
@@ -33,16 +33,18 @@ def find_relevant_nodes(target_types, source):
         "source": source,
         "target_types": target_types,
         "cutoff": cutoff,
-        "num_paths": num_paths,
         "paths": []
     }
     print(current_type_dict_word_list)
+    paths_with_weights = []
     for target_type in target_types:
         paths_with_weights = []
         print(target_type)
-        for node in current_type_dict_word_list[target_type]:
+        entity_set = list(set(current_type_dict_word_list[target_type]))
+        for node in entity_set:
             # Find all simple paths from source(use input) to every target node in the target types(user input)
             all_paths = nx.all_simple_paths(graph, source=source, target=node, cutoff=5)
+
             for path in all_paths:
                 flag = True
                 print(flag)
@@ -83,6 +85,7 @@ def find_relevant_nodes(target_types, source):
                 "average_weight": path_info["average_weight"]
             })
 
+    result['num_paths'] = min(num_paths, len(paths_with_weights))
     return result
     # Render the HTML template with the result data
     # return render(request, 'path_results.html', {"result": result})

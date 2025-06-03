@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "generated_at": "2025-06-02T15:43:04.662841",
-    "total_relations": 629
+    "generated_at": "2025-06-02T16:17:50.062986",
+    "total_relations": 609
   },
   "data": [
     {
@@ -9,24 +9,29 @@
       "para_id": 1,
       "relations": [
         [
+          "美国",
+          "imposes",
+          "关税战"
+        ],
+        [
           "香港",
-          "is",
+          "serves as",
           "避风港"
         ],
         [
-          "美国",
-          "imposes",
-          "关税"
+          "DHL",
+          "affected by",
+          "关税战"
         ],
         [
           "陈茂波",
-          "describes",
-          "香港的避风港地位"
+          "promotes",
+          "香港"
         ],
         [
-          "DHL",
-          "criticizes",
-          "Trump的关税政策"
+          "特朗普",
+          "implements",
+          "关税战"
         ],
         [
           "香港",
@@ -34,9 +39,65 @@
           "东盟市场"
         ],
         [
-          "Trump",
-          "affects",
-          "物流业"
+          "国际资本",
+          "flows into",
+          "香港"
+        ]
+      ]
+    },
+    {
+      "doc_id": "1_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Donald Trump",
+          "imposes tariffs",
+          "Asia Pacific"
+        ],
+        [
+          "Korea National Oil Corp",
+          "issues bonds",
+          "markets"
+        ],
+        [
+          "Petroliam Nasional Bhd",
+          "hires banks",
+          "bond issuance"
+        ],
+        [
+          "Posco Holdings Inc.",
+          "works on deals",
+          "bond market"
+        ],
+        [
+          "Jollibee Foods Corp.",
+          "works on deals",
+          "bond market"
+        ],
+        [
+          "MTR Corp. Ltd.",
+          "works on deals",
+          "bond market"
+        ],
+        [
+          "Mizuho Securities Asia",
+          "analyzes credit",
+          "Asian dollar primary market"
+        ],
+        [
+          "Barclays",
+          "advises on capital markets",
+          "Asia Pacific"
+        ],
+        [
+          "Bloomberg",
+          "compiles data",
+          "bond market"
+        ],
+        [
+          "US Treasury",
+          "yields fall",
+          "investors"
         ]
       ]
     },
@@ -56,7 +117,7 @@
         ],
         [
           "Robert Kiyosaki",
-          "highlights",
+          "owns",
           "Gold"
         ],
         [
@@ -65,75 +126,9 @@
           "Solana"
         ],
         [
-          "Fred Krueger",
-          "draws parallel",
-          "Silver"
-        ],
-        [
           "Kraken",
-          "provides price data",
+          "provides_price_data",
           "Bitcoin"
-        ]
-      ]
-    },
-    {
-      "doc_id": "1_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Donald Trump",
-          "imposes tariffs",
-          "Asia Pacific credit market"
-        ],
-        [
-          "Korea National Oil Corp.",
-          "issues bonds",
-          "Asia Pacific credit market"
-        ],
-        [
-          "Petroliam Nasional Bhd",
-          "hires banks",
-          "bond issuance"
-        ],
-        [
-          "Posco Holdings Inc.",
-          "works on deals",
-          "Asia Pacific credit market"
-        ],
-        [
-          "Jollibee Foods Corp.",
-          "works on deals",
-          "Asia Pacific credit market"
-        ],
-        [
-          "MTR Corp. Ltd.",
-          "works on deals",
-          "Asia Pacific credit market"
-        ],
-        [
-          "Mizuho Securities Asia",
-          "provides credit strategy",
-          "Asia Pacific credit market"
-        ],
-        [
-          "Barclays",
-          "advises on capital markets",
-          "Asia Pacific"
-        ],
-        [
-          "US Treasury",
-          "yields fall",
-          "bond issuers"
-        ],
-        [
-          "Mark Reade",
-          "comments on",
-          "Asian dollar primary market"
-        ],
-        [
-          "Avinash Thakur",
-          "comments on",
-          "dollar debt issuance"
         ]
       ]
     },
@@ -144,7 +139,7 @@
         [
           "Nvidia",
           "posts earnings",
-          "Q1 results"
+          "Market"
         ],
         [
           "MicroStrategy",
@@ -157,14 +152,24 @@
           "Consensys"
         ],
         [
-          "Joseph Lubin",
-          "joins board",
-          "SharpLink Gaming"
+          "Consensys",
+          "leads funding",
+          "Ethereum Treasury Strategy"
+        ],
+        [
+          "Dow Jones",
+          "rallies",
+          "Market"
+        ],
+        [
+          "Nasdaq",
+          "gains",
+          "Market"
         ],
         [
           "Curaleaf Holdings",
-          "operates in",
-          "US cannabis market"
+          "sells",
+          "Cannabis"
         ],
         [
           "Salesforce",
@@ -172,19 +177,65 @@
           "Informatica"
         ],
         [
-          "Donald Trump",
-          "owns stake",
-          "DJT"
+          "Informatica",
+          "provides",
+          "Cloud Data Management"
+        ]
+      ]
+    },
+    {
+      "doc_id": "7_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "China",
+          "accuses",
+          "US"
         ],
         [
-          "Donald Jr.",
-          "controls trust",
-          "DJT"
+          "US",
+          "imposes tariffs",
+          "China"
         ],
         [
-          "Robert Kiyosaki",
-          "advises on",
-          "stock market timing"
+          "Trump",
+          "plans to speak",
+          "Xi Jinping"
+        ],
+        [
+          "Chinese Ministry of Commerce",
+          "warns",
+          "US"
+        ],
+        [
+          "EU",
+          "prepares countermeasures",
+          "US"
+        ],
+        [
+          "Salzgitter",
+          "criticizes",
+          "US tariffs"
+        ],
+        [
+          "Gap",
+          "adjusts supply chain",
+          "China"
+        ],
+        [
+          "Tesla",
+          "manufactures in",
+          "US"
+        ],
+        [
+          "US Court of International Trade",
+          "blocks",
+          "Trump tariffs"
+        ],
+        [
+          "Supreme Court",
+          "may review",
+          "Trump tariffs"
         ]
       ]
     },
@@ -220,7 +271,7 @@
         [
           "Tesla",
           "affected by",
-          "tariffs"
+          "EU tariffs"
         ],
         [
           "Federal Reserve",
@@ -228,60 +279,60 @@
           "inflation impact of tariffs"
         ],
         [
-          "Bank of Japan",
-          "signals",
-          "rate hikes"
+          "Japan",
+          "cuts back",
+          "bond sales"
+        ],
+        [
+          "US Treasury",
+          "yields drop",
+          "amid global bond rally"
         ],
         [
           "Trump Media & Technology Group",
-          "invests in",
+          "buys",
           "Bitcoin"
+        ],
+        [
+          "Salesforce",
+          "acquires",
+          "Informatica"
         ]
       ]
     },
     {
-      "doc_id": "7_1",
+      "doc_id": "8_1",
       "para_id": 1,
       "relations": [
         [
-          "China",
-          "accuses",
-          "US"
+          "Elon Musk",
+          "opposes",
+          "Donald Trump's bill"
         ],
         [
-          "US",
-          "imposes tariffs",
-          "China"
+          "DOGE",
+          "critiques",
+          "budget deficit"
         ],
         [
-          "Chinese Ministry of Commerce",
-          "vows response",
-          "US"
+          "David Sacks",
+          "defends",
+          "tax cuts"
         ],
         [
-          "President Trump",
-          "plans call",
-          "Xi Jinping"
+          "Uber CEO Dara Khosrowshahi",
+          "supports",
+          "no tax on tips plan"
         ],
         [
-          "EU Commission",
-          "prepares countermeasures",
-          "US"
+          "Sen. Ron Johnson",
+          "criticizes",
+          "bill"
         ],
         [
-          "National Economic Council",
-          "focuses on",
-          "China trade"
-        ],
-        [
-          "Treasury Secretary",
-          "hopes for resolution",
-          "China trade"
-        ],
-        [
-          "Commerce Secretary",
-          "downplays impact",
-          "tariffs"
+          "Brookings Institution",
+          "tracks",
+          "government spending"
         ]
       ]
     },
@@ -306,8 +357,13 @@
         ],
         [
           "Nvidia",
-          "faces export ban",
-          "China"
+          "produces",
+          "H200"
+        ],
+        [
+          "Nvidia",
+          "produces",
+          "GB200"
         ],
         [
           "Stifel",
@@ -321,13 +377,18 @@
         ],
         [
           "Ruben Roy",
-          "works at",
+          "analyst at",
           "Stifel"
         ],
         [
           "Vivek Arya",
-          "works at",
+          "analyst at",
           "Bank of America"
+        ],
+        [
+          "Nvidia",
+          "impacted by export ban",
+          "H20"
         ],
         [
           "DeepSeek",
@@ -336,84 +397,8 @@
         ],
         [
           "Trump",
-          "impacts",
-          "stock market"
-        ]
-      ]
-    },
-    {
-      "doc_id": "8_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Elon Musk",
-          "opposes",
-          "Donald Trump's bill"
-        ],
-        [
-          "Elon Musk",
-          "heads",
-          "DOGE"
-        ],
-        [
-          "DOGE",
-          "part of",
-          "Department of Government Efficiency"
-        ],
-        [
-          "Chamath Palihapitiya",
-          "criticizes",
-          "Donald Trump's bill"
-        ],
-        [
-          "Jason Calacanis",
-          "criticizes",
-          "Donald Trump's bill"
-        ],
-        [
-          "David Sacks",
-          "defends",
-          "Donald Trump's bill"
-        ],
-        [
-          "Dara Khosrowshahi",
-          "supports",
-          "gig workers provision"
-        ],
-        [
-          "Uber",
-          "employs",
-          "Dara Khosrowshahi"
-        ],
-        [
-          "Sen. Ron Johnson",
-          "criticizes",
-          "Donald Trump's bill"
-        ],
-        [
-          "Morning Consult",
-          "conducts",
-          "survey on bill"
-        ],
-        [
-          "Brookings Institution",
-          "tracks",
-          "government spending"
-        ],
-        [
-          "USAID",
-          "affected by",
-          "DOGE"
-        ],
-        [
-          "Elon Musk",
-          "interviewed by",
-          "CBS"
-        ],
-        [
-          "Elon Musk",
-          "interviewed by",
-          "Washington Post"
+          "influences trade war",
+          "Nvidia"
         ]
       ]
     },
@@ -438,7 +423,7 @@
         ],
         [
           "International Emergency Economic Powers Act (IEEPA)",
-          "restricts",
+          "limits",
           "presidential authority"
         ],
         [
@@ -459,16 +444,16 @@
       "relations": [
         [
           "Donald Trump",
-          "imposes",
-          "tariffs"
+          "imposes tariffs",
+          "European trade negotiators"
         ],
         [
           "Donald Trump",
           "challenges",
-          "court rulings"
+          "Supreme Court"
         ],
         [
-          "Ed Mills",
+          "Raymond James",
           "analyzes",
           "tariffs"
         ],
@@ -478,9 +463,14 @@
           "tariff impact"
         ],
         [
-          "Robert Armstrong",
-          "writes",
-          "Financial Times"
+          "Financial Times",
+          "publishes",
+          "Robert Armstrong"
+        ],
+        [
+          "US Customs Bureau",
+          "collects",
+          "tariffs"
         ]
       ]
     },
@@ -509,11 +499,6 @@
           "trade policy"
         ],
         [
-          "Donald Trump",
-          "threatens tariffs",
-          "Europe"
-        ],
-        [
           "Rick Newman",
           "writes for",
           "Yahoo Finance"
@@ -531,23 +516,23 @@
         ],
         [
           "US",
-          "imposes tariffs",
-          "China"
-        ],
-        [
-          "Donald Trump",
-          "leads",
-          "US"
-        ],
-        [
-          "Xi Jinping",
-          "leads",
-          "China"
+          "violates",
+          "trade agreement"
         ],
         [
           "Chinese Ministry of Commerce",
           "issues statement",
           "US"
+        ],
+        [
+          "President Trump",
+          "posts on",
+          "Truth Social"
+        ],
+        [
+          "President Trump",
+          "plans to speak with",
+          "Xi Jinping"
         ],
         [
           "US Court of International Trade",
@@ -566,38 +551,38 @@
         ],
         [
           "Ursula von der Leyen",
-          "negotiates with",
-          "Donald Trump"
+          "agrees to accelerate talks",
+          "US"
         ],
         [
-          "Tesla",
-          "affected by",
+          "Howard Lutnick",
+          "downplays impact",
           "tariffs"
         ],
         [
-          "Elon Musk",
-          "meets with",
-          "Donald Trump"
+          "National Economic Council",
+          "focuses on",
+          "China trade"
         ],
         [
-          "Gap",
-          "warns about",
-          "tariff costs"
+          "Kevin Hassett",
+          "predicts call",
+          "Xi Jinping"
         ],
         [
-          "Richard Dickson",
-          "leads",
-          "Gap"
+          "Treasury Secretary",
+          "expresses hope",
+          "trade resolution"
         ],
         [
-          "Salzgitter",
-          "criticizes",
-          "US tariffs"
+          "Scott Bessent",
+          "comments on",
+          "trade negotiations"
         ],
         [
-          "Gunnar Groebler",
-          "CEO of",
-          "Salzgitter"
+          "Commerce Secretary",
+          "discusses",
+          "tariff negotiations"
         ]
       ]
     },
@@ -617,18 +602,8 @@
         ],
         [
           "Anduril",
-          "develops",
-          "Lattice analytics platform"
-        ],
-        [
-          "Meta",
-          "provides",
-          "Llama AI models"
-        ],
-        [
-          "Anduril",
-          "supplies",
-          "U.S. Army"
+          "specializes in",
+          "military drones"
         ],
         [
           "Palmer Luckey",
@@ -644,6 +619,87 @@
           "Andrew Bosworth",
           "CTO of",
           "Meta"
+        ],
+        [
+          "Meta",
+          "provides",
+          "Llama AI models"
+        ],
+        [
+          "AR/VR military tech",
+          "integrates with",
+          "Lattice analytics platform"
+        ],
+        [
+          "Microsoft",
+          "provides cloud services to",
+          "US Army"
+        ],
+        [
+          "Amazon",
+          "provides cloud services to",
+          "US military"
+        ],
+        [
+          "Google",
+          "provides cloud services to",
+          "US military"
+        ]
+      ]
+    },
+    {
+      "doc_id": "17_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Federal Reserve",
+          "holds rates steady",
+          "inflation"
+        ],
+        [
+          "Jerome Powell",
+          "chairs",
+          "Federal Reserve"
+        ],
+        [
+          "Trump",
+          "criticizes",
+          "Federal Reserve"
+        ],
+        [
+          "Lorie Logan",
+          "advocates for",
+          "holding rates steady"
+        ],
+        [
+          "Neel Kashkari",
+          "warns about",
+          "persistent inflation"
+        ],
+        [
+          "Ellen Zentner",
+          "analyzes",
+          "tariff impact"
+        ],
+        [
+          "Jeffrey Roach",
+          "predicts",
+          "inflation reacceleration"
+        ],
+        [
+          "White House",
+          "argues",
+          "one-time inflation impact"
+        ],
+        [
+          "Morgan Stanley Wealth Management",
+          "employs",
+          "Ellen Zentner"
+        ],
+        [
+          "LPL Financial",
+          "employs",
+          "Jeffrey Roach"
         ]
       ]
     },
@@ -653,28 +709,28 @@
       "relations": [
         [
           "Elon Musk",
-          "advises",
-          "President Trump"
-        ],
-        [
-          "Elon Musk",
           "CEO",
           "Tesla"
         ],
         [
           "Elon Musk",
-          "CEO",
+          "founder",
           "SpaceX"
         ],
         [
           "Elon Musk",
-          "owns",
+          "owner",
           "X"
         ],
         [
           "Elon Musk",
-          "owns",
+          "founder",
           "xAI"
+        ],
+        [
+          "Elon Musk",
+          "advises",
+          "President Trump"
         ],
         [
           "Elon Musk",
@@ -682,9 +738,9 @@
           "Trump's agenda"
         ],
         [
-          "DOGE",
-          "associated with",
-          "Department of Government Efficiency"
+          "Elon Musk",
+          "opposes",
+          "OpenAI deal"
         ],
         [
           "Tesla",
@@ -692,9 +748,19 @@
           "Cybercab"
         ],
         [
-          "Elon Musk",
-          "opposes",
-          "OpenAI deal"
+          "Tesla",
+          "plans",
+          "robotaxi trials"
+        ],
+        [
+          "DOGE",
+          "associated with",
+          "Department of Government Efficiency"
+        ],
+        [
+          "President Trump",
+          "supports",
+          "big bill"
         ],
         [
           "OpenAI",
@@ -715,164 +781,21 @@
           "Brookings Institution",
           "tracks",
           "government spending"
-        ]
-      ]
-    },
-    {
-      "doc_id": "17_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Federal Reserve",
-          "holds rates steady",
-          "Jerome Powell"
         ],
         [
-          "Donald Trump",
-          "calls for lower rates",
-          "Federal Reserve"
+          "USAID",
+          "affected by",
+          "DOGE"
         ],
         [
-          "Lorie Logan",
-          "advocates for steady rates",
-          "Federal Reserve"
-        ],
-        [
-          "Neel Kashkari",
-          "warns about tariffs",
-          "Federal Reserve"
-        ],
-        [
-          "Ellen Zentner",
-          "analyzes tariffs",
-          "Morgan Stanley Wealth Management"
-        ],
-        [
-          "Jeffrey Roach",
-          "predicts inflation",
-          "LPL Financial"
-        ],
-        [
-          "White House",
-          "argues on tariffs",
-          "Federal Reserve"
-        ]
-      ]
-    },
-    {
-      "doc_id": "16_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "China",
-          "trade tensions with",
-          "US"
-        ],
-        [
-          "US",
-          "imposes tariffs on",
-          "China"
-        ],
-        [
-          "Federal Reserve",
-          "monitors",
-          "S&P 500"
-        ],
-        [
-          "Christopher Waller",
-          "is governor of",
-          "Federal Reserve"
-        ],
-        [
-          "Jerome Powell",
-          "is chair of",
-          "Federal Reserve"
-        ],
-        [
-          "S&P 500",
-          "includes",
-          "CrowdStrike"
-        ],
-        [
-          "S&P 500",
-          "includes",
-          "Broadcom"
-        ],
-        [
-          "S&P 500",
-          "includes",
-          "DocuSign"
-        ],
-        [
-          "S&P 500",
-          "includes",
-          "Lululemon"
-        ],
-        [
-          "OPEC+",
-          "regulates",
-          "oil output"
-        ],
-        [
-          "Tesla",
-          "led by",
-          "Elon Musk"
-        ]
-      ]
-    },
-    {
-      "doc_id": "18_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Nvidia",
-          "reports earnings",
-          "S&P 500"
-        ],
-        [
-          "US Court of International Trade",
-          "blocks tariffs",
-          "Trump"
-        ],
-        [
-          "Federal Reserve",
-          "meets with",
-          "Trump"
-        ],
-        [
-          "Best Buy",
-          "cuts guidance",
-          "tariffs"
-        ],
-        [
-          "Trump",
-          "imposes tariffs",
-          "Walmart"
-        ],
-        [
-          "Goldman Sachs",
-          "analyzes tariffs",
-          "Trump"
-        ],
-        [
-          "Tesla",
-          "rises on news",
+          "Washington Post",
+          "interviews",
           "Elon Musk"
         ],
         [
-          "Salesforce",
-          "raises guidance",
-          "tariffs"
-        ],
-        [
-          "HP Inc.",
-          "cuts outlook",
-          "tariffs"
-        ],
-        [
-          "OPEC+",
-          "decides production",
-          "oil prices"
+          "CBS",
+          "interviews",
+          "Elon Musk"
         ]
       ]
     },
@@ -923,7 +846,7 @@
         [
           "Committee for a Responsible Federal Budget",
           "evaluates",
-          "federal deficit"
+          "federal budget"
         ]
       ]
     },
@@ -932,90 +855,171 @@
       "para_id": 1,
       "relations": [
         [
+          "Trump",
+          "pauses tariffs",
+          "China"
+        ],
+        [
+          "US",
+          "agrees to tariff pause",
+          "China"
+        ],
+        [
           "Conference Board",
-          "publishes",
-          "latest index reading"
+          "releases index",
+          "Consumer Confidence"
         ],
         [
           "Wells Fargo",
-          "employs",
-          "Tim Quinlan"
+          "analyzes",
+          "Consumer Confidence"
         ],
         [
           "JPMorgan",
           "estimates",
-          "US effective tariff rate"
+          "Tariff Rate"
         ],
         [
           "Stephanie Guichard",
-          "analyzes",
-          "consumer expectations"
+          "comments on",
+          "Consumer Expectations"
         ],
         [
-          "University of Michigan",
-          "measures",
-          "consumer sentiment"
-        ],
-        [
-          "Trump",
-          "delays",
-          "China tariffs"
-        ],
-        [
-          "China",
-          "agrees to",
-          "tariff pause"
+          "Tim Quinlan",
+          "writes note on",
+          "Trade Policy"
         ],
         [
           "Apple",
           "affected by",
-          "EU tariffs"
+          "Tariffs"
+        ],
+        [
+          "European Union",
+          "engages in tariff back-and-forth",
+          "US"
         ]
       ]
     },
     {
-      "doc_id": "21_1",
+      "doc_id": "18_1",
       "para_id": 1,
       "relations": [
         [
-          "Donald Trump",
-          "negotiates with",
-          "Xi Jinping"
+          "Nvidia",
+          "reports earnings",
+          "S&P 500"
         ],
         [
-          "US Treasury",
-          "regulates",
+          "US Court of International Trade",
+          "blocks",
+          "Trump tariffs"
+        ],
+        [
+          "Federal Reserve Chair Jerome Powell",
+          "meets with",
+          "Trump"
+        ],
+        [
+          "Best Buy",
+          "cuts guidance due to",
           "tariffs"
         ],
         [
-          "Chinese Ministry of Commerce",
-          "responds to",
-          "US Treasury"
-        ],
-        [
-          "Kevin Hassett",
-          "advises",
-          "Donald Trump"
-        ],
-        [
-          "Scott Bessent",
-          "represents",
-          "US Treasury"
-        ],
-        [
-          "Howard Lutnick",
-          "represents",
-          "Commerce Secretary"
-        ],
-        [
-          "critical minerals",
-          "subject of",
+          "Trump",
+          "imposes",
           "tariffs"
         ],
         [
-          "semiconductors",
-          "subject of",
-          "export controls"
+          "Goldman Sachs",
+          "analyzes",
+          "tariff impact"
+        ],
+        [
+          "Tesla",
+          "rises on",
+          "Elon Musk announcement"
+        ],
+        [
+          "Salesforce",
+          "raises guidance despite",
+          "tariffs"
+        ],
+        [
+          "HP Inc",
+          "cuts outlook due to",
+          "tariffs"
+        ],
+        [
+          "OPEC+",
+          "considers",
+          "oil production increase"
+        ]
+      ]
+    },
+    {
+      "doc_id": "16_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "China",
+          "trade tensions",
+          "US"
+        ],
+        [
+          "President Trump",
+          "imposes tariffs",
+          "steel and aluminum"
+        ],
+        [
+          "Jerome Powell",
+          "speaks on policy",
+          "Federal Reserve"
+        ],
+        [
+          "BioNTech",
+          "licenses drug",
+          "Bristol Myers Squibb"
+        ],
+        [
+          "Sanofi",
+          "acquires",
+          "Blueprint Medicines"
+        ],
+        [
+          "Cleveland-Cliffs",
+          "benefits from tariffs",
+          "US steel industry"
+        ],
+        [
+          "Tesla",
+          "faces sales decline",
+          "Europe"
+        ],
+        [
+          "Elon Musk",
+          "focuses on",
+          "Tesla"
+        ],
+        [
+          "OPEC+",
+          "increases output",
+          "crude oil"
+        ],
+        [
+          "S&P 500",
+          "outperforms",
+          "European markets"
+        ],
+        [
+          "Dow Jones Industrial Average",
+          "declines",
+          "trade tensions"
+        ],
+        [
+          "Nasdaq Composite",
+          "declines",
+          "trade tensions"
         ]
       ]
     },
@@ -1034,14 +1038,65 @@
           "National Association of Realtors"
         ],
         [
-          "Trump",
-          "announces tariffs",
-          "Government"
-        ],
-        [
           "Realtor.com",
           "tracks",
           "housing inventory"
+        ],
+        [
+          "Yahoo Finance",
+          "employs",
+          "Claire Boston"
+        ]
+      ]
+    },
+    {
+      "doc_id": "21_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Donald Trump",
+          "negotiates with",
+          "Xi Jinping"
+        ],
+        [
+          "China",
+          "imposes tariffs",
+          "United States"
+        ],
+        [
+          "United States",
+          "imposes tariffs",
+          "China"
+        ],
+        [
+          "Chinese Ministry of Commerce",
+          "denies claims",
+          "United States"
+        ],
+        [
+          "Kevin Hassett",
+          "advises",
+          "Donald Trump"
+        ],
+        [
+          "Scott Bessent",
+          "represents",
+          "Treasury"
+        ],
+        [
+          "Howard Lutnick",
+          "represents",
+          "Commerce"
+        ],
+        [
+          "critical minerals",
+          "disputed by",
+          "China and United States"
+        ],
+        [
+          "semiconductors",
+          "subject to export controls",
+          "United States"
         ]
       ]
     },
@@ -1060,24 +1115,14 @@
           "Jerome Powell"
         ],
         [
-          "Donald Trump",
-          "pressures",
-          "Federal Reserve"
-        ],
-        [
           "Jerome Powell",
           "leads",
           "Federal Reserve"
         ],
         [
-          "White House",
-          "confirms meeting",
-          "Jerome Powell"
-        ],
-        [
-          "Karoline Leavitt",
-          "represents",
-          "White House"
+          "Federal Reserve",
+          "sets",
+          "monetary policy"
         ],
         [
           "Donald Trump",
@@ -1085,19 +1130,60 @@
           "Jerome Powell"
         ],
         [
-          "Donald Trump",
-          "discusses with",
-          "Kevin Warsh"
-        ],
-        [
           "Supreme Court",
           "protects",
           "Jerome Powell"
+        ]
+      ]
+    },
+    {
+      "doc_id": "26_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Nvidia",
+          "manufactures",
+          "H20"
         ],
         [
-          "Federal Reserve",
-          "sets",
-          "monetary policy"
+          "US",
+          "imposes export controls",
+          "H20"
+        ],
+        [
+          "China",
+          "affected by",
+          "export controls"
+        ],
+        [
+          "Jensen Huang",
+          "CEO of",
+          "Nvidia"
+        ],
+        [
+          "Wedbush",
+          "employs",
+          "Dan Ives"
+        ],
+        [
+          "Dan Ives",
+          "analyzes",
+          "Nvidia"
+        ],
+        [
+          "Biden",
+          "initiated policy",
+          "export controls"
+        ],
+        [
+          "Trump",
+          "continued policy",
+          "export controls"
+        ],
+        [
+          "Nvidia",
+          "impacted by",
+          "US-China trade war"
         ]
       ]
     },
@@ -1118,139 +1204,7 @@
         [
           "Chinese Ministry of Commerce",
           "responds to",
-          "Trump"
-        ],
-        [
-          "Trump",
-          "plans to speak with",
-          "Xi Jinping"
-        ],
-        [
-          "EU",
-          "prepares countermeasures",
           "US"
-        ],
-        [
-          "White House",
-          "appeals to",
-          "Supreme Court"
-        ],
-        [
-          "National Economic Council",
-          "focuses on",
-          "China trade"
-        ],
-        [
-          "Treasury Secretary Scott Bessent",
-          "hopes for resolution",
-          "China trade"
-        ],
-        [
-          "Commerce Secretary Howard Lutnick",
-          "downplays impact",
-          "tariffs"
-        ],
-        [
-          "EU Commission President Ursula von der Leyen",
-          "negotiates with",
-          "US"
-        ],
-        [
-          "Salzgitter",
-          "warns about",
-          "tariffs"
-        ],
-        [
-          "Gap",
-          "navigates",
-          "tariffs"
-        ],
-        [
-          "e.l.f. Beauty",
-          "remains committed to",
-          "China manufacturing"
-        ],
-        [
-          "Tesla",
-          "affected by",
-          "auto tariffs"
-        ],
-        [
-          "US",
-          "increases tariffs",
-          "steel"
-        ],
-        [
-          "US",
-          "increases tariffs",
-          "aluminium"
-        ],
-        [
-          "US",
-          "restricts exports",
-          "AI chip"
-        ]
-      ]
-    },
-    {
-      "doc_id": "26_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Nvidia",
-          "manufactures",
-          "H20"
-        ],
-        [
-          "US Government",
-          "imposes export controls",
-          "H20"
-        ],
-        [
-          "China Government",
-          "affected by",
-          "export controls"
-        ],
-        [
-          "Jensen Huang",
-          "CEO of",
-          "Nvidia"
-        ],
-        [
-          "Dan Ives",
-          "analyst at",
-          "Wedbush"
-        ],
-        [
-          "Nvidia",
-          "impacted by",
-          "trade war"
-        ],
-        [
-          "Nvidia",
-          "potential beneficiary of",
-          "US/China negotiations"
-        ]
-      ]
-    },
-    {
-      "doc_id": "23_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "China",
-          "accuses",
-          "US"
-        ],
-        [
-          "US",
-          "imposes tariffs",
-          "China"
-        ],
-        [
-          "Chinese Ministry of Commerce",
-          "responds to",
-          "President Trump"
         ],
         [
           "President Trump",
@@ -1258,7 +1212,7 @@
           "Xi Jinping"
         ],
         [
-          "EU Commission",
+          "EU",
           "prepares countermeasures",
           "US"
         ],
@@ -1300,7 +1254,7 @@
         [
           "Richard Dickson",
           "navigates",
-          "tariff complexity"
+          "tariff complexities"
         ],
         [
           "Elon Musk",
@@ -1308,24 +1262,24 @@
           "President Trump"
         ],
         [
+          "e.l.f. Beauty",
+          "sources products from",
+          "China"
+        ],
+        [
           "Gap",
           "shifts supply chain from",
           "China"
         ],
         [
-          "e.l.f. Beauty",
-          "relies on",
-          "Chinese manufacturing"
-        ],
-        [
           "Tesla",
-          "affected by",
-          "auto tariffs"
+          "manufactures in",
+          "US"
         ],
         [
           "Salzgitter",
           "criticizes",
-          "US tariff policy"
+          "US tariffs"
         ],
         [
           "Manley Labs",
@@ -1338,13 +1292,23 @@
           "tariffs"
         ],
         [
+          "Huawei",
+          "faces restrictions from",
+          "US"
+        ],
+        [
+          "Yangtze Memory Technologies",
+          "faces restrictions from",
+          "US"
+        ],
+        [
           "US Court of International Trade",
           "blocks",
           "tariffs"
         ],
         [
           "Supreme Court",
-          "may rule on",
+          "may review",
           "tariffs"
         ],
         [
@@ -1359,8 +1323,8 @@
         ],
         [
           "Treasury Department",
-          "hopes for",
-          "trade resolution"
+          "supports",
+          "trade negotiations"
         ]
       ]
     },
@@ -1370,23 +1334,23 @@
       "relations": [
         [
           "Nvidia",
-          "reported earnings",
+          "reports earnings",
           "S&P 500"
         ],
         [
           "Federal Reserve",
-          "warned of tradeoffs",
+          "warns of tradeoffs",
           "Trump administration"
         ],
         [
           "HP",
-          "blamed tariffs",
+          "impacted by tariffs",
           "Trump administration"
         ],
         [
           "GameStop",
-          "purchased bitcoin",
-          "Financial Infrastructure"
+          "purchases bitcoin",
+          "Bitcoin"
         ],
         [
           "Chevron",
@@ -1395,43 +1359,33 @@
         ],
         [
           "OPEC+",
-          "decided production quotas",
-          "oil markets"
+          "considers output hike",
+          "Crude Oil"
         ],
         [
-          "CSX Corp",
-          "CEO commented on economy",
-          "industrial growth"
+          "CSX Corp.",
+          "comments on economy",
+          "US economy"
         ],
         [
           "Abercrombie & Fitch",
-          "reported earnings",
-          "retail sector"
-        ],
-        [
-          "Trump Media & Technology Group",
-          "planned bitcoin purchase",
-          "cryptocurrency"
-        ],
-        [
-          "Okta",
-          "reported earnings",
-          "tech sector"
+          "beats earnings",
+          "Wall Street"
         ],
         [
           "Macy's",
-          "reported earnings",
-          "retail sector"
+          "beats earnings",
+          "Wall Street"
         ],
         [
-          "Joby Aviation",
-          "received investment",
-          "Toyota"
+          "Okta",
+          "reiterates guidance",
+          "Economic uncertainty"
         ],
         [
           "Barclays Plc",
-          "commented on market",
-          "institutional investors"
+          "analyzes market",
+          "Institutional investors"
         ]
       ]
     },
@@ -1451,17 +1405,17 @@
         ],
         [
           "Refresco",
-          "acquired",
+          "acquires",
           "Frías Nutrición"
         ],
         [
           "Refresco",
-          "purchased production site from",
+          "acquires production site from",
           "Berentzen-Gruppe"
         ],
         [
           "Refresco",
-          "bought",
+          "acquires",
           "VBC Bottling Company"
         ],
         [
@@ -1473,287 +1427,6 @@
           "Refresco",
           "owns",
           "Grüneberg Quelle"
-        ]
-      ]
-    },
-    {
-      "doc_id": "32_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "GameStop",
-          "purchases",
-          "Bitcoin"
-        ],
-        [
-          "Strategy",
-          "holds",
-          "Bitcoin"
-        ],
-        [
-          "Michael Saylor",
-          "leads",
-          "Strategy"
-        ],
-        [
-          "Strategy",
-          "influences",
-          "GameStop"
-        ],
-        [
-          "Yahoo Finance",
-          "reports_on",
-          "GameStop"
-        ],
-        [
-          "GameStop",
-          "aspires_to_be",
-          "Berkshire Hathaway"
-        ]
-      ]
-    },
-    {
-      "doc_id": "30_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Medicare",
-          "covers",
-          "healthcare costs"
-        ],
-        [
-          "KFF",
-          "studies",
-          "healthcare debt"
-        ],
-        [
-          "West Health-Gallup",
-          "surveys",
-          "medical borrowing"
-        ],
-        [
-          "Consumer Financial Protection Bureau (CFPB)",
-          "regulates",
-          "credit reports"
-        ],
-        [
-          "Equifax",
-          "provides",
-          "credit reports"
-        ],
-        [
-          "Experian",
-          "provides",
-          "credit reports"
-        ],
-        [
-          "Transunion",
-          "provides",
-          "credit reports"
-        ],
-        [
-          "Kerry Hannon",
-          "authors",
-          "retirement guides"
-        ],
-        [
-          "Tricia Neuman",
-          "analyzes",
-          "Medicare impacts"
-        ],
-        [
-          "Lori Trawinski",
-          "researches",
-          "aging finances"
-        ],
-        [
-          "Anqi Chen",
-          "studies",
-          "retirement preparedness"
-        ],
-        [
-          "Carolyn McClanahan",
-          "advises",
-          "healthcare planning"
-        ]
-      ]
-    },
-    {
-      "doc_id": "31_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "China",
-          "accuses",
-          "US"
-        ],
-        [
-          "US",
-          "imposes tariffs",
-          "China"
-        ],
-        [
-          "Trump",
-          "plans to speak with",
-          "Xi Jinping"
-        ],
-        [
-          "Chinese Ministry of Commerce",
-          "warns",
-          "US"
-        ],
-        [
-          "EU",
-          "prepares countermeasures",
-          "US"
-        ],
-        [
-          "Salzgitter",
-          "criticizes",
-          "US tariffs"
-        ],
-        [
-          "e.l.f. Beauty",
-          "relies on",
-          "China"
-        ],
-        [
-          "Gap",
-          "warns about",
-          "tariff expenses"
-        ],
-        [
-          "Tesla",
-          "affected by",
-          "auto tariffs"
-        ],
-        [
-          "US Court of International Trade",
-          "blocks",
-          "tariffs"
-        ],
-        [
-          "Supreme Court",
-          "may review",
-          "tariffs"
-        ],
-        [
-          "Trump",
-          "cites",
-          "Nixon-era tariffs"
-        ],
-        [
-          "China",
-          "restricts",
-          "AI chip exports"
-        ],
-        [
-          "US",
-          "targets",
-          "Huawei"
-        ],
-        [
-          "US",
-          "targets",
-          "Yangtze Memory Technologies"
-        ]
-      ]
-    },
-    {
-      "doc_id": "34_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Yahoo Finance",
-          "publishes",
-          "Morning Brief"
-        ],
-        [
-          "Ethan Wolff-Mann",
-          "edits",
-          "Morning Brief"
-        ],
-        [
-          "Yahoo Finance",
-          "employs",
-          "Ethan Wolff-Mann"
-        ]
-      ]
-    },
-    {
-      "doc_id": "33_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Fitch Ratings",
-          "rates",
-          "Aston Martin Lagonda Global Holdings Plc"
-        ],
-        [
-          "Lawrence Stroll",
-          "chairs",
-          "Aston Martin Lagonda Global Holdings Plc"
-        ],
-        [
-          "Yew Tree",
-          "invests in",
-          "Aston Martin Lagonda Global Holdings Plc"
-        ],
-        [
-          "Adrian Hallmark",
-          "leads",
-          "Aston Martin Lagonda Global Holdings Plc"
-        ],
-        [
-          "Adrian Hallmark",
-          "formerly led",
-          "Bentley Motors Ltd"
-        ],
-        [
-          "Trump administration",
-          "proposes tariffs",
-          "UK car imports"
-        ],
-        [
-          "Society of Motor Manufacturers and Traders (SMMT)",
-          "reports on",
-          "UK car exports"
-        ]
-      ]
-    },
-    {
-      "doc_id": "35_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "S&P 500",
-          "logs best May since 1990",
-          "markets"
-        ],
-        [
-          "Federal Reserve",
-          "monitors inflation",
-          "PCE index"
-        ],
-        [
-          "Trump administration",
-          "imposes tariffs",
-          "China"
-        ],
-        [
-          "Nvidia",
-          "affected by export controls",
-          "China"
-        ],
-        [
-          "Tesla",
-          "led by",
-          "Elon Musk"
-        ],
-        [
-          "Scott Bessent",
-          "negotiates trade deals",
-          "China"
         ]
       ]
     },
@@ -1772,19 +1445,19 @@
           "US Steel"
         ],
         [
-          "Trump",
+          "Donald Trump",
           "supports",
           "Nippon Steel acquisition"
-        ],
-        [
-          "Trump",
-          "pressures",
-          "Walmart"
         ],
         [
           "CFIUS",
           "reviews",
           "foreign transactions"
+        ],
+        [
+          "Donald Trump",
+          "pressures",
+          "Walmart"
         ],
         [
           "US Government",
@@ -1809,6 +1482,292 @@
       ]
     },
     {
+      "doc_id": "30_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Medicare",
+          "covers",
+          "healthcare costs"
+        ],
+        [
+          "KFF",
+          "studies",
+          "healthcare debt"
+        ],
+        [
+          "West Health-Gallup",
+          "surveys",
+          "healthcare borrowing"
+        ],
+        [
+          "AARP",
+          "advises",
+          "retirees"
+        ],
+        [
+          "Center for Retirement Research at Boston College",
+          "researches",
+          "retirement preparedness"
+        ],
+        [
+          "Consumer Financial Protection Bureau (CFPB)",
+          "regulates",
+          "credit reports"
+        ],
+        [
+          "Equifax",
+          "provides",
+          "credit reports"
+        ],
+        [
+          "Experian",
+          "provides",
+          "credit reports"
+        ],
+        [
+          "Transunion",
+          "provides",
+          "credit reports"
+        ],
+        [
+          "National Foundation for Credit Counseling",
+          "assists",
+          "debt management"
+        ]
+      ]
+    },
+    {
+      "doc_id": "31_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "China",
+          "accuses",
+          "US"
+        ],
+        [
+          "US",
+          "imposes tariffs",
+          "China"
+        ],
+        [
+          "Trump",
+          "plans call",
+          "Xi Jinping"
+        ],
+        [
+          "Chinese Ministry of Commerce",
+          "warns",
+          "US"
+        ],
+        [
+          "EU",
+          "prepares countermeasures",
+          "US"
+        ],
+        [
+          "Salzgitter",
+          "criticizes",
+          "US tariffs"
+        ],
+        [
+          "Gap",
+          "adjusts supply chain",
+          "China"
+        ],
+        [
+          "Tesla",
+          "manufactures cars",
+          "US"
+        ],
+        [
+          "White House",
+          "appeals to",
+          "Supreme Court"
+        ],
+        [
+          "Supreme Court",
+          "reviews legality",
+          "Trump tariffs"
+        ]
+      ]
+    },
+    {
+      "doc_id": "32_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "GameStop",
+          "purchases",
+          "Bitcoin"
+        ],
+        [
+          "Strategy",
+          "holds",
+          "Bitcoin"
+        ],
+        [
+          "Michael Saylor",
+          "leads",
+          "Strategy"
+        ],
+        [
+          "GameStop",
+          "aspires to be",
+          "Berkshire Hathaway"
+        ],
+        [
+          "GameStop",
+          "imitates",
+          "Strategy"
+        ],
+        [
+          "Strategy",
+          "advocates for",
+          "Bitcoin"
+        ]
+      ]
+    },
+    {
+      "doc_id": "34_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Yahoo Finance",
+          "publishes",
+          "Morning Brief"
+        ],
+        [
+          "Yahoo Finance",
+          "publishes",
+          "Breaking News"
+        ],
+        [
+          "Yahoo Finance",
+          "publishes",
+          "Week In Tech"
+        ],
+        [
+          "Yahoo Finance",
+          "publishes",
+          "Mind Your Money"
+        ],
+        [
+          "Yahoo Finance",
+          "publishes",
+          "Daily Movers"
+        ],
+        [
+          "Ethan Wolff-Mann",
+          "works for",
+          "Yahoo Finance"
+        ]
+      ]
+    },
+    {
+      "doc_id": "33_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Fitch Ratings",
+          "rates",
+          "Aston Martin Lagonda Global Holdings Plc"
+        ],
+        [
+          "Lawrence Stroll",
+          "chairs",
+          "Aston Martin Lagonda Global Holdings Plc"
+        ],
+        [
+          "Yew Tree consortium",
+          "invests in",
+          "Aston Martin Lagonda Global Holdings Plc"
+        ],
+        [
+          "Adrian Hallmark",
+          "leads",
+          "Aston Martin Lagonda Global Holdings Plc"
+        ],
+        [
+          "Adrian Hallmark",
+          "previously led",
+          "Bentley Motors Ltd"
+        ],
+        [
+          "Trump administration",
+          "proposes tariffs",
+          "UK car imports"
+        ],
+        [
+          "Society of Motor Manufacturers and Traders (SMMT)",
+          "reports",
+          "UK car export data"
+        ]
+      ]
+    },
+    {
+      "doc_id": "35_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "S&P 500",
+          "tracks performance of",
+          "US stocks"
+        ],
+        [
+          "Dow Jones Industrial Average",
+          "tracks performance of",
+          "US blue-chip stocks"
+        ],
+        [
+          "Nasdaq Composite",
+          "tracks performance of",
+          "tech stocks"
+        ],
+        [
+          "Nvidia",
+          "affected by",
+          "US-China trade tensions"
+        ],
+        [
+          "Tesla",
+          "led by",
+          "Elon Musk"
+        ],
+        [
+          "Regeneron",
+          "develops",
+          "experimental drugs"
+        ],
+        [
+          "Costco",
+          "operates in",
+          "retail sector"
+        ],
+        [
+          "Gap",
+          "impacted by",
+          "tariffs"
+        ],
+        [
+          "Federal Reserve",
+          "monitors",
+          "inflation"
+        ],
+        [
+          "Trump administration",
+          "imposes",
+          "tariffs"
+        ],
+        [
+          "Scott Bessent",
+          "serves as",
+          "Treasury Secretary"
+        ]
+      ]
+    },
+    {
       "doc_id": "38_1",
       "para_id": 1,
       "relations": [
@@ -1823,161 +1782,19 @@
           "Steve Sosnick"
         ],
         [
-          "Steve Sosnick",
-          "comments on",
-          "buy-the-dip strategy"
-        ],
-        [
           "JPMorgan",
           "employs",
           "Emma Wu"
         ],
         [
-          "Emma Wu",
-          "analyzes",
-          "retail investor behavior"
-        ],
-        [
-          "VandaTrack",
-          "tracks",
-          "retail investor flows"
-        ],
-        [
-          "Donald Trump",
+          "President Trump",
           "influences",
-          "market rally"
-        ]
-      ]
-    },
-    {
-      "doc_id": "36_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Nvidia",
-          "develops",
-          "H20"
+          "S&P 500"
         ],
         [
-          "Nvidia",
-          "develops",
-          "Blackwell"
-        ],
-        [
-          "Nvidia",
-          "led by",
-          "Jensen Huang"
-        ],
-        [
-          "US Government",
-          "imposes export restrictions on",
-          "Nvidia"
-        ],
-        [
-          "China",
-          "affected by export restrictions on",
-          "Nvidia"
-        ],
-        [
-          "Microsoft",
-          "purchases chips from",
-          "Nvidia"
-        ],
-        [
-          "Amazon",
-          "purchases chips from",
-          "Nvidia"
-        ],
-        [
-          "Meta Platforms",
-          "purchases chips from",
-          "Nvidia"
-        ],
-        [
-          "Wedbush",
-          "analyzes",
-          "Nvidia"
-        ],
-        [
-          "Dan Ives",
-          "analyst at",
-          "Wedbush"
-        ],
-        [
-          "HSBC",
-          "analyzes",
-          "Nvidia"
-        ],
-        [
-          "Ryan Mellor",
-          "analyst at",
-          "HSBC"
-        ]
-      ]
-    },
-    {
-      "doc_id": "39_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Wall Street",
-          "monitors",
-          "Treasury yields"
-        ],
-        [
-          "Citi",
-          "employs",
-          "Stuart Kaiser"
-        ],
-        [
-          "Stuart Kaiser",
-          "analyzes",
-          "Treasury yields"
-        ],
-        [
-          "AllianceBernstein",
-          "employs",
-          "Eric Winograd"
-        ],
-        [
-          "Eric Winograd",
-          "comments on",
-          "fiscal policy"
-        ],
-        [
-          "Trump",
-          "proposes",
-          "tax bill"
-        ],
-        [
-          "Fed",
-          "influences",
-          "Treasury yields"
-        ],
-        [
-          "House",
-          "passes",
-          "tax bill"
-        ],
-        [
-          "Senate",
-          "reviews",
-          "tax bill"
-        ],
-        [
-          "Chris Rupkey",
-          "warns about",
-          "bond yields"
-        ],
-        [
-          "FWDBonds",
-          "employs",
-          "Chris Rupkey"
-        ],
-        [
-          "Daniel Kryger",
-          "works at",
-          "New York Stock Exchange"
+          "Retail investors",
+          "buy",
+          "S&P 500"
         ]
       ]
     },
@@ -1986,19 +1803,9 @@
       "para_id": 1,
       "relations": [
         [
-          "Department of Justice",
-          "investigates",
-          "Apple"
-        ],
-        [
-          "Trump",
-          "threatens",
-          "Apple"
-        ],
-        [
           "Apple",
-          "manufactures",
-          "iPhone"
+          "faces antitrust probe",
+          "Department of Justice"
         ],
         [
           "Apple",
@@ -2012,8 +1819,18 @@
         ],
         [
           "Apple",
-          "faces legal battle with",
-          "Epic Games"
+          "produces",
+          "iPhone"
+        ],
+        [
+          "Trump",
+          "threatens tariffs",
+          "Apple"
+        ],
+        [
+          "Apple",
+          "delayed product",
+          "Siri"
         ],
         [
           "Jony Ive",
@@ -2022,49 +1839,316 @@
         ],
         [
           "Jony Ive",
-          "collaborates with",
+          "works on new product",
           "OpenAI"
         ],
         [
           "Morgan Stanley",
-          "analyzes",
-          "iPhone pricing"
+          "estimates cost impact",
+          "iPhone"
         ],
         [
           "Deepwater Asset Management",
-          "comments on",
+          "analyzes",
           "Apple's AI strategy"
         ],
         [
-          "US District Judge Yvonne Gonzalez Rogers",
-          "reviews",
-          "Apple's compliance"
+          "Apple",
+          "involved in legal battle",
+          "Epic Games"
+        ],
+        [
+          "Google",
+          "pays Apple",
+          "for default search"
         ]
       ]
     },
     {
-      "doc_id": "42_1",
+      "doc_id": "36_1",
       "para_id": 1,
       "relations": [
         [
+          "Nvidia",
+          "manufactures",
+          "H20"
+        ],
+        [
+          "Nvidia",
+          "manufactures",
+          "Blackwell"
+        ],
+        [
+          "Jensen Huang",
+          "CEO of",
+          "Nvidia"
+        ],
+        [
+          "Wall Street",
+          "analyzes",
+          "Nvidia"
+        ],
+        [
+          "China",
+          "imposes export rules on",
+          "Nvidia"
+        ],
+        [
+          "Nvidia",
+          "supplies chips to",
+          "Microsoft"
+        ],
+        [
+          "Nvidia",
+          "supplies chips to",
+          "Amazon"
+        ],
+        [
+          "Nvidia",
+          "supplies chips to",
+          "Meta Platforms"
+        ],
+        [
+          "Dan Ives",
+          "analyst at",
+          "Wedbush"
+        ],
+        [
+          "Ryan Mellor",
+          "analyst at",
+          "HSBC"
+        ],
+        [
           "Trump",
+          "enforces export ban on",
+          "Nvidia"
+        ],
+        [
+          "Colette Kress",
+          "CFO of",
+          "Nvidia"
+        ],
+        [
+          "Nvidia",
+          "partners with",
+          "Foxconn"
+        ],
+        [
+          "Nvidia",
+          "partners with",
+          "Wistron"
+        ]
+      ]
+    },
+    {
+      "doc_id": "23_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "China",
+          "accuses",
+          "US"
+        ],
+        [
+          "US",
           "imposes tariffs",
-          "Apple"
+          "China"
+        ],
+        [
+          "Chinese Ministry of Commerce",
+          "responds to",
+          "US"
         ],
         [
           "Trump",
-          "imposes tariffs",
-          "Samsung"
+          "plans to speak with",
+          "Xi Jinping"
         ],
         [
-          "Treasury Department",
-          "collects tariffs",
-          "Government"
+          "EU",
+          "prepares countermeasures",
+          "US"
         ],
         [
-          "Trump",
-          "advocates for",
-          "GOP tax bill"
+          "Ursula von der Leyen",
+          "negotiates with",
+          "Trump"
+        ],
+        [
+          "Howard Lutnick",
+          "downplays impact of",
+          "tariffs"
+        ],
+        [
+          "Kevin Hassett",
+          "focuses on",
+          "China trade"
+        ],
+        [
+          "Scott Bessent",
+          "expresses hope for",
+          "trade resolution"
+        ],
+        [
+          "Mark Carney",
+          "aims to reduce harm from",
+          "tariffs"
+        ],
+        [
+          "Gunnar Groebler",
+          "warns about impact of",
+          "tariffs"
+        ],
+        [
+          "Richard Dickson",
+          "navigates",
+          "tariff complexities"
+        ],
+        [
+          "Elon Musk",
+          "meets with",
+          "Trump"
+        ],
+        [
+          "Tarang Amin",
+          "commits to",
+          "Chinese suppliers"
+        ],
+        [
+          "e.l.f. Beauty",
+          "sources products from",
+          "China"
+        ],
+        [
+          "Gap",
+          "shifts supply chain from",
+          "China"
+        ],
+        [
+          "Tesla",
+          "manufactures in",
+          "US"
+        ],
+        [
+          "Salzgitter",
+          "affected by",
+          "US tariffs"
+        ],
+        [
+          "US Court of International Trade",
+          "blocks",
+          "tariffs"
+        ],
+        [
+          "Supreme Court",
+          "may rule on",
+          "tariffs"
+        ],
+        [
+          "National Economic Council",
+          "advises on",
+          "trade policy"
+        ],
+        [
+          "Commerce Department",
+          "reports on",
+          "trade deficit"
+        ],
+        [
+          "Treasury Secretary",
+          "comments on",
+          "trade negotiations"
+        ],
+        [
+          "European Commission",
+          "warns about",
+          "countermeasures"
+        ]
+      ]
+    },
+    {
+      "doc_id": "41_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Nvidia",
+          "manufactures",
+          "H20"
+        ],
+        [
+          "Nvidia",
+          "impacted by export ban",
+          "China"
+        ],
+        [
+          "Trump administration",
+          "imposes ban",
+          "H20"
+        ],
+        [
+          "Biden administration",
+          "imposes restrictions",
+          "H20"
+        ],
+        [
+          "Jensen Huang",
+          "CEO of",
+          "Nvidia"
+        ],
+        [
+          "Colette Kress",
+          "CFO of",
+          "Nvidia"
+        ],
+        [
+          "Joseph Moore",
+          "analyst at",
+          "Morgan Stanley"
+        ],
+        [
+          "Stacy Rasgon",
+          "analyst at",
+          "Bernstein"
+        ],
+        [
+          "Nvidia",
+          "supplies chips to",
+          "Amazon"
+        ],
+        [
+          "Nvidia",
+          "supplies chips to",
+          "Google"
+        ],
+        [
+          "Nvidia",
+          "supplies chips to",
+          "Microsoft"
+        ],
+        [
+          "Nvidia",
+          "partners with",
+          "CoreWeave"
+        ],
+        [
+          "Nvidia",
+          "partners with",
+          "Foxconn"
+        ],
+        [
+          "Nvidia",
+          "provides GPUs to",
+          "Humain"
+        ],
+        [
+          "Saudi Arabia",
+          "backs",
+          "Humain"
+        ],
+        [
+          "United Arab Emirates",
+          "hosts",
+          "Project Stargate"
         ]
       ]
     },
@@ -2089,7 +2173,7 @@
         ],
         [
           "Chinese Ministry of Commerce",
-          "warns",
+          "vows response",
           "US"
         ],
         [
@@ -2104,134 +2188,140 @@
         ],
         [
           "Gap",
-          "affected by",
-          "tariffs"
+          "warns about",
+          "tariff expenses"
         ],
         [
           "e.l.f. Beauty",
-          "sources products from",
-          "China"
+          "remains committed to",
+          "China manufacturing"
         ],
         [
           "Tesla",
-          "manufactures in",
-          "US"
+          "affected by",
+          "auto tariffs"
         ],
         [
           "US Court of International Trade",
           "blocks",
-          "tariffs"
+          "Trump tariffs"
         ],
         [
           "Supreme Court",
           "may review",
-          "tariffs"
+          "Trump tariffs"
+        ],
+        [
+          "National Economic Council",
+          "focuses on",
+          "China trade"
+        ],
+        [
+          "Commerce Department",
+          "reports",
+          "trade deficit"
+        ],
+        [
+          "European Commission",
+          "negotiates with",
+          "US"
         ]
       ]
     },
     {
-      "doc_id": "41_1",
+      "doc_id": "42_1",
       "para_id": 1,
       "relations": [
         [
-          "Nvidia",
-          "manufactures",
-          "H20"
+          "Trump",
+          "imposes tariffs",
+          "China"
         ],
         [
-          "Nvidia",
-          "impacted by",
-          "export ban"
+          "Trump",
+          "imposes tariffs",
+          "UK"
         ],
         [
-          "Trump administration",
-          "imposes",
-          "export ban"
+          "Trump",
+          "delays tariffs",
+          "Europe"
         ],
         [
-          "Biden administration",
-          "imposes",
-          "export restrictions"
+          "Trump",
+          "threatens tariffs",
+          "Apple"
         ],
         [
-          "Nvidia",
-          "led by",
-          "Jensen Huang"
+          "Trump",
+          "threatens tariffs",
+          "Samsung"
         ],
         [
-          "Nvidia",
+          "Treasury Department",
+          "reports revenue",
+          "Department of Homeland Security"
+        ],
+        [
+          "GOP",
+          "advocates bill",
+          "tariff revenue"
+        ]
+      ]
+    },
+    {
+      "doc_id": "39_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Wall Street",
+          "monitors",
+          "US Treasury"
+        ],
+        [
+          "Trump",
+          "proposes",
+          "tax bill"
+        ],
+        [
+          "Citi",
           "employs",
-          "Colette Kress"
+          "Stuart Kaiser"
         ],
         [
-          "Morgan Stanley",
+          "Stuart Kaiser",
+          "analyzes",
+          "bond yields"
+        ],
+        [
+          "AllianceBernstein",
           "employs",
-          "Joseph Moore"
+          "Eric Winograd"
         ],
         [
-          "Bernstein",
+          "Eric Winograd",
+          "comments on",
+          "fiscal policy"
+        ],
+        [
+          "Fed",
+          "influences",
+          "interest rates"
+        ],
+        [
+          "FWDBonds",
           "employs",
-          "Stacy Rasgon"
+          "Chris Rupkey"
         ],
         [
-          "Nvidia",
-          "supplies",
-          "Amazon"
+          "Chris Rupkey",
+          "warns about",
+          "bond yields"
         ],
         [
-          "Nvidia",
-          "supplies",
-          "Google"
-        ],
-        [
-          "Nvidia",
-          "supplies",
-          "Microsoft"
-        ],
-        [
-          "Nvidia",
-          "partners with",
-          "CoreWeave"
-        ],
-        [
-          "Nvidia",
-          "partners with",
-          "Foxconn"
-        ],
-        [
-          "Nvidia",
-          "supplies",
-          "Humain"
-        ],
-        [
-          "Saudi Arabia's sovereign wealth fund",
-          "invests in",
-          "Humain"
-        ],
-        [
-          "Nvidia",
-          "collaborates with",
-          "United Arab Emirates"
-        ],
-        [
-          "DeepSeek",
-          "competes with",
-          "Nvidia"
-        ],
-        [
-          "NasdaqGS",
-          "lists",
-          "Nvidia"
-        ],
-        [
-          "Bloomberg",
-          "reports on",
-          "Nvidia"
-        ],
-        [
-          "Reuters",
-          "reports on",
-          "Nvidia"
+          "Daniel Kryger",
+          "trades at",
+          "NYSE"
         ]
       ]
     },
@@ -2240,19 +2330,39 @@
       "para_id": 1,
       "relations": [
         [
+          "Trump",
+          "proposes",
+          "tariffs"
+        ],
+        [
+          "US Court of International Trade",
+          "invalidates",
+          "tariffs"
+        ],
+        [
           "Barclays",
           "employs",
           "Ajay Rajadhyaksha"
         ],
         [
-          "US Court of International Trade",
-          "invalidates",
-          "Trump's tariffs"
+          "Ajay Rajadhyaksha",
+          "analyzes",
+          "tariff impact"
+        ],
+        [
+          "Nvidia",
+          "rallies on",
+          "earnings release"
         ],
         [
           "Goldman Sachs",
           "employs",
           "Alec Phillips"
+        ],
+        [
+          "Alec Phillips",
+          "comments on",
+          "tariff setback"
         ],
         [
           "Renaissance Macro",
@@ -2261,18 +2371,54 @@
         ],
         [
           "Neil Dutta",
-          "analyzes",
+          "warns about",
           "policy uncertainty"
         ],
         [
-          "Alec Phillips",
-          "comments on",
-          "tariff setback"
+          "S&P 500",
+          "reflects",
+          "market sentiment"
+        ]
+      ]
+    },
+    {
+      "doc_id": "45_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "European Union",
+          "fast-track trade talks",
+          "Washington"
         ],
         [
-          "Ajay Rajadhyaksha",
-          "warns about",
-          "equity market pressure"
+          "President Trump",
+          "announces tariff delay",
+          "US"
+        ],
+        [
+          "US",
+          "has trade truce",
+          "China"
+        ],
+        [
+          "Apollo Global Management",
+          "employs",
+          "Torsten Sløk"
+        ],
+        [
+          "Torsten Sløk",
+          "points out",
+          "trade rebound absence"
+        ],
+        [
+          "Yahoo Finance",
+          "owned by",
+          "Apollo Global Management"
+        ],
+        [
+          "S&P 500",
+          "tracks",
+          "stock market"
         ]
       ]
     },
@@ -2282,12 +2428,12 @@
       "relations": [
         [
           "President Trump",
-          "rollback of tariffs",
-          "S&P 500"
+          "imposes",
+          "tariffs"
         ],
         [
           "Barclays",
-          "research",
+          "employs",
           "Ajay Rajadhyaksha"
         ],
         [
@@ -2341,177 +2487,19 @@
           "Drew Pettit"
         ],
         [
-          "Roundhill Magnificent Seven ETF",
-          "tracks",
-          "Magnificent Seven"
-        ]
-      ]
-    },
-    {
-      "doc_id": "45_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "European Union",
-          "fast-tracks trade talks",
-          "Washington"
-        ],
-        [
-          "President Trump",
-          "announces tariff delay",
-          "US"
-        ],
-        [
-          "US",
-          "delays tariffs",
-          "European Union"
-        ],
-        [
-          "Torsten Sløk",
-          "points out",
-          "lack of trade rebound"
-        ],
-        [
-          "Apollo Global Management",
-          "owns",
-          "Yahoo Finance"
-        ],
-        [
           "S&P 500",
-          "reflects market performance",
-          "markets"
+          "tracks",
+          "US stocks"
         ],
         [
-          "China",
-          "has tentative trade deal",
-          "US"
-        ]
-      ]
-    },
-    {
-      "doc_id": "47_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Nvidia",
-          "reports earnings",
-          "Dow Jones Industrial Average"
+          "Nasdaq Composite",
+          "tracks",
+          "tech stocks"
         ],
         [
-          "Trump",
-          "imposes tariffs",
-          "US Court of International Trade"
-        ],
-        [
-          "Federal Reserve",
-          "meets with",
-          "Trump"
-        ],
-        [
-          "Best Buy",
-          "cuts guidance",
-          "tariffs"
-        ],
-        [
-          "Costco",
-          "reports earnings",
-          "tariffs"
-        ],
-        [
-          "Walmart",
-          "faces price hikes",
-          "tariffs"
-        ],
-        [
-          "Goldman Sachs",
-          "analyzes tariffs",
-          "Trump"
-        ],
-        [
-          "Tesla",
-          "rises on news",
-          "Elon Musk"
-        ],
-        [
-          "Salesforce",
-          "raises guidance",
-          "tariffs"
-        ],
-        [
-          "HP Inc.",
-          "cuts outlook",
-          "tariffs"
-        ],
-        [
-          "Jerome Powell",
-          "discusses policy",
-          "Trump"
-        ],
-        [
-          "Elon Musk",
-          "leaves role",
-          "Trump administration"
-        ],
-        [
-          "Scott Bessent",
-          "comments on yields",
-          "Trump"
-        ],
-        [
-          "Jensen Huang",
-          "warns on sales",
-          "China restrictions"
-        ]
-      ]
-    },
-    {
-      "doc_id": "49_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Donald Trump",
-          "opposes",
-          "Harvard"
-        ],
-        [
-          "Donald Trump",
-          "graduated from",
-          "Wharton School"
-        ],
-        [
-          "Donald Trump",
-          "targets",
-          "University of California system"
-        ],
-        [
-          "Federal Government",
-          "subsidizes",
-          "college education"
-        ],
-        [
-          "Federal Government",
-          "cancels grants",
-          "Harvard"
-        ],
-        [
-          "McKinsey",
-          "reports shortage",
-          "skilled workers"
-        ],
-        [
-          "Donald Trump",
-          "halts",
-          "student debt relief effort"
-        ],
-        [
-          "Donald Trump",
-          "proposes",
-          "tax on investment income"
-        ],
-        [
-          "Donald Trump",
-          "suspends",
-          "visa appointments for foreign students"
+          "Dow Jones Industrial Average",
+          "tracks",
+          "blue-chip stocks"
         ]
       ]
     },
@@ -2530,14 +2518,19 @@
           "China"
         ],
         [
-          "Trump",
-          "plans to speak with",
-          "Xi Jinping"
+          "Chinese Ministry of Commerce",
+          "responds to",
+          "US"
         ],
         [
-          "Chinese Ministry of Commerce",
-          "vows to protect",
-          "China's interests"
+          "President Trump",
+          "communicates via",
+          "Truth Social"
+        ],
+        [
+          "President Trump",
+          "plans to speak with",
+          "Xi Jinping"
         ],
         [
           "EU",
@@ -2546,8 +2539,8 @@
         ],
         [
           "Ursula von der Leyen",
-          "agrees to accelerate talks",
-          "Trump"
+          "negotiates with",
+          "US"
         ],
         [
           "Howard Lutnick",
@@ -2556,644 +2549,13 @@
         ],
         [
           "Kevin Hassett",
-          "suggests trade negotiations stalled by",
-          "China issues"
-        ],
-        [
-          "Scott Bessent",
-          "expresses hope for resolution with",
-          "China"
-        ],
-        [
-          "Mark Carney",
-          "aims to reduce harm from",
-          "tariffs"
-        ],
-        [
-          "Gunnar Groebler",
-          "warns about impact of",
-          "tariffs"
-        ],
-        [
-          "Tarang Amin",
-          "commits to",
-          "Chinese suppliers"
-        ],
-        [
-          "Richard Dickson",
-          "navigates",
-          "tariffs"
-        ],
-        [
-          "Elon Musk",
-          "meets with",
-          "Trump"
-        ],
-        [
-          "US Court of International Trade",
-          "blocks",
-          "tariffs"
-        ],
-        [
-          "Supreme Court",
-          "may rule on",
-          "tariffs"
-        ],
-        [
-          "National Economic Council",
           "focuses on",
-          "China matter"
-        ],
-        [
-          "Commerce Department",
-          "reports on",
-          "trade deficit"
-        ],
-        [
-          "EU Commission",
-          "spokesperson comments on",
-          "tariffs"
-        ],
-        [
-          "Gap",
-          "shifts supply chain due to",
-          "tariffs"
-        ],
-        [
-          "e.l.f. Beauty",
-          "relies on",
-          "China"
-        ],
-        [
-          "Tesla",
-          "affected by",
-          "auto tariffs"
-        ],
-        [
-          "Salzgitter",
-          "impacted by",
-          "steel tariffs"
-        ],
-        [
-          "Manley Labs",
-          "cuts hours due to",
-          "tariffs"
-        ],
-        [
-          "EarthQuaker Devices",
-          "fears impact of",
-          "tariffs"
-        ],
-        [
-          "China",
-          "responds to",
-          "US tariffs"
-        ],
-        [
-          "US",
-          "introduces restrictions on",
-          "AI chips"
-        ],
-        [
-          "Trump",
-          "doubles tariffs on",
-          "steel and aluminium"
-        ],
-        [
-          "EU",
-          "considers countermeasures against",
-          "US tariffs"
-        ],
-        [
-          "US",
-          "faces legal challenges over",
-          "tariffs"
+          "China trade negotiations"
         ]
       ]
     },
     {
-      "doc_id": "50_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Nvidia",
-          "employs",
-          "Jensen Huang"
-        ],
-        [
-          "Nvidia",
-          "develops",
-          "Blackwell"
-        ],
-        [
-          "Nvidia",
-          "impacted by",
-          "US export rules"
-        ],
-        [
-          "Nvidia",
-          "loses revenue from",
-          "China"
-        ],
-        [
-          "Nvidia",
-          "supplies chips to",
-          "Microsoft"
-        ],
-        [
-          "Nvidia",
-          "supplies chips to",
-          "Amazon"
-        ],
-        [
-          "Nvidia",
-          "supplies chips to",
-          "Meta Platforms"
-        ],
-        [
-          "Wall Street",
-          "analyzes",
-          "Nvidia earnings"
-        ],
-        [
-          "Dan Ives",
-          "works at",
-          "Wedbush"
-        ],
-        [
-          "Ryan Mellor",
-          "works at",
-          "HSBC"
-        ],
-        [
-          "US",
-          "imposes export rules on",
-          "Nvidia"
-        ],
-        [
-          "China",
-          "affected by",
-          "US export rules"
-        ],
-        [
-          "Nvidia",
-          "faces competition in",
-          "China market"
-        ]
-      ]
-    },
-    {
-      "doc_id": "48_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "China",
-          "trades with",
-          "US"
-        ],
-        [
-          "President Trump",
-          "imposes tariffs on",
-          "China"
-        ],
-        [
-          "Federal Reserve",
-          "regulates",
-          "US economy"
-        ],
-        [
-          "Christopher Waller",
-          "is member of",
-          "Federal Reserve"
-        ],
-        [
-          "Jerome Powell",
-          "is chair of",
-          "Federal Reserve"
-        ],
-        [
-          "CrowdStrike",
-          "reports earnings",
-          "investors"
-        ],
-        [
-          "Broadcom",
-          "reports earnings",
-          "investors"
-        ],
-        [
-          "DocuSign",
-          "reports earnings",
-          "investors"
-        ],
-        [
-          "Lululemon",
-          "reports earnings",
-          "investors"
-        ],
-        [
-          "Institute for Supply Management",
-          "rates",
-          "US manufacturing"
-        ],
-        [
-          "Susan Spence",
-          "chairs",
-          "ISM Manufacturing Business Survey Committee"
-        ],
-        [
-          "S&P Global",
-          "rates",
-          "US manufacturing"
-        ],
-        [
-          "Chris Williamson",
-          "is chief business economist of",
-          "S&P Global"
-        ],
-        [
-          "BioNTech",
-          "partners with",
-          "Bristol Myers Squibb"
-        ],
-        [
-          "Bristol Myers Squibb",
-          "licenses drug from",
-          "BioNTech"
-        ],
-        [
-          "Merck",
-          "competes with",
-          "Bristol Myers Squibb"
-        ],
-        [
-          "Moderna",
-          "receives approval for",
-          "COVID-19 vaccine"
-        ],
-        [
-          "Blueprint Medicines",
-          "is acquired by",
-          "Sanofi"
-        ],
-        [
-          "Cleveland-Cliffs",
-          "benefits from",
-          "steel tariffs"
-        ],
-        [
-          "Nucor",
-          "benefits from",
-          "steel tariffs"
-        ],
-        [
-          "Steel Dynamics",
-          "benefits from",
-          "steel tariffs"
-        ],
-        [
-          "US Steel Corporation",
-          "is acquired by",
-          "Nippon"
-        ],
-        [
-          "Hyundai Steel",
-          "builds factory in",
-          "Louisiana"
-        ],
-        [
-          "Tesla",
-          "faces sales decline in",
-          "Europe"
-        ],
-        [
-          "Elon Musk",
-          "is CEO of",
-          "Tesla"
-        ],
-        [
-          "OPEC+",
-          "increases output of",
-          "crude oil"
-        ],
-        [
-          "West Texas Intermediate",
-          "is type of",
-          "crude oil"
-        ],
-        [
-          "Brent",
-          "is type of",
-          "crude oil"
-        ],
-        [
-          "Campbell's Company",
-          "reports earnings",
-          "investors"
-        ],
-        [
-          "BlackRock",
-          "faces opposition from",
-          "Texas"
-        ],
-        [
-          "Kayne Anderson Rudnick",
-          "analyzes",
-          "TACO trade"
-        ],
-        [
-          "Julie Beale",
-          "is chief market strategist of",
-          "Kayne Anderson Rudnick"
-        ],
-        [
-          "DAX Index",
-          "outperforms",
-          "S&P 500"
-        ],
-        [
-          "Stoxx 600 Index",
-          "outperforms",
-          "S&P 500"
-        ],
-        [
-          "Hang Seng Index",
-          "declines due to",
-          "trade tensions"
-        ],
-        [
-          "Nikkei 225",
-          "declines due to",
-          "trade tensions"
-        ],
-        [
-          "Kospi",
-          "declines due to",
-          "trade tensions"
-        ],
-        [
-          "S&P/ASX 200",
-          "declines due to",
-          "trade tensions"
-        ]
-      ]
-    },
-    {
-      "doc_id": "51_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "BofA",
-          "upgrades",
-          "Boeing"
-        ],
-        [
-          "BTIG",
-          "upgrades",
-          "Doximity"
-        ],
-        [
-          "RBC Capital",
-          "upgrades",
-          "Church & Dwight"
-        ],
-        [
-          "Goldman Sachs",
-          "upgrades",
-          "Saia"
-        ],
-        [
-          "BMO Capital",
-          "upgrades",
-          "Nucor"
-        ],
-        [
-          "Bernstein",
-          "downgrades",
-          "Charter"
-        ],
-        [
-          "Barclays",
-          "downgrades",
-          "Centene"
-        ],
-        [
-          "BTIG",
-          "downgrades",
-          "Shake Shack"
-        ],
-        [
-          "Goldman Sachs",
-          "downgrades",
-          "Union Pacific"
-        ],
-        [
-          "Raymond James",
-          "downgrades",
-          "Rackspace Technology"
-        ],
-        [
-          "Truist",
-          "initiates coverage",
-          "PayPal"
-        ],
-        [
-          "Truist",
-          "initiates coverage",
-          "Block"
-        ],
-        [
-          "Truist",
-          "initiates coverage",
-          "MasterCard"
-        ],
-        [
-          "Truist",
-          "initiates coverage",
-          "Visa"
-        ],
-        [
-          "Truist",
-          "initiates coverage",
-          "Global Payments"
-        ],
-        [
-          "Oppenheimer",
-          "initiates coverage",
-          "Western Union"
-        ]
-      ]
-    },
-    {
-      "doc_id": "52_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Federal Reserve",
-          "monitors",
-          "Personal Consumption Expenditures (PCE)"
-        ],
-        [
-          "Kathy Bostjancic",
-          "works for",
-          "Nationwide"
-        ],
-        [
-          "Trump",
-          "implements",
-          "tariffs"
-        ],
-        [
-          "Trump",
-          "negotiates with",
-          "China"
-        ],
-        [
-          "tariffs",
-          "impacts",
-          "inflation"
-        ]
-      ]
-    },
-    {
-      "doc_id": "53_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Nvidia",
-          "reports earnings",
-          "Wall Street"
-        ],
-        [
-          "Federal Reserve",
-          "warns of tradeoffs",
-          "tariffs"
-        ],
-        [
-          "Trump administration",
-          "imposes",
-          "tariffs"
-        ],
-        [
-          "HP",
-          "blames",
-          "tariffs"
-        ],
-        [
-          "GameStop",
-          "purchases",
-          "bitcoin"
-        ],
-        [
-          "Chevron",
-          "operates in",
-          "Venezuela"
-        ],
-        [
-          "OPEC+",
-          "decides on",
-          "oil production"
-        ],
-        [
-          "CSX Corp",
-          "CEO comments on",
-          "economy"
-        ],
-        [
-          "Abercrombie & Fitch",
-          "beats",
-          "earnings estimates"
-        ],
-        [
-          "Macy's",
-          "faces",
-          "tariff impacts"
-        ],
-        [
-          "Okta",
-          "reiterates",
-          "revenue outlook"
-        ],
-        [
-          "Barclays Plc",
-          "analyzes",
-          "stock market trends"
-        ]
-      ]
-    },
-    {
-      "doc_id": "55_1",
-      "para_id": 1,
-      "relations": [
-        [
-          "Yahoo Finance",
-          "publishes",
-          "Chart of the Week"
-        ],
-        [
-          "Fed",
-          "chaired by",
-          "Jerome Powell"
-        ],
-        [
-          "Jerome Powell",
-          "comments on",
-          "labor market"
-        ],
-        [
-          "Oxford Economics",
-          "analyzes",
-          "unemployment rate"
-        ],
-        [
-          "Cory Stahle",
-          "works at",
-          "Indeed"
-        ],
-        [
-          "Cory Stahle",
-          "comments on",
-          "labor market"
-        ],
-        [
-          "Apollo Global Management",
-          "owns",
-          "Yahoo Finance"
-        ],
-        [
-          "Torsten Sløk",
-          "works at",
-          "Apollo Global Management"
-        ],
-        [
-          "Torsten Sløk",
-          "researches",
-          "tech employment"
-        ],
-        [
-          "Matthew Martin",
-          "works at",
-          "Oxford Economics"
-        ],
-        [
-          "Matthew Martin",
-          "describes",
-          "labor market conditions"
-        ],
-        [
-          "S&P 500",
-          "includes",
-          "Magnificent Seven tech cohort"
-        ],
-        [
-          "President Trump",
-          "implements",
-          "tariffs"
-        ]
-      ]
-    },
-    {
-      "doc_id": "56_1",
+      "doc_id": "47_1",
       "para_id": 1,
       "relations": [
         [
@@ -3252,19 +2614,460 @@
           "Trump administration"
         ],
         [
-          "HP Inc",
-          "cuts outlook",
+          "Salesforce",
+          "raises guidance",
           "tariffs"
         ],
         [
-          "Salesforce",
-          "raises guidance",
-          "AI business"
+          "HP Inc",
+          "cuts outlook",
+          "tariffs"
+        ]
+      ]
+    },
+    {
+      "doc_id": "49_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Donald Trump",
+          "targets",
+          "Harvard"
+        ],
+        [
+          "Donald Trump",
+          "graduated from",
+          "Wharton School"
+        ],
+        [
+          "Federal Government",
+          "provides grants",
+          "Harvard"
+        ],
+        [
+          "Federal Government",
+          "cancels contracts",
+          "Harvard"
+        ],
+        [
+          "Donald Trump",
+          "suspends visas",
+          "foreign students"
+        ],
+        [
+          "House of Representatives",
+          "proposes tax increase",
+          "elite universities"
+        ],
+        [
+          "Supreme Court",
+          "strikes down",
+          "student debt cancellation"
+        ],
+        [
+          "McKinsey",
+          "reports shortage",
+          "skilled workers"
+        ],
+        [
+          "University of California system",
+          "faces legal action",
+          "Federal Government"
+        ],
+        [
+          "Donald Trump",
+          "halts",
+          "student debt relief effort"
+        ]
+      ]
+    },
+    {
+      "doc_id": "48_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "China",
+          "trade tensions with",
+          "US"
+        ],
+        [
+          "President Trump",
+          "imposes tariffs on",
+          "China"
+        ],
+        [
+          "Federal Reserve",
+          "monitors",
+          "inflation"
+        ],
+        [
+          "Christopher Waller",
+          "suggests",
+          "interest-rate cuts"
+        ],
+        [
+          "Jerome Powell",
+          "leads",
+          "Federal Reserve"
+        ],
+        [
+          "S&P 500",
+          "declines due to",
+          "trade tensions"
+        ],
+        [
+          "Dow Jones Industrial Average",
+          "falls due to",
+          "trade tensions"
+        ],
+        [
+          "Nasdaq Composite",
+          "declines due to",
+          "trade tensions"
         ],
         [
           "OPEC+",
-          "decides production",
-          "oil prices"
+          "hikes output",
+          "crude oil"
+        ],
+        [
+          "Tesla",
+          "faces sales decline",
+          "Europe"
+        ],
+        [
+          "Elon Musk",
+          "leads",
+          "Tesla"
+        ],
+        [
+          "BioNTech",
+          "partners with",
+          "Bristol Myers Squibb"
+        ],
+        [
+          "Bristol Myers Squibb",
+          "licenses drug from",
+          "BioNTech"
+        ],
+        [
+          "Moderna",
+          "receives FDA approval for",
+          "COVID-19 vaccine"
+        ],
+        [
+          "Sanofi",
+          "acquires",
+          "Blueprint Medicines"
+        ],
+        [
+          "Cleveland-Cliffs",
+          "benefits from",
+          "steel tariffs"
+        ],
+        [
+          "Nucor",
+          "benefits from",
+          "steel tariffs"
+        ],
+        [
+          "Steel Dynamics",
+          "benefits from",
+          "steel tariffs"
+        ],
+        [
+          "US Steel Corporation",
+          "acquired by",
+          "Nippon"
+        ],
+        [
+          "Hyundai Steel",
+          "plans factory in",
+          "Louisiana"
+        ]
+      ]
+    },
+    {
+      "doc_id": "50_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Nvidia",
+          "led by",
+          "Jensen Huang"
+        ],
+        [
+          "Nvidia",
+          "impacted by",
+          "China export rules"
+        ],
+        [
+          "Nvidia",
+          "produces",
+          "H20"
+        ],
+        [
+          "Nvidia",
+          "develops",
+          "Blackwell"
+        ],
+        [
+          "Wall Street",
+          "analyzes",
+          "Nvidia"
+        ],
+        [
+          "Jensen Huang",
+          "comments on",
+          "AI demand"
+        ],
+        [
+          "Nvidia",
+          "supplies",
+          "Microsoft"
+        ],
+        [
+          "Nvidia",
+          "supplies",
+          "Amazon"
+        ],
+        [
+          "Nvidia",
+          "supplies",
+          "Meta Platforms"
+        ],
+        [
+          "Dan Ives",
+          "analyzes",
+          "Nvidia"
+        ],
+        [
+          "HSBC",
+          "analyzes",
+          "Nvidia"
+        ],
+        [
+          "Ryan Mellor",
+          "comments on",
+          "Nvidia results"
+        ],
+        [
+          "Trump administration",
+          "imposes",
+          "export rules"
+        ],
+        [
+          "Colette Kress",
+          "reports on",
+          "Nvidia financials"
+        ],
+        [
+          "Benchmark Company",
+          "evaluates",
+          "Nvidia"
+        ],
+        [
+          "Cody Acree",
+          "comments on",
+          "Nvidia performance"
+        ]
+      ]
+    },
+    {
+      "doc_id": "52_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Federal Reserve",
+          "monitors",
+          "Personal Consumption Expenditures (PCE)"
+        ],
+        [
+          "Trump",
+          "implements",
+          "tariff policy"
+        ],
+        [
+          "Kathy Bostjancic",
+          "analyzes",
+          "inflation trend"
+        ],
+        [
+          "Nationwide",
+          "employs",
+          "Kathy Bostjancic"
+        ]
+      ]
+    },
+    {
+      "doc_id": "53_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Nvidia",
+          "reported earnings",
+          "Dow Jones Industrial Average"
+        ],
+        [
+          "Federal Reserve",
+          "warned of tradeoffs",
+          "Trump administration"
+        ],
+        [
+          "HP",
+          "blamed tariffs",
+          "Trump administration"
+        ],
+        [
+          "GameStop",
+          "purchased bitcoin",
+          "Bitcoin"
+        ],
+        [
+          "Chevron",
+          "granted license",
+          "US government"
+        ],
+        [
+          "OPEC+",
+          "decided production quotas",
+          "Oil markets"
+        ],
+        [
+          "CSX Corp",
+          "CEO commented on economy",
+          "US economy"
+        ],
+        [
+          "Abercrombie & Fitch",
+          "reported earnings",
+          "Retail sector"
+        ],
+        [
+          "Macy's",
+          "reported earnings",
+          "Retail sector"
+        ],
+        [
+          "Okta",
+          "reported earnings",
+          "Tech sector"
+        ],
+        [
+          "Barclays",
+          "commented on market",
+          "S&P 500"
+        ]
+      ]
+    },
+    {
+      "doc_id": "51_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "BofA",
+          "upgrades",
+          "Boeing"
+        ],
+        [
+          "BTIG",
+          "upgrades",
+          "Doximity"
+        ],
+        [
+          "RBC Capital",
+          "upgrades",
+          "Church & Dwight"
+        ],
+        [
+          "Goldman Sachs",
+          "upgrades",
+          "Saia"
+        ],
+        [
+          "Goldman Sachs",
+          "upgrades",
+          "Old Dominion"
+        ],
+        [
+          "BMO Capital",
+          "upgrades",
+          "Nucor"
+        ],
+        [
+          "Bernstein",
+          "downgrades",
+          "Charter"
+        ],
+        [
+          "Barclays",
+          "downgrades",
+          "Centene"
+        ],
+        [
+          "BTIG",
+          "downgrades",
+          "Shake Shack"
+        ],
+        [
+          "Goldman Sachs",
+          "downgrades",
+          "Union Pacific"
+        ],
+        [
+          "Goldman Sachs",
+          "downgrades",
+          "Norfolk Southern"
+        ],
+        [
+          "Goldman Sachs",
+          "downgrades",
+          "Canadian Pacific Kansas City"
+        ],
+        [
+          "Goldman Sachs",
+          "downgrades",
+          "J.B. Hunt"
+        ],
+        [
+          "Goldman Sachs",
+          "downgrades",
+          "CSX"
+        ],
+        [
+          "Raymond James",
+          "downgrades",
+          "Rackspace Technology"
+        ],
+        [
+          "Truist",
+          "initiates coverage",
+          "PayPal"
+        ],
+        [
+          "Truist",
+          "initiates coverage",
+          "Block"
+        ],
+        [
+          "Truist",
+          "initiates coverage",
+          "MasterCard"
+        ],
+        [
+          "Truist",
+          "initiates coverage",
+          "Visa"
+        ],
+        [
+          "Truist",
+          "initiates coverage",
+          "Global Payments"
+        ],
+        [
+          "Oppenheimer",
+          "initiates coverage",
+          "Western Union"
         ]
       ]
     },
@@ -3274,7 +3077,7 @@
       "relations": [
         [
           "Nvidia",
-          "produces",
+          "manufactures",
           "H20"
         ],
         [
@@ -3298,36 +3101,6 @@
           "Nvidia"
         ],
         [
-          "Nvidia",
-          "partners with",
-          "Amazon"
-        ],
-        [
-          "Nvidia",
-          "partners with",
-          "Google"
-        ],
-        [
-          "Nvidia",
-          "partners with",
-          "Microsoft"
-        ],
-        [
-          "Nvidia",
-          "collaborates with",
-          "CoreWeave"
-        ],
-        [
-          "Nvidia",
-          "collaborates with",
-          "Foxconn"
-        ],
-        [
-          "Nvidia",
-          "supplies GPUs to",
-          "Humain"
-        ],
-        [
           "Joseph Moore",
           "analyst at",
           "Morgan Stanley"
@@ -3338,19 +3111,176 @@
           "Bernstein"
         ],
         [
-          "Biden administration",
+          "Nvidia",
+          "supplies GPUs to",
+          "Humain"
+        ],
+        [
+          "Saudi Arabia's sovereign wealth fund",
+          "backs",
+          "Humain"
+        ],
+        [
+          "Nvidia",
+          "partners with",
+          "CoreWeave"
+        ],
+        [
+          "Nvidia",
+          "partners with",
+          "Foxconn"
+        ],
+        [
+          "Nvidia",
+          "competes with",
+          "AMD"
+        ],
+        [
+          "Nvidia",
+          "competes with",
+          "INTC"
+        ]
+      ]
+    },
+    {
+      "doc_id": "55_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Yahoo Finance",
+          "publishes",
+          "Chart of the Week"
+        ],
+        [
+          "Oxford Economics",
+          "provides data",
+          "unemployment rate"
+        ],
+        [
+          "Indeed",
+          "operates",
+          "job posting platform"
+        ],
+        [
+          "Apollo Global Management",
+          "owns",
+          "Yahoo Finance"
+        ],
+        [
+          "Fed",
+          "regulates",
+          "US labor market"
+        ],
+        [
+          "Jerome Powell",
+          "chairs",
+          "Fed"
+        ],
+        [
+          "Cory Stahle",
+          "works as economist",
+          "Indeed"
+        ],
+        [
+          "Torsten Sløk",
+          "serves as chief economist",
+          "Apollo Global Management"
+        ],
+        [
+          "Matthew Martin",
+          "works as senior economist",
+          "Oxford Economics"
+        ],
+        [
+          "Magnificent Seven tech cohort",
+          "influences",
+          "S&P 500 earnings"
+        ]
+      ]
+    },
+    {
+      "doc_id": "56_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Nvidia",
+          "reports earnings",
+          "markets"
+        ],
+        [
+          "Dow Jones Industrial Average",
+          "tracks performance",
+          "markets"
+        ],
+        [
+          "S&P 500",
+          "tracks performance",
+          "markets"
+        ],
+        [
+          "Nasdaq Composite",
+          "tracks performance",
+          "markets"
+        ],
+        [
+          "Trump",
           "imposes",
-          "AI diffusion rules"
+          "tariffs"
         ],
         [
-          "Trump administration",
-          "cancels",
-          "AI diffusion rules"
+          "US Court of International Trade",
+          "blocks",
+          "tariffs"
         ],
         [
-          "DeepSeek",
-          "challenges",
-          "Nvidia's market position"
+          "Federal Reserve",
+          "meets with",
+          "Trump"
+        ],
+        [
+          "Jerome Powell",
+          "chairs",
+          "Federal Reserve"
+        ],
+        [
+          "Best Buy",
+          "cuts guidance",
+          "tariffs"
+        ],
+        [
+          "Costco",
+          "reports earnings",
+          "tariffs"
+        ],
+        [
+          "Walmart",
+          "faces price hikes",
+          "tariffs"
+        ],
+        [
+          "Goldman Sachs",
+          "analyzes",
+          "tariffs"
+        ],
+        [
+          "Tesla",
+          "rises on news",
+          "Elon Musk"
+        ],
+        [
+          "Elon Musk",
+          "leaves role",
+          "government"
+        ],
+        [
+          "Salesforce",
+          "raises guidance",
+          "earnings"
+        ],
+        [
+          "HP Inc",
+          "cuts outlook",
+          "tariffs"
         ]
       ]
     },
@@ -3365,123 +3295,93 @@
         ],
         [
           "US",
-          "imposes",
-          "tariffs"
+          "imposes tariffs",
+          "China"
         ],
         [
-          "China",
-          "vows to protect",
-          "interests"
-        ],
-        [
-          "Chinese Ministry of Commerce",
-          "issues statement",
-          "US restrictions"
-        ],
-        [
-          "President Trump",
-          "writes on",
-          "Truth Social"
-        ],
-        [
-          "President Trump",
+          "Trump",
           "plans to speak with",
           "Xi Jinping"
         ],
         [
-          "EU",
-          "prepares countermeasures",
-          "US tariffs"
+          "Chinese Ministry of Commerce",
+          "vows to protect",
+          "China's interests"
         ],
         [
-          "Ursula von der Leyen",
-          "agrees to accelerate talks",
+          "EU",
+          "prepares countermeasures",
           "US"
         ],
         [
-          "Howard Lutnick",
-          "downplays impact",
-          "legal uncertainty"
+          "Salzgitter",
+          "warns about",
+          "US tariffs"
         ],
         [
-          "Kevin Hassett",
-          "suggests focus",
-          "China matter"
+          "Gap",
+          "shifts supply chain",
+          "away from China"
         ],
         [
-          "Mark Carney",
-          "aims to reduce harm",
-          "tariffs"
+          "Tesla",
+          "manufactures",
+          "cars in US"
         ],
         [
-          "Gunnar Groebler",
-          "warns about impact",
-          "European steelmakers"
+          "Elon Musk",
+          "collaborates with",
+          "Trump"
         ],
         [
-          "Tarang Amin",
+          "US Court of International Trade",
+          "blocks",
+          "Trump tariffs"
+        ],
+        [
+          "Supreme Court",
+          "may rule on",
+          "Trump tariffs"
+        ],
+        [
+          "National Economic Council",
+          "focuses on",
+          "China trade"
+        ],
+        [
+          "Commerce Secretary Howard Lutnick",
+          "downplays",
+          "tariff impact"
+        ],
+        [
+          "Treasury Secretary Scott Bessent",
+          "hopes for",
+          "US-China resolution"
+        ],
+        [
+          "EU Commission President Ursula von der Leyen",
+          "negotiates with",
+          "US"
+        ],
+        [
+          "Prime Minister Mark Carney",
+          "aims to reduce",
+          "tariff harm"
+        ],
+        [
+          "Gap CEO Richard Dickson",
+          "navigates",
+          "tariff complexities"
+        ],
+        [
+          "e.l.f. Beauty CEO Tarang Amin",
           "commits to",
           "Chinese suppliers"
         ],
         [
-          "Richard Dickson",
-          "navigates",
-          "tariffs"
-        ],
-        [
-          "Elon Musk",
-          "attends press conference",
-          "President Trump"
-        ],
-        [
-          "Tesla",
-          "affected by",
-          "tariffs"
-        ],
-        [
-          "Gap",
-          "warns about",
-          "tariff expenses"
-        ],
-        [
-          "e.l.f. Beauty",
-          "sources products from",
-          "China"
-        ],
-        [
-          "Salzgitter",
+          "Salzgitter CEO Gunnar Groebler",
           "criticizes",
           "US tariff policy"
-        ],
-        [
-          "Manley Labs",
-          "cuts staff hours",
-          "tariffs"
-        ],
-        [
-          "EarthQuaker Devices",
-          "fears impact",
-          "small businesses"
-        ],
-        [
-          "steel",
-          "subject to",
-          "tariffs"
-        ],
-        [
-          "aluminium",
-          "subject to",
-          "tariffs"
-        ],
-        [
-          "AI chips",
-          "restricted for export",
-          "China"
-        ],
-        [
-          "tariffs",
-          "affect",
-          "trade agreement"
         ]
       ]
     }

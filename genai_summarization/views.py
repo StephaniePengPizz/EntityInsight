@@ -35,7 +35,7 @@ def summarize_for_category(category, keywords, articles) -> str:
         f"Article {i + 1}: {article['title']}\n"
         f"Source: {article['source']}\n"
         f"Date: {article['date']}\n"
-        f"{article.get('content', '')}..."  # Include first 500 chars of content if available
+        f"{article.get('content', '')}..."
         for i, article in enumerate(articles)
     )
 
