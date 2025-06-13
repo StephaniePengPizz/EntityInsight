@@ -69,7 +69,7 @@ class WebPageCollectorView(View):
                 status=500
             )
 
-    def collect_news_pages(self):
+    def collect_news_pages(self, page_start=None, page_num=None):
         """Collect and process individual news pages"""
         try:
             # First get the article links from the root page
@@ -78,10 +78,15 @@ class WebPageCollectorView(View):
                 return root_response
 
             article_urls = root_response.content.decode().split("\n")
+            chosen_urls = []
+            if page_start is None:
+                chosen_urls = article_urls
+            else:
+                chosen_urls = article_urls[page_start:page_start + page_num]
 
             # Process each article URL
             results = []
-            for url in article_urls[:5]:  # Limit to 5 for demo purposes
+            for url in chosen_urls:  # Limit to 5 for demo purposes
                 try:
                     article_data = self.process_news_page(url)
                     if article_data:
