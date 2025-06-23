@@ -3,7 +3,8 @@
 {% block content %}
 <div class="container-input-page">
     <div class="header">
-        <div class="username">{{ request.user.username }}</div>
+        <div class="username">Current User: {{ request.user.username }}</div>
+        <a href="http://localhost:8000/core/admin_collect" class="admin-link">Admin</a>
     </div>
     
     <div class="system-title">Hi, I am Entity Insight</div>

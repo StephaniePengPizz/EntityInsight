@@ -1,0 +1,228 @@
+{
+  "metadata": {
+    "generated_at": "2025-06-10T14:31:16.462752",
+    "total_relations": 38
+  },
+  "data": [
+    {
+      "doc_id": "6_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Donald Trump",
+          "delays tariffs",
+          "European Union"
+        ],
+        [
+          "Federal Reserve",
+          "debates inflation policy",
+          "Neel Kashkari"
+        ],
+        [
+          "Nvidia",
+          "develops",
+          "Blackwell"
+        ],
+        [
+          "Nvidia",
+          "produces",
+          "H20"
+        ],
+        [
+          "Elon Musk",
+          "leads",
+          "Tesla"
+        ],
+        [
+          "Trump Media & Technology Group",
+          "raises funds",
+          "Bitcoin"
+        ],
+        [
+          "Salesforce",
+          "acquires",
+          "Informatica"
+        ],
+        [
+          "Bank of Japan",
+          "considers rate hikes",
+          "Kazuo Ueda"
+        ]
+      ]
+    },
+    {
+      "doc_id": "1_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Donald Trump",
+          "imposes tariffs",
+          "Korea National Oil Corp"
+        ],
+        [
+          "Petroliam Nasional Bhd",
+          "hires banks",
+          "Mizuho Securities Asia"
+        ],
+        [
+          "Barclays",
+          "advises on financing",
+          "Asia Pacific issuers"
+        ],
+        [
+          "Mizuho Securities Asia",
+          "analyzes credit",
+          "Asian dollar primary market"
+        ]
+      ]
+    },
+    {
+      "doc_id": "5_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "MicroStrategy",
+          "holds",
+          "Bitcoin"
+        ],
+        [
+          "Joseph Lubin",
+          "leads funding for",
+          "SharpLink Gaming"
+        ],
+        [
+          "Joseph Lubin",
+          "chairman of",
+          "SharpLink Gaming"
+        ],
+        [
+          "Salesforce",
+          "acquires",
+          "Informatica"
+        ],
+        [
+          "Donald Trump",
+          "owns stake in",
+          "DJT"
+        ],
+        [
+          "Securities and Exchange Commission",
+          "regulates",
+          "DJT"
+        ]
+      ]
+    },
+    {
+      "doc_id": "7_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "China",
+          "accuses",
+          "US"
+        ],
+        [
+          "Chinese Ministry of Commerce",
+          "issues statement",
+          "US"
+        ],
+        [
+          "President Trump",
+          "writes",
+          "Truth Social"
+        ],
+        [
+          "President Trump",
+          "plans to speak",
+          "Xi Jinping"
+        ],
+        [
+          "European Union",
+          "prepares countermeasures",
+          "US"
+        ],
+        [
+          "Ursula von der Leyen",
+          "agrees to accelerate talks",
+          "President Trump"
+        ],
+        [
+          "Salzgitter",
+          "warns about",
+          "US tariffs"
+        ],
+        [
+          "Gap",
+          "shifts supply chain",
+          "away from China"
+        ],
+        [
+          "President Trump",
+          "meets with",
+          "Elon Musk"
+        ],
+        [
+          "US",
+          "imposes tech restrictions",
+          "Huawei"
+        ],
+        [
+          "National Economic Council",
+          "focuses on",
+          "China trade"
+        ],
+        [
+          "Commerce Secretary",
+          "downplays",
+          "EU leverage"
+        ]
+      ]
+    },
+    {
+      "doc_id": "8_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Elon Musk",
+          "opposes",
+          "Donald Trump's bill"
+        ],
+        [
+          "Elon Musk",
+          "leads",
+          "DOGE"
+        ],
+        [
+          "DOGE",
+          "monitors",
+          "USAID"
+        ],
+        [
+          "Brookings Institution",
+          "tracks",
+          "government spending"
+        ],
+        [
+          "David Sacks",
+          "advises",
+          "Donald Trump"
+        ],
+        [
+          "Dara Khosrowshahi",
+          "leads",
+          "Uber"
+        ],
+        [
+          "Morning Consult",
+          "surveys",
+          "public opinion"
+        ],
+        [
+          "Ron Johnson",
+          "criticizes",
+          "Donald Trump's bill"
+        ]
+      ]
+    }
+  ]
+}

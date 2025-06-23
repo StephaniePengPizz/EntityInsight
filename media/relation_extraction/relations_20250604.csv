@@ -1,0 +1,45 @@
+﻿DocID,ParaID,Subject,Relation,Object
+6_1,1,President Trump,delays tariffs,European Union
+6_1,1,Federal Reserve,debates inflation impact,President Trump
+6_1,1,Nvidia,develops AI chips,(implied market)
+6_1,1,Elon Musk,leads,Tesla
+6_1,1,Trump Media & Technology Group,invests in,Bitcoin
+6_1,1,Salesforce,acquires,Informatica
+6_1,1,Bank of Japan,considers rate hikes,(implied economy)
+1_1,1,Donald Trump,imposes tariffs,Korea National Oil Corp
+1_1,1,Donald Trump,imposes tariffs,Petroliam Nasional Bhd
+1_1,1,Mizuho Securities Asia,advises on bonds,Korea National Oil Corp
+1_1,1,Barclays,facilitates debt issuance,Jollibee Foods Corp.
+1_1,1,Bloomberg,reports on,Asia Pacific credit market
+5_1,1,Nvidia,manufactures,chips
+5_1,1,MicroStrategy,holds,Bitcoin
+5_1,1,Joseph Lubin,co-founded,Ethereum
+5_1,1,Consensys,invests in,SharpLink Gaming
+5_1,1,Joseph Lubin,joins board,SharpLink Gaming
+5_1,1,Curaleaf Holdings,owns brand,Select
+5_1,1,Curaleaf Holdings,owns brand,Grassroots
+5_1,1,Donald Trump,owns shares,DJT
+5_1,1,Securities and Exchange Commission,regulates,DJT
+5_1,1,Salesforce,acquires,Informatica
+7_1,1,China,accuses,US
+7_1,1,President Trump,leads,US
+7_1,1,Xi Jinping,leads,China
+7_1,1,Chinese Ministry of Commerce,represents,China
+7_1,1,President Trump,posts on,Truth Social
+7_1,1,EU,prepares countermeasures against,US
+7_1,1,Ursula von der Leyen,leads,European Commission
+7_1,1,Salzgitter,affected by,US tariffs
+7_1,1,Gunnar Groebler,CEO of,Salzgitter
+7_1,1,Richard Dickson,CEO of,Gap
+7_1,1,Elon Musk,CEO of,Tesla
+7_1,1,US,imposes tariffs on,Huawei
+7_1,1,US,imposes tariffs on,Yangtze Memory Technologies
+7_1,1,Kevin Hassett,directs,National Economic Council
+7_1,1,Scott Bessent,serves as,Treasury Secretary
+7_1,1,Howard Lutnick,serves as,Commerce Secretary
+8_1,1,Elon Musk,opposes,Donald Trump
+8_1,1,Elon Musk,leads,Department of Government Efficiency (DOGE)
+8_1,1,Donald Trump,leads,White House
+8_1,1,Dara Khosrowshahi,is CEO of,Uber
+8_1,1,Brookings Institution,tracks,USAID
+8_1,1,Morning Consult,surveys,public opinion

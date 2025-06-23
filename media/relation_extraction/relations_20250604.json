@@ -1,0 +1,258 @@
+{
+  "metadata": {
+    "generated_at": "2025-06-04T09:17:49.188854",
+    "total_relations": 44
+  },
+  "data": [
+    {
+      "doc_id": "6_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "President Trump",
+          "delays tariffs",
+          "European Union"
+        ],
+        [
+          "Federal Reserve",
+          "debates inflation impact",
+          "President Trump"
+        ],
+        [
+          "Nvidia",
+          "develops AI chips",
+          "(implied market)"
+        ],
+        [
+          "Elon Musk",
+          "leads",
+          "Tesla"
+        ],
+        [
+          "Trump Media & Technology Group",
+          "invests in",
+          "Bitcoin"
+        ],
+        [
+          "Salesforce",
+          "acquires",
+          "Informatica"
+        ],
+        [
+          "Bank of Japan",
+          "considers rate hikes",
+          "(implied economy)"
+        ]
+      ]
+    },
+    {
+      "doc_id": "1_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Donald Trump",
+          "imposes tariffs",
+          "Korea National Oil Corp"
+        ],
+        [
+          "Donald Trump",
+          "imposes tariffs",
+          "Petroliam Nasional Bhd"
+        ],
+        [
+          "Mizuho Securities Asia",
+          "advises on bonds",
+          "Korea National Oil Corp"
+        ],
+        [
+          "Barclays",
+          "facilitates debt issuance",
+          "Jollibee Foods Corp."
+        ],
+        [
+          "Bloomberg",
+          "reports on",
+          "Asia Pacific credit market"
+        ]
+      ]
+    },
+    {
+      "doc_id": "5_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Nvidia",
+          "manufactures",
+          "chips"
+        ],
+        [
+          "MicroStrategy",
+          "holds",
+          "Bitcoin"
+        ],
+        [
+          "Joseph Lubin",
+          "co-founded",
+          "Ethereum"
+        ],
+        [
+          "Consensys",
+          "invests in",
+          "SharpLink Gaming"
+        ],
+        [
+          "Joseph Lubin",
+          "joins board",
+          "SharpLink Gaming"
+        ],
+        [
+          "Curaleaf Holdings",
+          "owns brand",
+          "Select"
+        ],
+        [
+          "Curaleaf Holdings",
+          "owns brand",
+          "Grassroots"
+        ],
+        [
+          "Donald Trump",
+          "owns shares",
+          "DJT"
+        ],
+        [
+          "Securities and Exchange Commission",
+          "regulates",
+          "DJT"
+        ],
+        [
+          "Salesforce",
+          "acquires",
+          "Informatica"
+        ]
+      ]
+    },
+    {
+      "doc_id": "7_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "China",
+          "accuses",
+          "US"
+        ],
+        [
+          "President Trump",
+          "leads",
+          "US"
+        ],
+        [
+          "Xi Jinping",
+          "leads",
+          "China"
+        ],
+        [
+          "Chinese Ministry of Commerce",
+          "represents",
+          "China"
+        ],
+        [
+          "President Trump",
+          "posts on",
+          "Truth Social"
+        ],
+        [
+          "EU",
+          "prepares countermeasures against",
+          "US"
+        ],
+        [
+          "Ursula von der Leyen",
+          "leads",
+          "European Commission"
+        ],
+        [
+          "Salzgitter",
+          "affected by",
+          "US tariffs"
+        ],
+        [
+          "Gunnar Groebler",
+          "CEO of",
+          "Salzgitter"
+        ],
+        [
+          "Richard Dickson",
+          "CEO of",
+          "Gap"
+        ],
+        [
+          "Elon Musk",
+          "CEO of",
+          "Tesla"
+        ],
+        [
+          "US",
+          "imposes tariffs on",
+          "Huawei"
+        ],
+        [
+          "US",
+          "imposes tariffs on",
+          "Yangtze Memory Technologies"
+        ],
+        [
+          "Kevin Hassett",
+          "directs",
+          "National Economic Council"
+        ],
+        [
+          "Scott Bessent",
+          "serves as",
+          "Treasury Secretary"
+        ],
+        [
+          "Howard Lutnick",
+          "serves as",
+          "Commerce Secretary"
+        ]
+      ]
+    },
+    {
+      "doc_id": "8_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Elon Musk",
+          "opposes",
+          "Donald Trump"
+        ],
+        [
+          "Elon Musk",
+          "leads",
+          "Department of Government Efficiency (DOGE)"
+        ],
+        [
+          "Donald Trump",
+          "leads",
+          "White House"
+        ],
+        [
+          "Dara Khosrowshahi",
+          "is CEO of",
+          "Uber"
+        ],
+        [
+          "Brookings Institution",
+          "tracks",
+          "USAID"
+        ],
+        [
+          "Morning Consult",
+          "surveys",
+          "public opinion"
+        ]
+      ]
+    }
+  ]
+}

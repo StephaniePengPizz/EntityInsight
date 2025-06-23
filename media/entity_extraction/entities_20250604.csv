@@ -1,0 +1,67 @@
+﻿DocID,ParaID,Entity,Type
+6_1,1,President Trump,Government
+6_1,1,European Union,Government
+6_1,1,Federal Reserve,Regulator
+6_1,1,Neel Kashkari,Key People
+6_1,1,Nvidia,Company
+6_1,1,Tesla,Company
+6_1,1,Elon Musk,Key People
+6_1,1,Trump Media & Technology Group,Company
+6_1,1,Salesforce,Company
+6_1,1,Informatica,Company
+6_1,1,Bank of Japan,Regulator
+6_1,1,Kazuo Ueda,Key People
+1_1,1,Donald Trump,Government
+1_1,1,Korea National Oil Corp,Company
+1_1,1,Petroliam Nasional Bhd,Company
+1_1,1,Posco Holdings Inc.,Company
+1_1,1,Jollibee Foods Corp.,Company
+1_1,1,MTR Corp. Ltd.,Company
+1_1,1,Mizuho Securities Asia,Bank
+1_1,1,Barclays,Bank
+1_1,1,Bloomberg,Rating Agency
+5_1,1,Nvidia,Company
+5_1,1,MicroStrategy,Company
+5_1,1,Bitcoin,Product
+5_1,1,SharpLink Gaming,Company
+5_1,1,Joseph Lubin,Key People
+5_1,1,Consensys,Company
+5_1,1,Ethereum,Product
+5_1,1,Curaleaf Holdings,Company
+5_1,1,Select,Product
+5_1,1,Grassroots,Product
+5_1,1,Robert Kiyosaki,Key People
+5_1,1,Donald Trump,Key People
+5_1,1,Securities and Exchange Commission,Regulator
+5_1,1,Salesforce,Company
+5_1,1,Informatica,Company
+7_1,1,China,Government
+7_1,1,US,Government
+7_1,1,President Trump,Key People
+7_1,1,Xi Jinping,Key People
+7_1,1,Chinese Ministry of Commerce,Government
+7_1,1,Truth Social,Company
+7_1,1,EU,Government
+7_1,1,Ursula von der Leyen,Key People
+7_1,1,European Commission,Government
+7_1,1,Salzgitter,Company
+7_1,1,Gunnar Groebler,Key People
+7_1,1,Gap,Company
+7_1,1,Richard Dickson,Key People
+7_1,1,Tesla,Company
+7_1,1,Elon Musk,Key People
+7_1,1,Huawei,Company
+7_1,1,Yangtze Memory Technologies,Company
+7_1,1,National Economic Council,Government
+7_1,1,Kevin Hassett,Key People
+7_1,1,Treasury Secretary Scott Bessent,Key People
+7_1,1,Commerce Secretary Howard Lutnick,Key People
+8_1,1,Elon Musk,Key People
+8_1,1,Donald Trump,Key People
+8_1,1,Department of Government Efficiency (DOGE),Government
+8_1,1,White House,Government
+8_1,1,Uber,Company
+8_1,1,Dara Khosrowshahi,Key People
+8_1,1,Brookings Institution,Financial Infrastructure
+8_1,1,USAID,Government
+8_1,1,Morning Consult,Rating Agency

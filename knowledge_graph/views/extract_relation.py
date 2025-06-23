@@ -115,6 +115,7 @@ class EntityExtractionView(View):
         # 定义文件路径
         file_paths = {
             'entities_csv': os.path.join(self.OUTPUT_DIR_ENTITY, f'entities_{timestamp}.csv'),
+            'pure_entities_txt': os.path.join(self.OUTPUT_DIR_ENTITY, f'pure_entities_{timestamp}.txt'),
             'relations_csv': os.path.join(self.OUTPUT_DIR_RELATION, f'relations_{timestamp}.csv'),
             'entities_json': os.path.join(self.OUTPUT_DIR_ENTITY, f'entities_{timestamp}.json'),
             'relations_json': os.path.join(self.OUTPUT_DIR_RELATION, f'relations_{timestamp}.json')
@@ -145,8 +146,8 @@ class EntityExtractionView(View):
                     writer.writerow([item['doc_id'], item['para_id'], entity[0], entity[1]])
 
         # JSON
-        with open(file_paths['entities_json'], 'w', encoding='utf-8') as f:
-            # 初始化分类容器
+        with open(file_paths['entities_json'], 'w', encoding='utf-8') as f_json, \
+                open(file_paths['pure_entities_txt'], 'w', encoding='utf-8') as f_txt:
             categorized_entities = {
                 "Regulator": [],
                 "Bank": [],
@@ -211,7 +212,10 @@ class EntityExtractionView(View):
                 }
             }
 
-            json.dump(result, f, ensure_ascii=False, indent=2)
+            json.dump(result, f_json, ensure_ascii=False, indent=2)
+            for _, entities in categorized_entities.items():
+                if entities:
+                    f_txt.write("\n".join(entities) + "\n")
 
     def _save_relations(self, relations, file_paths):
         """保存关系数据"""

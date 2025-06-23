@@ -1,0 +1,50 @@
+﻿DocID,ParaID,Subject,Relation,Object
+1_1,1,Donald Trump,imposes tariffs,Korea National Oil Corp
+1_1,1,Mizuho Securities Asia,advises on,Asia credit market
+1_1,1,Barclays,facilitates financing,Asia Pacific borrowers
+1_1,1,Bloomberg,tracks data,Asia Pacific bond market
+6_1,1,President Trump,delays tariffs,European Union
+6_1,1,Federal Reserve,debates inflation impact,President Trump
+6_1,1,Neel Kashkari,advocates for steady rates,Federal Reserve
+6_1,1,Nvidia,develops AI chips,(implied market)
+6_1,1,Elon Musk,leads,Tesla
+6_1,1,Trump Media & Technology Group,invests in,Bitcoin
+6_1,1,Salesforce,acquires,Informatica
+6_1,1,Bank of Japan,signals rate hike,(implied economy)
+5_1,1,Nvidia,manufactures,chips
+5_1,1,MicroStrategy,holds,Bitcoin
+5_1,1,Joseph Lubin,co-founded,Ethereum
+5_1,1,Consensys,invests in,SharpLink Gaming
+5_1,1,Joseph Lubin,joins board of,SharpLink Gaming
+5_1,1,Curaleaf Holdings,owns brand,Select
+5_1,1,Curaleaf Holdings,owns brand,Grassroots
+5_1,1,Donald Trump,owns shares in,DJT
+5_1,1,Securities and Exchange Commission,regulates,DJT
+5_1,1,Salesforce,acquires,Informatica
+7_1,1,China,accuses,US
+7_1,1,US,imposes tariffs,China
+7_1,1,President Trump,leads,US
+7_1,1,Xi Jinping,leads,China
+7_1,1,Chinese Ministry of Commerce,represents,China
+7_1,1,EU,prepares countermeasures,US
+7_1,1,Ursula von der Leyen,leads,European Commission
+7_1,1,Salzgitter,affected by tariffs,US
+7_1,1,Gunnar Groebler,CEO of,Salzgitter
+7_1,1,Gap,impacted by tariffs,US
+7_1,1,Richard Dickson,CEO of,Gap
+7_1,1,Elon Musk,CEO of,Tesla
+7_1,1,US,restricts tech exports,Huawei
+7_1,1,US,restricts tech exports,Yangtze Memory Technologies
+8_1,1,Elon Musk,opposes,Donald Trump
+8_1,1,Elon Musk,leads,DOGE
+8_1,1,Donald Trump,proposes,big beautiful bill
+8_1,1,Chamath Palihapitiya,criticizes,big beautiful bill
+8_1,1,Jason Calacanis,criticizes,big beautiful bill
+8_1,1,David Sacks,defends,big beautiful bill
+8_1,1,David Sacks,works for,White House
+8_1,1,Dara Khosrowshahi,leads,Uber
+8_1,1,Uber,supports,no tax on tips plans
+8_1,1,Sen. Ron Johnson,opposes,big beautiful bill
+8_1,1,Brookings Institution,tracks,government spending
+8_1,1,DOGE,affects,USAID
+8_1,1,Silicon Valley,opposes,bill

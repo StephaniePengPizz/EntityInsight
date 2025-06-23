@@ -132,6 +132,7 @@ class CleanEntityExtractionView(View):
         # 定义文件路径
         file_paths = {
             'entities_csv': os.path.join(self.OUTPUT_DIR_ENTITY, f'entities_{timestamp}.csv'),
+            'pure_entities_txt': os.path.join(self.OUTPUT_DIR_ENTITY, f'pure_entities_{timestamp}.txt'),
             'relations_csv': os.path.join(self.OUTPUT_DIR_RELATION, f'relations_{timestamp}.csv'),
             'entities_json': os.path.join(self.OUTPUT_DIR_ENTITY, f'entities_{timestamp}.json'),
             'relations_json': os.path.join(self.OUTPUT_DIR_RELATION, f'relations_{timestamp}.json')
@@ -145,7 +146,8 @@ class CleanEntityExtractionView(View):
 
         # 返回可访问的URL路径
         return {
-            'entities_csv': f'/media/entity_extraction_/{os.path.basename(file_paths["entities_csv"])}',
+            'entities_csv': f'/media/entity_extraction/{os.path.basename(file_paths["entities_csv"])}',
+            'pure_entities_txt': os.path.join(self.OUTPUT_DIR_ENTITY, f'pure_entities_{timestamp}.txt'),
             'relations_csv': f'/media/relation_extraction/{os.path.basename(file_paths["relations_csv"])}',
             'entities_json': f'/media/entity_extraction/{os.path.basename(file_paths["entities_json"])}',
             'relations_json': f'/media/relation_extraction/{os.path.basename(file_paths["relations_json"])}'
@@ -161,8 +163,8 @@ class CleanEntityExtractionView(View):
                     writer.writerow([item['doc_id'], item['para_id'], entity[0], entity[1]])
 
         # JSON格式写入
-        with open(file_paths['entities_json'], 'w', encoding='utf-8') as f:
-            # 初始化分类容器，补充遗漏的Industry，避免重复Regulator键
+        with open(file_paths['entities_json'], 'w', encoding='utf-8') as f_json, \
+                open(file_paths['pure_entities_txt'], 'w', encoding='utf-8') as f_txt:
             categorized_entities = {
                 "Regulator": [],
                 "Bank": [],
@@ -203,10 +205,14 @@ class CleanEntityExtractionView(View):
                     }
                     for item in entity_types
                 ],
-                **categorized_entities  # 展开分类数据作为顶级字段（根据你需求可调整）
+                **categorized_entities
             }
 
-            json.dump(result, f, ensure_ascii=False, indent=2)
+            json.dump(result, f_json, ensure_ascii=False, indent=2)
+
+            for _, entities in categorized_entities.items():
+                if entities:
+                    f_txt.write("\n".join(entities) + "\n")
 
     def _save_relations(self, relations, file_paths):
         import traceback

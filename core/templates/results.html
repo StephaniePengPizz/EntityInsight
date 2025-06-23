@@ -65,7 +65,7 @@
 
                 {% for category, summary in llm_summaries.items %}
                     <div class="category-summary">
-                        <h3>{{ category|title }} Summary</h3>
+                        <h3>{{ category|title }} News Summary</h3>
                         <div class="summary-text">{{ summary|markdownify }}</div>
                     </div>
                     {% if not forloop.last %}<hr class="summary-divider">{% endif %}
@@ -97,6 +97,7 @@
                 <p><strong>Target Types:</strong> {{ result.target_types|join:", " }}</p>
                 <p><strong>Cutoff:</strong> {{ result.cutoff }}</p>
                 <p><strong>Number of Paths:</strong> {{ result.num_paths }}</p>
+                <p><strong>Weight Scale:</strong> 0 ~ 1</p>
             </div>
 
             {% for path in result.paths %}

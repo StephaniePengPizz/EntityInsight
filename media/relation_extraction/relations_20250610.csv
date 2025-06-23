@@ -1,0 +1,39 @@
+﻿DocID,ParaID,Subject,Relation,Object
+6_1,1,Donald Trump,delays tariffs,European Union
+6_1,1,Federal Reserve,debates inflation policy,Neel Kashkari
+6_1,1,Nvidia,develops,Blackwell
+6_1,1,Nvidia,produces,H20
+6_1,1,Elon Musk,leads,Tesla
+6_1,1,Trump Media & Technology Group,raises funds,Bitcoin
+6_1,1,Salesforce,acquires,Informatica
+6_1,1,Bank of Japan,considers rate hikes,Kazuo Ueda
+1_1,1,Donald Trump,imposes tariffs,Korea National Oil Corp
+1_1,1,Petroliam Nasional Bhd,hires banks,Mizuho Securities Asia
+1_1,1,Barclays,advises on financing,Asia Pacific issuers
+1_1,1,Mizuho Securities Asia,analyzes credit,Asian dollar primary market
+5_1,1,MicroStrategy,holds,Bitcoin
+5_1,1,Joseph Lubin,leads funding for,SharpLink Gaming
+5_1,1,Joseph Lubin,chairman of,SharpLink Gaming
+5_1,1,Salesforce,acquires,Informatica
+5_1,1,Donald Trump,owns stake in,DJT
+5_1,1,Securities and Exchange Commission,regulates,DJT
+7_1,1,China,accuses,US
+7_1,1,Chinese Ministry of Commerce,issues statement,US
+7_1,1,President Trump,writes,Truth Social
+7_1,1,President Trump,plans to speak,Xi Jinping
+7_1,1,European Union,prepares countermeasures,US
+7_1,1,Ursula von der Leyen,agrees to accelerate talks,President Trump
+7_1,1,Salzgitter,warns about,US tariffs
+7_1,1,Gap,shifts supply chain,away from China
+7_1,1,President Trump,meets with,Elon Musk
+7_1,1,US,imposes tech restrictions,Huawei
+7_1,1,National Economic Council,focuses on,China trade
+7_1,1,Commerce Secretary,downplays,EU leverage
+8_1,1,Elon Musk,opposes,Donald Trump's bill
+8_1,1,Elon Musk,leads,DOGE
+8_1,1,DOGE,monitors,USAID
+8_1,1,Brookings Institution,tracks,government spending
+8_1,1,David Sacks,advises,Donald Trump
+8_1,1,Dara Khosrowshahi,leads,Uber
+8_1,1,Morning Consult,surveys,public opinion
+8_1,1,Ron Johnson,criticizes,Donald Trump's bill

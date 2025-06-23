@@ -1,7 +1,10 @@
+import glob
+import os
 from datetime import datetime, timedelta
 
 from django.shortcuts import redirect
 
+from EntityInsight import settings
 from core.constants import categories, entity_types, time_ranges
 from core.models import NewsArticle, Entity, Relationship
 
@@ -19,10 +22,42 @@ def home(request):
         'time_ranges':time_ranges
     })
 
+from ahocorasick import Automaton
+import time
+
+def build_entity_automaton(entity_file_path):
+    """Pre-process entity file into a fast Aho-Corasick automaton"""
+    automaton = Automaton()
+    with open(entity_file_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            entity = line.strip()
+            if entity:  # skip empty lines
+                automaton.add_word(entity, entity)
+    automaton.make_automaton()
+    return automaton
+
+# Pre-process once (do this at startup)
+entity_files = glob.glob(os.path.join(settings.MEDIA_ROOT, 'entity_extraction', 'pure_entities_*.txt'))
+entity_files.sort(key=lambda x: os.path.basename(x).split('_')[1].split('.')[0], reverse=True)
+file_path = entity_files[0]
+entity_automaton = build_entity_automaton(file_path)
+
+def extract_entities_fast(sentence):
+    """Extract entities from sentence using pre-built automaton"""
+    found_entities = set()
+    for end_index, entity in entity_automaton.iter(sentence):
+        found_entities.add(entity)
+    return sorted(found_entities, key=len, reverse=True)
+
 
 def results(request):
     if request.method == 'POST':
-        keywords = request.POST.get('keywords', '')
+        sentence = request.POST.get('keywords', '')
+        # Usage example:
+        #sentence = "The Federal Reserve announced new regulations for Bank of America and JPMorgan Chase."
+
+        keywords = extract_entities_fast(sentence)[0]
+        print('11', keywords)
         selected_categories = request.POST.getlist('categories', [])
         selected_entity_categories = request.POST.getlist('entity_types', [])
         selected_time_range = request.POST.get('time_ranges', '')

@@ -15,14 +15,14 @@ def find_relevant_nodes(target_types, source):
     num_paths = 5
 
     # Load graph data
-    graph_files = glob.glob(os.path.join(settings.MEDIA_ROOT, 'graph', 'graph_*.pkl'))
+    graph_files = glob.glob(os.path.join(settings.MEDIA_ROOT, 'graph', 'graph_20250602.pkl'))
     graph_files.sort(key=lambda x: os.path.basename(x).split('_')[1].split('.')[0], reverse=True)
     file_path = graph_files[0]
     with open(file_path, "rb") as file:
         graph = pickle.load(file)
 
     # Load entity type data
-    entity_files = glob.glob(os.path.join(settings.MEDIA_ROOT, 'entity_extraction', 'entities_*.json'))
+    entity_files = glob.glob(os.path.join(settings.MEDIA_ROOT, 'entity_extraction', 'entities_20250602.json'))
     entity_files.sort(key=lambda x: os.path.basename(x).split('_')[1].split('.')[0], reverse=True)
     file_path = entity_files[0]
     with open(file_path, "r", encoding="utf-8") as file:

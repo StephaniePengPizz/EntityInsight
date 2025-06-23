@@ -4,23 +4,35 @@
 <div class="module">
     <h2>Web Collection</h2>
     <div style="margin: 20px 0;">
-        <button id="collect-btn" class="button" style="padding: 10px 20px; background-color: #417690; color: white; border: none; cursor: pointer;">
+        <button id="collect-btn" class="button" style="padding: 10px 20px; background-color: #417690; color: white; border: none; cursor: pointer; margin-right: 10px;">
             Run Collection Now
         </button>
-        <div id="result" style="margin-top: 15px;"></div>
+        <button id="process-btn" class="button" style="padding: 10px 20px; background-color: #5f8b3d; color: white; border: none; cursor: pointer;">
+            Process Data (3 Steps)
+        </button>
+
+        <div id="collect-result" style="margin-top: 15px;"></div>
+        <div id="process-result" style="margin-top: 15px;"></div>
+        <div id="process-details" style="margin-top: 15px; background: #f8f8f8; padding: 10px; border-radius: 4px; display: none;">
+            <h4>Processing Details:</h4>
+            <div id="step1-result"></div>
+            <div id="step2-result"></div>
+            <div id="step3-result"></div>
+        </div>
     </div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const btn = document.getElementById('collect-btn');
-    const resultDiv = document.getElementById('result');
-    
-    btn.addEventListener('click', async function() {
-        btn.disabled = true;
-        btn.textContent = 'Collecting...';
-        resultDiv.innerHTML = '<p>Collection in progress...</p>';
-        
+    // Collection button
+    const collectBtn = document.getElementById('collect-btn');
+    const collectResultDiv = document.getElementById('collect-result');
+
+    collectBtn.addEventListener('click', async function() {
+        collectBtn.disabled = true;
+        collectBtn.textContent = 'Collecting...';
+        collectResultDiv.innerHTML = '<p>Collection in progress...</p>';
+
         try {
             const response = await fetch('', {
                 method: 'POST',
@@ -28,20 +40,122 @@ document.addEventListener('DOMContentLoaded', function() {
                     'X-CSRFToken': '{{ csrf_token }}',
                     'Content-Type': 'application/json',
                 },
+                body: JSON.stringify({ action: 'collect' })
             });
-            
+
             const data = await response.json();
-            
+
             if (data.status === 'success') {
-                resultDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
+                collectResultDiv.innerHTML = `
+                    <p style="color: green;">${data.message}</p>
+                    ${data.details ? `<pre style="font-size: 12px;">${JSON.stringify(data.details, null, 2)}</pre>` : ''}
+                `;
             } else {
-                resultDiv.innerHTML = `<p style="color: red;">Error: ${data.message}</p>`;
+                collectResultDiv.innerHTML = `
+                    <p style="color: red;">Error: ${data.message}</p>
+                    ${data.details ? `<pre style="font-size: 12px;">${JSON.stringify(data.details, null, 2)}</pre>` : ''}
+                `;
             }
         } catch (error) {
-            resultDiv.innerHTML = `<p style="color: red;">Network error: ${error.message}</p>`;
+            collectResultDiv.innerHTML = `<p style="color: red;">Network error: ${error.message}</p>`;
         } finally {
-            btn.disabled = false;
-            btn.textContent = 'Run Collection Now';
+            collectBtn.disabled = false;
+            collectBtn.textContent = 'Run Collection Now';
+        }
+    });
+
+    // Process button
+    const processBtn = document.getElementById('process-btn');
+    const processResultDiv = document.getElementById('process-result');
+    const processDetailsDiv = document.getElementById('process-details');
+    const step1Result = document.getElementById('step1-result');
+    const step2Result = document.getElementById('step2-result');
+    const step3Result = document.getElementById('step3-result');
+
+    processBtn.addEventListener('click', async function() {
+        processBtn.disabled = true;
+        processBtn.textContent = 'Processing...';
+        processResultDiv.innerHTML = '<p>Data processing in progress (3 steps)...</p>';
+        processDetailsDiv.style.display = 'block';
+
+        // Reset step results
+        step1Result.innerHTML = '<p>Step 1: Processing articles...</p>';
+        step2Result.innerHTML = '<p>Step 2: Waiting for previous step...</p>';
+        step3Result.innerHTML = '<p>Step 3: Waiting for previous steps...</p>';
+
+        try {
+            const response = await fetch('', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ action: 'process' })
+            });
+
+            const data = await response.json();
+
+            if (data.status === 'success') {
+                processResultDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
+
+                // Update step results
+                if (data.details) {
+                    step1Result.innerHTML = `
+                        <p>Step 1: Process Articles - <span style="color: green;">Success</span></p>
+                        <pre style="font-size: 12px;">${JSON.stringify(data.details.process_articles, null, 2)}</pre>
+                    `;
+
+                    step2Result.innerHTML = `
+                        <p>Step 2: Extract Relations - <span style="color: green;">Success</span></p>
+                        <pre style="font-size: 12px;">${JSON.stringify(data.details.extract_relations, null, 2)}</pre>
+                    `;
+
+                    step3Result.innerHTML = `
+                        <p>Step 3: Load Relations & Construct Graph - <span style="color: green;">Success</span></p>
+                        <pre style="font-size: 12px;">${JSON.stringify(data.details.load_relations, null, 2)}</pre>
+                    `;
+                }
+            } else {
+                processResultDiv.innerHTML = `
+                    <p style="color: red;">Error: ${data.message}</p>
+                    ${data.details ? `<pre style="font-size: 12px;">${JSON.stringify(data.details, null, 2)}</pre>` : ''}
+                `;
+
+                // Update step results with error information
+                if (data.details) {
+                    if (data.details.process_articles) {
+                        const status = data.details.process_articles.status_code === 200 ? 'Success' : 'Failed';
+                        const color = data.details.process_articles.status_code === 200 ? 'green' : 'red';
+                        step1Result.innerHTML = `
+                            <p>Step 1: Process Articles - <span style="color: ${color};">${status}</span></p>
+                            <pre style="font-size: 12px;">${JSON.stringify(data.details.process_articles, null, 2)}</pre>
+                        `;
+                    }
+
+                    if (data.details.extract_relations) {
+                        const status = data.details.extract_relations.status_code === 200 ? 'Success' : 'Failed';
+                        const color = data.details.extract_relations.status_code === 200 ? 'green' : 'red';
+                        step2Result.innerHTML = `
+                            <p>Step 2: Extract Relations - <span style="color: ${color};">${status}</span></p>
+                            <pre style="font-size: 12px;">${JSON.stringify(data.details.extract_relations, null, 2)}</pre>
+                        `;
+                    }
+
+                    if (data.details.load_relations) {
+                        const status = data.details.load_relations.status_code === 200 ? 'Success' : 'Failed';
+                        const color = data.details.load_relations.status_code === 200 ? 'green' : 'red';
+                        step3Result.innerHTML = `
+                            <p>Step 3: Load Relations & Construct Graph - <span style="color: ${color};">${status}</span></p>
+                            <pre style="font-size: 12px;">${JSON.stringify(data.details.load_relations, null, 2)}</pre>
+                        `;
+                    }
+                }
+            }
+        } catch (error) {
+            processResultDiv.innerHTML = `<p style="color: red;">Network error: ${error.message}</p>`;
+        } finally {
+            processBtn.disabled = false;
+            processBtn.textContent = 'Process Data (3 Steps)';
         }
     });
 });

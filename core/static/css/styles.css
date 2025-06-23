@@ -519,3 +519,19 @@ h2 {
     margin-bottom: 0.8rem;
 }
 
+
+.admin-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #4a6fa5;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.admin-link:hover {
+    background-color: #3a5a8a;
+}

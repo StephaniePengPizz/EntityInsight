@@ -7,4 +7,5 @@ markdownify
 openai
 dotenv
 django-markdownify
+ahocorasick
 selenium

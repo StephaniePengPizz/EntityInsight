@@ -1,0 +1,283 @@
+{
+  "metadata": {
+    "generated_at": "2025-06-03T16:57:28.328628",
+    "total_relations": 49
+  },
+  "data": [
+    {
+      "doc_id": "1_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Donald Trump",
+          "imposes tariffs",
+          "Korea National Oil Corp"
+        ],
+        [
+          "Mizuho Securities Asia",
+          "advises on",
+          "Asia credit market"
+        ],
+        [
+          "Barclays",
+          "facilitates financing",
+          "Asia Pacific borrowers"
+        ],
+        [
+          "Bloomberg",
+          "tracks data",
+          "Asia Pacific bond market"
+        ]
+      ]
+    },
+    {
+      "doc_id": "6_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "President Trump",
+          "delays tariffs",
+          "European Union"
+        ],
+        [
+          "Federal Reserve",
+          "debates inflation impact",
+          "President Trump"
+        ],
+        [
+          "Neel Kashkari",
+          "advocates for steady rates",
+          "Federal Reserve"
+        ],
+        [
+          "Nvidia",
+          "develops AI chips",
+          "(implied market)"
+        ],
+        [
+          "Elon Musk",
+          "leads",
+          "Tesla"
+        ],
+        [
+          "Trump Media & Technology Group",
+          "invests in",
+          "Bitcoin"
+        ],
+        [
+          "Salesforce",
+          "acquires",
+          "Informatica"
+        ],
+        [
+          "Bank of Japan",
+          "signals rate hike",
+          "(implied economy)"
+        ]
+      ]
+    },
+    {
+      "doc_id": "5_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Nvidia",
+          "manufactures",
+          "chips"
+        ],
+        [
+          "MicroStrategy",
+          "holds",
+          "Bitcoin"
+        ],
+        [
+          "Joseph Lubin",
+          "co-founded",
+          "Ethereum"
+        ],
+        [
+          "Consensys",
+          "invests in",
+          "SharpLink Gaming"
+        ],
+        [
+          "Joseph Lubin",
+          "joins board of",
+          "SharpLink Gaming"
+        ],
+        [
+          "Curaleaf Holdings",
+          "owns brand",
+          "Select"
+        ],
+        [
+          "Curaleaf Holdings",
+          "owns brand",
+          "Grassroots"
+        ],
+        [
+          "Donald Trump",
+          "owns shares in",
+          "DJT"
+        ],
+        [
+          "Securities and Exchange Commission",
+          "regulates",
+          "DJT"
+        ],
+        [
+          "Salesforce",
+          "acquires",
+          "Informatica"
+        ]
+      ]
+    },
+    {
+      "doc_id": "7_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "China",
+          "accuses",
+          "US"
+        ],
+        [
+          "US",
+          "imposes tariffs",
+          "China"
+        ],
+        [
+          "President Trump",
+          "leads",
+          "US"
+        ],
+        [
+          "Xi Jinping",
+          "leads",
+          "China"
+        ],
+        [
+          "Chinese Ministry of Commerce",
+          "represents",
+          "China"
+        ],
+        [
+          "EU",
+          "prepares countermeasures",
+          "US"
+        ],
+        [
+          "Ursula von der Leyen",
+          "leads",
+          "European Commission"
+        ],
+        [
+          "Salzgitter",
+          "affected by tariffs",
+          "US"
+        ],
+        [
+          "Gunnar Groebler",
+          "CEO of",
+          "Salzgitter"
+        ],
+        [
+          "Gap",
+          "impacted by tariffs",
+          "US"
+        ],
+        [
+          "Richard Dickson",
+          "CEO of",
+          "Gap"
+        ],
+        [
+          "Elon Musk",
+          "CEO of",
+          "Tesla"
+        ],
+        [
+          "US",
+          "restricts tech exports",
+          "Huawei"
+        ],
+        [
+          "US",
+          "restricts tech exports",
+          "Yangtze Memory Technologies"
+        ]
+      ]
+    },
+    {
+      "doc_id": "8_1",
+      "para_id": 1,
+      "relations": [
+        [
+          "Elon Musk",
+          "opposes",
+          "Donald Trump"
+        ],
+        [
+          "Elon Musk",
+          "leads",
+          "DOGE"
+        ],
+        [
+          "Donald Trump",
+          "proposes",
+          "big beautiful bill"
+        ],
+        [
+          "Chamath Palihapitiya",
+          "criticizes",
+          "big beautiful bill"
+        ],
+        [
+          "Jason Calacanis",
+          "criticizes",
+          "big beautiful bill"
+        ],
+        [
+          "David Sacks",
+          "defends",
+          "big beautiful bill"
+        ],
+        [
+          "David Sacks",
+          "works for",
+          "White House"
+        ],
+        [
+          "Dara Khosrowshahi",
+          "leads",
+          "Uber"
+        ],
+        [
+          "Uber",
+          "supports",
+          "no tax on tips plans"
+        ],
+        [
+          "Sen. Ron Johnson",
+          "opposes",
+          "big beautiful bill"
+        ],
+        [
+          "Brookings Institution",
+          "tracks",
+          "government spending"
+        ],
+        [
+          "DOGE",
+          "affects",
+          "USAID"
+        ],
+        [
+          "Silicon Valley",
+          "opposes",
+          "bill"
+        ]
+      ]
+    }
+  ]
+}
