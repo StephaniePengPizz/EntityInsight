@@ -41,6 +41,8 @@ class WebPageCollectorView(View):
             return self.collect_root_page()
         elif "collect" in request.path:
             return self.collect_news_pages()
+        elif "fail" in request.path:
+            return self.collext_fail_pages()
         return HttpResponseNotFound("Endpoint not found")
 
     def collect_root_page(self):
@@ -69,7 +71,33 @@ class WebPageCollectorView(View):
                 status=500
             )
 
-    def collect_news_pages(self):
+    def collect_fail_pages(self):
+        try:
+            fail_urls = []
+            with open("fails.txt", "r") as file:
+                content = file.read().strip()
+                fail_urls = eval(content)
+            results = []
+            still_fail = []
+            for url in fail_urls:  # Limit to 5 for demo purposes
+                try:
+                    article_data = self.process_news_page(url)
+                    if article_data:
+                        web_page = self.save_to_database(article_data)
+                        results.append(f"Collected: {web_page.title}")
+                except Exception as e:
+                    still_fail.append(url)
+                    results.append(f"Error processing {url}: {str(e)}")
+            with open('fails.txt', "w") as file:
+                file.write(str(still_fail))
+            return HttpResponse("\n".join(results), content_type="text/plain")
+        except Exception as e:
+            return HttpResponse(
+                f"Error in collection process: {str(e)}",
+                status=500
+            )
+
+    def collect_news_pages(self, page_start=None, page_num=None):
         """Collect and process individual news pages"""
         try:
             # First get the article links from the root page
@@ -78,17 +106,28 @@ class WebPageCollectorView(View):
                 return root_response
 
             article_urls = root_response.content.decode().split("\n")
+            chosen_urls = []
+            if page_start is None:
+                chosen_urls = article_urls
+            else:
+                chosen_urls = article_urls[page_start:page_start + page_num]
 
             # Process each article URL
             results = []
-            for url in article_urls:  # Limit to 5 for demo purposes
+            with open("fails.txt", "r") as file:
+                content = file.read().strip()
+                fails = eval(content)
+            for url in chosen_urls:  # Limit to 5 for demo purposes
                 try:
                     article_data = self.process_news_page(url)
                     if article_data:
                         web_page = self.save_to_database(article_data)
                         results.append(f"Collected: {web_page.title}")
                 except Exception as e:
+                    fails.append(url)
                     results.append(f"Error processing {url}: {str(e)}")
+            with open('fails.txt', "w") as file:
+                file.write(str(fails))
 
             return HttpResponse("\n".join(results), content_type="text/plain")
 
