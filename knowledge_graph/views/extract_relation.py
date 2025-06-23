@@ -15,6 +15,8 @@ from django.views import View
 from django.conf import settings
 from dotenv import load_dotenv
 
+from core.models import NewsArticle
+
 load_dotenv()
 API_KEY = os.getenv('DEEPSEEK_API_KEY')
 
@@ -52,8 +54,7 @@ class EntityExtractionView(View):
             paraid = [item['para_id'] for item in processed_data['data']]
             content_list = [item['content'] for item in processed_data['data']]
 
-            # 演示限制（生产环境应移除）
-            demo_limit = 5
+            demo_limit = 60
             if len(content_list) > demo_limit:
                 content_list = content_list[:demo_limit]
                 docid = docid[:demo_limit]
@@ -101,10 +102,22 @@ class EntityExtractionView(View):
             ]
 
             for future in tqdm(as_completed(futures), total=len(futures)):
-                d, p, entities, rels = future.result()
+                d, p, entities, rels, category = future.result()
                 entity_types.append({'doc_id': d, 'para_id': p, 'entities': entities})
-                relations.append({'doc_id': d, 'para_id': p, 'relations': rels})
 
+                # Add relations with their original paragraph categories
+                new_content = []
+                for item in rels:
+                    new_content.append(item['content'])
+                relations.append({'doc_id': d, 'para_id': p, 'content': new_content, 'category': category})
+
+        # Determine dominant category per document
+        for doc_id, votes in self.category_votes.items():
+            dominant_category = max(votes.items(), key=lambda x: x[1])[0]
+            article = NewsArticle.objects.get(id=int(doc_id[0]))  # Assuming doc_id matches article ID
+            article.category = dominant_category
+            print(dominant_category)
+            article.save()
         return entity_types, relations
 
     def _save_results(self, entity_types, relations, timestamp):
@@ -272,48 +285,37 @@ class EntityExtractionView(View):
 
         raise Exception("API request failed after multiple retries")
 
-    def get_entity_type(self, query):
-        query_entity_tup = []
-        try:
-            res = self.get_query_understand(query)
-            for term in res['term']:
-                should_term = []
-                main_word = ''
-                for token in term:
-                    if token['type']:
-                        if 'stock' in token['type'] or 'concept' in token['type'] or 'product' in token[
-                            'type'] or 'industry' in token['type']:
-                            if 'synonym' in token and token['synonym']: continue
-                            query_entity_tup.append((query, token['word'], token['type']))
-            return query_entity_tup
-        except:
-            return []
-
-    def get_types(self, query):
-        entity_types = []
-        for item in query:
-            for entity_type in item['name']:
-                entity_types.append(entity_type)
-        return entity_types
-
-    def fetch_res_ER_new_DEEPSEEK(self, docid, paraid, query):
-        response = self.get_entity_type(query)
-        entities_type = self.get_types(response)
-
+    def fetch_res_ER_new_DEEPSEEK(self, doc_id, para_id, query):
         prompt = """
         Role: Financial Data Annotation Specialist
-        Objective: Extract financial entities from articles and construct entity-relationship triples, while ignoring numerical entities. Explain the reasoning process.
+        Objective: 
+        1. Classify the article into one primary category
+        2. Extract financial entities and construct entity-relationship triples
 
-        Constraints:
-        - Entity types must be limited to: Regulator, Bank, Company, Product, Government, Rating Agency, Financial Infrastructure, Key People
-        - Relationships must be meaningful - avoid pairing entities without clear relationships
-        - Avoid cases where entities are unknown
+        Article Categories (choose one primary category):
+        - payments
+        - markets 
+        - retail
+        - wholesale
+        - wealth
+        - regulation
+        - crime
+        - crypto
+        - security
+        - startups
+        - sustainable
+        - ai
+
+        Entity Type Constraints:
+        - Regulator, Bank, Company, Product, Government, Rating Agency, Financial Infrastructure, Key People
 
         Output Format:
-        - Entities in format: 「{entity1:EntityType1}」
-        - Relationship triples in format: 「<entity1, relationship, entity2>」
+        - Start with: 「Category: [selected_category]」
+        - Entities: 「{entity1:EntityType1}」
+        - Relationship triples: 「<entity1, relationship, entity2>」
 
         Example:
+        Category: [payments]
         Entity: {Google:Company}
         Entity: {Android:Product}
         Triple: <Google, develops, Android>
@@ -323,15 +325,25 @@ class EntityExtractionView(View):
 
         Your output is...
         """
-        query = prompt % query #, entities_type)
+        query = prompt % query
         res = self.query_from_models(query, "DEEPSEEK")
 
+        # Extract category
+        category_match = re.search(r'\[(.*?)\]', res)
+        category = category_match.group(1).strip().lower() if category_match else 'unknown'
+        #print(res, category)
+        # Count category votes per document
+        if doc_id not in self.category_votes:
+            self.category_votes[doc_id] = {}
+        self.category_votes[doc_id][category] = self.category_votes[doc_id].get(category, 0) + 1
+        # Extract entities and relations
         entity_pattern = r'{(.*?)[:] ?(.*?)}'
         triplet_pattern = r'<(.*?)[,，] ?(.*?)[,，] ?(.*?)>'
         kvs = re.findall(entity_pattern, res, re.DOTALL)
         kvs2 = re.findall(triplet_pattern, res, re.DOTALL)
 
-        return docid, paraid, kvs, kvs2
+        raw_relations = [{'doc_id': doc_id, 'para_id': para_id, 'content': list(k), 'category': category} for k in kvs2]
 
-# 其中可能的實體類型的參考是：
-#         %s
+        cleaned_relations, cleaned_entities = self.clean_relations(raw_relations)
+
+        return doc_id, para_id, kvs, cleaned_relations, category

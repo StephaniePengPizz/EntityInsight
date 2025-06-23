@@ -276,30 +276,6 @@ class CleanEntityExtractionView(View):
 
         raise Exception("API request failed after multiple retries")
 
-    def get_entity_type(self, query):
-        query_entity_tup = []
-        try:
-            res = self.get_query_understand(query)
-            for term in res['term']:
-                should_term = []
-                main_word = ''
-                for token in term:
-                    if token['type']:
-                        if 'stock' in token['type'] or 'concept' in token['type'] or 'product' in token[
-                            'type'] or 'industry' in token['type']:
-                            if 'synonym' in token and token['synonym']: continue
-                            query_entity_tup.append((query, token['word'], token['type']))
-            return query_entity_tup
-        except:
-            return []
-
-    def get_types(self, query):
-        entity_types = []
-        for item in query:
-            for entity_type in item['name']:
-                entity_types.append(entity_type)
-        return entity_types
-
     def clean_relations(self, relations):
         pattern = r'\{(\w+[:：]\w+)\}'
         pattern2 = r'三元组'
@@ -515,11 +491,6 @@ class CleanEntityExtractionView(View):
         return relation_clean_list, new_entities_from_relations
 
     def fetch_res_ER_new_DEEPSEEK(self, doc_id, para_id, query):
-        # First get entity types
-        #response = self.get_entity_type(query)
-        #entities_type = self.get_types(response)
-
-        # Enhanced prompt with category classification
         prompt = """
         Role: Financial Data Annotation Specialist
         Objective: 

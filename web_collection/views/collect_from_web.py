@@ -42,7 +42,7 @@ class WebPageCollectorView(View):
         elif "collect" in request.path:
             return self.collect_news_pages()
         elif "fail" in request.path:
-            return self.collext_fail_pages()
+            return self.collect_fail_pages()
         return HttpResponseNotFound("Endpoint not found")
 
     def collect_root_page(self):
