@@ -144,7 +144,7 @@ def results(request):
         # Generate entity graph
         entity_type = selected_entity_categories[0] if selected_entity_categories else None
         result = find_relevant_nodes([entity_type], keywords) if entity_type else None
-        result2 = high_weight_paths_between_two_nodes(keywords, "US tariffs", 5, 5)
+        result2 = high_weight_paths_between_two_nodes(keywords, "US", 5, 5)
         print("result", result)
         print("result2", result2)
         graph_description = generate_mermaid_graph(result) if result else None
