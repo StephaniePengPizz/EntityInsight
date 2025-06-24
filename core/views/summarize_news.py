@@ -1,7 +1,3 @@
-from django.shortcuts import render
-
-from typing import List
-
 from EntityInsight import settings
 from core.models import NewsArticle
 from openai import OpenAI
@@ -49,6 +45,7 @@ Please provide a 3-paragraph professional summary about keywords {keywords} that
 3. Notes the key players or institutions involved
 4. Provides context about potential market impacts
 5. Uses concise, professional language suitable for executives
+6. After every sentence, mark referenced articles using index (e.g. [1] [2]) if there is any.
 
 Structure your response with:
 - Brief introduction
@@ -67,6 +64,16 @@ Structure your response with:
             top_p=0.9,
             max_completion_tokens=1000,
         )
-        return response.choices[0].message.content
+        content = response.choices[0].message.content
+        for index in range(len(articles)):
+            content = content.replace(
+                f'[{index + 1}]',
+                f'<div class="tooltip">' +
+                    f'<a href="{articles[index]['url']}">[{index + 1}]</a>' +
+                    f'<span class="tooltiptext">{articles[index]['title']}</span>' +
+                '</div>',
+            )
+        
+        return content
     except Exception as e:
         return f"⚠️ Summary generation failed. Error: {str(e)}"

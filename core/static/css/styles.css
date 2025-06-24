@@ -488,10 +488,17 @@ h2 {
 }
 
 .category-divider {
+<<<<<<< HEAD
         height: 1px;
         background: linear-gradient(to right, transparent, #ddd, transparent);
         margin: 1.5rem 0;
     }
+=======
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ddd, transparent);
+    margin: 1.5rem 0;
+}
+>>>>>>> 337d49a (feat: display reference source)
 
 .summary-divider {
     border: none;
@@ -534,4 +541,31 @@ h2 {
 
 .admin-link:hover {
     background-color: #3a5a8a;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    width: 240px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -120px;
+    visibility: visible;
 }
