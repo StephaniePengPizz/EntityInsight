@@ -57,7 +57,7 @@ def results(request):
         #sentence = "The Federal Reserve announced new regulations for Bank of America and JPMorgan Chase."
 
         keywords = extract_entities_fast(sentence)[0]
-        print('11', keywords)
+        print('keywords', keywords)
         selected_categories = request.POST.getlist('categories', [])
         selected_entity_categories = request.POST.getlist('entity_types', [])
         selected_time_range = request.POST.get('time_ranges', '')
@@ -100,7 +100,7 @@ def results(request):
                 })
 
         llm_summaries = {}
-        print(selected_categories)
+        print("selected_categories", selected_categories)
         def generate_single_summary(category, keywords, news_items):
             if news_items:
                 return summarize_for_category(category, keywords, news_items)
@@ -144,9 +144,9 @@ def results(request):
         # Generate entity graph
         entity_type = selected_entity_categories[0] if selected_entity_categories else None
         result = find_relevant_nodes([entity_type], keywords) if entity_type else None
-        result2 = high_weight_paths_between_two_nodes(keywords, "Hopper", 5, 5)
-        print(result)
-        print(result2)
+        result2 = high_weight_paths_between_two_nodes(keywords, "US tariffs", 5, 5)
+        print("result", result)
+        print("result2", result2)
         graph_description = generate_mermaid_graph(result) if result else None
         print(llm_summaries)
 
