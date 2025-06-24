@@ -2,32 +2,28 @@ import glob
 import json
 import os
 import pickle
-from datetime import datetime
-
+from tqdm import tqdm
 import networkx as nx
-from django.shortcuts import render
 
 from EntityInsight import settings
+# Load graph data
+graph_files = glob.glob(os.path.join(settings.MEDIA_ROOT, 'graph', 'graph_20250602.pkl'))
+graph_files.sort(key=lambda x: os.path.basename(x).split('_')[1].split('.')[0], reverse=True)
+file_path = graph_files[0]
+with open(file_path, "rb") as file:
+    graph = pickle.load(file)
 
+# Load entity type data
+entity_files = glob.glob(os.path.join(settings.MEDIA_ROOT, 'entity_extraction', 'entities_20250602.json'))
+entity_files.sort(key=lambda x: os.path.basename(x).split('_')[1].split('.')[0], reverse=True)
+file_path = entity_files[0]
+with open(file_path, "r", encoding="utf-8") as file:
+    json_file = json.load(file)
+current_type_dict_word_list = json_file
 
 def find_relevant_nodes(target_types, source):
     cutoff = 5
     num_paths = 5
-
-    # Load graph data
-    graph_files = glob.glob(os.path.join(settings.MEDIA_ROOT, 'graph', 'graph_20250602.pkl'))
-    graph_files.sort(key=lambda x: os.path.basename(x).split('_')[1].split('.')[0], reverse=True)
-    file_path = graph_files[0]
-    with open(file_path, "rb") as file:
-        graph = pickle.load(file)
-
-    # Load entity type data
-    entity_files = glob.glob(os.path.join(settings.MEDIA_ROOT, 'entity_extraction', 'entities_20250602.json'))
-    entity_files.sort(key=lambda x: os.path.basename(x).split('_')[1].split('.')[0], reverse=True)
-    file_path = entity_files[0]
-    with open(file_path, "r", encoding="utf-8") as file:
-        json_file = json.load(file)
-    current_type_dict_word_list = json_file
     # Initialize result dictionary
     result = {
         "source": source,
@@ -87,5 +83,56 @@ def find_relevant_nodes(target_types, source):
 
     result['num_paths'] = min(num_paths, len(paths_with_weights))
     return result
-    # Render the HTML template with the result data
-    # return render(request, 'path_results.html', {"result": result})
+
+
+def analyze_distribution(source, target, num_paths, cutoff):
+    # 使用 all_simple_paths 函数找到所有简单路径
+    all_paths = nx.all_simple_paths(graph, source=source, target=target, cutoff=cutoff)
+    threshold_list = []
+    for path in tqdm(all_paths):
+        weight_list = [(graph.get_edge_data(path[i], path[i + 1])['weight']) ** (1 / 3) for i in range(len(path) - 1)]
+        threshold_list.append(weight_list)
+    my_list = []
+    for item in threshold_list:
+        for item2 in item:
+            my_list.append(item2)
+
+    sorted_lst = sorted(my_list)
+    n = len(sorted_lst)
+    if n % 2 == 0:
+        median_value = (sorted_lst[n // 2 - 1] + sorted_lst[n // 2]) / 2
+    else:
+        median_value = sorted_lst[n // 2]
+    print("Median:", median_value)
+    return median_value
+
+
+def high_weight_paths_between_two_nodes(source, target, num_paths, cutoff):
+    median_value = analyze_distribution(source, target, num_paths, cutoff)
+    # 使用 all_simple_paths 函数找到所有简单路径
+    all_paths = nx.all_simple_paths(graph, source=source, target=target, cutoff=cutoff)
+
+    paths_with_weights = []
+    for path in tqdm(all_paths):
+        flag = True
+        # 计算路径上所有边的权重之和
+        weight_list = [(graph.get_edge_data(path[i], path[i + 1])['weight']) ** (1 / 3) for i in range(len(path) - 1)]
+        total_weight = sum(weight_list)
+        relations = [graph.get_edge_data(path[i], path[i + 1])['relation'] for i in range(len(path) - 1)]
+        average_weight = total_weight / len(path)
+        for w in weight_list:
+            if w < median_value:
+                flag = False
+        if flag == True:
+            paths_with_weights.append((path, relations, average_weight, weight_list))
+
+    # 根据路径权重进行排序
+    paths_with_weights.sort(key=lambda x: x[2], reverse=True)
+
+    # 输出权重较高的路径
+    for i, (path, relations, weight, weight_list) in enumerate(paths_with_weights[:num_paths]):
+        for j in range(len(path) - 1):
+            temp = weight_list[j]
+            print(f"{path[j]}-->[{relations[j]}{temp}]-->", end="")
+        print(path[len(path) - 1], "平均权重", weight)
+    return paths_with_weights

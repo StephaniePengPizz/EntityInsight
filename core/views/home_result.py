@@ -11,7 +11,7 @@ from core.models import NewsArticle, Entity, Relationship
 from django.shortcuts import render
 
 from core.views.summarize_news import summarize_for_category
-from knowledge_graph.views.show_graph_detail import find_relevant_nodes
+from knowledge_graph.views.show_graph_detail import find_relevant_nodes, high_weight_paths_between_two_nodes
 import concurrent
 from concurrent.futures import ThreadPoolExecutor
 
@@ -144,6 +144,9 @@ def results(request):
         # Generate entity graph
         entity_type = selected_entity_categories[0] if selected_entity_categories else None
         result = find_relevant_nodes([entity_type], keywords) if entity_type else None
+        result2 = high_weight_paths_between_two_nodes(keywords, "Hopper", 5, 5)
+        print(result)
+        print(result2)
         graph_description = generate_mermaid_graph(result) if result else None
         print(llm_summaries)
 
