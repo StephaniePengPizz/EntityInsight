@@ -88,8 +88,11 @@ class EntityExtractionView(View):
         with open(filepath, 'r', encoding='utf-8') as f:
             return json.load(f)
 
-    def _process_entities_relations(self, docid, paraid, content_list):
-        """使用线程池处理实体和关系"""
+    def _process_entities_relations(self, doc_id, para_id, content_list):
+        doc_text_dict = {}
+        for d, p, c in zip(doc_id, para_id, content_list):
+            doc_text_dict.setdefault(d, []).append(c)
+
         entity_types = []
         relations = []
 
@@ -97,27 +100,25 @@ class EntityExtractionView(View):
             futures = [
                 executor.submit(
                     self.fetch_res_ER_new_DEEPSEEK,
-                    d, p, q
-                ) for d, p, q in zip(docid, paraid, content_list)
+                    d, 0, "\n".join(paras)
+                )
+                for d, paras in doc_text_dict.items()
             ]
 
             for future in tqdm(as_completed(futures), total=len(futures)):
                 d, p, entities, rels, category = future.result()
                 entity_types.append({'doc_id': d, 'para_id': p, 'entities': entities})
 
-                # Add relations with their original paragraph categories
-                new_content = []
-                for item in rels:
-                    new_content.append(item['content'])
+                new_content = [item['content'] for item in rels]
                 relations.append({'doc_id': d, 'para_id': p, 'content': new_content, 'category': category})
 
-        # Determine dominant category per document
-        for doc_id, votes in self.category_votes.items():
-            dominant_category = max(votes.items(), key=lambda x: x[1])[0]
-            article = NewsArticle.objects.get(id=int(doc_id[0]))  # Assuming doc_id matches article ID
-            article.category = dominant_category
-            print(dominant_category)
-            article.save()
+                try:
+                    article = NewsArticle.objects.get(id=int(d))
+                    article.category = category
+                    article.save()
+                except NewsArticle.DoesNotExist:
+                    print(f"⚠️ NewsArticle {d} not found")
+
         return entity_types, relations
 
     def _save_results(self, entity_types, relations, timestamp):
@@ -288,33 +289,41 @@ class EntityExtractionView(View):
     def fetch_res_ER_new_DEEPSEEK(self, doc_id, para_id, query):
         prompt = """
         Role: Financial Data Annotation Specialist
-        Objective: 
-        1. Classify the article into one primary category
-        2. Extract financial entities and construct entity-relationship triples
+        Objective:
+        (1) Classify the NEWS ARTICLE into ONE primary category only
+        (2) Extract financial entities and construct subject-predicate-object triples
 
-        Article Categories (choose one primary category):
-        - payments
-        - markets 
-        - retail
-        - wholesale
-        - wealth
-        - regulation
-        - crime
-        - crypto
-        - security
-        - startups
-        - sustainable
-        - ai
+        ── Available Article Categories (choose one primary category) ──
+        • payments
+        • markets  ← For articles whose MAIN focus is market dynamics,
+                     price movements, trading volume, index performance,
+                     or broad market trends. Merely mentioning prices once
+                     does NOT qualify.
+        • retail
+        • wholesale
+        • wealth
+        • regulation
+        • crime
+        • crypto
+        • security
+        • startups
+        • sustainable
+        • ai
 
         Entity Type Constraints:
-        - Regulator, Bank, Company, Product, Government, Rating Agency, Financial Infrastructure, Key People
+        Regulator, Bank, Company, Product, Government, Rating Agency, Financial Infrastructure, Key People
 
-        Output Format:
+        Output Format (exactly as shown):
         - Start with: 「Category: [selected_category]」
         - Entities: 「{entity1:EntityType1}」
         - Relationship triples: 「<entity1, relationship, entity2>」
 
-        Example:
+        Example
+        -------
+        Category: [markets]
+        Entity: {S&P 500:Index}
+        Triple: <S&P 500, rose, 0.8%>
+
         Category: [payments]
         Entity: {Google:Company}
         Entity: {Android:Product}
@@ -328,22 +337,20 @@ class EntityExtractionView(View):
         query = prompt % query
         res = self.query_from_models(query, "DEEPSEEK")
 
-        # Extract category
+        # ------- 提取分类 -------
         category_match = re.search(r'\[(.*?)\]', res)
         category = category_match.group(1).strip().lower() if category_match else 'unknown'
-        #print(res, category)
-        # Count category votes per document
-        if doc_id not in self.category_votes:
-            self.category_votes[doc_id] = {}
-        self.category_votes[doc_id][category] = self.category_votes[doc_id].get(category, 0) + 1
-        # Extract entities and relations
+
+        # ------- 提取实体 / 三元组 -------
         entity_pattern = r'{(.*?)[:] ?(.*?)}'
         triplet_pattern = r'<(.*?)[,，] ?(.*?)[,，] ?(.*?)>'
         kvs = re.findall(entity_pattern, res, re.DOTALL)
         kvs2 = re.findall(triplet_pattern, res, re.DOTALL)
 
-        raw_relations = [{'doc_id': doc_id, 'para_id': para_id, 'content': list(k), 'category': category} for k in kvs2]
-
-        cleaned_relations, cleaned_entities = self.clean_relations(raw_relations)
+        raw_relations = [
+            {'doc_id': doc_id, 'para_id': para_id, 'content': list(k), 'category': category}
+            for k in kvs2
+        ]
+        cleaned_relations, _ = self.clean_relations(raw_relations)
 
         return doc_id, para_id, kvs, cleaned_relations, category
