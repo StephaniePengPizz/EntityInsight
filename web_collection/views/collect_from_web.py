@@ -39,10 +39,10 @@ class WebPageCollectorView(View):
         """Handle GET requests to collect and process web pages"""
         if "rootpage" in request.path:
             return self.collect_root_page()
-        elif "collect" in request.path:
-            return self.collect_news_pages()
         elif "fail" in request.path:
             return self.collext_fail_pages()
+        elif "collect" in request.path:
+            return self.collect_news_pages()
         return HttpResponseNotFound("Endpoint not found")
 
     def collect_root_page(self):
@@ -74,9 +74,11 @@ class WebPageCollectorView(View):
     def collext_fail_pages(self):
         try:
             fail_urls = []
-            with open("fails.txt", "r") as file:
+            with open("fails.txt", "r+") as file:
                 content = file.read().strip()
                 fail_urls = eval(content)
+            with open('fails.txt', "w") as file:
+                file.write("[]")
             results = []
             still_fail = []
             for url in fail_urls:  # Limit to 5 for demo purposes
@@ -129,7 +131,7 @@ class WebPageCollectorView(View):
                     results.append(f"Error processing {url}: {str(e)}")
             with open('fails.txt', "w") as file:
                 file.write(str(fails))
-
+            #results="12"
             return HttpResponse("\n".join(results), content_type="text/plain")
 
         except Exception as e:

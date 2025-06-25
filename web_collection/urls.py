@@ -23,4 +23,5 @@ from web_collection.views.collect_from_web import WebPageCollectorView
 urlpatterns = [
     path('collect/', WebPageCollectorView.as_view(), name='collect-webpages'),
     path('rootpage/', WebPageCollectorView.as_view(), name='root-page'),
+    path('fail/', WebPageCollectorView.as_view(), name='fail-page'),
 ]
