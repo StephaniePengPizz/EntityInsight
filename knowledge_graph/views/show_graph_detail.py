@@ -31,7 +31,7 @@ def find_relevant_nodes(target_types, source):
         "cutoff": cutoff,
         "paths": []
     }
-    #print(current_type_dict_word_list)
+    print(current_type_dict_word_list)
     paths_with_weights = []
     for target_type in target_types:
         paths_with_weights = []
@@ -120,9 +120,9 @@ def high_weight_paths_between_two_nodes(source, target, num_paths, cutoff):
         total_weight = sum(weight_list)
         relations = [graph.get_edge_data(path[i], path[i + 1])['relation'] for i in range(len(path) - 1)]
         average_weight = total_weight / len(path)
-        #for w in weight_list:
-        #    if w < median_value:
-        #        flag = False
+        for w in weight_list:
+            if w < median_value:
+                flag = False
         if flag == True:
             paths_with_weights.append((path, relations, average_weight, weight_list))
 
