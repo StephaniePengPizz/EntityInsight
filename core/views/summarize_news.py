@@ -20,6 +20,7 @@ def summarize_for_category(category, keywords, articles) -> str:
         - source: str
         - date: str
         - content: str (optional)
+        - url: str
 
     Returns
     -------
@@ -30,6 +31,7 @@ def summarize_for_category(category, keywords, articles) -> str:
     articles_text = "\n\n".join(
         f"Article {i + 1}: {article['title']}\n"
         f"Source: {article['source']}\n"
+        f"URL: {article['url']}\n"
         f"Date: {article['date']}\n"
         f"{article.get('content', '')}..."
         for i, article in enumerate(articles)
