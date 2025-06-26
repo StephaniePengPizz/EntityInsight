@@ -71,8 +71,8 @@ Structure your response with:
             content = content.replace(
                 f'[{index + 1}]',
                 f'<div class="tooltip">' +
-                    f'<a href="{articles[index]['url']}">[{index + 1}]</a>' +
-                    f'<span class="tooltiptext">{articles[index]['title']}</span>' +
+                f'<a href="{articles[index]["url"]}">[{index + 1}]</a>' +
+                f'<span class="tooltiptext">{articles[index]["title"]}</span>' +
                 '</div>',
             )
         

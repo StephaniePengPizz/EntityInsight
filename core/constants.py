@@ -26,12 +26,13 @@ entity_types = [
 entity_type = ['Regulator', 'Bank', 'Company', 'Government', 'Rating Agency', 'Financial Infrastructure', 'Key People']
 
 time_ranges = [
+    {'name': '24 hours', 'slug': '1d'},
     {'name': 'one week', 'slug': '7d'},
     {'name': 'two weeks', 'slug': '14d'},
-    {'name': 'one month', 'slug': '1m'},
-    {'name': 'three month', 'slug': '3m'},
-    {'name': 'half year', 'slug': '6m'},
-    {'name': 'one year', 'slug': '1y'},
-    {'name': 'two years', 'slug': '2y'},
-    {'name': 'five years', 'slug': '5y'},
+    {'name': 'one month', 'slug': '30d'},
+    {'name': 'three months', 'slug': '90d'},
+    {'name': 'half year', 'slug': '180d'},
+    {'name': 'one year', 'slug': '365d'},
+    {'name': 'two years', 'slug': '730d'},
+    {'name': 'five years', 'slug': '1825d'},
 ]

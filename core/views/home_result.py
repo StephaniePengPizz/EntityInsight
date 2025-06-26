@@ -19,7 +19,8 @@ def home(request):
     return render(request, 'home.html', {
         'categories': categories,
         'entity_types': entity_types,
-        'time_ranges':time_ranges
+        'time_ranges':time_ranges,
+        'entity_count': ['one', 'two']
     })
 
 from ahocorasick import Automaton
@@ -56,12 +57,13 @@ def results(request):
         # Usage example:
         #sentence = "The Federal Reserve announced new regulations for Bank of America and JPMorgan Chase."
 
-        keywords = extract_entities_fast(sentence)[0]
+        keywords = extract_entities_fast(sentence)
         print('keywords', keywords)
         selected_categories = request.POST.getlist('categories', [])
         selected_entity_categories = request.POST.getlist('entity_types', [])
         selected_time_range = request.POST.get('time_ranges', '')
-
+        selected_entity_count = request.POST.get('entity_count', 'one')  # 默认为一个实体
+        result2 = high_weight_paths_between_two_nodes(keywords[0], 'AI chips', 5, 5)
         # Filter by selected categories if any
         if selected_categories:
             articles = NewsArticle.objects.filter(category__in=selected_categories)
@@ -70,15 +72,21 @@ def results(request):
 
         # Apply time range filter if selected
         if selected_time_range:
-            time_ranges = {
-                'last_24_hours': datetime.now() - timedelta(days=1),
-                'last_week': datetime.now() - timedelta(weeks=1),
-                'last_month': datetime.now() - timedelta(days=30),
+            time_range_map = {
+                '1d': timedelta(days=1),
+                '7d': timedelta(weeks=1),
+                '14d': timedelta(weeks=2),
+                '30d': timedelta(days=30),
+                '90d': timedelta(days=90),
+                '180d': timedelta(days=180),
+                '365d': timedelta(days=365),
+                '730d': timedelta(days=730),
+                '1825d': timedelta(days=1825),
             }
-
-            if selected_time_range in time_ranges:
+            
+            if selected_time_range in time_range_map:
                 articles = articles.filter(
-                    web_page__publication_time__gte=time_ranges[selected_time_range]
+                    web_page__publication_time__gte=datetime.now() - time_range_map[selected_time_range]
                 )
 
         # Organize articles by category
@@ -143,8 +151,8 @@ def results(request):
 
         # Generate entity graph
         entity_type = selected_entity_categories[0] if selected_entity_categories else None
-        result = find_relevant_nodes([entity_type], keywords) if entity_type else None
-        result2 = high_weight_paths_between_two_nodes(keywords, "US tariffs", 5, 5)
+        result = find_relevant_nodes([entity_type], keywords[0]) if entity_type else None
+        
         print("result", result)
         print("result2", result2)
         graph_description = generate_mermaid_graph(result) if result else None
@@ -159,6 +167,7 @@ def results(request):
             'result': result,
             'graph_description': graph_description,
             'time_range': selected_time_range,
+            'entity_count': selected_entity_count
         }
 
         return render(request, 'results.html', context)
