@@ -70,15 +70,21 @@ def results(request):
 
         # Apply time range filter if selected
         if selected_time_range:
-            time_ranges = {
-                'last_24_hours': datetime.now() - timedelta(days=1),
-                'last_week': datetime.now() - timedelta(weeks=1),
-                'last_month': datetime.now() - timedelta(days=30),
+            time_range_map = {
+                '1d': timedelta(days=1),
+                '7d': timedelta(weeks=1),
+                '14d': timedelta(weeks=2),
+                '30d': timedelta(days=30),
+                '90d': timedelta(days=90),
+                '180d': timedelta(days=180),
+                '365d': timedelta(days=365),
+                '730d': timedelta(days=730),
+                '1825d': timedelta(days=1825),
             }
-
-            if selected_time_range in time_ranges:
+            
+            if selected_time_range in time_range_map:
                 articles = articles.filter(
-                    web_page__publication_time__gte=time_ranges[selected_time_range]
+                    web_page__publication_time__gte=datetime.now() - time_range_map[selected_time_range]
                 )
 
         # Organize articles by category
