@@ -89,9 +89,11 @@
         {% endif %}
     </div>
 
-    <!-- 左下: 路径分析 -->
-    <div class="path-section">
-        <h2>Path Analysis</h2>
+    <!-- 左下: 单个实体路径分析 -->
+    <div id="pathAnalysisContainer" class="path-analysis-container">
+        <!-- 单个实体路径分析 (默认显示) -->
+        <div id="oneEntityContent" class="path-section">
+            <h2>Path Analysis</h2>
             <div class="path-meta">
                 <p><strong>Source:</strong> {{ result.source }}</p>
                 <p><strong>Target Types:</strong> {{ result.target_types|join:", " }}</p>
@@ -116,6 +118,48 @@
                     <p><strong>Weights:</strong> {{ path.weights|join:", " }}</p>
                 </div>
             {% endfor %}
+        </div>
+
+        <!-- 两个实体路径分析 (初始隐藏) -->
+        <div id="twoEntityContent" class="path-section" style="display:none;">
+            <h2>Path Analysis (Two Entities)</h2>
+            <div class="path-meta">
+                <p><strong>Source Entities:</strong> {{ result.source_entity1 }} and {{ result.source_entity2 }}</p>
+                <p><strong>Target Types:</strong> {{ result.target_types|join:", " }}</p>
+                <p><strong>Cutoff:</strong> {{ result.cutoff }}</p>
+                <p><strong>Number of Paths:</strong> {{ result.num_paths }}</p>
+                <p><strong>Weight Scale:</strong> 0 ~ 1</p>
+            </div>
+
+            {% if result2 %}
+                {% for path in result2 %}
+                    <div class="path">
+                        <h4>Entity Relationship Path #{{ forloop.counter }}</h4>
+                        <div class="compact-path">
+                            <p>
+                                <strong>path:</strong> 
+                                {% for node in path.0 %}
+                                    {{ node }}{% if not forloop.last %} → {% endif %}
+                                {% endfor %}
+                                <strong>weight</strong> {{ path.2|floatformat:3 }};
+                            </p>
+                            {% for i in range %}
+                                {% if i < path.0|length|add:"-1" %}
+                                    <p>
+                                        {{ path.0.i }} {{ path.1.i }} {{ path.0.i|add:1 }}
+                                        <strong>weight</strong> {{ path.3.i|floatformat:3 }};
+                                    </p>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="no-path">
+                    <p>No path analysis available for two entities.</p>
+                </div>
+            {% endif %}
+        </div>
     </div>
 
     <!-- 右下: 相关新闻 -->

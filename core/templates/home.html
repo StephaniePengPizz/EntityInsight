@@ -134,7 +134,13 @@
             <input type="text" id="keywords" name="keywords" class="input-field" maxlength="50"
                    placeholder="Type your query here...(Tell me about recent trend of Nvidia)" required>
         </div>
-        
+        <label for="keywords" class="input-label">Number of entities:</label>
+            <div class="radio-group">
+                <input type="radio" id="one-entity" name="entity-count" value="one" checked>
+                <label for="one-entity">One entity</label>
+                <input type="radio" id="two-entities" name="entity-count" value="two">
+                <label for="two-entities">Two entities</label>
+            </div>
         <input type="hidden" id="selectedNewsCategories" name="selected_news_categories" value="">
         <input type="hidden" id="selectedEntityCategories" name="selected_entity_categories" value="">
         <button type="submit" class="submit-button">Search</button>

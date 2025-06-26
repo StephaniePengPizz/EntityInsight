@@ -535,3 +535,20 @@ h2 {
 .admin-link:hover {
     background-color: #3a5a8a;
 }
+
+.radio-group {
+        display: flex;
+        gap: 15px;
+        margin-top: 5px;
+    }
+    
+.radio-group label {
+    font-weight: normal;
+    display: inline;
+    margin-left: 5px;
+}
+.path-analysis-container {
+    flex: 1;
+    min-width: 300px;
+    margin-top: 20px;
+}

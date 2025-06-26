@@ -108,7 +108,18 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('#timeRangeOptions input[type="radio"]').forEach(radio => {
         radio.addEventListener('change', updateSelectedTimeRange);
     });
-
+    const entityRadios = document.querySelectorAll('input[name="entity_count"]');
+    entityRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            if (this.value === 'one') {
+                document.getElementById('oneEntityContent').style.display = 'block';
+                document.getElementById('twoEntityContent').style.display = 'none';
+            } else if (this.value === 'two') {
+                document.getElementById('oneEntityContent').style.display = 'none';
+                document.getElementById('twoEntityContent').style.display = 'block';
+            }
+        });
+    });
 });
 
 
