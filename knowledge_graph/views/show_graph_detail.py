@@ -108,7 +108,7 @@ def analyze_distribution(source, target, num_paths, cutoff):
 
 
 def high_weight_paths_between_two_nodes(source, target, num_paths, cutoff):
-    median_value = analyze_distribution(source, target, num_paths, cutoff)
+    #median_value = analyze_distribution(source, target, num_paths, cutoff)
     # 使用 all_simple_paths 函数找到所有简单路径
     all_paths = nx.all_simple_paths(graph, source=source, target=target, cutoff=cutoff)
 
@@ -120,11 +120,11 @@ def high_weight_paths_between_two_nodes(source, target, num_paths, cutoff):
         total_weight = sum(weight_list)
         relations = [graph.get_edge_data(path[i], path[i + 1])['relation'] for i in range(len(path) - 1)]
         average_weight = total_weight / len(path)
-        for w in weight_list:
-            if w < median_value:
-                flag = False
-        if flag == True:
-            paths_with_weights.append((path, relations, average_weight, weight_list))
+        #for w in weight_list:
+            #if w < median_value:
+            #    flag = False
+        #if flag == True:
+        paths_with_weights.append((path, relations, average_weight, weight_list))
 
     # 根据路径权重进行排序
     paths_with_weights.sort(key=lambda x: x[2], reverse=True)

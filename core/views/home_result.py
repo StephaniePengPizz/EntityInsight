@@ -62,8 +62,8 @@ def results(request):
         selected_categories = request.POST.getlist('categories', [])
         selected_entity_categories = request.POST.getlist('entity_types', [])
         selected_time_range = request.POST.get('time_ranges', '')
-        selected_entity_count = request.POST.get('entity_count', 'one')  # 默认为一个实体
-        result2 = high_weight_paths_between_two_nodes(keywords[0], 'AI chips', 5, 5)
+        selected_entity_count = request.POST.get('entity-count', 'one')  # 默认为一个实体
+        print('selected_entity_count', selected_entity_count)
         # Filter by selected categories if any
         if selected_categories:
             articles = NewsArticle.objects.filter(category__in=selected_categories)
@@ -151,12 +151,23 @@ def results(request):
 
         # Generate entity graph
         entity_type = selected_entity_categories[0] if selected_entity_categories else None
-        result = find_relevant_nodes([entity_type], keywords[0]) if entity_type else None
-        
-        print("result", result)
-        print("result2", result2)
-        graph_description = generate_mermaid_graph(result) if result else None
-        print(llm_summaries)
+        if selected_entity_count == 'one':
+            result = find_relevant_nodes([entity_type], keywords[0]) if entity_type else None
+            print("result", result)
+            graph_description = generate_mermaid_graph(result) if result else None
+        else:
+            result = high_weight_paths_between_two_nodes(keywords[0], keywords[1], 5, 5)
+            result2 = high_weight_paths_between_two_nodes(keywords[1], keywords[0], 5, 5)
+            print("result", result)
+            print("result2", result2)
+            if result:
+                graph_description = generate_mermaid_graph2(result)
+            elif result2:
+                graph_description = generate_mermaid_graph2(result)
+            else:
+                graph_description = None
+            print("graph_description", graph_description)
+        #print(llm_summaries)
 
         context = {
             'keywords': keywords,
@@ -205,3 +216,49 @@ def generate_mermaid_graph(result):
     diagram = "graph LR\n" + "\n".join(edges)
     print(diagram)
     return diagram
+
+
+def generate_mermaid_graph2(paths_with_weights, top_n=5, show_weights=True, show_relations=True):
+    """
+    Generate a Mermaid graph using letters as node IDs and showing original labels.
+    Format: A[Original Label] -->|relation| B[Next Label]
+    """
+    mermaid_code = "graph LR\n"
+
+    # Get top N paths
+    top_paths = paths_with_weights[:top_n]
+
+    # Track nodes and assign letter IDs
+    node_id_map = {}  # {original_node: letter_id}
+    next_id = ord('A')
+    edges = set()
+
+    # First pass to assign letter IDs to all nodes
+    for path, _, _, _ in top_paths:
+        for node in path:
+            if node not in node_id_map:
+                node_id_map[node] = chr(next_id)
+                next_id += 1
+
+    # Generate edges
+    for path, relations, _, weights in top_paths:
+        for i in range(len(path) - 1):
+            from_node = path[i]
+            to_node = path[i + 1]
+            relation = relations[i]
+            weight = weights[i]
+
+            label_parts = []
+            if show_relations:
+                label_parts.append(relation)
+            if show_weights:
+                label_parts.append(f"w:{weight:.2f}")
+
+            edge_label = "+".join(label_parts)
+            edges.add((node_id_map[from_node], node_id_map[to_node], edge_label, from_node, to_node))
+
+    # Add edges to graph
+    for from_id, to_id, label, orig_from, orig_to in sorted(edges):
+        mermaid_code += f"    {from_id}[{orig_from}] -->|{label}| {to_id}[{orig_to}]\n"
+
+    return mermaid_code
