@@ -21,7 +21,14 @@ from django.urls import path, include
 from web_collection.views.collect_from_web import WebPageCollectorView
 
 urlpatterns = [
-    path('collect/', WebPageCollectorView.as_view(), name='collect-webpages'),
-    path('rootpage/', WebPageCollectorView.as_view(), name='root-page'),
+    path('collect_yahoo/', WebPageCollectorView.as_view(), name='collect-webpages-yahoo'),
+    path('rootpage_yahoo/', WebPageCollectorView.as_view(), name='root-page-yahoo'),
+    path('keep_yahoo/', WebPageCollectorView.as_view(), name='keep-collecting-yahoo'),
+    path('collect_reuters/', WebPageCollectorView.as_view(), name='collect-webpages-reuters'),
+    path('rootpage_reuters/', WebPageCollectorView.as_view(), name='root-page-reuters'),
+    path('keep_reuters/', WebPageCollectorView.as_view(), name='keep-collecting-reuters'),
+    path('collect_eastmoney/', WebPageCollectorView.as_view(), name='collect-webpages-eastmoney'),
+    path('rootpage_eastmoney/', WebPageCollectorView.as_view(), name='root-page-eastmoney'),
+    path('keep_eastmoney/', WebPageCollectorView.as_view(), name='keep-collecting-eastmoney'),
     path('fail/', WebPageCollectorView.as_view(), name='fail-page'),
 ]
