@@ -2,6 +2,7 @@ import time
 import json
 import re
 from datetime import datetime
+from gc import collect
 
 from django.views import View
 from django.http import HttpResponse, HttpResponseNotFound
@@ -10,6 +11,7 @@ from bs4 import BeautifulSoup
 from dateutil.parser import parse
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
+import time
 
 from core.models import NewsArticle, WebPage
 
@@ -19,6 +21,9 @@ class WebPageCollectorView(View):
 
     YAHOO_FINANCE_URL = 'https://finance.yahoo.com/news/'
     REUTERS_URL = 'https://www.reuters.com/'
+    EAST_MONEY_URL = 'https://www.eastmoney.com/'
+    ROOT_UTL = ''
+    SUB_URL_PREFIX = ''
     MAX_WAIT_TIME = 5  # seconds for Selenium to wait for page load
     driver = None
 
@@ -38,18 +43,53 @@ class WebPageCollectorView(View):
     def get(self, request):
         """Handle GET requests to collect and process web pages"""
         if "rootpage" in request.path:
+            if "rootpage_yahoo" in request.path:
+                self.ROOT_UTL = self.YAHOO_FINANCE_URL
+                self.SUB_URL_PREFIX = self.YAHOO_FINANCE_URL
+            elif "rootpage_reuters" in request.path:
+                self.ROOT_UTL = self.REUTERS_URL
+                self.SUB_URL_PREFIX = '/'
+            elif "rootpage_eastmoney" in request.path:
+                self.ROOT_UTL = self.EAST_MONEY_URL
+                self.SUB_URL_PREFIX = 'https://finance.eastmoney.com/a/'
+            else:
+                return HttpResponseNotFound("Endpoint not found")
             return self.collect_root_page()
-        elif "collect" in request.path:
-            return self.collect_news_pages()
         elif "fail" in request.path:
-            return self.collect_fail_pages()
+            return self.collext_fail_pages()
+        elif "keep" in request.path:
+            if "keep_yahoo" in request.path:
+                self.ROOT_UTL = self.YAHOO_FINANCE_URL
+                self.SUB_URL_PREFIX = self.YAHOO_FINANCE_URL
+            elif "keep_reuters" in request.path:
+                self.ROOT_UTL = self.REUTERS_URL
+                self.SUB_URL_PREFIX = '/'
+            elif "keep_eastmoney" in request.path:
+                self.ROOT_UTL = self.EAST_MONEY_URL
+                self.SUB_URL_PREFIX = 'https://finance.eastmoney.com/a/'
+            else:
+                return HttpResponseNotFound("Endpoint not found")
+            return self.keep_collect_pages()
+        elif "collect" in request.path:
+            if "collect_yahoo" in request.path:
+                self.ROOT_UTL = self.YAHOO_FINANCE_URL
+                self.SUB_URL_PREFIX = self.YAHOO_FINANCE_URL
+            elif "collect_reuters" in request.path:
+                self.ROOT_UTL = self.REUTERS_URL
+                self.SUB_URL_PREFIX = '/'
+            elif "collect_eastmoney" in request.path:
+                self.ROOT_UTL = self.EAST_MONEY_URL
+                self.SUB_URL_PREFIX = 'https://finance.eastmoney.com/a/'
+            else:
+                return HttpResponseNotFound("Endpoint not found")
+            return self.collect_news_pages()
         return HttpResponseNotFound("Endpoint not found")
 
     def collect_root_page(self):
         """Collect and parse the root page to extract news article URLs"""
         try:
             # Fetch and parse the main page
-            self.driver.get(self.YAHOO_FINANCE_URL)
+            self.driver.get(self.ROOT_UTL)
             time.sleep(2)  # Allow dynamic content to load
 
             # Extract HTML and parse links
@@ -59,8 +99,8 @@ class WebPageCollectorView(View):
             # Extract unique news article links
             links = {
                 a['href'] for a in soup.find_all('a', href=True)
-                if a['href'].startswith(self.YAHOO_FINANCE_URL)
-                   and a['href'] != self.YAHOO_FINANCE_URL
+                if a['href'].startswith(self.SUB_URL_PREFIX)
+                   and a['href'] != self.SUB_URL_PREFIX
             }
 
             return HttpResponse("\n".join(links), content_type="text/plain")
@@ -71,12 +111,14 @@ class WebPageCollectorView(View):
                 status=500
             )
 
-    def collect_fail_pages(self):
+    def collext_fail_pages(self):
         try:
             fail_urls = []
-            with open("fails.txt", "r") as file:
+            with open("fails.txt", "r+") as file:
                 content = file.read().strip()
                 fail_urls = eval(content)
+            with open('fails.txt', "w") as file:
+                file.write("[]")
             results = []
             still_fail = []
             for url in fail_urls:  # Limit to 5 for demo purposes
@@ -114,6 +156,7 @@ class WebPageCollectorView(View):
 
             # Process each article URL
             results = []
+            fails = []
             with open("fails.txt", "r") as file:
                 content = file.read().strip()
                 fails = eval(content)
@@ -128,7 +171,7 @@ class WebPageCollectorView(View):
                     results.append(f"Error processing {url}: {str(e)}")
             with open('fails.txt', "w") as file:
                 file.write(str(fails))
-
+            # results="12"
             return HttpResponse("\n".join(results), content_type="text/plain")
 
         except Exception as e:
@@ -136,6 +179,21 @@ class WebPageCollectorView(View):
                 f"Error in collection process: {str(e)}",
                 status=500
             )
+
+    def keep_collect_pages(self, gap=900, times=2):
+        """gap: s(seconds)"""
+        i = 0
+        try:
+            last_time = int(time.time())
+            ret = self.collect_news_pages()
+            for i in range(times - 1):
+                while int(time.time()) - last_time < gap:
+                    time.sleep(20)
+                last_time = int(time.time())
+                ret = self.collect_news_pages()
+            return HttpResponse(f"Collected {str(times)} times successfully.")
+        except Exception as e:
+            return HttpResponse(f"Error occured at the {str(i + 1)} round of collection.")
 
     def process_news_page(self, url):
         """Process a single news page and extract structured data"""
@@ -149,8 +207,10 @@ class WebPageCollectorView(View):
             # Determine which parser to use based on URL
             if url.startswith(self.YAHOO_FINANCE_URL):
                 return self.extract_yahoo_data(soup, url)
+            elif url.startswith(self.REUTERS_URL):
+                return self.extract_reuters_data(soup, url)
             else:
-                return None
+                return self.extract_generic_data(soup, url)
 
         except Exception as e:
             raise RuntimeError(f"Failed to process page {url}: {str(e)}")
