@@ -180,18 +180,18 @@ class WebPageCollectorView(View):
                 status=500
             )
 
-    def keep_collect_pages(self, gap=900, times=2):
+    def keep_collect_pages(self, gap=600, rounds=5):
         """gap: s(seconds)"""
         i = 0
         try:
             last_time = int(time.time())
             ret = self.collect_news_pages()
-            for i in range(times - 1):
+            for i in range(rounds - 1):
                 while int(time.time()) - last_time < gap:
                     time.sleep(20)
                 last_time = int(time.time())
                 ret = self.collect_news_pages()
-            return HttpResponse(f"Collected {str(times)} times successfully.")
+            return HttpResponse(f"Collected {str(rounds)} rounds successfully.")
         except Exception as e:
             return HttpResponse(f"Error occured at the {str(i + 1)} round of collection.")
 
