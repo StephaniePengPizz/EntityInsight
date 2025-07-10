@@ -10,9 +10,8 @@ import csv
 import io
 import os
 from EntityInsight import settings
-from core.models import Entity, Relationship
+from core.models import Entity, Relationship, NewsArticle
 from knowledge_graph.tool import normalize_dict_values, state_top3, state_string_trans
-
 
 @csrf_exempt
 def load_relations_and_construct_graph(request):
@@ -24,9 +23,34 @@ def load_relations_and_construct_graph(request):
 
     data = file_all['data']
     relations_all = []
+    # 新增：三元组及其文档来源映射，key=(source, relation, target), value=[{'doc_id','url'}, ...]
+    edge_docs = dict()
+
     for doc in data:
+        doc_id = doc.get('doc_id')  # 你实际json每个doc的id字段，若不是请替换此行的键
         for rel in doc['relations']:
+            # 如果关系本身不带doc_id，则用外层doc的doc_id；如果带（如rel[3]），可用rel[3]
+            rel_doc_id = doc_id    # 若确认 rel[3] 存在，可以用 rel[3] 替换这里
+            source, relation, target = rel[0], rel[1], rel[2]
+            # 聚合所有同一个 (source, relation, target) 的文档信息
+            key = (source, relation, target)
+            url = ""
+            if rel_doc_id:
+                base_id = rel_doc_id.split('_')[0]
+                try:
+                    article = NewsArticle.objects.get(id=base_id)
+                    url = article.web_page.url
+                except NewsArticle.DoesNotExist:
+                    url = ""
+
+            if key not in edge_docs:
+                edge_docs[key] = []
+            edge_docs[key].append({
+                'doc_id': rel_doc_id,
+                'url': url
+            })
             relations_all.append(rel)
+
     # Calculate entity frequencies
     entity_freq = {}
     for rel in relations_all:
@@ -80,7 +104,9 @@ def load_relations_and_construct_graph(request):
                 continue
             relations_str = rel[1] + '1'
 
-        g.add_edge(rel[0], rel[2], relation=relations_str, weight=weight)
+        # 关键：把文档信息 docs 聚合到每条边属性上，按 (source, relation, target) 取
+        key = (rel[0], rel[1], rel[2])
+        g.add_edge(rel[0], rel[2], relation=relations_str, weight=weight, docs=edge_docs.get(key, []))
 
     g2 = copy.deepcopy(g)
     for source, target, edge in g.edges(data=True):
@@ -94,8 +120,10 @@ def load_relations_and_construct_graph(request):
         source_entity = Entity.objects.get(name=source)
         target_entity = Entity.objects.get(name=target)
 
+        # 此处务必保留 docs 属性（沿用 g 的边属性）
+        docs = edge.get("docs", [])
         g2.remove_edge(source, target)
-        g2.add_edge(source, target, relation=new_relations_str, weight=weight)
+        g2.add_edge(source, target, relation=new_relations_str, weight=weight, docs=docs)
 
         Relationship.objects.update_or_create(
             source=source_entity,
@@ -130,4 +158,3 @@ def export_graph(request):
     response = HttpResponse(output.getvalue(), content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename=graph_data_2023_2024.csv'
     return response
-
