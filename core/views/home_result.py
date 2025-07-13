@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 
 from EntityInsight import settings
 from core.constants import categories, entity_types, time_ranges
-from core.models import NewsArticle, Entity, Relationship
+from core.models import NewsArticle, Entity, Relationship, WebPage
 
 from django.shortcuts import render
 
@@ -14,6 +14,7 @@ from core.views.summarize_news import summarize_for_category
 from knowledge_graph.views.show_graph_detail import find_relevant_nodes, high_weight_paths_between_two_nodes
 import concurrent
 from concurrent.futures import ThreadPoolExecutor
+
 
 def home(request):
     return render(request, 'home.html', {
@@ -102,7 +103,7 @@ def results(request):
                 news_by_category[article.category].append({
                     'title': article.web_page.title,
                     'source': article.web_page.source,
-                    'date': article.web_page.publication_time.strftime('%Y-%m-%d'),
+                    'date': article.web_page.publication_time.strftime('%Y-%m-%d') if article.web_page.publication_time else None,
                     'content': article.processed_content,
                     'url': article.web_page.url,
                 })
@@ -186,34 +187,53 @@ def results(request):
         return redirect('home')
 
 
+
 def generate_mermaid_graph(result):
-    """
-    Convert result['paths'] into a Mermaid diagram string using A[ActualName] format
-    """
     node_map = {}  # Maps original node names to alphabetical labels
     current_char = ord('A')
     edges = set()
-
+    link_texts = set()
     # First pass: assign letters to all unique nodes
     for path_info in result['paths']:
         for node in path_info['nodes']:
             if node not in node_map:
                 node_map[node] = chr(current_char)
                 current_char += 1
+        for rel in path_info['relations']:
+            if rel not in node_map:
+                node_map[rel] = chr(current_char)
+                current_char += 1
 
-    # Second pass: create edges with A[ActualName] format
+    # Second pass: create edges with links
     for path_info in result['paths']:
         path = path_info['nodes']
         relations = path_info['relations']
+        documents = path_info.get('supporting_documents', [])
+
         for i in range(len(path) - 1):
             src = path[i]
             dst = path[i + 1]
             rel = relations[i]
-            # Format: A[ActualName] -->|relation| B[ActualName]
-            edge = f"{node_map[src]}[{src}] -->|{rel}| {node_map[dst]}[{dst}]"
+            edge_docs = documents[i] if i < len(documents) else []
+
+            # Build clickable links for this relation
+            links = []
+            for doc in edge_docs:
+                try:
+                    if doc.get('doc_id'):
+                        base_id = doc['doc_id'].split('_')[0]
+                        webpage = WebPage.objects.get(id=base_id)
+                        link_text = f'click {node_map[rel]} "{webpage.url}" _blank'
+                        link_texts.add(link_text)
+                except WebPage.DoesNotExist:
+                    continue
+
+            edge = f"{node_map[src]}[{src}] --> {node_map[rel]}(({rel}))"
+            edges.add(edge)
+            edge = f"{node_map[rel]} --> {node_map[dst]}[{dst}]"
             edges.add(edge)
 
-    diagram = "graph LR\n" + "\n".join(edges)
+    diagram = "graph LR\n" + "\n".join(edges) + "\n" + "\n".join(link_texts)
     print(diagram)
     return diagram
 

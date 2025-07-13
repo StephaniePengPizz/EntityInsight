@@ -7,7 +7,7 @@ import networkx as nx
 
 from EntityInsight import settings
 # Load graph data
-graph_files = glob.glob(os.path.join(settings.MEDIA_ROOT, 'graph', 'graph_20250602.pkl'))
+graph_files = glob.glob(os.path.join(settings.MEDIA_ROOT, 'graph', 'graph_20250713.pkl'))
 graph_files.sort(key=lambda x: os.path.basename(x).split('_')[1].split('.')[0], reverse=True)
 file_path = graph_files[0]
 with open(file_path, "rb") as file:
@@ -31,7 +31,6 @@ def find_relevant_nodes(target_types, source):
         "cutoff": cutoff,
         "paths": []
     }
-    print(current_type_dict_word_list)
     paths_with_weights = []
     for target_type in target_types:
         paths_with_weights = []
@@ -44,14 +43,18 @@ def find_relevant_nodes(target_types, source):
             for path in all_paths:
                 flag = True
                 print(flag)
-                weight_list = [(graph.get_edge_data(path[i], path[i + 1])['weight']) ** (1 / 3) for i in
-                               range(len(path) - 1)]
+                weight_list = []
+                docs_list = []
+                relations_list = []
+
+                for i in range(len(path) - 1):
+                    edge_data = graph.get_edge_data(path[i], path[i + 1])
+                    weight_list.append(edge_data['weight'] ** (1 / 3))
+                    relations_list.append(edge_data['relation'])
+                    docs_list.append(edge_data.get('docs', []))  # Get docs for this edge
 
                 # Calculate the weight of each edge in the path
                 total_weight = sum(weight_list)
-
-                # Extract relations between nodes in the path
-                relations = [graph.get_edge_data(path[i], path[i + 1])['relation'] for i in range(len(path) - 1)]
                 average_weight = total_weight / (len(path) - 1)
 
                 # Check if all weights meet the threshold
@@ -63,9 +66,10 @@ def find_relevant_nodes(target_types, source):
                 if flag:
                     paths_with_weights.append({
                         "path": path,
-                        "relations": relations,
+                        "relations": relations_list,
                         "weights": weight_list,
-                        "average_weight": average_weight
+                        "average_weight": average_weight,
+                        "docs": docs_list
                     })
                 print(paths_with_weights)
 
@@ -78,7 +82,8 @@ def find_relevant_nodes(target_types, source):
                 "nodes": path_info["path"],
                 "relations": path_info["relations"],
                 "weights": path_info["weights"],
-                "average_weight": path_info["average_weight"]
+                "average_weight": path_info["average_weight"],
+                "supporting_documents": path_info["docs"]
             })
 
     result['num_paths'] = min(num_paths, len(paths_with_weights))
