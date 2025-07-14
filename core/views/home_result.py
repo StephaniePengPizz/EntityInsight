@@ -1,6 +1,7 @@
 import glob
 import os
 from datetime import datetime, timedelta
+from django.db import models
 
 from django.shortcuts import redirect
 
@@ -20,12 +21,14 @@ def home(request):
     return render(request, 'home.html', {
         'categories': categories,
         'entity_types': entity_types,
-        'time_ranges':time_ranges,
+        'time_ranges': time_ranges,
         'entity_count': ['one', 'two']
     })
 
+
 from ahocorasick import Automaton
 import time
+
 
 def build_entity_automaton(entity_file_path):
     """Pre-process entity file into a fast Aho-Corasick automaton"""
@@ -38,11 +41,13 @@ def build_entity_automaton(entity_file_path):
     automaton.make_automaton()
     return automaton
 
+
 # Pre-process once (do this at startup)
 entity_files = glob.glob(os.path.join(settings.MEDIA_ROOT, 'entity_extraction', 'pure_entities_*.txt'))
 entity_files.sort(key=lambda x: os.path.basename(x).split('_')[1].split('.')[0], reverse=True)
 file_path = entity_files[0]
 entity_automaton = build_entity_automaton(file_path)
+
 
 def extract_entities_fast(sentence):
     """Extract entities from sentence using pre-built automaton"""
@@ -56,7 +61,7 @@ def results(request):
     if request.method == 'POST':
         sentence = request.POST.get('keywords', '')
         # Usage example:
-        #sentence = "The Federal Reserve announced new regulations for Bank of America and JPMorgan Chase."
+        # sentence = "The Federal Reserve announced new regulations for Bank of America and JPMorgan Chase."
 
         keywords = extract_entities_fast(sentence)
         print('keywords', keywords)
@@ -84,7 +89,7 @@ def results(request):
                 '730d': timedelta(days=730),
                 '1825d': timedelta(days=1825),
             }
-            
+
             if selected_time_range in time_range_map:
                 articles = articles.filter(
                     web_page__publication_time__gte=datetime.now() - time_range_map[selected_time_range]
@@ -94,10 +99,26 @@ def results(request):
         recent_articles = articles.select_related('web_page').order_by('-created_at')
         news_by_category = {}
 
+        def contain_keywords(text_field: models.TextField, keywords: set):
+            text = text_field.lower()
+            words = set(text.split())
+            return not keywords.isdisjoint(words)
+
         for article in recent_articles:
             if article.category not in news_by_category:
                 news_by_category[article.category] = []
 
+        for article in recent_articles:
+            if contain_keywords(article.processed_content, keywords):
+                news_by_category[article.category].append({
+                    'title': article.web_page.title,
+                    'source': article.web_page.source,
+                    'date': article.web_page.publication_time.strftime('%Y-%m-%d'),
+                    'content': article.processed_content,
+                    'url': article.web_page.url,
+                })
+
+        for article in recent_articles:
             # Only append if the category has fewer than 10 articles
             if len(news_by_category[article.category]) < 10:
                 news_by_category[article.category].append({
@@ -110,6 +131,7 @@ def results(request):
 
         llm_summaries = {}
         print("selected_categories", selected_categories)
+
         def generate_single_summary(category, keywords, news_items):
             if news_items:
                 return summarize_for_category(category, keywords, news_items)
@@ -168,7 +190,7 @@ def results(request):
             else:
                 graph_description = None
             print("graph_description", graph_description)
-        #print(llm_summaries)
+        # print(llm_summaries)
 
         context = {
             'keywords': keywords,
