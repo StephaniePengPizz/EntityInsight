@@ -15,7 +15,7 @@ from core.views.summarize_news import summarize_for_category
 from knowledge_graph.views.show_graph_detail import find_relevant_nodes, high_weight_paths_between_two_nodes
 import concurrent
 from concurrent.futures import ThreadPoolExecutor
-
+from typing import List
 
 def home(request):
     return render(request, 'home.html', {
@@ -99,10 +99,11 @@ def results(request):
         recent_articles = articles.select_related('web_page').order_by('-created_at')
         news_by_category = {}
 
-        def contain_keywords(text_field: models.TextField, keywords: set):
-            text = text_field.lower()
+        def contain_keywords(text_field: models.TextField, keywords: List[str]) -> bool:
+            text = str(text_field).lower()  # Convert TextField to string explicitly
             words = set(text.split())
-            return not keywords.isdisjoint(words)
+            keyword_set = set(k.lower() for k in keywords)
+            return not keyword_set.isdisjoint(words)
 
         for article in recent_articles:
             if article.category not in news_by_category:
@@ -113,7 +114,7 @@ def results(request):
                 news_by_category[article.category].append({
                     'title': article.web_page.title,
                     'source': article.web_page.source,
-                    'date': article.web_page.publication_time.strftime('%Y-%m-%d'),
+                    'date': article.web_page.publication_time.strftime('%Y-%m-%d') if article.web_page.publication_time else None,
                     'content': article.processed_content,
                     'url': article.web_page.url,
                 })
