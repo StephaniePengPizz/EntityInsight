@@ -111,6 +111,8 @@ def results(request):
 
         for article in recent_articles:
             if contain_keywords(article.processed_content, keywords):
+                if len(news_by_category[article.category]) > 5:
+                    break
                 news_by_category[article.category].append({
                     'title': article.web_page.title,
                     'source': article.web_page.source,
@@ -121,7 +123,7 @@ def results(request):
 
         for article in recent_articles:
             # Only append if the category has fewer than 10 articles
-            if len(news_by_category[article.category]) < 10:
+            if len(news_by_category[article.category]) < 5:
                 news_by_category[article.category].append({
                     'title': article.web_page.title,
                     'source': article.web_page.source,
