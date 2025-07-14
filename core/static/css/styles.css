@@ -253,11 +253,6 @@ h2 {
     margin-bottom: 25px;
 }
 
-.query-column {
-    flex: 1; /* 使两列等宽 */
-    display: grid;
-    grid-template-columns: 120px 30px 1fr; /* 保持原有的内部列宽 */
-}
 .example-row {
     display: contents;
 }
@@ -271,28 +266,39 @@ h2 {
     margin-bottom: 8px;
 }
 
+/* 容器样式（保持网格布局） */
+.query-column {
+    display: grid;
+    grid-template-columns: auto 30px auto; /* 关键词 | 箭头 | 类别 */
+    gap: 8px;
+    align-items: center;
+    background: #f0f8ff; /* 浅蓝色背景 */
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* 关键词样式（深蓝色，左对齐） */
+.example-keywords {
+    grid-column: 3;
+    color: #2980b9; /* 深蓝色 */
+    padding: 6px 0;
+    word-break: break-word;
+}
+
+/* 箭头样式（灰色，居中） */
+.example-arrow {
+    grid-column: 2;
+    color: #95a5a6; /* 灰色 */
+    text-align: center;
+    padding: 6px 0;
+}
+
+/* 类别样式（加粗深蓝，右对齐） */
 .example-category {
     grid-column: 1;
     font-weight: 600;
-    color: #3e73a1;
+    color: #3e73a1; /* 稍暗的蓝色 */
     padding: 6px 0;
-    align-self: center;
-}
-
-.example-arrow {
-    grid-column: 2;
-    color: #95a5a6;
-    text-align: center;
-    padding: 6px 0;
-    align-self: center;
-}
-
-.example-keywords {
-    grid-column: 3;
-    color: #2980b9;
-    padding: 6px 0 6px 10px;
-    align-self: center;
-    word-break: break-word;
 }
 
 .input-container {

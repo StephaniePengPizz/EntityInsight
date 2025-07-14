@@ -114,9 +114,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (this.value === 'one') {
                 document.getElementById('oneEntityContent').style.display = 'block';
                 document.getElementById('twoEntityContent').style.display = 'none';
+                document.getElementById('entity_count_value').value = 'one';
             } else if (this.value === 'two') {
                 document.getElementById('oneEntityContent').style.display = 'none';
                 document.getElementById('twoEntityContent').style.display = 'block';
+                document.getElementById('entity_count_value').value = 'two';
             }
         });
     });
