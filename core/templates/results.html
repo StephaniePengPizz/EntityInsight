@@ -199,7 +199,9 @@
         {% endif %}
     </h2>
     <div class="modal-mermaid">
+        {% autoescape off %}
         {{ graph_description|markdownify }}
+        {% endautoescape %}
     </div>
   </div>
 </div>
