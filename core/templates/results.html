@@ -193,21 +193,16 @@
 <div id="graphModal" class="modal">
   <div class="modal-content">
     <span class="modal-close">&times;</span>
-    <h2>
-        {% if entity_count == 'one' %}
-            Knowledge Graph For Entity
-            {% if entity_category %}
-                <span class="highlight-category">{{ entity_category }}</span>
-            {% endif %}
-        {% else %}
-            Relationship Between Entities
-            {% if entity_category %}
-                <span class="highlight-category">{{ entity_category }}</span>
-            {% endif %}
-        {% endif %}
-    </h2>
+    <h2 class="graph-title">{{ graph_title|safe }}</h2>
     <div class="modal-mermaid">
+        {% autoescape off %}
         {{ graph_description|markdownify }}
+        {% endautoescape %}
+    </div>
+    <div class="modal-mermaid">
+        {% autoescape off %}
+        {{ graph_description|markdownify }}
+        {% endautoescape %}
     </div>
   </div>
 </div>

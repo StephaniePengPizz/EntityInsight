@@ -135,15 +135,17 @@
                    placeholder="Type your query here...(Tell me about recent trend of Nvidia)" required>
         </div>
         <label for="keywords" class="input-label">Number of entities:</label>
-            <div class="radio-group">
-                <input type="radio" id="one-entity" name="entity-count" value="one" checked>
-                <label for="one-entity">One entity</label>
-                <input type="radio" id="two-entities" name="entity-count" value="two">
-                <label for="two-entities">Two entities</label>
-            </div>
+        <div class="radio-group">
+            <input type="radio" id="one-entity" name="entity_count" value="one" checked>
+            <!-- 修改name为entity_count(下划线)以匹配后端期望 -->
+            <label for="one-entity">One entity</label>
+            <input type="radio" id="two-entities" name="entity_count" value="two">
+            <!-- 同样修改name为entity_count -->
+            <label for="two-entities">Two entities</label>
+        </div>
         <input type="hidden" id="selectedNewsCategories" name="selected_news_categories" value="">
         <input type="hidden" id="selectedEntityCategories" name="selected_entity_categories" value="">
-        <input type="hidden" id="entity_count_value" name="entity_count" value="one">
+        <!-- 可以完全移除这个隐藏字段，因为单选按钮已经使用正确的name -->
         <button type="submit" class="submit-button">Search</button>
     </form>
 </div>

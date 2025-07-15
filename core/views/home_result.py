@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 
 from EntityInsight import settings
 from core.constants import categories, entity_types, time_ranges
-from core.models import NewsArticle, Entity, Relationship, WebPage
+from core.models import NewsArticle, Entity, Relationship
 
 from django.shortcuts import render
 
@@ -14,7 +14,6 @@ from core.views.summarize_news import summarize_for_category
 from knowledge_graph.views.show_graph_detail import find_relevant_nodes, high_weight_paths_between_two_nodes
 import concurrent
 from concurrent.futures import ThreadPoolExecutor
-
 
 def home(request):
     return render(request, 'home.html', {
@@ -63,8 +62,8 @@ def results(request):
         selected_categories = request.POST.getlist('categories', [])
         selected_entity_categories = request.POST.getlist('entity_types', [])
         selected_time_range = request.POST.get('time_ranges', '')
-        selected_entity_count = request.POST.get('entity-count', 'one')  # 默认为一个实体
-        print('selected_entity_count', selected_entity_count)
+        selected_entity_count = request.POST.get('entity_count', 'one')  # 默认为一个实体
+        
         # Filter by selected categories if any
         if selected_categories:
             articles = NewsArticle.objects.filter(category__in=selected_categories)
@@ -103,13 +102,14 @@ def results(request):
                 news_by_category[article.category].append({
                     'title': article.web_page.title,
                     'source': article.web_page.source,
-                    'date': article.web_page.publication_time.strftime('%Y-%m-%d') if article.web_page.publication_time else None,
+                    'date': article.web_page.publication_time.strftime('%Y-%m-%d'),
                     'content': article.processed_content,
                     'url': article.web_page.url,
                 })
 
         llm_summaries = {}
         print("selected_categories", selected_categories)
+        
         def generate_single_summary(category, keywords, news_items):
             if news_items:
                 return summarize_for_category(category, keywords, news_items)
@@ -152,133 +152,90 @@ def results(request):
 
         # Generate entity graph
         entity_type = selected_entity_categories[0] if selected_entity_categories else None
-        if selected_entity_count == 'one':
-            result = find_relevant_nodes([entity_type], keywords[0]) if entity_type else None
-            print("result", result)
-            graph_description = generate_mermaid_graph(result) if result else None
+        graph_data = None
+        graph_description = None
+
+        print('selected entity number',selected_entity_count)
+        
+        if selected_entity_count == 'one' and entity_type:
+            graph_title = f"Knowledge Graph For Entity <span class='highlight-category'>{entity_type}</span>"
+        elif selected_entity_count == 'two':
+            graph_title = f"Relationship Between <span class='highlight-category'>{keywords[0]}</span> and <span class='highlight-category'>{keywords[1]}</span>"
         else:
-            result = high_weight_paths_between_two_nodes(keywords[0], keywords[1], 5, 5)
-            result2 = high_weight_paths_between_two_nodes(keywords[1], keywords[0], 5, 5)
-            print("result", result)
-            print("result2", result2)
-            if result:
-                graph_description = generate_mermaid_graph2(result)
-            elif result2:
-                graph_description = generate_mermaid_graph2(result)
-            else:
-                graph_description = None
-            print("graph_description", graph_description)
-        #print(llm_summaries)
+            graph_title = "Knowledge Graph"
+        print("graph_title:", graph_title)
+
+        if selected_entity_count == 'one' and entity_type:
+            # 单个实体模式
+            graph_data = find_relevant_nodes([entity_type], keywords)
+            if graph_data:
+                graph_description = generate_mermaid_graph(graph_data)
+        elif selected_entity_count == 'two' and len(keywords) >= 2:
+            # 双实体模式 - 使用前两个关键词
+            entity1, entity2 = keywords[0], keywords[1]
+            graph_data = high_weight_paths_between_two_nodes(entity1, entity2, 5, 5)
+            if graph_data:
+                graph_description = generate_mermaid_graph(graph_data)
+
+        # 根据实体数量准备不同的标题
+         
 
         context = {
             'keywords': keywords,
             'selected_categories': selected_categories,
-            'entity_category': selected_entity_categories[0] if selected_entity_categories else None,
+            'entity_category': entity_type,
             'news_by_category': news_by_category,
             'llm_summaries': llm_summaries,
-            'result': result,
+            'result': graph_data,
             'graph_description': graph_description,
             'time_range': selected_time_range,
-            'entity_count': selected_entity_count
+            'entity_count': selected_entity_count,
+            'entity1': keywords[0] if len(keywords) > 0 else None,
+            'entity2': keywords[1] if len(keywords) > 1 else None,
+            'graph_title': graph_title,  
         }
-
+        
         return render(request, 'results.html', context)
     else:
         return redirect('home')
 
 
-
 def generate_mermaid_graph(result):
-    node_map = {}  # Maps original node names to alphabetical labels
+    if not result or 'paths' not in result:
+        return None
+    
+    node_map = {}
     current_char = ord('A')
     edges = set()
-    link_texts = set()
-    # First pass: assign letters to all unique nodes
-    for path_info in result['paths']:
-        for node in path_info['nodes']:
+    
+    # 确保两个主要实体使用固定标签
+    main_entities = set()
+    for path in result['paths']:
+        if len(path['nodes']) >= 2:
+            main_entities.add(path['nodes'][0])
+            main_entities.add(path['nodes'][-1])
+    
+    # 为主要实体分配固定标签
+    for entity in main_entities:
+        node_map[entity] = chr(current_char)
+        current_char += 1
+    
+    # 为其他节点分配标签
+    for path in result['paths']:
+        for node in path['nodes']:
             if node not in node_map:
                 node_map[node] = chr(current_char)
                 current_char += 1
-        for rel in path_info['relations']:
-            if rel not in node_map:
-                node_map[rel] = chr(current_char)
-                current_char += 1
-
-    # Second pass: create edges with links
+    
+    # 生成边
     for path_info in result['paths']:
         path = path_info['nodes']
         relations = path_info['relations']
-        documents = path_info.get('supporting_documents', [])
-
         for i in range(len(path) - 1):
             src = path[i]
             dst = path[i + 1]
             rel = relations[i]
-            edge_docs = documents[i] if i < len(documents) else []
-
-            # Build clickable links for this relation
-            links = []
-            for doc in edge_docs:
-                try:
-                    if doc.get('doc_id'):
-                        base_id = doc['doc_id'].split('_')[0]
-                        webpage = WebPage.objects.get(id=base_id)
-                        link_text = f'click {node_map[rel]} "{webpage.url}" _blank'
-                        link_texts.add(link_text)
-                except WebPage.DoesNotExist:
-                    continue
-
-            edge = f"{node_map[src]}[{src}] --> {node_map[rel]}(({rel}))"
+            edge = f"{node_map[src]}[{src}] -->|{rel}| {node_map[dst]}[{dst}]"
             edges.add(edge)
-            edge = f"{node_map[rel]} --> {node_map[dst]}[{dst}]"
-            edges.add(edge)
-
-    diagram = "graph LR\n" + "\n".join(edges) + "\n" + "\n".join(link_texts)
-    print(diagram)
-    return diagram
-
-
-def generate_mermaid_graph2(paths_with_weights, top_n=5, show_weights=True, show_relations=True):
-    """
-    Generate a Mermaid graph using letters as node IDs and showing original labels.
-    Format: A[Original Label] -->|relation| B[Next Label]
-    """
-    mermaid_code = "graph LR\n"
-
-    # Get top N paths
-    top_paths = paths_with_weights[:top_n]
-
-    # Track nodes and assign letter IDs
-    node_id_map = {}  # {original_node: letter_id}
-    next_id = ord('A')
-    edges = set()
-
-    # First pass to assign letter IDs to all nodes
-    for path, _, _, _ in top_paths:
-        for node in path:
-            if node not in node_id_map:
-                node_id_map[node] = chr(next_id)
-                next_id += 1
-
-    # Generate edges
-    for path, relations, _, weights in top_paths:
-        for i in range(len(path) - 1):
-            from_node = path[i]
-            to_node = path[i + 1]
-            relation = relations[i]
-            weight = weights[i]
-
-            label_parts = []
-            if show_relations:
-                label_parts.append(relation)
-            if show_weights:
-                label_parts.append(f"w:{weight:.2f}")
-
-            edge_label = "+".join(label_parts)
-            edges.add((node_id_map[from_node], node_id_map[to_node], edge_label, from_node, to_node))
-
-    # Add edges to graph
-    for from_id, to_id, label, orig_from, orig_to in sorted(edges):
-        mermaid_code += f"    {from_id}[{orig_from}] -->|{label}| {to_id}[{orig_to}]\n"
-
-    return mermaid_code
+    
+    return "graph LR\n" + "\n".join(edges)
